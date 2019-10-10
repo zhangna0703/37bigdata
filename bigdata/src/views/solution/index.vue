@@ -28,79 +28,85 @@
         </div>
         <!-- solution tab end -->
 
-        <!-- Operational requirements start -->
-        <div class="e-business">
-            <div class="e-business-header">
-                <div class="line"></div>
-                <h2>业务需求和挑战（电商）</h2>
-            </div>
-            <div class="e-business-section">
-                <dl v-for="item in businessData" :key="item.title">
-                    <dt>
-                        <img :src="item.imgurl" />
-                    </dt>
-                    <dd>
-                        <h2>{{item.title}}</h2>
-                        <p>{{item.desc}}</p>
-                    </dd>
-                </dl>
-            </div>
+        <!-- solution smartUnion start -->
+        <div v-if="solutionTabIndex === 0" class="solution-smartUnion">
+            <div class="smartUnion"></div>
         </div>
+        <!-- solution smartUnion end -->
+
+        <!-- Operational requirements start -->
+        <!--<div class="e-business">-->
+            <!--<div class="e-business-header">-->
+                <!--<div class="line"></div>-->
+                <!--<h2>业务需求和挑战（电商）</h2>-->
+            <!--</div>-->
+            <!--<div class="e-business-section">-->
+                <!--<dl v-for="item in businessData" :key="item.title">-->
+                    <!--<dt>-->
+                        <!--<img :src="item.imgurl" />-->
+                    <!--</dt>-->
+                    <!--<dd>-->
+                        <!--<h2>{{item.title}}</h2>-->
+                        <!--<p>{{item.desc}}</p>-->
+                    <!--</dd>-->
+                <!--</dl>-->
+            <!--</div>-->
+        <!--</div>-->
         <!-- Operational requirements end -->
 
         <!-- solution case start -->
-        <div class="solution-case">
-            <div class="solution-case-header">
-                <div class="line"></div>
-                <h2>经典场景解决方案</h2>
-            </div>
-            <div class="solution-case-section">
-                <dl v-for="(item,index) in solutionCaseData" :key="index">
-                    <dt v-show="index%2==0?true:false">
-                        <img :src="item.imgurl" />
-                    </dt>
-                    <!-- 右字 -->
-                    <dt v-show="index%2==0?false:true">
-                        <h2>{{solutionCaseData[1].title}}</h2>
-                        <p v-for="(it,index) in solutionCaseData[1].desc" :key="index">
-                            {{it}}
-                        </p>
-                    </dt>
-                    <dd v-show="index%2==0?true:false">
-                        <h2>{{item.title}}</h2>
-                        <p v-for="(it,index) in item.desc" :key="index">
-                            {{it}}
-                        </p>
-                    </dd>
-                    <!-- 右图 -->
-                    <dd v-show="index%2==0?false:true">
-                        <img :src="solutionCaseData[1].imgurl" />
-                    </dd>
-                </dl>
-                <!-- <dl>
-                    <dt>
-                        <img :src="solutionCaseData[0].imgurl" />
-                    </dt>
-                    <dd>
-                        <h2>{{solutionCaseData[0].title}}</h2>
-                        <p v-for="(it,index) in solutionCaseData[0].desc" :key="index">
-                            {{it}}
-                        </p>
-                    </dd>
-                </dl>
-                <dl>
-                    <dt>
-                        <h2>{{solutionCaseData[1].title}}</h2>
-                        <p v-for="(it,index) in solutionCaseData[1].desc" :key="index">
-                            {{it}}
-                        </p>
-                    </dt>
-                    <dd>
-                        <img :src="solutionCaseData[1].imgurl" />
-                    </dd>
-                </dl> -->
-            </div>
-        </div>
+        <!--<div class="solution-case">-->
+            <!--<div class="solution-case-header">-->
+                <!--<div class="line"></div>-->
+                <!--<h2>经典场景解决方案</h2>-->
+            <!--</div>-->
+            <!--<div class="solution-case-section">-->
+                <!--<dl v-for="(item,index) in solutionCaseData" :key="index">-->
+                    <!--<dt v-show="index%2==0?true:false">-->
+                        <!--<img :src="item.imgurl" />-->
+                    <!--</dt>-->
+                    <!--&lt;!&ndash; 右字 &ndash;&gt;-->
+                    <!--<dt v-show="index%2==0?false:true">-->
+                        <!--<h2>{{solutionCaseData[1].title}}</h2>-->
+                        <!--<p v-for="(it,index) in solutionCaseData[1].desc" :key="index">-->
+                            <!--{{it}}-->
+                        <!--</p>-->
+                    <!--</dt>-->
+                    <!--<dd v-show="index%2==0?true:false">-->
+                        <!--<h2>{{item.title}}</h2>-->
+                        <!--<p v-for="(it,index) in item.desc" :key="index">-->
+                            <!--{{it}}-->
+                        <!--</p>-->
+                    <!--</dd>-->
+                    <!--&lt;!&ndash; 右图 &ndash;&gt;-->
+                    <!--<dd v-show="index%2==0?false:true">-->
+                        <!--<img :src="solutionCaseData[1].imgurl" />-->
+                    <!--</dd>-->
+                <!--</dl>-->
+                <!--&lt;!&ndash; <dl>-->
+                    <!--<dt>-->
+                        <!--<img :src="solutionCaseData[0].imgurl" />-->
+                    <!--</dt>-->
+                    <!--<dd>-->
+                        <!--<h2>{{solutionCaseData[0].title}}</h2>-->
+                        <!--<p v-for="(it,index) in solutionCaseData[0].desc" :key="index">-->
+                            <!--{{it}}-->
+                        <!--</p>-->
+                    <!--</dd>-->
+                <!--</dl>-->
+                <!--<dl>-->
+                    <!--<dt>-->
+                        <!--<h2>{{solutionCaseData[1].title}}</h2>-->
+                        <!--<p v-for="(it,index) in solutionCaseData[1].desc" :key="index">-->
+                            <!--{{it}}-->
+                        <!--</p>-->
+                    <!--</dt>-->
+                    <!--<dd>-->
+                        <!--<img :src="solutionCaseData[1].imgurl" />-->
+                    <!--</dd>-->
+                <!--</dl> &ndash;&gt;-->
+            <!--</div>-->
+        <!--</div>-->
         <!-- solution case end -->
     </div>
     <Footer></Footer>
