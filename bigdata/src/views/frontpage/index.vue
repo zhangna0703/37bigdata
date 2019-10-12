@@ -14,7 +14,7 @@
         <div class="hotspotarticle">
           <dl v-for="item in hotspotData" :key="item.title">
             <dt>
-              <img :src="item.img" alt="">
+              <img :src="item.img" ondragstart="return false" alt="">
             </dt>
             <dd>
               <h2>{{item.title}}</h2>
@@ -74,7 +74,7 @@
             :class="index==productTab?'boxshadow':''"
           >
             <dt>
-              <img :src="item.img" alt="">
+              <img :src="item.img" ondragstart="return false"  alt="">
             </dt>
             <dd>
               <h2>{{item.title}}</h2>
@@ -89,7 +89,7 @@
       <div class="ourproduct">
         <dl v-for="item in productcentreData[productTab].morethings" :key="item.title">
           <dt>
-            <img :src="item.img" alt="">
+            <img :src="item.img" alt="" ondragstart="return false"  class="ourproduct_img">
           </dt>
           <dd>
             <h2>{{item.title}}</h2>
@@ -103,23 +103,31 @@
       <div class="solution">
         <div class="solution-section">
           <div class="solution-title">
-            <h2>solution</h2>
             <h3>解决方案</h3>
+            <h4>solution</h4>
           </div>
+          <!--solution navMenu -->
+          <div class="solution-navMenu">
+            <el-menu :default-active="solutionMenu" v-if="solutionMenu" class="el-menu-demo" mode="horizontal">
+              <el-menu-item v-for="(item, index) of navMenuDtat" :key="index" @click="tabClick(item.id)" :index="item.id">{{item.title}}</el-menu-item>
+            </el-menu>
+          </div>
+          <!-- solution  swiper-->
           <div class="solution-desc">
-            <swiper :options="ourproductswiperOption">
+            <swiper :options="ourproductswiperOption" ref="mySwiper">
               <swiperSlide v-for="item in solutionData" :key="item.title">
                 <dl>
                   <dt>
-                    <img :src="item.img" alt="">
+                    <img class="solution_img" :src="item.img" alt="">
                   </dt>
                   <dd>
                     <h2>{{item.title}}</h2>
                     <p>{{item.desc}}</p>
-                    <p>方案详情→</p>
+                    <p>查看详情</p>
                   </dd>
                 </dl>
               </swiperSlide>
+              <!-- <div class="swiper-pagination" slot="pagination"></div> -->
             </swiper>
           </div>
         </div>
@@ -129,11 +137,13 @@
       <div class="customercases">
         <div class="customercases-section">
           <div class="customercases-title">
-            <h2>case</h2>
-            <h3>合作案例</h3>
+            <h3>合作伙伴</h3>
+            <h4>partner</h4>
           </div>
           <div class="customercases-desc">
-            <img v-for="item in customercasesData" :key="item.img" :src="item.img" alt="">
+            <div class="customercases_imgs" v-for="item in customercasesData" :key="item.img">
+              <img :src="item.img" ondragstart="return false"  alt="">
+            </div>
           </div>
         </div>
       </div>
@@ -150,6 +160,7 @@ import Header from '@/components/Header.vue'
 import Footer from '@/components/Footer.vue'
 export default {
   data () {
+    let _this = this
     return {
       bannerSwiperOption: {
         pagination: {
@@ -157,10 +168,31 @@ export default {
           clickable: true
         }
       },
+      solutionMenu: '0',
       ourproductswiperOption: {
-        slidesPerView: 3,
-        spaceBetween: 30,
-        freeMode: true
+        initialSlide: 0,
+        effect: 'coverflow',
+        grabCursor: true,
+        centeredSlides: true,
+        slidesPerView: 'auto',
+        coverflowEffect: {
+          rotate: 0,
+          stretch: -50,
+          depth: 50,
+          modifier: 1,
+          slideShadows: false
+        },
+        pagination: {
+          el: '.swiper-pagination',
+          clickable: true
+        },
+        on: {
+          slideChange: function () {
+            _this.$nextTick(() => {
+              _this.solutionMenu = JSON.stringify(this.activeIndex)
+            })
+          }
+        }
       },
       imgList: [
         {
@@ -171,6 +203,9 @@ export default {
         },
         {
           imgurl: require('@/assets/images/banner3.jpg')
+        },
+        {
+          imgurl: require('@/assets/images/banner4.jpg')
         }
       ],
       hotspotData: [
@@ -244,6 +279,28 @@ export default {
           ]
         }
       ],
+      navMenuDtat: [
+        {
+          'id': '0',
+          'title': '智能物联方案'
+        },
+        {
+          'id': '1',
+          'title': '数字营销方案'
+        },
+        {
+          'id': '2',
+          'title': '风险管控方案'
+        },
+        {
+          'id': '3',
+          'title': '质量管控方案'
+        },
+        {
+          'id': '4',
+          'title': '精准获客方案'
+        }
+      ],
       solutionData: [
         {
           title: '智能物联方案',
@@ -313,6 +370,9 @@ export default {
   methods: {
     productTabChange (ind) {
       this.productTab = ind
+    },
+    tabClick (index) {
+      this.$refs.mySwiper.swiper.slideTo(index, 300)
     }
   },
   components: {
@@ -481,7 +541,8 @@ export default {
         z-index: 10;
       }
       dl {
-        width: 49.9%;
+        width: 48%;
+        height: 360px;
         background: #fff;
         padding: 25px 85px;
         box-sizing: border-box;
@@ -535,6 +596,10 @@ export default {
     display: flex;
     margin-bottom: 80px;
     @include minwidth();
+    .ourproduct_img{
+      width: 170px;
+      height: 160px;
+    }
     dl {
       display: flex;
       cursor: pointer;
@@ -576,8 +641,9 @@ export default {
     }
   }
   .solution {
-    @include wh(100%, 470px);
-    background: $bkg-homeblock;
+    @include wh(87%, 470px);
+    margin: 0 auto;
+    background: url('../../assets/images/solutiong_base.png') no-repeat;
     @include minwidth();
     .solution-section {
       @include wh(75%, 450px);
@@ -587,6 +653,7 @@ export default {
       .solution-title {
         text-align: center;
         line-height: 1.5;
+        color: rgb(190, 179, 179);
         h2 {
           font-size: 24px;
           font-weight: bold;
@@ -596,19 +663,45 @@ export default {
           font-weight: bold;
         }
       }
+      .solution-navMenu{
+        .el-menu{
+          padding: 0 140px;
+          background: none;
+        }
+        .el-menu--horizontal>.el-menu-item:not(.is-disabled){
+          background: none;
+          color: #fff;
+        }
+        .el-menu--horizontal>.el-menu-item:not(.is-disabled):hover{
+          background: none;
+        }
+        .el-menu--horizontal>.el-menu-item.is-active{
+          border-bottom: 5px solid #409EFF;
+        }
+      }
       .solution-desc {
         display: flex;
         justify-content: space-around;
         margin-top: 30px;
+        // .swiper-slide{
+        //   width: 80% !important;
+        // }
+        .swiper-container{
+          height: 280px;
+        }
         dl {
           display: flex;
           background: #fff;
-          padding: 20px;
+          // padding: 20px;
           box-sizing: border-box;
           cursor: pointer;
-          border: 1px solid #999;
+          // border: 1px solid #999;
+          .solution_img{
+            width: 371px;
+          }
           dd {
             padding-left: 3%;
+            padding-top: 20px;
             position: relative;
             h2 {
               font-size: 20px;
@@ -621,9 +714,12 @@ export default {
             }
             p:last-child {
               position: absolute;
-              bottom: 0;
-              font-size: 16px;
-              color: #fc9418;
+              bottom: 30px;
+              padding: 2px 7px;
+              border-radius: 10px;
+              font-size: 13px;
+              color: $color-white;
+              background: $color-base;
             }
           }
         }
@@ -631,11 +727,13 @@ export default {
     }
   }
   .customercases {
-    @include wh(100%, auto);
+    @include wh(87%, 470px);
     @include minwidth();
-    background: #fff;
+    margin: 0 auto;
+    background: url('../../assets/images/partner_base.png') no-repeat;
+    background-size: 100% 100%;
     .customercases-section {
-      @include wh(75%, 450px);
+      @include wh(100%, 450px);
       margin: 0 auto;
       padding: 48px 0px 67px 0px;
       box-sizing: border-box;
@@ -652,10 +750,22 @@ export default {
         }
       }
       .customercases-desc {
+        @include wh(87%, auto);
+        margin: 0 auto;
         margin-top: 30px;
-        img {
-          width: 11%;
-          margin-right: 80px;
+        .customercases_imgs{
+          display:inline-block;
+          width: 164px;
+          height: 90px;
+          background: $color-white;
+          margin: 5px 40px;
+          box-shadow: -1px 3px 5px 2px rgba(157, 159, 201, 0.3);
+          z-index: 10;
+          img {
+            // width: 11%;
+            width: 100%;
+            height: 100%;
+          }
         }
       }
     }

@@ -5,7 +5,7 @@
         <img src="../../assets/images/service.png" alt="">
       </div>
       <div class="product_title">
-        <span @click="setInternetSow" :class="{tit_active:titleState}">IOT物联网平台</span>
+        <span @click="setInternetSow" :class="{tit_active:titleState}">物联网平台</span>
         <span @click="setBigSow" :class="{tit_active:!titleState}">DMP大数据平台</span>
       </div>
       <div class="bigTab">
@@ -15,7 +15,7 @@
             <div class="public_title">
               <hr class="hr_top" />
               <h1 class="data_title">以传感器为载体的物联网系统</h1>
-              <p>提供从采集、建模、存储、分析到智能应用的全流程数据驱动解决方案，帮助企业驱动业务决策和产品智能。</p>
+              <p>物联网平台是三七数据的核心产品之一，由感知层、传输层和应用层三层组成，可以为园区、城市提供实时数据监控、实时预警、移动缴费、移动运维、多维分析以及能源优化服务，为园区运营的安全提供保障，提高园区运营效率，降低园区运营成本。</p>
             <!-- <hr class="hr_bottom" />-->
             </div>
             <div class="analyse_con clearfix">
@@ -24,12 +24,13 @@
                 <div v-for="(item,index) in item" :key="index" class="analyse_con_detail">
                   <div>
                     <h1>{{item.title}}</h1>
-                    <p>{{item.p1}}</p>
-                    <label>了解详情>></label>
+                    <h2>{{item.p2}}</h2>
+                    <p class="p1">{{item.p1}}</p>
+                    <label style="cursor: pointer;">了解详情>></label>
                   </div>
                   <div class="user">
                     <h2>用户说:</h2>
-                    <p class="user_say">{{item.p2}}</p>
+                    <p class="user_say">一类顾客经常在购买尿布的同时也购买啤酒。看似毫无关联的两个品类的商品其实是一类社会现象所导致的，有很多年轻夫妇女主人在家带孩子，而男主人就去超市买尿布，通常会顺带着买些啤酒。</p>
                     <div class="img_par"><img src="../../assets/images/service.png"/></div>
                   </div>
                 </div>
@@ -42,9 +43,28 @@
               <h1 class="data_title">物联网平台产品特点</h1>
               <p>提供从采集、建模、存储、分析到智能应用的全流程数据驱动解决方案，帮助企业驱动业务决策和产品智能。</p>
             </div>
-            <div v-for="(item,index) in InternetData" :key="index" class="data_character_detail">
-              <h1>{{item.title}}</h1>
-              <p>{{item.desc}}</p>
+            <div class="character_center">
+              <div class="san">
+                <h1><span></span>大接入与存储</h1>
+                <ul>
+                  <li>物接入 IoT Hub</li>
+                  <li>物解析 IoT Parser</li>
+                  <li>规则引擎 Rule Engine</li>
+                  <li>时序数据库 TSDB</li>
+                </ul>
+              </div>
+              <div class="san">
+                <h1><span></span>分析与应用</h1>
+                <ul>
+                  <li>物可视 IoT Visualization</li>
+                  <li>时序洞察 IoT EasyInsight</li>
+                  <li>位置服务 DuMap</li>
+                </ul>
+              </div>
+              <div class="san">
+                <h1><span></span>控制面板和可视化</h1>
+                <p>对于控制面板和可视化，三七公司为您提供快速，基于云的商业分析服务，使您可以轻松构建可从任何浏览器或移动设备访问的精致可视化效果和内容丰富的控制面板。</p>
+              </div>
             </div>
           </div>
           <div class="data_strengths_bg">
@@ -121,17 +141,18 @@
             <!-- <hr class="hr_bottom" />-->
             </div>
             <div class="analyse_con clearfix">
-              <div  v-for="(item,index) in analyseData" :key="index">
+              <div  v-for="(item,index) in analyseDatas" :key="index">
                 <div class="line"></div>
                 <div v-for="(item,index) in item" :key="index" class="analyse_con_detail">
                   <div>
                     <h1>{{item.title}}</h1>
-                    <p>{{item.p1}}</p>
-                    <label>了解详情>></label>
+                    <h2>{{item.p2}}</h2>
+                    <p v-html='item.p1'></p>
+                    <label style="cursor: pointer;" @click='goDetail(item.p2)'>了解详情>></label>
                   </div>
                   <div class="user">
                     <h2>用户说:</h2>
-                    <p class="user_say">{{item.p2}}</p>
+                    <p class="user_say">一类顾客经常在购买尿布的同时也购买啤酒。看似毫无关联的两个品类的商品其实是一类社会现象所导致的，有很多年轻夫妇女主人在家带孩子，而男主人就去超市买尿布，通常会顺带着买些啤酒。</p>
                     <div class="img_par"><img src="../../assets/images/service.png"/></div>
                   </div>
                 </div>
@@ -144,9 +165,16 @@
               <h1 class="data_title">大数据产品特点</h1>
               <p>提供从采集、建模、存储、分析到智能应用的全流程数据驱动解决方案，帮助企业驱动业务决策和产品智能。</p>
             </div>
-            <div v-for="(item,index) in characterData" :key="index" class="data_character_detail">
-              <h1>{{item.title}}</h1>
-              <p>{{item.desc}}</p>
+            <div class="application_center">
+              <div v-for="(item,index) in characterData" :key="index" class="center_bot">
+                <p>
+                  <img :src="item.image" />
+                </p>
+                <div class="charRight">
+                  <h1><span></span>{{item.title}}</h1>
+                  <p v-html='item.desc'></p>
+                </div>
+              </div>
             </div>
           </div>
           <div class="data_strengths_bg">
@@ -165,6 +193,55 @@
               </div>
             </div>
           </div>
+          <div class="back">
+              <div class="">
+                <div class="data_strengths data_package clearfix">
+                  <div class="public_title">
+                    <hr class="hr_top" />
+                    <h1 class="data_title">大数据应用案例</h1>
+                  </div>
+                    <div class="application">
+                      <div class="applicationLeft">
+                        <img src="../../assets/images/u1028.png" alt="">
+                      </div>
+                      <div class="applicationRight">
+                        <p>航天物资部供应商</p>
+                        <!-- <h2>中关村集成电路产业园</h2>
+                        <ul>
+                          <li>*  中关村集成电路设计园能源监测系统是基于三七数据物联网平台</li>
+                          <li>*  打造的新一代综合能源管理软件：</li>
+                          <li>*  监控设备5000+</li>
+                          <li>*  移动读数/移动计费</li>
+                          <li>*  实时监控/预警</li>
+                          <li>*  多维度能源分析/比对</li>
+                          <li>*  移动运维/租户服务</li>
+                          <li>*  园区综合能源优化</li>
+                        </ul> -->
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="ccc">
+              <div class="application">
+                <div class="applicationRights">
+                  <p>航天物资部供应商</p>
+                  <!-- <h2>陆游房车水电桩物联管控系统</h2>
+                  <ul>
+                    <li>*  全国房车营地水电桩硬件管理</li>
+                    <li>*  监控设备5000+</li>
+                    <li>*  移动读数/移动计费</li>
+                    <li>*  实时监控/预警</li>
+                    <li>*  多维度能源分析/比对</li>
+                    <li>*  移动运维/租户服务</li>
+                    <li>*  软硬件综合能源优化</li>
+                  </ul> -->
+                </div>
+                <div class="applicationLefts">
+                  <img src="../../assets/images/u1028.png" alt="">
+                </div>
+              </div>
+              </div>
         </div>
       </div>
     </div>
@@ -180,11 +257,19 @@ export default {
       titleState: true,
       analyseData: [
         [
-          { title: '提高转化，低成本获客', p1: '了解用户行为路径，优化核心转化路径，提高转化，把访客变成客户，把流量变成注册和购买。', p2: '一类顾客经常在购买尿布的同时也购买啤酒。看似毫无关联的两个品类的商品其实是一类社会现象所导致的，有很多年轻夫妇女主人在家带孩子，而男主人就去超市买尿布，通常会顺带着买些啤酒。' },
-          { title: '提高转化，低成本获客', p1: '了解用户行为路径，优化核心转化路径，提高转化，把访客变成客户，把流量变成注册和购买。', p2: '一类顾客经常在购买尿布的同时也购买啤酒。看似毫无关联的两个品类的商品其实是一类社会现象所导致的，有很多年轻夫妇女主人在家带孩子，而男主人就去超市买尿布，通常会顺带着买些啤酒。' }],
+          { title: '37-Sensor transmission', p1: '物联网业务一般以集中监测为主、控制为辅。', p2: '传感器传输' },
+          { title: '37-Location review', p1: '基于传感器、移动终端、工业系统、楼控系统、家庭智能设施、视频监控系统等GPS（或其他卫星定位，如北斗）和无线通信技术，或只依赖于无线通信技术的定位，如基于移动基站的定位、RTLS等。', p2: '定位追溯' }],
         [
-          { title: '提高转化，低成本获客', p1: '了解用户行为路径，优化核心转化路径，提高转化，把访客变成客户，把流量变成注册和购买。', p2: '一类顾客经常在购买尿布的同时也购买啤酒。看似毫无关联的两个品类的商品其实是一类社会现象所导致的，有很多年轻夫妇女主人在家带孩子，而男主人就去超市买尿布，通常会顺带着买些啤酒。' },
-          { title: '提高转化，低成本获客', p1: '了解用户行为路径，优化核心转化路径，提高转化，把访客变成客户，把流量变成注册和购买。', p2: '一类顾客经常在购买尿布的同时也购买啤酒。看似毫无关联的两个品类的商品其实是一类社会现象所导致的，有很多年轻夫妇女主人在家带孩子，而男主人就去超市买尿布，通常会顺带着买些啤酒。' }]
+          { title: '37-Data collection', p1: '是指从传感器和其它待测设备等模拟和数字被测单元中自动采集非电量或者电量信号,送到上位机中进行分析，处理。数据采集系统是结合基于计算机或者其他专用测试平台的测量软硬件产品来实现自定义的测量系统。', p2: '数据采集' },
+          { title: '37-Intelligent hardware', p1: '基于时间排程和事件响应规则的指挥、调度和派遣功能。或者对硬件的远程管控、指派维修管理、维护回传数据等。', p2: '智能硬件' }]
+      ],
+      analyseDatas: [
+        [
+          { title: '37-Data cleaning ', p1: '数据清洗主要是把有用的数据留下，无用的数据删掉。<br/>1.去除重复的数据；<br/>2.补全缺少数据的处理；', p2: '数据清洗' },
+          { title: '37-Data analysis', p1: '数据分析是指用适当的统计分析方法对收集来的大量数据进行分析，提取有用信息和形成结论而对数据加以详细研究和概括总结的过程。', p2: '数据分析' }],
+        [
+          { title: '37-Bigdata KDD', p1: '以用户为中心，通过对用户的深入分析，形成用户画像，深入理解用户需求，个性化的改造社区使其更有温度、更具黏性。同时基于对用户的理解，使得社群电商能够进行精准化的推荐，深入了解用户的需求。', p2: '智能挖掘' },
+          { title: '37-Bigdata RV(receive visitors)', p1: '了解用户行为路径，优化核心转化路径，提高转化，把访客变成客户，把流量变成注册和购买。', p2: '智能获客' }]
       ],
       InternetData: [
         {title: '大接入与存储', desc: '物接入 IoT Hub,物解析 IoT Parser,规则引擎 Rule Engine,时序数据库 TSDB'},
@@ -192,16 +277,17 @@ export default {
         {title: '实时分析', desc: '对于实时分析，三七公司可以轻松收集、处理和分析流数据，如 IoT 遥测数据、应用程序日志和网站点击流。'}
       ],
       characterData: [
-        {title: '大数据处理', desc: '对于使用 Spark 和 Hadoop 框架的大数据处理，三七Zhiku提供了一种托管服务，可以轻松、快速且经济高效地处理海量数据。支持 19 种不同的开源项目，包括 Hadoop、Spark、HBase 和 Presto，通过托管 EMR Notebooks 进行数据工程、数据科学开发和协作。每个项目都会在一个版本发布后的 30 天内在 EMR 中更新，轻松地确保您拥有来自社区的最新、最好的内容.'},
-        {title: '交互式分析', desc: '对于交互式分析，三七公司可以使用标准 SQL 查询直接在 S3 和 Glacier 中分析数据。Athena 属于无服务器服务，因此无需设置或管理基础设施。您可以立即开始查询数据，在几秒钟内获得结果，并且仅需为您运行的查询付费。只需指向您存储在 三七公司S3 中的数据，定义架构并使用标准 SQL 开始查询即可。多数结果可在数秒内获取。'},
-        {title: '实时分析', desc: '对于实时分析，三七公司可以轻松收集、处理和分析流数据，如 IoT 遥测数据、应用程序日志和网站点击流。这让您可以对传入数据湖的数据进行实时处理和分析并做出响应，无需等到收集完全部数据后才开始进行处理。'},
-        {title: '实时分析', desc: '对于实时分析，三七公司可以轻松收集、处理和分析流数据，如 IoT 遥测数据、应用程序日志和网站点击流。这让您可以对传入数据湖的数据进行实时处理和分析并做出响应，无需等到收集完全部数据后才开始进行处理。'}
+        {title: '大数据处理', image: require('@/assets/images/u1026.png'), desc: '公司将各行业客户业务和管理的需求痛点充分提炼并标准化，总结出一套严谨科学的方法论。<br/>将大数据分析及历史数据分析全部功能整合到一个平台，为您提供不同应用场景的大数据分析解决方案，持续地保护智能分析资产，提升数据洞察力，拓展业务视角，为智慧决策管理提供数据支持，为数字化转型提供动力引擎。'},
+        {title: '实时分析', image: require('@/assets/images/u1024.png'), desc: '对于实时分析，三七公司可以轻松收集、处理和分析流数据，如 IoT 遥测数据、应用程序日志和网站点击流。这让您可以对传入数据湖的数据进行实时处理和分析并做出响应，无需等到收集完全部数据后才开始进行处理。'},
+        {title: '运营分析', image: require('@/assets/images/u1025.png'), desc: '对于运营分析（如应用程序监控、日志分析和点击流分析），三七公司允许您近乎实时地搜索、浏览、过滤、聚合和可视化数据。三七公司可以提供各种易于使用的 API 和实时分析功能，还可以实现生产工作负载需要的可用性、可扩展性和安全性。'},
+        {title: '控制面板和可视化', image: require('@/assets/images/u1027.png'), desc: '对于控制面板和可视化，三七公司为您提供快速，基于云的商业分析服务，使您可以轻松构建可从任何浏览器或移动设备访问的精致可视化效果和内容丰富的控制面板。'}
       ],
       strengthsData: [
-        {img: require('@/assets/images/banner1.jpg'), title: '1.大数据处理', desc: '业内唯一整合三大运营商线上源头数据和银联商务线下消费数据，同时积累了海量广告投放数据及交易平台基础数据。'},
-        {img: require('@/assets/images/banner1.jpg'), title: '2.交互式分析', desc: '利用大数据及实际投放数据，系统建立了科学的分类逻辑及模型算法。'},
-        {img: require('@/assets/images/banner1.jpg'), title: '3.实时分析', desc: '基于持续迭代更新的用户画像体系，在campaign执行过程中根据核心用户画像调整目标人群，及投放策略，实现Campaign优。'},
-        {img: require('@/assets/images/banner1.jpg'), title: '4.实时分析', desc: '通过业内领先技术进行线下CRM数据打通，从而实现在单一系统中的全渠道用户洞察。'}
+        {title: '1. 大数据处理', img: require('@/assets/images/u975.png'), desc: '业内唯一整合三大运营商线上源头数据和银联商务线下消费数据，同时积累了海量广告投放数据及交易平台基础数据。'},
+        {title: '2. 数据分析能力', img: require('@/assets/images/u976.png'), desc: '利用大数据及实际投放数据，系统建立了科学的分类逻辑及模型算法。'},
+        {title: '3. 线上Campaign优化能力', img: require('@/assets/images/u977.png'), desc: '基于持续迭代更新的用户画像体系，在campaign执行过程中根据核心用户画像调整目标人群，及投放策略，实现Campaign优化。'},
+        {title: '4. 完整的用户洞察', img: require('@/assets/images/u980.png'), desc: '通过业内领先技术进行线下CRM数据打通，从而实现在单一系统中的全渠道用户洞察。'},
+        {title: '5. 营销渠道优化能力', img: require('@/assets/images/u983.png'), desc: '通过多维归因模型全方面分析渠道效率及贡献度。'}
       ],
       wlwstrengthsData: [
         {img: require('@/assets/images/u552.png'), title: '数据云存储与分析'},
@@ -224,6 +310,17 @@ export default {
     },
     setBigSow () {
       this.titleState = false
+    },
+    goDetail (title) {
+      if (title === '数据清洗') {
+        this.$router.push({ name: 'datacleansing' })
+      } else if (title === '数据分析') {
+        this.$router.push({ name: 'dataanalyze' })
+      } else if (title === '智能挖掘') {
+        this.$router.push({ name: 'intelligentMining' })
+      } else {
+        this.$router.push({ name: 'SmartGuest' })
+      }
     }
   }
 }
@@ -234,25 +331,88 @@ export default {
   .public_title{padding-bottom:66px;}
   /* .banner{box-sizing: border-box;height: 0;padding-bottom: 30.8%;overflow: hidden;background:url('../../assets/images/service.png');background-size: auto 100%;background-position-x: center;} */
   .banner{
-    height: 480px;
+    /* height: 480px; */
     width: 100%;
     img{
       width: 100%;
     }
   }
-  .product_title{text-align: center;padding:26px 0;
+  .product_title{text-align: center;padding:26px 0;cursor: pointer;
     span{display: inline-block; padding:20px 0;margin-right:50px;font-size:24px;}
   }
+  .character_center{
+    display: flex;
+    width: 72%;
+    margin: 0 auto;
+    justify-content: space-between;
+  }
+  .application_center{
+    display: flex;
+    width: 70%;
+    margin: 0 auto;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    .center_bot{
+      width: 35%;
+      text-align:left;
+      margin-bottom:30px;
+      display: flex;
+      align-items:center;
+      p{
+        margin-right: 40px;
+      }
+    }
+    span{
+      width: 13px;
+      height: 25px;
+      margin-right:8px;
+      background-color:rgba(102, 153, 255, 1);
+    }
+    h1{
+      display: flex;
+      align-items: center;
+      font-size:18px;
+      font-weight:800;
+      margin-bottom: 20px;
+    }
+  }
+  .san{
+    flex:1;
+    text-align: left;
+    span{
+      width: 13px;
+      height: 22px;
+      margin-right:5px;
+      background-color:rgba(102, 153, 255, 1);
+    }
+    h1{
+      display: flex;
+      font-size:18px;
+      font-weight:800;
+      margin-bottom: 30px;
+    }
+  }
   .hr_top{width:50px;height: 2px;background-color:rgba(102, 153, 255, 1);}
-  .data_title{font-size:24px;padding:18px 0;font-weight: bold;}
+  .data_title{font-size:24px;padding:18px 0;}
   .hr_bottom{width:80%;margin:0 auto;margin-top:50px;margin-bottom: 60px}
   .data_package{padding:30px 0 60px 0;text-align: center;}
   .data_analyse{background-color:rgba(242, 242, 242, 1);
     .analyse_con{width:80%;margin:0 auto;text-align: left;
       .line{border-bottom: 1px solid #D3D3D3;height:1px;clear: both;margin-bottom:36px;}
-      .analyse_con_detail{width:32%;float:left;overflow: hidden;margin-right:10%;padding:36px 0;
+      .analyse_con_detail{width:32%;float:right;overflow: hidden;margin-right:10%;padding:36px 0;
       label{display:inline-block;padding:8px 26px;border-radius:20px;background:rgba(0, 153, 255, 1);color:$color-white;font-size:12px;margin:20px 0;}
-      h1{font-size:18px;font-weight: bold;padding-bottom:20px;}
+      h1{font-size:18px;font-weight: bold;}
+      h2{
+        font-size: 19px;
+        padding: 10px 0;
+        font-weight: 800;
+      }
+      .p1{
+        display: -webkit-box;
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: 2;
+        overflow: hidden;
+      }
       .user{position:relative;
       h2{font-size:18px;margin:36px 0 12px 0;}
         .user_say{font-size:12px;width:58%;}
@@ -263,7 +423,7 @@ export default {
       }
     }
   }
-  .analyse_con .analyse_con_detail:nth-child(2n){float: right;margin-right: 0;}
+  .analyse_con .analyse_con_detail:nth-child(2n){float: left;margin-left: 100px;}
   .data_character{width:80%;margin:0 auto;}
   .data_character_detail{width:23%;text-align:left;float:left;margin-right:15%;padding-bottom:20px;
     h1{font-weight: bold;font-size:18px;margin-bottom:16px;}
@@ -273,8 +433,8 @@ export default {
   .data_character_detail:nth-child(3n+1){margin-right:0;}
   .data_strengths_bg{background:rgba(242, 242, 242, 1);}
   .data_strengths{width:80%;margin:0 auto;}
-  .data_strengths_detail{width:45%;float:left;margin-right:10%;display:flex;padding-bottom:52px;
-    img{width:200px;height:200px;padding-right:5%;flex-shrink:0;}
+  .data_strengths_detail{width:32%;float:left;margin-left:10%;display:flex;padding-bottom:52px;
+    img{width:150px;height:150px;padding-right:5%;flex-shrink:0;}
     div{display:flex;flex-direction: column;text-align: left;
       h1{font-size:18px;margin-bottom:16px;padding-top:10px;}
     }

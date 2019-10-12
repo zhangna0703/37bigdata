@@ -28,12 +28,6 @@
         </div>
         <!-- solution tab end -->
 
-        <!-- solution smartUnion start -->
-        <div v-if="solutionTabIndex === 0" class="solution-smartUnion">
-            <div class="smartUnion"></div>
-        </div>
-        <!-- solution smartUnion end -->
-
         <!-- Operational requirements start -->
         <!--<div class="e-business">-->
             <!--<div class="e-business-header">-->
