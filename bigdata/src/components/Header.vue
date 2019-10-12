@@ -4,7 +4,17 @@
           <img src="@/assets/images/logo.png" alt="logo">
       </div>
       <ul class="header-menu">
-        <router-link v-for="item in menulink" :key="item.title" :to="item.toLink" tag="li">{{item.title}}</router-link>
+        <!--<router-link to="/frontpage" tag="li">首页</router-link>
+        <router-link to="/productcentre" tag="li">产品中心</router-link>
+         <div class="producebox">
+          <p>物联网平台</p>
+        </div>
+        <router-link to='/solution' tag="li">解决方案</router-link>
+        <router-link to='/customercases' tag="li">客户案例</router-link>
+        <router-link to='/aboutus' tag="li">关于我们</router-link>
+         <router-link to='' tag="li">帮助支持</router-link>  -->
+        <router-link v-for="item in menulink" :key="item.title" @mouseover.native="changeActive" :to="item.toLink" tag="li">{{item.title}}</router-link>
+
       </ul>
       <div class="header-login">
         <span @click='goLogin'>登录</span>|
@@ -49,6 +59,9 @@ export default {
     },
     goRegister () {
       this.$router.push({ name: 'register' })
+    },
+    changeActive () {
+      console.log(1)
     }
   }
 }

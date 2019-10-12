@@ -9,6 +9,10 @@ import helpsupport from '@/views/helpsupport/index.vue'// 帮助支持
 import indexpage from '@/views/indexpage/index.vue'// 帮助支持
 import login from '@/views/login/index.vue'// 登录
 import register from '@/views/register/index.vue'// 注册
+import datacleansing from '@/views/datacleansing/index.vue'// 数据清洗
+import dataanalyze from '@/views/dataanalyze/index.vue'// 数据分析
+import intelligentMining from '@/views/intelligentMining/index.vue'// 智能挖掘
+import SmartGuest from '@/views/SmartGuest/index.vue'// 智能获客
 Vue.use(Router)
 
 export default new Router({
@@ -46,6 +50,14 @@ export default new Router({
         name: 'solution',
         component: solution
       }, {
+        path: '/datacleansing',
+        name: 'datacleansing',
+        component: datacleansing
+      }, {
+        path: '/dataanalyze',
+        name: 'dataanalyze',
+        component: dataanalyze
+      }, {
         path: '/customercases',
         name: 'customercases',
         component: customercases
@@ -57,6 +69,14 @@ export default new Router({
         path: '/helpsupport',
         name: 'helpsupport',
         component: helpsupport
+      }, {
+        path: '/intelligentMining',
+        name: 'intelligentMining',
+        component: intelligentMining
+      }, {
+        path: '/SmartGuest',
+        name: 'SmartGuest',
+        component: SmartGuest
       }
       ]
     }
