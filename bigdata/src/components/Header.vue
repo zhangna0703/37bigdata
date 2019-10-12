@@ -4,18 +4,15 @@
           <img src="@/assets/images/logo.png" alt="logo">
       </div>
       <ul class="header-menu">
-        <!--<router-link to="/frontpage" tag="li">首页</router-link>
-        <router-link to="/productcentre" tag="li">产品中心</router-link>
+        <router-link to="/frontpage" tag="div" class="route-tag">首页</router-link>
+        <router-link to="/productcentre" tag="div" class="route-tag">产品中心</router-link>
          <div class="producebox">
           <p>物联网平台</p>
         </div>
-        <router-link to='/solution' tag="li">解决方案</router-link>
-        <router-link to='/customercases' tag="li">客户案例</router-link>
-        <router-link to='/aboutus' tag="li">关于我们</router-link>
-         <router-link to='' tag="li">帮助支持</router-link>  -->
-        <router-link v-for="item in menulink" :key="item.title" @mouseover.native="changeActive" :to="item.toLink" tag="div">
-          <p>{{item.title}}</p>
-        </router-link>
+        <router-link to='/solution' tag="div" class="route-tag">解决方案</router-link>
+        <router-link to='/customercases' tag="div" class="route-tag">客户案例</router-link>
+        <router-link to='/aboutus' tag="div" class="route-tag">关于我们</router-link>
+         <router-link to='/helpsupport' tag="div" class="route-tag">帮助支持</router-link> 
 
       </ul>
       <div class="header-login">
@@ -30,26 +27,76 @@ export default {
   data () {
     return {
       menulink: [{
+        id: 0,
         title: '首页',
         toLink: '/frontpage'
       },
       {
+        id: 1,
         title: '产品中心',
-        toLink: '/productcentre'
+        toLink: '/productcentre',
+        childs: [
+          {
+            title: '数据分析'
+          },
+          {
+            title: '数据分析'
+          },
+          {
+            title: '数据分析'
+          }
+        ]
       },
       {
+        id: 2,
         title: '解决方案',
-        toLink: '/solution'
+        toLink: '/solution',
+        childs: [
+          {
+            title: '数据分析'
+          },
+          {
+            title: '数据分析'
+          },
+          {
+            title: '数据分析'
+          }
+        ]
       },
       {
+        id: 3,
         title: '客户案例',
-        toLink: '/customercases'
+        toLink: '/customercases',
+        childs: [
+          {
+            title: '数据分析'
+          },
+          {
+            title: '数据分析'
+          },
+          {
+            title: '数据分析'
+          }
+        ]
       },
       {
+        id: 4,
         title: '关于我们',
-        toLink: '/aboutus'
+        toLink: '/aboutus',
+        childs: [
+          {
+            title: '数据分析'
+          },
+          {
+            title: '数据分析'
+          },
+          {
+            title: '数据分析'
+          }
+        ]
       },
       {
+        id: 5,
         title: '帮助支持',
         toLink: '/helpsupport'
       }]
@@ -62,8 +109,8 @@ export default {
     goRegister () {
       this.$router.push({ name: 'register' })
     },
-    changeActive () {
-      console.log(1)
+    changeActive (id) {
+      // console.log(id)
     }
   }
 }
@@ -84,14 +131,20 @@ box-sizing: border-box;
 .header-menu{
   display: flex;
   font-size: 14px;
-  div{
+  .route-tag{
     height: 20px;
     // border-right: 1px solid #ccc;
     padding: 0px 25px;
     margin-top: 20px;
     cursor: pointer;
+    .route-menu{
+      position: relative;
+      .router-menu-chlid{
+        position: absolute;
+      }
+    }
   }
-  div:last-child{
+  .route-tag:last-child{
     height: 20px;
     // border-right: none;
     padding: 0px 25px;
