@@ -13,6 +13,7 @@ import datacleansing from '@/views/datacleansing/index.vue'// 数据清洗
 import dataanalyze from '@/views/dataanalyze/index.vue'// 数据分析
 import intelligentMining from '@/views/intelligentMining/index.vue'// 智能挖掘
 import SmartGuest from '@/views/SmartGuest/index.vue'// 智能获客
+import hotDetail from '@/views/hotDetail/index.vue'// 热点详情
 Vue.use(Router)
 
 export default new Router({
@@ -49,6 +50,10 @@ export default new Router({
         path: '/solution',
         name: 'solution',
         component: solution
+      }, {
+        path: '/hotDetail',
+        name: 'hotDetail',
+        component: hotDetail
       }, {
         path: '/datacleansing',
         name: 'datacleansing',

@@ -256,9 +256,11 @@ export default {
     border-bottom: solid 1px #ccc;
     cursor: pointer;
 }
-.navs li:nth-child(2){
+.navs li{
   height: 100%;
   line-height: 50px;
+}
+.navs li:nth-child(2){
   border-bottom: solid 3px rgba(102, 153, 255, 1);
 }
 

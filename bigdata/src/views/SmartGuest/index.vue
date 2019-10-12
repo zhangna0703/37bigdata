@@ -164,9 +164,11 @@ export default {
     border-bottom: solid 1px #ccc;
     cursor: pointer;
 }
-.navy li:nth-child(4){
+.navy li{
   height: 100%;
   line-height: 50px;
+}
+.navy li:nth-child(4){
   border-bottom: solid 3px rgba(102, 153, 255, 1);
 }
 

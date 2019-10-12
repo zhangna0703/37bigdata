@@ -161,9 +161,11 @@ export default {
     border-bottom: solid 1px #ccc;
     cursor: pointer;
 }
-.nav li:first-child{
+.nav li{
   height: 100%;
   line-height: 50px;
+}
+.nav li:first-child{
   border-bottom: solid 3px rgba(102, 153, 255, 1);
 }
 

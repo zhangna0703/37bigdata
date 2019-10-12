@@ -161,22 +161,18 @@ export default {
       height: 480px;
       @include minwidth();
       margin: 0 auto;
-
       .swiper-pagination {
-
         span {
           width: 100px;
           height: 5px;
           border-radius: 0px;
         }
-
         .swiper-pagination-bullet-active {
           opacity: 0.4;
           background: $color-theme;
         }
       }
     }
-
     .aboutus-tab {
       @include minwidth();
       @include wh(100%, auto);
@@ -185,7 +181,6 @@ export default {
         @include wh(100%, auto);
         background: #f2f2f2;
       }
-
       .aboutus-more {
         @include wh(75%, auto);
         margin: 0 auto;
@@ -206,11 +201,9 @@ export default {
             margin-left: 10px;
           }
         }
-
         .company-moredesc {
           clear: both;
           margin-top: 50px;
-
           p {
             font-size: 16px;
             margin-top: 25px;
@@ -218,37 +211,31 @@ export default {
           }
         }
       }
-
       .aboutus-core {
         height: 400px;
         background: yellowgreen;
       }
-
       .aboutus-join {
         height: 400px;
         background: pink;
       }
-
       .aboutus-contact {
         height: 400px;
         background: lightcoral;
       }
     }
-
     .expect-box {
       @include wh(100%, auto);
       @include minwidth();
       padding: 80px;
       box-sizing: border-box;
       background: #fff;
-
       .expect {
         width: 65%;
         /* background: yellowgreen; */
         margin: 0 auto;
         display: flex;
         flex-wrap: wrap;
-
         li {
           width: 26%;
           height: 140px;
@@ -258,13 +245,11 @@ export default {
           align-items: center;
           box-shadow: 0 0 10px #eee;
           border-radius: 10px;
-
           p {
             color: #f6615b;
             font-weight: bold;
             line-height: 1.1;
           }
-
           p:first-child {
             font-size: 40px;
             margin: 40px 0 10px 0;
