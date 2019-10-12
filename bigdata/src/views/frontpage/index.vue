@@ -141,8 +141,8 @@
             <h4>partner</h4>
           </div>
           <div class="customercases-desc">
-            <div class="customercases_imgs" v-for="item in customercasesData" :key="item.img">
-              <img :src="item.img" ondragstart="return false"  alt="">
+            <div class="customercases_imgs">
+              <img v-for="item in customercasesData" :key="item.img" :src="item.img" ondragstart="return false"  alt="">
             </div>
           </div>
         </div>
@@ -362,6 +362,9 @@ export default {
         },
         {
           img: require('@/assets/images/company_qingdao.png')
+        },
+        {
+          img: require('@/assets/images/company_rehab.png')
         }
       ],
       productTab: 0
@@ -750,22 +753,14 @@ export default {
         }
       }
       .customercases-desc {
-        @include wh(87%, auto);
+        @include wh(75%, auto);
         margin: 0 auto;
         margin-top: 30px;
-        .customercases_imgs{
-          display:inline-block;
-          width: 164px;
-          height: 90px;
-          background: $color-white;
-          margin: 5px 40px;
-          box-shadow: -1px 3px 5px 2px rgba(157, 159, 201, 0.3);
-          z-index: 10;
-          img {
-            // width: 11%;
-            width: 100%;
-            height: 100%;
-          }
+        img {
+          width: 174px;
+          height: 100px;
+          margin: 0 25px;
+          // width: 20%;
         }
       }
     }

@@ -13,9 +13,7 @@
         <router-link to='/customercases' tag="li">客户案例</router-link>
         <router-link to='/aboutus' tag="li">关于我们</router-link>
          <router-link to='' tag="li">帮助支持</router-link>  -->
-        <router-link v-for="item in menulink" :key="item.title" @mouseover.native="changeActive" :to="item.toLink" tag="div">
-          <p>{{item.title}}</p>
-        </router-link>
+        <router-link v-for="item in menulink" :key="item.title" @mouseover.native="changeActive" :to="item.toLink" tag="li">{{item.title}}</router-link>
 
       </ul>
       <div class="header-login">
@@ -84,16 +82,16 @@ box-sizing: border-box;
 .header-menu{
   display: flex;
   font-size: 14px;
-  div{
+  li{
     height: 20px;
-    // border-right: 1px solid #ccc;
+    border-right: 1px solid #ccc;
     padding: 0px 25px;
     margin-top: 20px;
     cursor: pointer;
   }
-  div:last-child{
+  li:last-child{
     height: 20px;
-    // border-right: none;
+    border-right: none;
     padding: 0px 25px;
   }
   .router-link-exact-active{
