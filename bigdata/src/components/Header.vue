@@ -204,6 +204,7 @@ z-index: 100;
 .header-menu{
   display: flex;
   font-size: 14px;
+  z-index: 100;
   .tag-div{
     height: 20px;
     // border-right: 1px solid #ccc;
@@ -221,6 +222,7 @@ z-index: 100;
       font-size: 14px;
       text-align: center;
       background: #333;
+      opacity: 0.8;
       padding: 10px 0;
       z-index: 2
     }
