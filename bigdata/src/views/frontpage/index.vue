@@ -128,6 +128,8 @@ export default {
   data () {
     let _this = this
     return {
+      pageNum: 1,
+      pageSize: 2,
       bannerSwiperOption: {
         pagination: {
           el: '.swiper-pagination',
@@ -396,11 +398,14 @@ export default {
     left: 0;
     z-index: 10;
     .header-menu {
-      li {
+      .tag-div {
         font-size: 18px;
         color: #fff;
         margin-top: 25px !important;
         border-right: none !important;
+        .menu-wrapper{
+          opacity: 0.5;
+        }
       }
       .router-link-exact-active {
         font-size: 18px !important;
@@ -505,7 +510,7 @@ export default {
       h3 {
         font-size: 20px;
         color: #838596;
-        font-family: Arnprior;
+        /* font-family: Arnprior; */
       }
     }
     .productcentre-desc {

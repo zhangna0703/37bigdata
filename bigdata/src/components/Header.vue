@@ -1,71 +1,27 @@
 <template>
   <header>
-      <div class="header-logo">
-        <img src="@/assets/images/logo.png" alt="logo">
-      </div>
-      <div class="header-menu">
-        <div class="route-tag">
-          <p>首页</p>
-        </div>
-        <div class="route-tag">
-          <p >产品中心</p>
-          <div class="menu-list">
-            <div>hahahaha</div>
-            <div>hahahaha</div>
-            <div>hahahaha</div>
-            <div>hahahaha</div>
+    <div class="header-logo">
+      <img src="@/assets/images/logo.png" alt="logo">
+    </div>
+    <div class="header-menu">
+      <router-link style="position: relative" v-for="(item,index) in menulink" :key="item.title" @mouseenter.native="enter(index)" @mouseleave.native="leave(index)" :to="item.toLink" class="tag-div" tag="div">
+        <div>
+          <p style="text-align: center">{{item.title}}</p>
+          <div :class="{'marginRight' :item.flexFlag}" style="position: absolute;left: 0;top: 20px;" v-show="item.hideFlag">
+            <div v-if="item.childs" class="menu-wrapper" :class="{'flexBlock': item.flexFlag}">
+              <div v-for="tag of item.childs" :key="tag.id" style="color: #fff;margin: 0px 4px;line-height: 25px;text-align: left;">
+                <p>{{tag.name}}</p>
+                <p v-for="list of tag.components" :key="list.id">{{list.name}}</p>
+              </div>
+            </div>
           </div>
         </div>
-        <div class="route-tag">
-          <p>解决方案</p>
-          <div class="menu-list">
-            <div>智能物联</div>
-            <div>数字营销</div>
-            <div>风险管理</div>
-            <div>质量管控</div>
-            <div>精准获客</div>
-          </div>
-        </div>
-        <div class="route-tag">
-          <p>客户案例</p>
-          <div class="menu-list">
-            <div>能源物联方案</div>
-            <div>房车物联方案</div>
-            <div>康养物联saas</div>
-            <div>军工物联监测</div>
-          </div>
-        </div>
-        <div class="route-tag">
-          <p>关于我们</p>
-          <div class="menu-list">
-            <div>公司简介</div>
-            <div>企业文化</div>
-            <div>加入我们</div>
-            <div>联系我们</div>
-          </div>
-        </div>
-        <div class="route-tag">
-          <p>帮助支持</p>
-        </div>
-      </div>
-      <!-- <ul class="header-menu">
-        <router-link to="/frontpage" tag="div" class="route-tag">首页</router-link>
-        <router-link to="/productcentre" tag="div" class="route-tag">产品中心</router-link>
-         <div class="producebox">
-          <div>
-            <router-link to="/productcentre" tag="div" class="route-tag">产品中心</router-link>
-          </div>
-          <div></div>
-        </div>
-        <router-link to='/solution' tag="div" class="route-tag">解决方案</router-link>
-        <router-link to='/customercases' tag="div" class="route-tag">客户案例</router-link>
-        <router-link to='/aboutus' tag="div" class="route-tag">关于我们</router-link>
-        <router-link to='/helpsupport' tag="div" class="route-tag">帮助支持</router-link>
-      </ul> -->
-      <div class="header-login">
-        <span @click='goLogin'>登录</span>|
-        <span @click='goRegister'>注册</span>
-      </div>
+      </router-link>
+    </div>
+    <div class="header-login">
+      <span @click='goLogin'>登录</span>|
+      <span @click='goRegister'>注册</span>
+    </div>
   </header>
 </template>
 
@@ -75,91 +31,158 @@ export default {
     return {
       menulink: [
         {
-          id: 0,
-          title: '首页',
-          toLink: '/frontpage'
-        },
-        {
-          id: 1,
-          title: '产品中心',
-          toLink: '/productcentre',
-          childs: [
-            {
-              title: '数据分析'
-            },
-            {
-              title: '数据分析'
-            },
-            {
-              title: '数据分析'
-            }
-          ]
-        },
-        {
-          id: 2,
-          title: '解决方案',
-          toLink: '/solution',
-          childs: [
-            {
-              title: '数据分析'
-            },
-            {
-              title: '数据分析'
-            },
-            {
-              title: '数据分析'
-            }
-          ]
-        },
-        {
-          id: 3,
-          title: '客户案例',
-          toLink: '/customercases',
-          childs: [
-            {
-              title: '数据分析'
-            },
-            {
-              title: '数据分析'
-            },
-            {
-              title: '数据分析'
-            }
-          ]
-        },
-        {
-          id: 4,
-          title: '关于我们',
-          toLink: '/aboutus',
-          childs: [
-            {
-              title: '数据分析'
-            },
-            {
-              title: '数据分析'
-            },
-            {
-              title: '数据分析'
-            }
-          ]
-        },
-        {
-          id: 5,
-          title: '帮助支持',
-          toLink: '/helpsupport'
-        }
-      ]
+        title: '首页',
+        toLink: '/frontpage'
+      },
+      {
+        title: '产品中心',
+        toLink: '/productcentre',
+        flexFlag: true,
+        hideFlag: false,
+        childs: [
+          {
+            id: '01',
+            name: '物联网平台',
+            fontBig: true,
+            components: [
+              {
+                id: '001',
+                name: '传感器',
+                fontBig: false
+              },
+              {
+                id: '002',
+                name: '数据采集',
+                fontBig: false
+              },
+              {
+                id: '003',
+                name: '智能硬件',
+                fontBig: false
+              },
+            ]
+          },
+          {
+            name: '大数据中台',
+            components: [
+              {
+                id: '001',
+                name: '数据清洗',
+                fontBig: false
+              },
+              {
+                id: '002',
+                name: '数据分析',
+                fontBig: false
+              },
+              {
+                id: '003',
+                name: '智能挖掘',
+                fontBig: false
+              }
+            ]
+          }
+        ]
+      },
+      {
+        title: '解决方案',
+        toLink: '/solution',
+        hideFlag: false,
+        childs: [
+          {
+            id: '01',
+            name: '智能物联'
+          },
+          {
+            id: '02',
+            name: '数字营销'
+          },
+          {
+            id: '03',
+            name: '风险管理'
+          },
+          {
+            id: '04',
+            name: '质量管控'
+          },
+          {
+            id: '05',
+            name: '精准获客'
+          }
+        ]
+      },
+      {
+        title: '客户案例',
+        toLink: '/customercases',
+        hideFlag: false,
+        childs: [
+          {
+            id: '01',
+            name: '能源物联方案'
+          },
+          {
+            id: '02',
+            name: '房车物联方案'
+          },
+          {
+            id: '03',
+            name: '康养物联saas'
+          },
+          {
+            id: '04',
+            name: '军工物联监测'
+          }
+        ]
+      },
+      {
+        title: '关于我们',
+        toLink: '/aboutus',
+        hideFlag: false,
+        childs: [
+          {
+            id: '01',
+            name: '公司简介'
+          },
+          {
+            id: '02',
+            name: '企业文化'
+          },
+          {
+            id: '03',
+            name: '加入我们'
+          },
+          {
+            id: '04',
+            name: '联系我们'
+          }
+        ]
+      },
+      {
+        title: '帮助支持',
+        toLink: '/helpsupport'
+      }]
     }
   },
   methods: {
+    enter(index){
+      if (index == 0) {
+        return
+      }
+      this.menulink[index].hideFlag = true
+      console.log('index',index)
+    },
+    leave(index){
+       if (index == 0) {
+        return
+      }
+      this.menulink[index].hideFlag = false
+      console.log('indexfffffffffff', index)
+    },
     goLogin () {
       this.$router.push({ name: 'login' })
     },
     goRegister () {
       this.$router.push({ name: 'register' })
-    },
-    changeActive (id) {
-      // console.log(id)
     }
   }
 }
@@ -169,35 +192,46 @@ export default {
 header {
 @include wh(100%,65px);
 @include minwidth();
-background: $color-white;
+background: #fff;
 display: flex;
 justify-content: space-between;
 padding: 0px 20px;
 box-sizing: border-box;
+z-index: 100;
 .header-logo img {
   width: 150px;
 }
 .header-menu{
   display: flex;
   font-size: 14px;
-  .route-tag{
+  z-index: 100;
+  .tag-div{
     height: 20px;
-    border-right: 1px solid #ccc;
-    padding: 0px 20px;
+    // border-right: 1px solid #ccc;
+    padding-right: 60px;
     margin-top: 20px;
-    color: $color-white;
     cursor: pointer;
-    .route-menu{
-      position: relative;
-      .router-menu-chlid{
-        position: absolute;
-      }
+    .marginRight{
+      left: -40px !important;
+    }
+    .flexBlock{
+      display: flex;
+      // justify-content: space-between;
+    }
+    .menu-wrapper{
+      font-size: 14px;
+      text-align: center;
+      background: #333;
+      opacity: 0.8;
+      padding: 10px 0;
+      z-index: 2
     }
   }
-  .route-tag:last-child{
+  .tag-div:last-child{
     height: 20px;
-    // border-right: none;
-    padding: 0px 25px;
+    border-right: none;
+    // padding: 0px 25px;
+    padding: 0
   }
   .router-link-exact-active{
     font-size: 15px;
