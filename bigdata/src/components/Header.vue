@@ -60,7 +60,7 @@
         <router-link to='/solution' tag="div" class="route-tag">解决方案</router-link>
         <router-link to='/customercases' tag="div" class="route-tag">客户案例</router-link>
         <router-link to='/aboutus' tag="div" class="route-tag">关于我们</router-link>
-        <router-link to='/helpsupport' tag="div" class="route-tag">帮助支持</router-link> 
+        <router-link to='/helpsupport' tag="div" class="route-tag">帮助支持</router-link>
       </ul> -->
       <div class="header-login">
         <span @click='goLogin'>登录</span>|
@@ -167,9 +167,9 @@ export default {
       newsInfoList(data).then((res) => {
         console.log(res, '9999')
       })
-      .catch((err) => {
-        console.log(err)
-      })
+        .catch((err) => {
+          console.log(err)
+        })
     },
     goLogin () {
       this.$router.push({ name: 'login' })
