@@ -154,6 +154,7 @@
 </template>
 
 <script>
+import {newsInfoList} from '../../api/frontpage'
 import 'swiper/dist/css/swiper.css'
 import { swiper, swiperSlide } from 'vue-awesome-swiper'
 import Header from '@/components/Header.vue'
@@ -162,6 +163,8 @@ export default {
   data () {
     let _this = this
     return {
+      pageNum: 1,
+      pageSize: 2,
       bannerSwiperOption: {
         pagination: {
           el: '.swiper-pagination',
@@ -370,7 +373,23 @@ export default {
       productTab: 0
     }
   },
+  mounted () {
+    // this.getNewsInfoList()
+  },
   methods: {
+    // 获取新闻栏数据
+    getNewsInfoList () {
+      let data = {
+        pageNum: this.pageNum,
+        pageSize: this.pageSize
+      }
+      newsInfoList(data).then((res) => {
+        console.log(res, '9999')
+      })
+      .catch((err) => {
+        console.log(err)
+      })
+    },
     productTabChange (ind) {
       this.productTab = ind
     },
@@ -404,11 +423,14 @@ export default {
     left: 0;
     z-index: 10;
     .header-menu {
-      li {
+      .tag-div {
         font-size: 18px;
         color: #fff;
         margin-top: 25px !important;
         border-right: none !important;
+        .menu-wrapper{
+          opacity: 0.5;
+        }
       }
       .router-link-exact-active {
         font-size: 18px !important;
