@@ -85,7 +85,7 @@ box-sizing: border-box;
   li{
     height: 20px;
     border-right: 1px solid #ccc;
-    padding: 0px 25px;
+    padding: 0px 20px;
     margin-top: 20px;
     cursor: pointer;
   }

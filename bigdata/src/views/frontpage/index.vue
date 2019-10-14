@@ -8,7 +8,7 @@
         <swiper :options="bannerSwiperOption" ref="mySwiper">
           <!-- slides -->
           <swiperSlide v-if="imgList.length>0" v-for="(item,index) in imgList" :key="index">
-            <div :style="{background:'url('+item.imgurl+') center center / cover',height:'724px'}"></div>
+            <div :style="{background:'url('+item.imgurl+') center center / cover',height:'600px'}"></div>
           </swiperSlide>
         </swiper>
         <div class="hotspotarticle">
@@ -88,8 +88,8 @@
       <!-- ourproduct start -->
       <div class="ourproduct">
         <dl v-for="item in productcentreData[productTab].morethings" :key="item.title">
-          <dt>
-            <img :src="item.img" alt="" ondragstart="return false"  class="ourproduct_img">
+          <dt class="ourproduct_img">
+            <img :src="item.img" alt="" ondragstart="return false" >
           </dt>
           <dd>
             <h2>{{item.title}}</h2>
@@ -104,7 +104,7 @@
         <div class="solution-section">
           <div class="solution-title">
             <h3>解决方案</h3>
-            <h4>solution</h4>
+            <h4>SOLUTION</h4>
           </div>
           <!--solution navMenu -->
           <div class="solution-navMenu">
@@ -138,7 +138,7 @@
         <div class="customercases-section">
           <div class="customercases-title">
             <h3>合作伙伴</h3>
-            <h4>partner</h4>
+            <h4>PARTNER</h4>
           </div>
           <div class="customercases-desc">
             <div class="customercases_imgs" v-for="item in customercasesData" :key="item.img">
@@ -331,37 +331,40 @@ export default {
       ],
       customercasesData: [
         {
-          img: require('@/assets/images/company_hangtian.png')
+          img: require('@/assets/images/partner1.png')
         },
         {
-          img: require('@/assets/images/company_sanzhong.png')
+          img: require('@/assets/images/partner2.png')
         },
         {
-          img: require('@/assets/images/company_pukang.png')
+          img: require('@/assets/images/partner3.png')
         },
         {
-          img: require('@/assets/images/company_luyou.png')
+          img: require('@/assets/images/partner4.png')
         },
         {
-          img: require('@/assets/images/company_dalian.png')
+          img: require('@/assets/images/partner5.png')
         },
         {
-          img: require('@/assets/images/company_zhongtie.png')
+          img: require('@/assets/images/partner6.png')
         },
         {
-          img: require('@/assets/images/company_anyijv.png')
+          img: require('@/assets/images/partner7.png')
         },
         {
-          img: require('@/assets/images/company_zhongguodianke.png')
+          img: require('@/assets/images/partner8.png')
         },
         {
-          img: require('@/assets/images/company_liantong.png')
+          img: require('@/assets/images/partner9.png')
         },
         {
-          img: require('@/assets/images/company_dianwang.png')
+          img: require('@/assets/images/partner10.png')
         },
         {
-          img: require('@/assets/images/company_qingdao.png')
+          img: require('@/assets/images/partner11.png')
+        },
+        {
+          img: require('@/assets/images/partner12.png')
         }
       ],
       productTab: 0
@@ -385,6 +388,13 @@ export default {
 </script>
 
 <style lang="scss">
+.hotspotarticle h2{
+  font-size: 18px;
+  line-height: 26px;
+  font-weight: bold;
+  margin-bottom: 8px;
+  @include moreline(2);
+}
 .frontpage {
   @include wh(100%, auto);
   background: #f6f8fb;
@@ -409,7 +419,7 @@ export default {
       }
       .router-link-exact-active {
         font-size: 18px !important;
-        color: rgba(18, 33, 88, 0.5);
+        /* color: rgba(18, 33, 88, 0.5); */
       }
     }
     .header-login {
@@ -436,9 +446,9 @@ export default {
     }
     .hotspotarticle {
       position: relative;
-      bottom: 70px;
+      bottom: 100px;
       z-index: 10;
-      width: 87%;
+      width: 70%;
       display: flex;
       box-sizing: border-box;
       justify-content: space-between;
@@ -454,20 +464,15 @@ export default {
         dd {
           padding-left: 4%;
           position: relative;
-          h2 {
-            font-size: 20px;
-            font-weight: bold;
-            margin-bottom: 10px;
-            @include moreline(2);
-          }
           p:nth-child(2) {
             @include moreline(3);
           }
           p:last-child {
+            color:#0000FF;
             position: absolute;
             bottom: 0;
             font-size: 16px;
-            color: $color-theme;
+            /* color: $color-theme; */
           }
         }
       }
@@ -495,12 +500,14 @@ export default {
           padding-left: 4%;
           position: relative;
           h2 {
-            font-size: 20px;
+            font-size: 18px;
             font-weight: bold;
+            line-height: 27px;
             margin-bottom: 10px;
             @include moreline(2);
           }
           p:nth-child(2) {
+            line-height: 27px;
             @include moreline(3);
           }
           p:last-child {
@@ -514,9 +521,10 @@ export default {
     }
   }
   .productcentre {
-    @include wh(87%, auto);
+    @include wh(70%, auto);
     @include minwidth();
     margin: 0 auto;
+    margin-top: -20px;
     padding: 5px 0px 31px 0px;
     box-sizing: border-box;
     .productcentre-title {
@@ -524,7 +532,7 @@ export default {
       line-height: 1.5;
       font-weight: 500;
       h2 {
-        font-size: 36px;
+        font-size: 24px;
         color: rgba(47, 49, 61, 1);
       }
       h3 {
@@ -547,6 +555,7 @@ export default {
         padding: 25px 85px;
         box-sizing: border-box;
         cursor: pointer;
+        border-radius: 10px;
         position: relative;
         text-align: center;
         dt {
@@ -559,7 +568,7 @@ export default {
         dd {
           padding-left: 3%;
           h2 {
-            font-size: 28px;
+            font-size: 20px;
             color: #2f313d;
             font-weight: 500;
             margin-bottom: 20px;
@@ -569,7 +578,7 @@ export default {
           p {
             @include moreline(7);
             color: #51535f;
-            font-size: 21px;
+            font-size: 16px;
             font-weight: 500;
             line-height: 29px;
           }
@@ -590,15 +599,19 @@ export default {
     }
   }
   .ourproduct {
-    @include wh(87%, auto);
+    @include wh(70%, auto);
     background: #fff;
     margin: 0 auto;
     display: flex;
     margin-bottom: 80px;
     @include minwidth();
     .ourproduct_img{
-      width: 170px;
-      height: 160px;
+      width: 163px;
+      height: 153px;
+      img{
+        width: 100%;
+        height: 100%;
+      }
     }
     dl {
       display: flex;
@@ -607,21 +620,22 @@ export default {
       width: 33.3%;
       box-sizing: border-box;
       dd {
+        flex: 1;
         padding-left: 4%;
         position: relative;
         h2 {
-          height: 34px;
-          line-height: 34px;
-          font-size: 25px;
+          height: 22px;
+          /* line-height: 34px; */
+          font-size: 18px;
           font-weight: 500;
           color: #2f313d;
-          margin-bottom: 10px;
+          margin-bottom: 6px;
           margin-top: 2px;
           @include moreline(2);
         }
         p:nth-child(2) {
           @include moreline(3);
-          font-size:18px;
+          font-size:14px;
           font-weight:500;
           color:rgba(125,127,139,1);
           line-height:25px;
@@ -629,19 +643,19 @@ export default {
         p:last-child {
           position: absolute;
           bottom: 0;
-          font-size:18px;
+          font-size:16px;
           font-weight:500;
           color:rgba(115,121,160,1);
           border:1px solid rgba(115,121,160,1);
           line-height:25px;
           border-radius:22px;
-          padding: 7px 21px;
+          padding: 3px 14px;
         }
       }
     }
   }
   .solution {
-    @include wh(87%, 470px);
+    @include wh(70%, 540px);
     margin: 0 auto;
     background: url('../../assets/images/solutiong_base.png') no-repeat;
     @include minwidth();
@@ -653,20 +667,23 @@ export default {
       .solution-title {
         text-align: center;
         line-height: 1.5;
-        color: rgb(190, 179, 179);
-        h2 {
+        color: #fff;
+        h3{
           font-size: 24px;
-          font-weight: bold;
         }
-        h3 {
+        h4 {
           font-size: 20px;
-          font-weight: bold;
+          /* font-weight: bold; */
         }
       }
       .solution-navMenu{
         .el-menu{
-          padding: 0 140px;
+          font-size: 16px;
+          padding: 0 95px;
           background: none;
+        }
+        .el-menu-item{
+          font-size: 17px;
         }
         .el-menu--horizontal>.el-menu-item:not(.is-disabled){
           background: none;
@@ -676,16 +693,13 @@ export default {
           background: none;
         }
         .el-menu--horizontal>.el-menu-item.is-active{
-          border-bottom: 5px solid #409EFF;
+          border-bottom: 4px solid #409EFF;
         }
       }
       .solution-desc {
         display: flex;
         justify-content: space-around;
-        margin-top: 30px;
-        // .swiper-slide{
-        //   width: 80% !important;
-        // }
+        margin-top: 58px;
         .swiper-container{
           height: 280px;
         }
@@ -700,8 +714,7 @@ export default {
             width: 371px;
           }
           dd {
-            padding-left: 3%;
-            padding-top: 20px;
+            margin: 50px 50px 30px 50px;
             position: relative;
             h2 {
               font-size: 20px;
@@ -715,11 +728,11 @@ export default {
             p:last-child {
               position: absolute;
               bottom: 30px;
-              padding: 2px 7px;
-              border-radius: 10px;
+              padding:4px 19px;
+              border-radius: 15px;
               font-size: 13px;
               color: $color-white;
-              background: $color-base;
+              background:#3064C3;
             }
           }
         }
@@ -727,7 +740,7 @@ export default {
     }
   }
   .customercases {
-    @include wh(87%, 470px);
+    @include wh(70%, 720px);
     @include minwidth();
     margin: 0 auto;
     background: url('../../assets/images/partner_base.png') no-repeat;
@@ -740,27 +753,24 @@ export default {
       .customercases-title {
         text-align: center;
         line-height: 1.5;
-        h2 {
-          font-size: 24px;
-          font-weight: bold;
-        }
         h3 {
+          font-size: 24px;
+        }
+        h4{
           font-size: 20px;
-          font-weight: bold;
+          color: #838596
         }
       }
       .customercases-desc {
-        @include wh(87%, auto);
+        /* @include wh(87%, auto); */
         margin: 0 auto;
+        width: 90%;
         margin-top: 30px;
         .customercases_imgs{
-          display:inline-block;
-          width: 164px;
-          height: 90px;
-          background: $color-white;
-          margin: 5px 40px;
-          box-shadow: -1px 3px 5px 2px rgba(157, 159, 201, 0.3);
+          display: inline-block;
+          margin: 5px 11px;
           z-index: 10;
+          width: 22%;
           img {
             // width: 11%;
             width: 100%;

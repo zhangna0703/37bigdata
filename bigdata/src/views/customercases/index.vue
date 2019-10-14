@@ -128,7 +128,7 @@ export default {
   flex-wrap: wrap;
 }
 .rights li{
-  width: 43%;
+  width: 30%;
   margin: 20px;
 }
 .rights li img{
