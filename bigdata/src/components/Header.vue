@@ -70,7 +70,6 @@
 </template>
 
 <script>
-import {newsInfoList} from '../api/frontpage'
 export default {
   data () {
     return {
@@ -149,28 +148,10 @@ export default {
           title: '帮助支持',
           toLink: '/helpsupport'
         }
-      ],
-      pageNum: 1,
-      pageSize: 3
+      ]
     }
   },
-  mounted () {
-    this.getNewsInfoList()
-  },
   methods: {
-    // 获取新闻栏数据
-    getNewsInfoList () {
-      let data = {
-        pageNum: this.pageNum,
-        pageSize: this.pageSize
-      }
-      newsInfoList(data).then((res) => {
-        console.log(res, '9999')
-      })
-        .catch((err) => {
-          console.log(err)
-        })
-    },
     goLogin () {
       this.$router.push({ name: 'login' })
     },
@@ -201,8 +182,8 @@ box-sizing: border-box;
   font-size: 14px;
   .route-tag{
     height: 20px;
-    // border-right: 1px solid #ccc;
-    padding: 0px 25px;
+    border-right: 1px solid #ccc;
+    padding: 0px 20px;
     margin-top: 20px;
     color: $color-white;
     cursor: pointer;

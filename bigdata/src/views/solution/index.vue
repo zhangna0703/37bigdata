@@ -103,17 +103,23 @@
         <div class="solution-tab-section" v-if='solutionTabIndex === 1'>222</div>
         <div class="solution-tab-section" v-if='solutionTabIndex === 2'>333</div>
         <div class="solution-tab-section" v-if='solutionTabIndex === 3'>
-          <span>产品特点</span>
-          <div class="produce">
-            <div class="data" v-for='(item, index) in producedata' :key='index'>
-              <b>{{item.tit}}</b>
-              <p>{{item.content}}</p>
+          <div class="produebox">
+            <div class="smallproduce">
+              <p class="p">产品特点</p>
+              <div class="produce">
+                <div class="data" v-for='(item, index) in producedata' :key='index'>
+                  <b>{{item.tit}}</b>
+                  <p>{{item.content}}</p>
+                </div>
+              </div>
             </div>
-          </div>
-          <div class="crux">
-            <span>关键价值</span>
-            <div class="cruxContext">
-              <div class="cruxBox" v-for='(item, index) in importantvalue' :key='index'>{{item}}</div>
+            <div class="crux">
+              <div class="smallcrux">
+                <p class="p">关键价值</p>
+                <div class="cruxContext">
+                  <div class="cruxBox" v-for='(item, index) in importantvalue' :key='index'>{{item}}</div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -293,23 +299,39 @@ export default {
 </script>
 
 <style lang="scss">
+.produebox{
+  width: 100%;
+  /* margin: 0 auto; */
+  background: #fff;
+}
+.smallproduce{
+  width: 70%;
+  margin: 0 auto;
+}
+.smallproduce .p,.smallcrux .p{
+  font-size: 18px;
+  font-weight: 800;
+  color: #FF9933;
+  padding: 30px 0 50px 0;
+}
 .produce{
     width: 100%;
     height: 100%;
     display: flex;
     flex-wrap: wrap;
     border-bottom: 1px #ccc solid;
+    /* margin: 0 auto; */
 }
-.content span{
+/* .content span{
     display: flex;
     margin-bottom: 50px;
     color: rgb(255, 166, 152);
     font-weight: bold;
     font-size: 16px;
     margin-left: 10px;
-}
+} */
 .data{
-    width: 28%;
+    width: 25%;
     margin: 0px 40px 30px 28px;
 }
 .data b{
@@ -317,7 +339,7 @@ export default {
     display: flex;
     font-size: 18px;
     letter-spacing: 2px;
-    border-bottom: 3px #000 solid;
+    border-bottom: 2px #000 solid;
     padding-bottom: 5px;
     box-sizing: border-box;
 }
@@ -329,19 +351,24 @@ export default {
     height: auto;
     background: rgb(242, 242, 242);
     margin-top: 60px;
-    padding-top: 60px;
+    padding-top: 30px;
     box-sizing: border-box;
+}
+.smallcrux{
+  width: 70%;
+  margin: 0 auto;
 }
 .cruxContext{
     display: flex;
     flex-wrap: wrap;
-    padding-bottom: 40px;
     border-bottom: 1px #ccc solid;
+    margin-left: 25px;
 }
 .cruxBox{
-    width: 20%;
-    margin: 0px 150px 30px 25px;
-    font-size: 12px;
+    width: 33%;
+    padding-right: 50px;
+    padding-bottom: 40px;
+    box-sizing: border-box;
 }
 .fold ul{
   li{
@@ -376,10 +403,10 @@ export default {
 }
 .bigkernel{
   width: 100%;
+    padding-top: 35px;
   background: #fff;
   .kernel{
     width: 65%;
-    padding-top: 35px;
     margin:0 auto;
     .line{
       width: 80px;
@@ -415,7 +442,7 @@ export default {
         margin-bottom: 20px;
       }
       p{
-        width: 310px;
+        width: 75%;
       }
     }
   }
