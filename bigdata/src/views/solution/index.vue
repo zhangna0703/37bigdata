@@ -45,7 +45,7 @@
                   </dt>
                   <dd @click='changeWord1'>{{changeshow1}}</dd>
                 </dl>
-                <ul v-if="changeshow1==='+'">
+                <ul v-if="changeshow1==='-'">
                   <li v-for='(item, index) in equipment1' :key='index'>
                     <h2>{{item.tit}}</h2>
                     <p>{{item.content}}</p>
@@ -60,7 +60,7 @@
                   </dt>
                   <dd @click='changeWord2'>{{changeshow2}}</dd>
                 </dl>
-                <ul v-if="changeshow2==='+'">
+                <ul v-if="changeshow2==='-'">
                   <li v-for='(item, index) in equipment2' :key='index'>
                     <h2>{{item.tit}}</h2>
                     <p>{{item.content}}</p>
@@ -75,7 +75,7 @@
                   </dt>
                   <dd @click='changeWord3'>{{changeshow3}}</dd>
                 </dl>
-                <ul v-if="changeshow3==='+'">
+                <ul v-if="changeshow3==='-'">
                   <li v-for='(item, index) in equipment3' :key='index'>
                     <h2>{{item.tit}}</h2>
                     <p>{{item.content}}</p>
@@ -90,7 +90,7 @@
                   </dt>
                   <dd @click='changeWord4'>{{changeshow4}}</dd>
                 </dl>
-                <ul v-if="changeshow4==='+'">
+                <ul v-if="changeshow4==='-'">
                   <li v-for='(item, index) in equipment4' :key='index'>
                     <h2>{{item.tit}}</h2>
                     <p>{{item.content}}</p>
@@ -155,10 +155,10 @@ export default {
           content: '提供多种问题分析能力，包括血统分析，影响分析，全链分析，定位问题产生的根源。'
         }
       ],
-      changeshow1: '+',
-      changeshow2: '+',
-      changeshow3: '+',
-      changeshow4: '+',
+      changeshow1: '-',
+      changeshow2: '-',
+      changeshow3: '-',
+      changeshow4: '-',
       equipment1: [
         {
           tit: '设备注册',
@@ -345,7 +345,7 @@ export default {
 }
 .fold ul{
   li{
-    margin-top: 20px;
+    margin: 20px 0;
     h2{
       font-weight:800;
     }

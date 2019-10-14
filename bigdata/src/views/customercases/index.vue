@@ -121,7 +121,7 @@ export default {
 .iotCore,.bigdata{
   display: flex;
   width: 70%;
-  margin: 30px auto 0;
+  margin: 30px auto;
 }
 .rights{
   display: flex;
