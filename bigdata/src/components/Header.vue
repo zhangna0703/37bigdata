@@ -9,9 +9,9 @@
           <p style="text-align: center">{{item.title}}</p>
           <div :class="{'marginRight' :item.flexFlag}" style="position: absolute;left: 0;top: 20px;" v-show="item.hideFlag">
             <div v-if="item.childs" class="menu-wrapper" :class="{'flexBlock': item.flexFlag}">
-              <div v-for="tag of item.childs" :key="tag.id" style="color: #fff;margin: 0px 4px;line-height: 25px;text-align: left;">
-                <p>{{tag.name}}</p>
-                <p v-for="list of tag.components" :key="list.id">{{list.name}}</p>
+              <div v-for="tag of item.childs" :key="tag.id" style="color: #333;margin: 0px 4px;line-height: 25px;text-align: left;">
+                <p @click.stop="jumpListPage(tag.jumpUrl, tag.index)">{{tag.name}}</p>
+                <p @click.stop="jumpListPage(list.jumpUrl, list.index)" v-for="list of tag.components" :key="list.id">{{list.name}}</p>
               </div>
             </div>
           </div>
@@ -48,17 +48,20 @@ export default {
               {
                 id: '001',
                 name: '传感器',
-                fontBig: false
+                fontBig: false,
+                jumpUrl: 'datacleansing'
               },
               {
                 id: '002',
                 name: '数据采集',
-                fontBig: false
+                fontBig: false,
+                jumpUrl: 'datacleansing'
               },
               {
                 id: '003',
                 name: '智能硬件',
-                fontBig: false
+                fontBig: false,
+                jumpUrl: 'datacleansing'
               },
             ]
           },
@@ -68,17 +71,20 @@ export default {
               {
                 id: '001',
                 name: '数据清洗',
-                fontBig: false
+                fontBig: false,
+                jumpUrl: 'datacleansing'
               },
               {
                 id: '002',
                 name: '数据分析',
-                fontBig: false
+                fontBig: false,
+                jumpUrl: 'dataanalyze'
               },
               {
                 id: '003',
                 name: '智能挖掘',
-                fontBig: false
+                fontBig: false,
+                jumpUrl: 'intelligentMining'
               }
             ]
           }
@@ -91,23 +97,33 @@ export default {
         childs: [
           {
             id: '01',
-            name: '智能物联'
+            name: '智能物联',
+            jumpUrl: 'solution',
+            index: 1
           },
           {
             id: '02',
-            name: '数字营销'
+            name: '数字营销',
+            jumpUrl: 'solution',
+            index: 2
           },
           {
             id: '03',
-            name: '风险管理'
+            name: '风险管理',
+            jumpUrl: 'solution',
+            index: 3
           },
           {
             id: '04',
-            name: '质量管控'
+            name: '质量管控',
+            jumpUrl: 'solution',
+            index: 4
           },
           {
             id: '05',
-            name: '精准获客'
+            name: '精准获客',
+            jumpUrl: 'solution',
+            index: 5
           }
         ]
       },
@@ -141,19 +157,27 @@ export default {
         childs: [
           {
             id: '01',
-            name: '公司简介'
+            name: '公司简介',
+            index: 0,
+            jumpUrl: 'aboutus'
           },
           {
             id: '02',
-            name: '企业文化'
+            name: '企业文化',
+            index: 1,
+            jumpUrl: 'aboutus'
           },
           {
             id: '03',
-            name: '加入我们'
+            name: '加入我们',
+            index: 2,
+            jumpUrl: 'aboutus'
           },
           {
             id: '04',
-            name: '联系我们'
+            name: '联系我们',
+            index: 3,
+            jumpUrl: 'aboutus'
           }
         ]
       },
@@ -169,14 +193,15 @@ export default {
         return
       }
       this.menulink[index].hideFlag = true
-      console.log('index',index)
     },
     leave(index){
        if (index == 0) {
         return
       }
       this.menulink[index].hideFlag = false
-      console.log('indexfffffffffff', index)
+    },
+    jumpListPage (url, index) {
+      this.$router.push({name: url, query: {index: index}})
     },
     goLogin () {
       this.$router.push({ name: 'login' })
@@ -221,8 +246,8 @@ z-index: 100;
     .menu-wrapper{
       font-size: 14px;
       text-align: center;
-      background: #333;
-      opacity: 0.8;
+      background: #fff;
+      // opacity: 0.8;
       padding: 10px 0;
       z-index: 2
     }

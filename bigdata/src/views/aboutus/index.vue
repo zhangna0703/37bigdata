@@ -135,6 +135,13 @@ export default {
     swiperSlide,
     Footer
   },
+  mounted () {
+    let routerIndex = this.$route.query.index
+    console.log(routerIndex)
+    if (routerIndex == 0 || routerIndex) {
+      this.changeSolutionTabIndex(routerIndex)
+    }
+  },
   methods: {
     changeSolutionTabIndex (index) {
       this.solutionTabIndex = index

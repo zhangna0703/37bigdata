@@ -429,7 +429,7 @@ export default {
         margin-top: 25px !important;
         border-right: none !important;
         .menu-wrapper{
-          opacity: 0.5;
+          // opacity: 0.5;
         }
       }
       .router-link-exact-active {

@@ -92,6 +92,9 @@ export default {
       datalists: ['数据清洗', '数据分析', '智能挖掘', '智能获客']
     }
   },
+  mounted () {
+    
+  },
   methods: {
     godata (title) {
       if (title === '数据清洗') {
