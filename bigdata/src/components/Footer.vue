@@ -80,7 +80,7 @@ export default {
 <style lang="scss" scoped>
   .footer{width:100%;}
   .smallfooter_top{width: 100%;background:$color-base;}
-  .footer_top{width:70%;padding:65px 0;display:flex;box-sizing:border-box;margin: 0 auto}
+  .footer_top{width:80%;padding:65px 0;display:flex;box-sizing:border-box;margin: 0 auto}
   .connect_us{color:$color-white;}
   .flex_item{flex: 1;padding-left:4%;
     h1{height:36px;font-size:36px;font-weight:bold;line-height: 36px;}
@@ -94,7 +94,7 @@ export default {
     }
   }
   .smallfooter_center{width: 100%;}
-  .footer_center{display:flex;padding:60px 0;width: 70%;margin: 0 auto;}
+  .footer_center{display:flex;padding:60px 0;width: 80%;margin: 0 auto;}
   .center_content{margin-right: 2%;
     h1{font-size:20px;font-weight:bold;margin-bottom:36px;}
       a{display: inline-block;margin-bottom:12px;color:#333333;}
