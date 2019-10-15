@@ -122,14 +122,12 @@
 import 'swiper/dist/css/swiper.css'
 import { swiper, swiperSlide } from 'vue-awesome-swiper'
 import Header from '@/components/Header.vue'
-import {newsInfoList} from '@/api/frontpage'
+import { newsInfoList } from '@/api/frontpage'
 import Footer from '@/components/Footer.vue'
 export default {
   data () {
     let _this = this
     return {
-      pageNum: 1,
-      pageSize: 2,
       bannerSwiperOption: {
         pagination: {
           el: '.swiper-pagination',
@@ -384,7 +382,7 @@ export default {
 }
 .frontpage {
   @include wh(100%, auto);
-  background: #f6f8fb;
+  background: #f2f2f2;
   header {
     height: 82px !important;
     background: linear-gradient(
@@ -518,7 +516,7 @@ export default {
       justify-content: space-around;
       margin-top: 30px;
       .boxshadow {
-        box-shadow: 0px 8px 12px 0px rgba(157, 159, 201, 0.3);
+        box-shadow: 0px 4px 12px 0px rgba(157, 159, 201, 0.3);
         z-index: 10;
       }
       dl {
