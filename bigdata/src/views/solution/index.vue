@@ -136,6 +136,7 @@
 <script>
 import Footer from '@/components/Footer.vue'
 import { swiper, swiperSlide } from 'vue-awesome-swiper'
+import { mapState } from 'vuex'
 export default {
   data () {
     return {
@@ -262,9 +263,22 @@ export default {
     Footer,
     swiperSlide
   },
+  computed: {
+    ...mapState([
+      'routerIndex'
+    ])
+  },
+  watch: {
+    routerIndex () {
+      this.changeSolutionTabIndex(this.routerIndex)
+    }
+  },
   methods: {
     changeSolutionTabIndex (index) {
       this.solutionTabIndex = index
+      if (index == 0 || index) {
+        document.documentElement.scrollTop = 600
+      }
     },
     changeWord1 () {
       if (this.changeshow1 === '+') {

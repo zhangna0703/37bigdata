@@ -401,9 +401,9 @@ export default {
         color: #fff;
         margin-top: 25px !important;
         border-right: none !important;
-        .menu-wrapper{
-          // opacity: 0.5;
-        }
+        // .menu-wrapper{
+        //   opacity: 0.6;
+        // }
       }
       .router-link-exact-active {
         font-size: 18px !important;

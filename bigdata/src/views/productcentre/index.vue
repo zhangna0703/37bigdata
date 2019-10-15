@@ -257,6 +257,7 @@
 <script>
 import { produce } from '@/api/productcentre'
 import Footer from '@/components/Footer.vue'
+import {mapState} from 'vuex'
 export default {
   data () {
     return {
@@ -312,8 +313,20 @@ export default {
   components: {
     Footer
   },
+  computed: {
+    ...mapState([
+      'titleStateFlage'
+    ])
+  },
+  watch: {
+    titleStateFlage () {
+      this.titleState = this.titleStateFlage
+      console.log(this.titleState, '-----------')
+    }
+  },
   mounted () {
     this.getproduceList()
+    this.titleState = this.titleStateFlage
   },
   methods: {
     // 获取用户评论

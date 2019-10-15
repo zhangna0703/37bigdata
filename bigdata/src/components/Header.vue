@@ -9,9 +9,9 @@
           <p style="text-align: center">{{item.title}}</p>
           <div :class="{'marginRight' :item.flexFlag}" style="position: absolute;left: 0;top: 20px;" v-show="item.hideFlag">
             <div v-if="item.childs" class="menu-wrapper" :class="{'flexBlock': item.flexFlag}">
-              <div v-for="tag of item.childs" :key="tag.id" style="color: #333;margin: 0px 4px;line-height: 25px;text-align: left;">
-                <p @click.stop="jumpListPage(tag.jumpUrl, tag.index)">{{tag.name}}</p>
-                <p @click.stop="jumpListPage(list.jumpUrl, list.index)" v-for="list of tag.components" :key="list.id">{{list.name}}</p>
+              <div v-for="tag of item.childs" :key="tag.id" style="color: #fff;margin: 0px 4px;line-height: 25px;text-align: left;">
+                <p @click="jumpListPage(tag.jumpUrl, tag.index, tag.adoptFlage, tag.titleState)">{{tag.name}}</p>
+                <p @click.stop="jumpListPage(list.jumpUrl, list.index, list.adoptFlage)" v-for="list of tag.components" :key="list.id">{{list.name}}</p>
               </div>
             </div>
           </div>
@@ -26,9 +26,11 @@
 </template>
 
 <script>
+import {mapMutations} from 'vuex'
 export default {
   data () {
     return {
+      oldRouterUrl: '',
       menulink: [
         {
         title: '首页',
@@ -44,46 +46,55 @@ export default {
             id: '01',
             name: '物联网平台',
             fontBig: true,
+            titleState: true,
             components: [
               {
                 id: '001',
                 name: '传感器',
                 fontBig: false,
-                jumpUrl: 'datacleansing'
+                adoptFlage: true,
+                jumpUrl: ''
               },
               {
                 id: '002',
                 name: '数据采集',
                 fontBig: false,
-                jumpUrl: 'datacleansing'
+                adoptFlage: true,
+                jumpUrl: ''
               },
               {
                 id: '003',
                 name: '智能硬件',
                 fontBig: false,
-                jumpUrl: 'datacleansing'
+                adoptFlage: true,
+                jumpUrl: ''
               },
             ]
           },
           {
             name: '大数据中台',
+            fontBig: true,
+            titleState: false,
             components: [
               {
                 id: '001',
                 name: '数据清洗',
                 fontBig: false,
+                adoptFlage: true,
                 jumpUrl: 'datacleansing'
               },
               {
                 id: '002',
                 name: '数据分析',
                 fontBig: false,
+                adoptFlage: true,
                 jumpUrl: 'dataanalyze'
               },
               {
                 id: '003',
                 name: '智能挖掘',
                 fontBig: false,
+                adoptFlage: true,
                 jumpUrl: 'intelligentMining'
               }
             ]
@@ -99,31 +110,31 @@ export default {
             id: '01',
             name: '智能物联',
             jumpUrl: 'solution',
-            index: 1
+            index: 0
           },
           {
             id: '02',
             name: '数字营销',
             jumpUrl: 'solution',
-            index: 2
+            index: 1
           },
           {
             id: '03',
             name: '风险管理',
             jumpUrl: 'solution',
-            index: 3
+            index: 2
           },
           {
             id: '04',
             name: '质量管控',
             jumpUrl: 'solution',
-            index: 4
+            index: 3
           },
           {
             id: '05',
             name: '精准获客',
             jumpUrl: 'solution',
-            index: 5
+            index: 4
           }
         ]
       },
@@ -134,19 +145,23 @@ export default {
         childs: [
           {
             id: '01',
-            name: '能源物联方案'
+            name: '能源物联方案',
+            jumpUrl: 'customercases'
           },
           {
             id: '02',
-            name: '房车物联方案'
+            name: '房车物联方案',
+            jumpUrl: 'customercases'
           },
           {
             id: '03',
-            name: '康养物联saas'
+            name: '康养物联saas',
+            jumpUrl: 'customercases'
           },
           {
             id: '04',
-            name: '军工物联监测'
+            name: '军工物联监测',
+            jumpUrl: 'customercases'
           }
         ]
       },
@@ -188,27 +203,39 @@ export default {
     }
   },
   methods: {
+    // 鼠标移入
     enter(index){
       if (index == 0) {
         return
       }
       this.menulink[index].hideFlag = true
     },
+    // 鼠标移除
     leave(index){
        if (index == 0) {
         return
       }
       this.menulink[index].hideFlag = false
     },
-    jumpListPage (url, index) {
-      this.$router.push({name: url, query: {index: index}})
+    // 点击子导航
+    jumpListPage (url, index, adoptFlage, titleState) {
+      // console.log(titleState, '0000000000000')
+      this.ROUTERINDEX(index)
+      this.TITLESTATEFLAGE(titleState)
+      if (adoptFlage) {
+        this.$router.push({name: url})
+      }
     },
     goLogin () {
       this.$router.push({ name: 'login' })
     },
     goRegister () {
       this.$router.push({ name: 'register' })
-    }
+    },
+    ...mapMutations([
+      'ROUTERINDEX',
+      'TITLESTATEFLAGE'
+    ])
   }
 }
 </script>
@@ -246,8 +273,8 @@ z-index: 100;
     .menu-wrapper{
       font-size: 14px;
       text-align: center;
-      background: #fff;
-      // opacity: 0.8;
+      background: #333;
+      opacity: 0.8;
       padding: 10px 0;
       z-index: 2
     }
