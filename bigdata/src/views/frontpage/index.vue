@@ -8,58 +8,23 @@
         <swiper :options="bannerSwiperOption" ref="mySwiper">
           <!-- slides -->
           <swiperSlide v-if="imgList.length>0" v-for="(item,index) in imgList" :key="index">
-            <div :style="{background:'url('+item.imgurl+') center center / cover',height:'724px'}"></div>
+            <div :style="{background:'url('+item.imgurl+') center center / cover',height:'600px'}"></div>
           </swiperSlide>
         </swiper>
         <div class="hotspotarticle">
           <dl v-for="item in hotspotData" :key="item.title">
             <dt>
-              <img :src="item.img" ondragstart="return false" alt="">
+              <img :src="item.infoImg" alt="">
             </dt>
             <dd>
-              <h2>{{item.title}}</h2>
-              <p>{{item.desc}}</p>
+              <h2>{{item.infoTitle}}</h2>
+              <p>{{item.infoProfile}}</p>
               <p>热点详情→</p>
             </dd>
           </dl>
         </div>
       </div>
       <!-- banner end -->
-      <!-- hot detail start -->
-      <!-- <div class="hotdetail">
-            <swiper :options="bannerSwiperOption" ref="hotspot">
-                <swiperSlide>
-                  <div class="hotspotarticle">
-                    <dl v-for="item in hotspotData" :key="item.title">
-                      <dt>
-                        <img :src="item.img" alt="">
-                      </dt>
-                      <dd>
-                        <h2>{{item.title}}</h2>
-                        <p>{{item.desc}}</p>
-                        <p>热点详情→</p>
-                      </dd>
-                    </dl>
-                  </div>
-                </swiperSlide>
-                <swiperSlide>
-                  <div class="hotspotarticle">
-                    <dl v-for="item in hotspotData" :key="item.title">
-                      <dt>
-                        <img :src="item.img" alt="">
-                      </dt>
-                      <dd>
-                        <h2>{{item.title}}</h2>
-                        <p>{{item.desc}}</p>
-                        <p>热点详情→</p>
-                      </dd>
-                    </dl>
-                  </div>
-                </swiperSlide>
-                <div class="swiper-pagination" slot="pagination"></div>
-            </swiper>
-      </div>-->
-      <!-- hot detail end -->
       <!-- productcentre start -->
       <div class="productcentre">
         <div class="productcentre-title">
@@ -70,7 +35,7 @@
           <dl
             v-for="(item,index) in productcentreData"
             :key="index"
-            @click="productTabChange(index)"
+            @mousemove="productTabChange(index)"
             :class="index==productTab?'boxshadow':''"
           >
             <dt>
@@ -88,8 +53,8 @@
       <!-- ourproduct start -->
       <div class="ourproduct">
         <dl v-for="item in productcentreData[productTab].morethings" :key="item.title">
-          <dt>
-            <img :src="item.img" alt="" ondragstart="return false"  class="ourproduct_img">
+          <dt class="ourproduct_img">
+            <img :src="item.img" alt="" ondragstart="return false" >
           </dt>
           <dd>
             <h2>{{item.title}}</h2>
@@ -104,7 +69,7 @@
         <div class="solution-section">
           <div class="solution-title">
             <h3>解决方案</h3>
-            <h4>solution</h4>
+            <h4>SOLUTION</h4>
           </div>
           <!--solution navMenu -->
           <div class="solution-navMenu">
@@ -138,11 +103,11 @@
         <div class="customercases-section">
           <div class="customercases-title">
             <h3>合作伙伴</h3>
-            <h4>partner</h4>
+            <h4>PARTNER</h4>
           </div>
           <div class="customercases-desc">
-            <div class="customercases_imgs">
-              <img v-for="item in customercasesData" :key="item.img" :src="item.img" ondragstart="return false"  alt="">
+            <div class="customercases_imgs" v-for="item in customercasesData" :key="item.img">
+              <img :src="item.img" ondragstart="return false"  alt="">
             </div>
           </div>
         </div>
@@ -154,17 +119,15 @@
 </template>
 
 <script>
-import {newsInfoList} from '../../api/frontpage'
 import 'swiper/dist/css/swiper.css'
 import { swiper, swiperSlide } from 'vue-awesome-swiper'
 import Header from '@/components/Header.vue'
+import { newsInfoList } from '@/api/frontpage'
 import Footer from '@/components/Footer.vue'
 export default {
   data () {
     let _this = this
     return {
-      pageNum: 1,
-      pageSize: 2,
       bannerSwiperOption: {
         pagination: {
           el: '.swiper-pagination',
@@ -334,47 +297,49 @@ export default {
       ],
       customercasesData: [
         {
-          img: require('@/assets/images/company_hangtian.png')
+          img: require('@/assets/images/partner1.png')
         },
         {
-          img: require('@/assets/images/company_sanzhong.png')
+          img: require('@/assets/images/partner2.png')
         },
         {
-          img: require('@/assets/images/company_pukang.png')
+          img: require('@/assets/images/partner3.png')
         },
         {
-          img: require('@/assets/images/company_luyou.png')
+          img: require('@/assets/images/partner4.png')
         },
         {
-          img: require('@/assets/images/company_dalian.png')
+          img: require('@/assets/images/partner5.png')
         },
         {
-          img: require('@/assets/images/company_zhongtie.png')
+          img: require('@/assets/images/partner6.png')
         },
         {
-          img: require('@/assets/images/company_anyijv.png')
+          img: require('@/assets/images/partner7.png')
         },
         {
-          img: require('@/assets/images/company_zhongguodianke.png')
+          img: require('@/assets/images/partner8.png')
         },
         {
-          img: require('@/assets/images/company_liantong.png')
+          img: require('@/assets/images/partner9.png')
         },
         {
-          img: require('@/assets/images/company_dianwang.png')
+          img: require('@/assets/images/partner10.png')
         },
         {
-          img: require('@/assets/images/company_qingdao.png')
+          img: require('@/assets/images/partner11.png')
         },
         {
-          img: require('@/assets/images/company_rehab.png')
+          img: require('@/assets/images/partner12.png')
         }
       ],
-      productTab: 0
+      productTab: 0,
+      pageNum: 1,
+      pageSize: 3
     }
   },
   mounted () {
-    // this.getNewsInfoList()
+    this.getNewsInfoList()
   },
   methods: {
     // 获取新闻栏数据
@@ -385,10 +350,11 @@ export default {
       }
       newsInfoList(data).then((res) => {
         console.log(res, '9999')
+        this.hotspotData = res.data.rows
       })
-      .catch((err) => {
-        console.log(err)
-      })
+        .catch((err) => {
+          console.log(err)
+        })
     },
     productTabChange (ind) {
       this.productTab = ind
@@ -407,9 +373,16 @@ export default {
 </script>
 
 <style lang="scss">
+.hotspotarticle h2{
+  font-size: 18px;
+  line-height: 26px;
+  font-weight: bold;
+  margin-bottom: 8px;
+  @include moreline(2);
+}
 .frontpage {
   @include wh(100%, auto);
-  background: #f6f8fb;
+  background: #f2f2f2;
   header {
     height: 82px !important;
     background: linear-gradient(
@@ -434,7 +407,7 @@ export default {
       }
       .router-link-exact-active {
         font-size: 18px !important;
-        color: rgba(18, 33, 88, 0.5);
+        /* color: rgba(18, 33, 88, 0.5); */
       }
     }
     .header-login {
@@ -461,38 +434,49 @@ export default {
     }
     .hotspotarticle {
       position: relative;
-      bottom: 70px;
+      bottom: 100px;
       z-index: 10;
-      width: 87%;
+      width: 70%;
       display: flex;
       box-sizing: border-box;
       justify-content: space-between;
       padding: 40px;
       background: #fff;
-      box-shadow: 0px 10px 20px 10px rgba(18, 33, 88, 0.05);
+      box-shadow: 0px 4px 20px 10px rgba(18, 33, 88, 0.05);
       border-radius: 10px;
       margin: 0 auto;
       dl {
         display: flex;
         width: 31%;
         cursor: pointer;
-        dd {
-          padding-left: 4%;
-          position: relative;
-          h2 {
-            font-size: 20px;
+        dt{
+          width: 186px;
+          height: 145px;
+          img{
+            width: 100%;
+            height: 100%;
+          }
+        }
+        h2 {
+            font-size: 18px;
             font-weight: bold;
+            line-height: 27px;
             margin-bottom: 10px;
             @include moreline(2);
           }
+        dd {
+          flex:1;
+          padding-left: 4%;
+          position: relative;
           p:nth-child(2) {
             @include moreline(3);
           }
           p:last-child {
+            color:#0000FF;
             position: absolute;
             bottom: 0;
             font-size: 16px;
-            color: $color-theme;
+            /* color: $color-theme; */
           }
         }
       }
@@ -505,43 +489,12 @@ export default {
       opacity: 0.4;
       background: $color-theme;
     }
-    .hotspotarticle {
-      width: 75%;
-      @include minwidth();
-      margin: 0 auto;
-      display: flex;
-      justify-content: space-between;
-      padding: 85px 0px;
-      dl {
-        display: flex;
-        width: 31%;
-        cursor: pointer;
-        dd {
-          padding-left: 4%;
-          position: relative;
-          h2 {
-            font-size: 20px;
-            font-weight: bold;
-            margin-bottom: 10px;
-            @include moreline(2);
-          }
-          p:nth-child(2) {
-            @include moreline(3);
-          }
-          p:last-child {
-            position: absolute;
-            bottom: 0;
-            font-size: 16px;
-            color: $color-theme;
-          }
-        }
-      }
-    }
   }
   .productcentre {
-    @include wh(87%, auto);
+    @include wh(70%, auto);
     @include minwidth();
     margin: 0 auto;
+    margin-top: -60px;
     padding: 5px 0px 31px 0px;
     box-sizing: border-box;
     .productcentre-title {
@@ -549,12 +502,13 @@ export default {
       line-height: 1.5;
       font-weight: 500;
       h2 {
-        font-size: 36px;
+        font-size: 24px;
         color: rgba(47, 49, 61, 1);
       }
       h3 {
         font-size: 20px;
         color: #838596;
+        /* font-family: Arnprior; */
       }
     }
     .productcentre-desc {
@@ -562,7 +516,7 @@ export default {
       justify-content: space-around;
       margin-top: 30px;
       .boxshadow {
-        box-shadow: 0px 8px 12px 0px rgba(157, 159, 201, 0.3);
+        box-shadow: 0px 4px 12px 0px rgba(157, 159, 201, 0.3);
         z-index: 10;
       }
       dl {
@@ -572,6 +526,7 @@ export default {
         padding: 25px 85px;
         box-sizing: border-box;
         cursor: pointer;
+        border-radius: 10px;
         position: relative;
         text-align: center;
         dt {
@@ -584,7 +539,7 @@ export default {
         dd {
           padding-left: 3%;
           h2 {
-            font-size: 28px;
+            font-size: 20px;
             color: #2f313d;
             font-weight: 500;
             margin-bottom: 20px;
@@ -594,7 +549,7 @@ export default {
           p {
             @include moreline(7);
             color: #51535f;
-            font-size: 21px;
+            font-size: 16px;
             font-weight: 500;
             line-height: 29px;
           }
@@ -615,7 +570,7 @@ export default {
     }
   }
   .ourproduct {
-    @include wh(87%, auto);
+    @include wh(70%, auto);
     background: #fff;
     margin: 0 auto;
     display: flex;
@@ -624,6 +579,10 @@ export default {
     .ourproduct_img{
       width: 170px;
       height: 160px;
+      img{
+        width: 100%;
+        height: 100%;
+      }
     }
     dl {
       display: flex;
@@ -634,19 +593,20 @@ export default {
       dd {
         padding-left: 4%;
         position: relative;
+        flex:1;
         h2 {
-          height: 34px;
-          line-height: 34px;
-          font-size: 25px;
+          height: 22px;
+          /* line-height: 34px; */
+          font-size: 18px;
           font-weight: 500;
           color: #2f313d;
-          margin-bottom: 10px;
+          margin-bottom: 6px;
           margin-top: 2px;
           @include moreline(2);
         }
         p:nth-child(2) {
           @include moreline(3);
-          font-size:18px;
+          font-size:14px;
           font-weight:500;
           color:rgba(125,127,139,1);
           line-height:25px;
@@ -654,19 +614,19 @@ export default {
         p:last-child {
           position: absolute;
           bottom: 0;
-          font-size:18px;
+          font-size:16px;
           font-weight:500;
           color:rgba(115,121,160,1);
           border:1px solid rgba(115,121,160,1);
           line-height:25px;
           border-radius:22px;
-          padding: 7px 21px;
+          padding: 3px 14px;
         }
       }
     }
   }
   .solution {
-    @include wh(87%, 470px);
+    @include wh(70%, 540px);
     margin: 0 auto;
     background: url('../../assets/images/solutiong_base.png') no-repeat;
     @include minwidth();
@@ -678,20 +638,23 @@ export default {
       .solution-title {
         text-align: center;
         line-height: 1.5;
-        color: rgb(190, 179, 179);
-        h2 {
+        color: #fff;
+        h3{
           font-size: 24px;
-          font-weight: bold;
         }
-        h3 {
+        h4 {
           font-size: 20px;
-          font-weight: bold;
+          /* font-weight: bold; */
         }
       }
       .solution-navMenu{
         .el-menu{
-          padding: 0 140px;
+          font-size: 16px;
+          padding: 0 95px;
           background: none;
+        }
+        .el-menu-item{
+          font-size: 17px;
         }
         .el-menu--horizontal>.el-menu-item:not(.is-disabled){
           background: none;
@@ -701,16 +664,13 @@ export default {
           background: none;
         }
         .el-menu--horizontal>.el-menu-item.is-active{
-          border-bottom: 5px solid #409EFF;
+          border-bottom: 4px solid #409EFF;
         }
       }
       .solution-desc {
         display: flex;
         justify-content: space-around;
-        margin-top: 30px;
-        // .swiper-slide{
-        //   width: 80% !important;
-        // }
+        margin-top: 58px;
         .swiper-container{
           height: 280px;
         }
@@ -725,8 +685,7 @@ export default {
             width: 371px;
           }
           dd {
-            padding-left: 3%;
-            padding-top: 20px;
+            margin: 50px 50px 30px 50px;
             position: relative;
             h2 {
               font-size: 20px;
@@ -740,11 +699,11 @@ export default {
             p:last-child {
               position: absolute;
               bottom: 30px;
-              padding: 2px 7px;
-              border-radius: 10px;
+              padding:4px 19px;
+              border-radius: 15px;
               font-size: 13px;
               color: $color-white;
-              background: $color-base;
+              background:#3064C3;
             }
           }
         }
@@ -752,7 +711,7 @@ export default {
     }
   }
   .customercases {
-    @include wh(87%, 470px);
+    @include wh(70%, 720px);
     @include minwidth();
     margin: 0 auto;
     background: url('../../assets/images/partner_base.png') no-repeat;
@@ -765,24 +724,29 @@ export default {
       .customercases-title {
         text-align: center;
         line-height: 1.5;
-        h2 {
-          font-size: 24px;
-          font-weight: bold;
-        }
         h3 {
+          font-size: 24px;
+        }
+        h4{
           font-size: 20px;
-          font-weight: bold;
+          color: #838596
         }
       }
       .customercases-desc {
-        @include wh(75%, auto);
+        /* @include wh(87%, auto); */
         margin: 0 auto;
+        width: 90%;
         margin-top: 30px;
-        img {
-          width: 174px;
-          height: 100px;
-          margin: 0 25px;
-          // width: 20%;
+        .customercases_imgs{
+          display: inline-block;
+          margin: 5px 11px;
+          z-index: 10;
+          width: 22%;
+          img {
+            // width: 11%;
+            width: 100%;
+            height: 100%;
+          }
         }
       }
     }

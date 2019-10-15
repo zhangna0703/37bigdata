@@ -33,6 +33,11 @@
                     <p class="user_say">一类顾客经常在购买尿布的同时也购买啤酒。看似毫无关联的两个品类的商品其实是一类社会现象所导致的，有很多年轻夫妇女主人在家带孩子，而男主人就去超市买尿布，通常会顺带着买些啤酒。</p>
                     <div class="img_par"><img src="../../assets/images/service.png"/></div>
                   </div>
+                  <!-- <div class="user" v-for="(item,index) in wlwUser" :key="index">
+                    <h2>用户说:</h2>
+                    <p class="user_say">{{item.sayContent}}</p>
+                    <div class="img_par"><img :src="item.sayUserImg"/></div>
+                  </div> -->
                 </div>
               </div>
             </div>
@@ -250,6 +255,7 @@
 </template>
 
 <script>
+import { produce } from '@/api/productcentre'
 import Footer from '@/components/Footer.vue'
 export default {
   data () {
@@ -298,13 +304,33 @@ export default {
         {img: require('@/assets/images/u558.png'), title: '生产线远程监控'},
         {img: require('@/assets/images/u559.png'), title: '安全控制'},
         {img: require('@/assets/images/u560.png'), title: '劳动力均衡'}
-      ]
+      ],
+      wlwUser: [],
+      bigdataUser: []
     }
   },
   components: {
     Footer
   },
+  mounted () {
+    this.getproduceList()
+  },
   methods: {
+    // 获取用户评论
+    getproduceList () {
+      produce().then((res) => {
+        res.data.rows.forEach((item,i)=>{
+          if(item.sayType === 1){
+            this.wlwUser.push(item)
+          }else {
+            this.bigdataUser.push(item)
+          }
+        })
+      })
+        .catch((err) => {
+          console.log(err)
+        })
+    },
     setInternetSow () {
       this.titleState = true
     },
@@ -327,6 +353,11 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.public_title p{
+  margin: 0 auto;
+  width: 1200px;
+  line-height: 30px;
+}
 .product{
   .public_title{padding-bottom:66px;}
   /* .banner{box-sizing: border-box;height: 0;padding-bottom: 30.8%;overflow: hidden;background:url('../../assets/images/service.png');background-size: auto 100%;background-position-x: center;} */
