@@ -305,7 +305,7 @@ export default {
   background: #fff;
 }
 .smallproduce{
-  width: 70%;
+  width: 80%;
   margin: 0 auto;
 }
 .smallproduce .p,.smallcrux .p{
@@ -355,7 +355,7 @@ export default {
     box-sizing: border-box;
 }
 .smallcrux{
-  width: 70%;
+  width: 80%;
   margin: 0 auto;
 }
 .cruxContext{
@@ -458,8 +458,8 @@ export default {
       }
 
       .swiper-pagination-bullet-active {
-        opacity: 0.4;
-        background: $color-theme;
+        /* opacity: 0.4; */
+        background: rgba(0, 102, 153, 1);
       }
     }
   }

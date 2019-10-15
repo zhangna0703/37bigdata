@@ -19,7 +19,7 @@
             <dd>
               <h2>{{item.infoTitle}}</h2>
               <p>{{item.infoProfile}}</p>
-              <p>热点详情→</p>
+              <p @click='goDetail(item)'>热点详情→</p>
             </dd>
           </dl>
         </div>
@@ -82,8 +82,8 @@
             <swiper :options="ourproductswiperOption" ref="mySwiper">
               <swiperSlide v-for="item in solutionData" :key="item.title">
                 <dl>
-                  <dt>
-                    <img class="solution_img" :src="item.img" alt="">
+                  <dt class="solution_img">
+                    <img :src="item.img" alt="">
                   </dt>
                   <dd>
                     <h2>{{item.title}}</h2>
@@ -342,6 +342,9 @@ export default {
     this.getNewsInfoList()
   },
   methods: {
+    goDetail(detail){
+      this.$router.push({ name: 'hotDetail',params:{detail:detail} })
+    },
     // 获取新闻栏数据
     getNewsInfoList () {
       let data = {
@@ -436,7 +439,7 @@ export default {
       position: relative;
       bottom: 100px;
       z-index: 10;
-      width: 70%;
+      width: 80%;
       display: flex;
       box-sizing: border-box;
       justify-content: space-between;
@@ -491,7 +494,7 @@ export default {
     }
   }
   .productcentre {
-    @include wh(70%, auto);
+    @include wh(80%, auto);
     @include minwidth();
     margin: 0 auto;
     margin-top: -60px;
@@ -570,7 +573,7 @@ export default {
     }
   }
   .ourproduct {
-    @include wh(70%, auto);
+    @include wh(80%, auto);
     background: #fff;
     margin: 0 auto;
     display: flex;
@@ -626,14 +629,13 @@ export default {
     }
   }
   .solution {
-    @include wh(70%, 540px);
+    @include wh(100%, 700px);
     margin: 0 auto;
     background: url('../../assets/images/solutiong_base.png') no-repeat;
     @include minwidth();
     .solution-section {
-      @include wh(75%, 450px);
-      margin: 0 auto;
-      padding: 48px 0px 67px 0px;
+      margin: 0 auto 67px;
+      padding-top:48px;
       box-sizing: border-box;
       .solution-title {
         text-align: center;
@@ -650,11 +652,17 @@ export default {
       .solution-navMenu{
         .el-menu{
           font-size: 16px;
-          padding: 0 95px;
+          display: -webkit-box;
+          display: -ms-flexbox;
+          display: flex;
+          justify-content: space-around;
           background: none;
+          width: 80%;
+          margin: 0 auto;
         }
         .el-menu-item{
           font-size: 17px;
+          padding: 0;
         }
         .el-menu--horizontal>.el-menu-item:not(.is-disabled){
           background: none;
@@ -672,21 +680,34 @@ export default {
         justify-content: space-around;
         margin-top: 58px;
         .swiper-container{
-          height: 280px;
+          height: 400px;
+          .swiper-wrapper{
+            width: 80%;
+          }
         }
         dl {
+          height: 400px;
           display: flex;
           background: #fff;
           // padding: 20px;
           box-sizing: border-box;
           cursor: pointer;
           // border: 1px solid #999;
+          border-radius:0px 8px 8px 0px;
+          overflow: hidden;
+          justify-content: space-between;
           .solution_img{
-            width: 371px;
+            width: 46%;
+            img{
+              width: 100%;
+              margin-left:-5px;
+              height: 100%;
+            }
           }
           dd {
             margin: 50px 50px 30px 50px;
             position: relative;
+            flex: 1;
             h2 {
               font-size: 20px;
               font-weight: bold;
@@ -711,13 +732,13 @@ export default {
     }
   }
   .customercases {
-    @include wh(70%, 720px);
+    width: 100%;
     @include minwidth();
     margin: 0 auto;
     background: url('../../assets/images/partner_base.png') no-repeat;
     background-size: 100% 100%;
     .customercases-section {
-      @include wh(100%, 450px);
+      width: 80%;
       margin: 0 auto;
       padding: 48px 0px 67px 0px;
       box-sizing: border-box;
@@ -735,15 +756,13 @@ export default {
       .customercases-desc {
         /* @include wh(87%, auto); */
         margin: 0 auto;
-        width: 90%;
         margin-top: 30px;
         .customercases_imgs{
           display: inline-block;
-          margin: 5px 11px;
+          margin: 5px 15px;
           z-index: 10;
-          width: 22%;
+          width: 21%;
           img {
-            // width: 11%;
             width: 100%;
             height: 100%;
           }

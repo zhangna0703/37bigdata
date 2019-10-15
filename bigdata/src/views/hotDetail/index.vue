@@ -2,10 +2,10 @@
   <div class="city">
     <div class="city_left">
       <div class="city_lTop">
-        <h2>看软通智慧如何定义“智慧城市”</h2>
-        <p>原创：耿仁冲</p>
-        <p>2018-09-03 14:36:10</p>
-        <div class="city_content"></div>
+        <h2>{{dataLists.infoTitle}}</h2>
+        <p>原创：{{dataLists.infoAuthor}}</p>
+        <p>{{dataLists.infoAtptime}}</p>
+        <div class="city_content" v-html='dataLists.infoDetails'></div>
       </div>
     </div>
     <div class="city_right">
@@ -25,13 +25,21 @@
 
 <script>
 export default {
-
+  data() {
+    return {
+      dataLists:{}
+    }
+  },
+  mounted() {
+    this.dataLists = this.$route.params.detail
+    console.log(this.dataLists)
+  }
 }
 </script>
 <style>
 .city{
   display: flex;
-  width: 70%;
+  width: 80%;
   margin: 60px auto 0;
 }
 .city_left{
@@ -57,5 +65,8 @@ export default {
 }
 .city_right p{
   margin-bottom: 20px;
+}
+.city_content{
+  padding-right: 50px;
 }
 </style>

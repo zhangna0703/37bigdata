@@ -120,7 +120,7 @@ export default {
 <style scoped>
 .iotCore,.bigdata{
   display: flex;
-  width: 70%;
+  width: 80%;
   margin: 30px auto;
 }
 .rights{
