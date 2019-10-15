@@ -297,50 +297,50 @@
           { title: '控制面板和可视化', image: require('@/assets/images/u1027.png'), desc: '对于控制面板和可视化，三七公司为您提供快速，基于云的商业分析服务，使您可以轻松构建可从任何浏览器或移动设备访问的精致可视化效果和内容丰富的控制面板。' }
         ],
         strengthsData: [
-          { title: '1. 大数据处理', img: require('@/assets/images/u975.png'), desc: '业内唯一整合三大运营商线上源头数据和银联商务线下消费数据，同时积累了海量广告投放数据及交易平台基础数据。' },
-          { title: '2. 数据分析能力', img: require('@/assets/images/u976.png'), desc: '利用大数据及实际投放数据，系统建立了科学的分类逻辑及模型算法。' },
-          { title: '3. 线上Campaign优化能力', img: require('@/assets/images/u977.png'), desc: '基于持续迭代更新的用户画像体系，在campaign执行过程中根据核心用户画像调整目标人群，及投放策略，实现Campaign优化。' },
-          { title: '4. 完整的用户洞察', img: require('@/assets/images/u980.png'), desc: '通过业内领先技术进行线下CRM数据打通，从而实现在单一系统中的全渠道用户洞察。' },
-          { title: '5. 营销渠道优化能力', img: require('@/assets/images/u983.png'), desc: '通过多维归因模型全方面分析渠道效率及贡献度。' }
+          { title: '1. 大数据处理', img: require('@/assets/images/finance1.png'), desc: '业内唯一整合三大运营商线上源头数据和银联商务线下消费数据，同时积累了海量广告投放数据及交易平台基础数据。' },
+          { title: '2. 数据分析能力', img: require('@/assets/images/finance2.png'), desc: '利用大数据及实际投放数据，系统建立了科学的分类逻辑及模型算法。' },
+          { title: '3. 线上Campaign优化能力', img: require('@/assets/images/finance3.png'), desc: '基于持续迭代更新的用户画像体系，在campaign执行过程中根据核心用户画像调整目标人群，及投放策略，实现Campaign优化。' },
+          { title: '4. 完整的用户洞察', img: require('@/assets/images/finance4.png'), desc: '通过业内领先技术进行线下CRM数据打通，从而实现在单一系统中的全渠道用户洞察。' },
+          { title: '5. 营销渠道优化能力', img: require('@/assets/images/finance5.png'), desc: '通过多维归因模型全方面分析渠道效率及贡献度。' }
         ],
         wlwstrengthsData: [
           {
             dataIndex: 1,
             dataList: [
-              { img: require('@/assets/images/u552.png'), title: '数据云存储与分析' },
-              { img: require('@/assets/images/u553.png'), title: '集成数据更新' },
-              { img: require('@/assets/images/u554.png'), title: '厂内互联互通' },
-              { img: require('@/assets/images/u555.png'), title: '网关应用边缘分析' },
-              { img: require('@/assets/images/u556.png'), title: '设备监控维护' },
-              { img: require('@/assets/images/u558.png'), title: '生产线远程监控' },
-              { img: require('@/assets/images/u559.png'), title: '安全控制' },
-              { img: require('@/assets/images/u560.png'), title: '劳动力均衡' }
+              { img: require('@/assets/images/data1.png'), title: '数据云存储与分析' },
+              { img: require('@/assets/images/data2.png'), title: '集成数据更新' },
+              { img: require('@/assets/images/data3.png'), title: '厂内互联互通' },
+              { img: require('@/assets/images/data4.png'), title: '网关应用边缘分析' },
+              { img: require('@/assets/images/data5.png'), title: '设备监控维护' },
+              { img: require('@/assets/images/data6.png'), title: '生产线远程监控' },
+              { img: require('@/assets/images/data7.png'), title: '安全控制' },
+              { img: require('@/assets/images/data8.png'), title: '劳动力均衡' }
             ]
           },
           {
             dataIndex: 2,
             dataList: [
-              { img: require('@/assets/images/u552.png'), title: '数据云存储与分析' },
-              { img: require('@/assets/images/u553.png'), title: '集成数据更新' },
-              { img: require('@/assets/images/u554.png'), title: '厂内互联互通' },
-              { img: require('@/assets/images/u555.png'), title: '网关应用边缘分析' },
-              { img: require('@/assets/images/u556.png'), title: '设备监控维护' },
-              { img: require('@/assets/images/u558.png'), title: '生产线远程监控' },
-              { img: require('@/assets/images/u559.png'), title: '安全控制' },
-              { img: require('@/assets/images/u560.png'), title: '劳动力均衡' }
+              { img: require('@/assets/images/data1.png'), title: '数据云存储与分析' },
+              { img: require('@/assets/images/data2.png'), title: '集成数据更新' },
+              { img: require('@/assets/images/data3.png'), title: '厂内互联互通' },
+              { img: require('@/assets/images/data4.png'), title: '网关应用边缘分析' },
+              { img: require('@/assets/images/data5.png'), title: '设备监控维护' },
+              { img: require('@/assets/images/data6.png'), title: '生产线远程监控' },
+              { img: require('@/assets/images/data7.png'), title: '安全控制' },
+              { img: require('@/assets/images/data8.png'), title: '劳动力均衡' }
             ]
           },
           {
             dataIndex: 3,
             dataList: [
-              { img: require('@/assets/images/u552.png'), title: '数据云存储与分析' },
-              { img: require('@/assets/images/u553.png'), title: '集成数据更新' },
-              { img: require('@/assets/images/u554.png'), title: '厂内互联互通' },
-              { img: require('@/assets/images/u555.png'), title: '网关应用边缘分析' },
-              { img: require('@/assets/images/u556.png'), title: '设备监控维护' },
-              { img: require('@/assets/images/u558.png'), title: '生产线远程监控' },
-              { img: require('@/assets/images/u559.png'), title: '安全控制' },
-              { img: require('@/assets/images/u560.png'), title: '劳动力均衡' }
+              { img: require('@/assets/images/data1.png'), title: '数据云存储与分析' },
+              { img: require('@/assets/images/data2.png'), title: '集成数据更新' },
+              { img: require('@/assets/images/data3.png'), title: '厂内互联互通' },
+              { img: require('@/assets/images/data4.png'), title: '网关应用边缘分析' },
+              { img: require('@/assets/images/data5.png'), title: '设备监控维护' },
+              { img: require('@/assets/images/data6.png'), title: '生产线远程监控' },
+              { img: require('@/assets/images/data7.png'), title: '安全控制' },
+              { img: require('@/assets/images/data8.png'), title: '劳动力均衡' }
             ]
           }
         ],
@@ -397,7 +397,7 @@
         this.titleState = false
       },
       goDetails(title) {
-        if(title === '数据分析'){
+        if (title === '数据分析') {
           this.$router.push({ name: 'dataanalyze' })
         } else if (title === '数据清洗') {
           this.$router.push({ name: 'datacleansing' })
@@ -744,8 +744,8 @@
         }
 
         p {
-          width: 48%;
-          height: 65%;
+          /* width: 48%;
+          height: 65%; */
 
           img {
             width: 100%;

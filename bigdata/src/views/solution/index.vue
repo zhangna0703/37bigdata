@@ -328,6 +328,9 @@ export default {
   color: #FF9933;
   padding: 30px 0 50px 0;
 }
+.characteristic h2{
+  color: #000
+}
 .produce{
     width: 100%;
     height: 100%;
