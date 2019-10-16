@@ -18,12 +18,13 @@
         </ul>
       </div>
       <div class="right">
-        <img src="../../assets/images/solution_banner1.jpg" alt="">
+        <img src="../../assets/images/report.png" alt="">
       </div>
     </div>
-    <div class="content">
+    <div class="bigcontent">
+      <div class="content">
       <div class="right">
-        <img src="../../assets/images/solution_banner1.jpg" alt="">
+        <img src="../../assets/images/responsive.png" alt="">
       </div>
       <div class="left">
         <h2><span class="span"></span> 数据校验评估</h2>
@@ -35,7 +36,9 @@
           <li><span><img src="../../assets/images/yes.png" alt=""></span> <span>质量优劣评估</span> </li>
         </ul>
       </div>
-    </div><div class="content">
+    </div>
+    </div>
+    <div class="content">
       <div class="left">
         <h2><span class="span"></span> 数据内容提取</h2>
         <ul class="list">
@@ -47,11 +50,17 @@
         </ul>
       </div>
       <div class="right">
-        <img src="../../assets/images/solution_banner1.jpg" alt="">
+        <img src="../../assets/images/seo.png" alt="">
       </div>
     </div>
     <div class="bottom">
       <div class="bot_content">
+        <ol class="bot_img">
+          <li><img src="../../assets/images/check-mark.png" alt=""></li>
+          <li><img src="../../assets/images/studying-1.png" alt=""></li>
+          <li><img src="../../assets/images/line-chart.png" alt=""></li>
+          <li><img src="../../assets/images/chatting.png" alt=""></li>
+        </ol>
         <div class="line">
           <span class="point"></span>
           <span></span>
@@ -62,18 +71,10 @@
           <span class="point"></span>
         </div>
         <ul class="bot_list">
-          <li>
-            <span><img src="../../assets/images/u1111.png" alt=""> </span><span>需求跟进</span>
-          </li>
-          <li>
-            <span><img src="../../assets/images/u1111.png" alt=""> </span><span>定制化解决方案</span>
-          </li>
-          <li>
-            <span><img src="../../assets/images/u1111.png" alt=""> </span><span>数据清洗提</span>
-          </li>
-          <li>
-            <span><img src="../../assets/images/u1111.png" alt=""> </span><span>交付数据</span>
-          </li>
+          <li>需求跟进</li>
+          <li>定制化解决方案</li>
+          <li>数据清洗提</li>
+          <li>交付数据</li>
         </ul>
       </div>
     </div>
@@ -113,49 +114,76 @@ export default {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 85%;
-  margin: 0 auto 50px;
-  padding-top: 73px;
+  width: 100%;
+  margin: 0 auto 20px;
+  padding-top: 39px;
+}
+.banner img{
+  width: 100%;
 }
 .line span{
-  width: 200px;
-  height: 1px;
-  background: #eeeeee;
+  width: 510px;
+  height: 8px;
+  background: #3B6EF1;
+}
+.bigcontent{
+  width: 100%;
+  background: #F0F2F5;
+  padding-top: 90px;
+}
+.bigcontent .content{
+  margin-top: 0;
 }
 .line .point{
-  width: 17px;
-  margin: 0 2px;
+  width: 20px;
+  margin: 0 -1px;
   /* box-sizing: border-box; */
-  height: 17px;
-  background: #eeeeee;
+  height: 20px;
+  background: #3B6EF1;
   border-radius: 50%;
 }
 .bottom{
-  width: 100%;
-  height: 287px;
-  background: rgba(153, 153, 153, 1);
+  width: 100%;  
+  height: auto;
+  background: #F5F8FE;
 }
 .bot_content{
-  width: 50%;
+  width: 80%;
   margin: 0 auto;
+  padding-bottom: 210px;
+}
+.bot_img{
+  padding-top: 180px;
+  height: 120px;
+  display: flex;
+  justify-content:space-between;
+  align-items: flex-end
+}
+.bot_img li{
+  width: 105px;
+  /* height: 102px; */
+}
+.bot_img li img{
+  width: 100%;
 }
 .bot_list{
   display: flex;
   justify-content: space-between;
   align-items: center;
-  color: #fff;
-  font-size: 16px;
+  font-family: PingFang-SC-Medium;
+  font-size: 20px;
+  color: #313F5B;
 }
 .bot_list span:first-child{
   margin-right: 8px;
 }
 .nav{
     display: flex;
-    width: 50%;
+    width: 80%;
     justify-content: space-around;
     margin: 0 auto;
     align-items: center;
-    height: 50px;
+    height: 80px;
     margin-top: 20px;
     font-size: 16px;
     border-bottom: solid 1px #ccc;
@@ -163,22 +191,23 @@ export default {
 }
 .nav li{
   height: 100%;
-  line-height: 50px;
+  line-height: 80px;
+  font-size: 24px;
 }
 .nav li:first-child{
   border-bottom: solid 3px rgba(102, 153, 255, 1);
 }
 
 .left .span{
-  width: 4px;
-  height: 25px;
-  margin-right:8px;
-  background-color:rgba(102, 153, 255, 1);
+  width: 7px;
+  height: 21px;
+  margin-right: 10px;
+  background-color: #FE6021;
 }
 .left h2{
   display: flex;
   align-items: center;
-  font-size: 18px;
+  font-size: 22px;
   font-weight:800;
   margin-bottom: 30px;
 }
@@ -188,7 +217,6 @@ export default {
   margin-top: 90px;
   display: flex;
   justify-content: space-between;
-  border-bottom: #ccc 1px dashed;
   padding-bottom: 70px;
 }
 .left{
@@ -202,7 +230,7 @@ export default {
   height: 100%;
 }
 .list li{
-  font-size: 16px;
+  font-size: 18px;
   line-height: 40px;
   display: flex;
   align-items: center

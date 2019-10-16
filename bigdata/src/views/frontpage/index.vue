@@ -19,7 +19,7 @@
             <dd>
               <h2>{{item.infoTitle}}</h2>
               <p>{{item.infoProfile}}</p>
-              <p @click='goDetail(item)'>热点详情→</p>
+              <p @click='goDetail(item)'>更多→</p>
             </dd>
           </dl>
         </div>
