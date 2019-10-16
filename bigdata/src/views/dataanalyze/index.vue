@@ -112,6 +112,11 @@ export default {
       ]
     }
   },
+  mounted () {
+    router.beforeEach((to, from, next) => {
+      console.log(to, from)
+    })
+  },
   methods: {
     godata (title) {
       if (title === '数据清洗') {

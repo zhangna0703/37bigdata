@@ -22,7 +22,7 @@
       </swiper>
       <img src="../../assets/images/u247.png" alt="">
     </div>
-    <ul class="nav">
+    <ul class="navheader">
       <li @click="setInternetSow" :class="{tit_active:flag}">物联网客户案例</li>
       <li @click="setBigSow" :class="{tit_active:!flag}">大数据客户案例</li>
     </ul>
@@ -120,15 +120,15 @@ export default {
 <style scoped>
 .iotCore,.bigdata{
   display: flex;
-  width: 70%;
-  margin: 30px auto 0;
+  width: 80%;
+  margin: 30px auto;
 }
 .rights{
   display: flex;
   flex-wrap: wrap;
 }
 .rights li{
-  width: 43%;
+  width: 30%;
   margin: 20px;
 }
 .rights li img{
@@ -164,7 +164,7 @@ export default {
   background: rgba(0, 0, 0, .2);
   position: relative;
 }
-.nav{
+.navheader{
     display: flex;
     width: 50%;
     justify-content: space-around;
@@ -175,12 +175,12 @@ export default {
     font-size: 16px;
     border-bottom: solid 1px #ccc;
 }
-.nav li{
+.navheader li{
   height: 100%;
   line-height: 50px;
   cursor: pointer;
 }
-.nav .tit_active{
+.navheader .tit_active{
   font-weight: 800;
   border-bottom: solid 3px rgba(102, 153, 255, 1);
 }

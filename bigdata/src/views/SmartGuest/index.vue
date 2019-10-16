@@ -112,6 +112,9 @@ export default {
 </script>
 
 <style>
+.banner img{
+  width: 100%;
+}
 .line{
   display: flex;
   align-items: center;

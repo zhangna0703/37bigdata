@@ -78,6 +78,7 @@
 
 <script>
 import { swiper, swiperSlide } from 'vue-awesome-swiper'
+import {mapState} from 'vuex' 
 import Footer from '@/components/Footer.vue'
 
 export default {
@@ -127,13 +128,24 @@ export default {
           num: '570万+',
           desc: '终端覆盖量'
         }
-      ]
+      ],
     }
   },
   components: {
     swiper,
     swiperSlide,
     Footer
+  },
+  computed:{
+    ...mapState([
+      'routerIndex'
+    ])
+  },
+  watch: {
+    routerIndex () {
+      console.log(this.routerIndex)
+      this.changeSolutionTabIndex(this.routerIndex)
+    }
   },
   methods: {
     changeSolutionTabIndex (index) {

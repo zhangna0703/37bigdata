@@ -1,51 +1,200 @@
 <template>
   <header>
-      <div class="header-logo">
-          <img src="@/assets/images/logo.png" alt="logo">
-      </div>
-      <ul class="header-menu">
-        <!--<router-link to="/frontpage" tag="li">首页</router-link>
-        <router-link to="/productcentre" tag="li">产品中心</router-link>
-         <div class="producebox">
-          <p>物联网平台</p>
+    <div class="header-logo">
+      <img src="@/assets/images/logo.png" alt="logo">
+    </div>
+    <div class="header-menu">
+      <router-link style="position: relative" v-for="(item,index) in menulink" :key="item.title" @mouseenter.native="enter(index)" @mouseleave.native="leave(index)" :to="item.toLink" class="tag-div" tag="div">
+        <div>
+          <p style="text-align: center">{{item.title}}</p>
+          <div :class="{'marginRight' :item.flexFlag}" style="position: absolute;left: 0;top: 20px;" v-show="item.hideFlag">
+            <div v-if="item.childs" class="menu-wrapper" :class="{'flexBlock': item.flexFlag}">
+              <div v-for="tag of item.childs" :key="tag.id" style="color: #fff;margin: 0px 4px;line-height: 25px;text-align: left;">
+                <p @click="jumpListPage(tag.jumpUrl, tag.index, tag.adoptFlage, tag.titleState)">{{tag.name}}</p>
+                <p @click.stop="jumpListPage(list.jumpUrl, list.index, list.adoptFlage)" v-for="list of tag.components" :key="list.id">{{list.name}}</p>
+              </div>
+            </div>
+          </div>
         </div>
-        <router-link to='/solution' tag="li">解决方案</router-link>
-        <router-link to='/customercases' tag="li">客户案例</router-link>
-        <router-link to='/aboutus' tag="li">关于我们</router-link>
-         <router-link to='' tag="li">帮助支持</router-link>  -->
-        <router-link v-for="item in menulink" :key="item.title" @mouseover.native="changeActive" :to="item.toLink" tag="li">{{item.title}}</router-link>
-
-      </ul>
-      <div class="header-login">
-        <span @click='goLogin'>登录</span>|
-        <span @click='goRegister'>注册</span>
-      </div>
+      </router-link>
+    </div>
+    <div class="header-login">
+      <span @click='goLogin'>登录</span>|
+      <span @click='goRegister'>注册</span>
+    </div>
   </header>
 </template>
 
 <script>
+import {mapMutations} from 'vuex'
 export default {
   data () {
     return {
-      menulink: [{
+      oldRouterUrl: '',
+      menulink: [
+        {
         title: '首页',
         toLink: '/frontpage'
       },
       {
         title: '产品中心',
-        toLink: '/productcentre'
+        toLink: '/productcentre',
+        flexFlag: true,
+        hideFlag: false,
+        childs: [
+          {
+            id: '01',
+            name: '物联网平台',
+            fontBig: true,
+            titleState: true,
+            components: [
+              {
+                id: '001',
+                name: '传感器',
+                fontBig: false,
+                adoptFlage: true,
+                jumpUrl: ''
+              },
+              {
+                id: '002',
+                name: '数据采集',
+                fontBig: false,
+                adoptFlage: true,
+                jumpUrl: ''
+              },
+              {
+                id: '003',
+                name: '智能硬件',
+                fontBig: false,
+                adoptFlage: true,
+                jumpUrl: ''
+              },
+            ]
+          },
+          {
+            name: '大数据中台',
+            fontBig: true,
+            titleState: false,
+            components: [
+              {
+                id: '001',
+                name: '数据清洗',
+                fontBig: false,
+                adoptFlage: true,
+                jumpUrl: 'datacleansing'
+              },
+              {
+                id: '002',
+                name: '数据分析',
+                fontBig: false,
+                adoptFlage: true,
+                jumpUrl: 'dataanalyze'
+              },
+              {
+                id: '003',
+                name: '智能挖掘',
+                fontBig: false,
+                adoptFlage: true,
+                jumpUrl: 'intelligentMining'
+              }
+            ]
+          }
+        ]
       },
       {
         title: '解决方案',
-        toLink: '/solution'
+        toLink: '/solution',
+        hideFlag: false,
+        childs: [
+          {
+            id: '01',
+            name: '智能物联',
+            jumpUrl: 'solution',
+            index: 0
+          },
+          {
+            id: '02',
+            name: '数字营销',
+            jumpUrl: 'solution',
+            index: 1
+          },
+          {
+            id: '03',
+            name: '风险管理',
+            jumpUrl: 'solution',
+            index: 2
+          },
+          {
+            id: '04',
+            name: '质量管控',
+            jumpUrl: 'solution',
+            index: 3
+          },
+          {
+            id: '05',
+            name: '精准获客',
+            jumpUrl: 'solution',
+            index: 4
+          }
+        ]
       },
       {
         title: '客户案例',
-        toLink: '/customercases'
+        toLink: '/customercases',
+        hideFlag: false,
+        childs: [
+          {
+            id: '01',
+            name: '能源物联方案',
+            jumpUrl: 'customercases'
+          },
+          {
+            id: '02',
+            name: '房车物联方案',
+            jumpUrl: 'customercases'
+          },
+          {
+            id: '03',
+            name: '康养物联saas',
+            jumpUrl: 'customercases'
+          },
+          {
+            id: '04',
+            name: '军工物联监测',
+            jumpUrl: 'customercases'
+          }
+        ]
       },
       {
         title: '关于我们',
-        toLink: '/aboutus'
+        toLink: '/aboutus',
+        hideFlag: false,
+        childs: [
+          {
+            id: '01',
+            name: '公司简介',
+            index: 0,
+            jumpUrl: 'aboutus'
+          },
+          {
+            id: '02',
+            name: '企业文化',
+            index: 1,
+            jumpUrl: 'aboutus'
+          },
+          {
+            id: '03',
+            name: '加入我们',
+            index: 2,
+            jumpUrl: 'aboutus'
+          },
+          {
+            id: '04',
+            name: '联系我们',
+            index: 3,
+            jumpUrl: 'aboutus'
+          }
+        ]
       },
       {
         title: '帮助支持',
@@ -54,15 +203,39 @@ export default {
     }
   },
   methods: {
+    // 鼠标移入
+    enter(index){
+      if (index == 0) {
+        return
+      }
+      this.menulink[index].hideFlag = true
+    },
+    // 鼠标移除
+    leave(index){
+       if (index == 0) {
+        return
+      }
+      this.menulink[index].hideFlag = false
+    },
+    // 点击子导航
+    jumpListPage (url, index, adoptFlage, titleState) {
+      // console.log(titleState, '0000000000000')
+      this.ROUTERINDEX(index)
+      this.TITLESTATEFLAGE(titleState)
+      if (adoptFlage) {
+        this.$router.push({name: url})
+      }
+    },
     goLogin () {
       this.$router.push({ name: 'login' })
     },
     goRegister () {
       this.$router.push({ name: 'register' })
     },
-    changeActive () {
-      console.log(1)
-    }
+    ...mapMutations([
+      'ROUTERINDEX',
+      'TITLESTATEFLAGE'
+    ])
   }
 }
 </script>
@@ -76,23 +249,41 @@ display: flex;
 justify-content: space-between;
 padding: 0px 20px;
 box-sizing: border-box;
+z-index: 100;
 .header-logo img {
   width: 150px;
 }
 .header-menu{
   display: flex;
   font-size: 14px;
-  li{
+  z-index: 100;
+  .tag-div{
     height: 20px;
-    border-right: 1px solid #ccc;
-    padding: 0px 25px;
+    // border-right: 1px solid #ccc;
+    padding-right: 60px;
     margin-top: 20px;
     cursor: pointer;
+    .marginRight{
+      left: -40px !important;
+    }
+    .flexBlock{
+      display: flex;
+      // justify-content: space-between;
+    }
+    .menu-wrapper{
+      font-size: 14px;
+      text-align: center;
+      background: #333;
+      opacity: 0.8;
+      padding: 10px 0;
+      z-index: 2
+    }
   }
-  li:last-child{
+  .tag-div:last-child{
     height: 20px;
     border-right: none;
-    padding: 0px 25px;
+    // padding: 0px 25px;
+    padding: 0
   }
   .router-link-exact-active{
     font-size: 15px;
