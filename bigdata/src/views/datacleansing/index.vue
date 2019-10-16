@@ -1,7 +1,7 @@
 <template>
   <div>
     <div class="banner">
-      <img src="../../assets/images/service.png" alt="">
+      <img src="../../assets/images/service.png" style="width: 100%;" alt="">
     </div>
     <ul class="nav">
       <li v-for='(item,index) in datalists' :key='index' @click='godata(item)'>{{item}}</li>

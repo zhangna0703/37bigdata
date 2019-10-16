@@ -26,7 +26,7 @@
                   <h1>{{item.titleEn}}</h1>
                   <h2>{{item.titleCn}}</h2>
                   <p class="p1">{{item.titleExplain}}</p>
-                  <label style="cursor: pointer;">了解详情>></label>
+                  <label style="cursor: pointer;"  @click='goDetails(item.titleCn)'>了解详情>></label>
                 </div>
                 <div class="user">
                   <div>
@@ -367,7 +367,6 @@
     watch: {
       titleStateFlage() {
         this.titleState = this.titleStateFlage
-        console.log(this.titleState, '-----------')
       }
     },
     mounted() {
@@ -397,12 +396,15 @@
         this.titleState = false
       },
       goDetails(title) {
+        console.log(title)
         if (title === '数据分析') {
           this.$router.push({ name: 'dataanalyze' })
         } else if (title === '数据清洗') {
           this.$router.push({ name: 'datacleansing' })
         } else if (title === '智能挖掘') {
           this.$router.push({ name: 'intelligentMining' })
+        } else if (title === '传感器传输') {
+          this.$router.push({ name: 'sensor' })
         } else {
           this.$router.push({ name: 'SmartGuest' })
         }

@@ -219,7 +219,6 @@ export default {
     },
     // 点击子导航
     jumpListPage (url, index, adoptFlage, titleState) {
-      // console.log(titleState, '0000000000000')
       this.ROUTERINDEX(index)
       this.TITLESTATEFLAGE(titleState)
       if (adoptFlage) {
