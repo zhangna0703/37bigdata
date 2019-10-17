@@ -254,7 +254,7 @@ z-index: 100;
 }
 .header-menu{
   display: flex;
-  font-size: 14px;
+  font-size: 17px;
   z-index: 100;
   .tag-div{
     height: 20px;
@@ -285,7 +285,7 @@ z-index: 100;
     padding: 0
   }
   .router-link-exact-active{
-    font-size: 15px;
+    /* font-size: 1px; */
     font-weight: bold;
   }
 }

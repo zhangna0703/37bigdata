@@ -31,7 +31,7 @@ export default {
     }
   },
   mounted() {
-    this.dataLists = this.$route.params.detail
+    this.dataLists = this.$route.query.detail
     console.log(this.dataLists)
   }
 }

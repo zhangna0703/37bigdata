@@ -343,7 +343,7 @@ export default {
   },
   methods: {
     goDetail(detail){
-      this.$router.push({ name: 'hotDetail',params:{detail:detail} })
+      this.$router.push({ name: 'hotDetail',query:{detail:detail} })
     },
     gomore(){
       this.$router.push({ name: 'journalism' })
@@ -389,7 +389,7 @@ export default {
 .frontpage {
   @include wh(100%, auto);
   background: #f2f2f2;
-  header {
+  /* header {
     height: 82px !important;
     background: linear-gradient(
       180deg,
@@ -413,7 +413,6 @@ export default {
       }
       .router-link-exact-active {
         font-size: 18px !important;
-        /* color: rgba(18, 33, 88, 0.5); */
       }
     }
     .header-login {
@@ -424,7 +423,7 @@ export default {
         padding: 0px 10px;
       }
     }
-  }
+  } */
   .banner {
     @include minwidth();
     .swiper-pagination {
