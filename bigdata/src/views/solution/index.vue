@@ -190,6 +190,11 @@
                 </div>
               </div>
             </div>
+            
+            <div class="digitalCompany">
+              <div class="digitalCompanyTitle">适用于企业销售的多种应用场景</div>
+              <img src="../../assets/images/jiejue.png" class="digitalCompanyContent"/>
+          </div>
           </div>
         </div>
         <div class="solution-tab-section" v-if='solutionTabIndex === 4'>
@@ -1017,6 +1022,19 @@ export default {
         }
       }
     }
+  }
+}
+.digitalCompany{
+  padding-top: 50px;
+  .digitalCompanyTitle{
+      margin-bottom: 50px;
+      font-size: 28px;
+      color: #333;
+      text-align: center;
+  }
+  .digitalCompanyContent{
+      width: 100%;
+      height: 465px;
   }
 }
 </style>

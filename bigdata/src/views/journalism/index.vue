@@ -53,7 +53,8 @@
     },
     methods: {
       goDetail(detail) {
-        this.$router.push({ name: 'hotDetail', query: { detail: detail } })
+        this.$router.push({ name: 'hotDetail' })
+        window.localStorage.setItem('detail', JSON.stringify(detail))
       },
       setInternetSow() {
         this.titleState = true

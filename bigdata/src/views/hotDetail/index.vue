@@ -31,7 +31,8 @@ export default {
     }
   },
   mounted() {
-    this.dataLists = this.$route.query.detail
+    document.documentElement.scrollTop = 0
+    this.dataLists = JSON.parse(localStorage.getItem('detail'))
     console.log(this.dataLists)
   }
 }

@@ -408,7 +408,7 @@
         } else if (title === '数据采集') {
           this.$router.push({ name: 'acquisition' })
         } else {
-          this.$router.push({ name: 'SmartGuest' })
+          // this.$router.push({ name: 'SmartGuest' })
         }
       }
     }

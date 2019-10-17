@@ -137,14 +137,14 @@
         ],
         imgList: [
           {
-            imgurl: require('@/assets/images/solution_banner2.jpg')
-          },
-          {
-            imgurl: require('@/assets/images/solution_banner1.jpg')
-          },
-          {
-            imgurl: require('@/assets/images/solution_banner2.jpg')
+            imgurl: require('@/assets/images/about.png')
           }
+          // {
+          //   imgurl: require('@/assets/images/solution_banner1.jpg')
+          // },
+          // {
+          //   imgurl: require('@/assets/images/solution_banner2.jpg')
+          // }
         ],
         solutionTab: ['关于我们', '核心团队', '企业文化', '加入我们', '联系我们'],
         solutionTabIndex: 0,

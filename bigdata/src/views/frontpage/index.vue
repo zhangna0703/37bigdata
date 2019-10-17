@@ -343,7 +343,8 @@ export default {
   },
   methods: {
     goDetail(detail){
-      this.$router.push({ name: 'hotDetail',query:{detail:detail} })
+      this.$router.push({ name: 'hotDetail'})
+      window.localStorage.setItem('detail', JSON.stringify(detail))
     },
     gomore(){
       this.$router.push({ name: 'journalism' })
@@ -607,7 +608,7 @@ export default {
           color: #2f313d;
           margin-bottom: 6px;
           margin-top: 2px;
-          @include moreline(2);
+          @include moreline(1);
         }
         p:nth-child(2) {
           @include moreline(3);
