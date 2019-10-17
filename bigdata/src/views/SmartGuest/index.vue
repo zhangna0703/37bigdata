@@ -17,7 +17,7 @@ export default {
   },
   data () {
     return {
-      datalists: ['数据清洗', '数据分析', '智能挖掘', '智能获客']
+      datalists: ['数据清洗', '数据分析', '智能挖掘']
     }
   },
   methods: {

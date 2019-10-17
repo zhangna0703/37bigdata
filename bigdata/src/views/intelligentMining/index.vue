@@ -97,7 +97,7 @@
             img: require('@/assets/images/u1509.png'),
           }
         ],
-        datalists: ['数据清洗', '数据分析', '智能挖掘', '智能获客'],
+        datalists: ['数据清洗', '数据分析', '智能挖掘'],
         Bigdata_san: [
           {
             img: require('@/assets/images/more3.png'),
@@ -314,7 +314,7 @@
   }
 
   .Bigdata_san {
-    width: 50%;
+    width: 70%;
     margin: 0 auto;
   }
 

@@ -12,14 +12,14 @@
           </swiperSlide>
         </swiper>
         <div class="hotspotarticle">
-          <dl v-for="item in hotspotData" :key="item.title">
+          <dl  @click='goDetail(item)' v-for="item in hotspotData" :key="item.title">
             <dt>
               <img :src="item.infoImg" alt="">
             </dt>
             <dd>
               <h2>{{item.infoTitle}}</h2>
               <p>{{item.infoProfile}}</p>
-              <p @click='goDetail(item)'>更多→</p>
+              <p @click.stop='gomore'>更多→</p>
             </dd>
           </dl>
         </div>
@@ -344,6 +344,9 @@ export default {
   methods: {
     goDetail(detail){
       this.$router.push({ name: 'hotDetail',params:{detail:detail} })
+    },
+    gomore(){
+      this.$router.push({ name: 'journalism' })
     },
     // 获取新闻栏数据
     getNewsInfoList () {

@@ -22,10 +22,13 @@
           <a v-for="(item,index) in item.con" :key="index" :href="item.url">{{item.url_name}}</a>
         </div>
       </div>
+      <div class="center_contentbox">
+      <h2>友情链接：航天智慧科技  发现网</h2>
+      <p>Copyright@ 北京三七数据有限公司  ALL Rights  Reserved 版权所有  备案号：京ICP16024662号-1</p></div>
     </div>
-      <div class="footer_bottom">
+      <!-- <div class="footer_bottom">
         <p v-for="item in coptright" :key="item">{{item}}</p>
-      </div>
+      </div> -->
   </footer>
 </template>
 
@@ -78,6 +81,20 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+  .center_contentbox{
+    width: 80%;
+    margin: 0 auto;
+    padding-bottom: 100px;
+    h2{
+      border-bottom:solid 1px #ccc;
+    padding-bottom: 10px;      
+    }
+    p{
+      float: right;
+    padding-top: 10px;      
+
+    }
+  }
   .footer{width:100%;}
   .smallfooter_top{width: 100%;background:$color-base;}
   .footer_top{width:80%;padding:65px 0;display:flex;box-sizing:border-box;margin: 0 auto}
@@ -93,11 +110,11 @@ export default {
       .free{background: rgba(255, 153, 0, 1)}
     }
   }
-  .smallfooter_center{width: 100%;}
+  .smallfooter_center{width: 100%;background: rgba(51, 51, 51, 1);color:#F2F2F2;}
   .footer_center{display:flex;padding:60px 0;width: 80%;margin: 0 auto;}
   .center_content{margin-right: 2%;
     h1{font-size:20px;font-weight:bold;margin-bottom:36px;}
-      a{display: inline-block;margin-bottom:12px;color:#333333;}
+      a{display: inline-block;margin-bottom:12px;color: #F2F2F2}
   }
   .center_content:nth-child(1){width:40%;}
   .center_content:nth-child(2){width:20%;}

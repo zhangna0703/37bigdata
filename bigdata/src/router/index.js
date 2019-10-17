@@ -16,6 +16,7 @@ import acquisition from '@/views/acquisition/index.vue'// 数据采集
 import intelligentMining from '@/views/intelligentMining/index.vue'// 智能挖掘
 import SmartGuest from '@/views/SmartGuest/index.vue'// 智能获客
 import hotDetail from '@/views/hotDetail/index.vue'// 热点详情
+import journalism from '@/views/journalism/index.vue'// 新闻列表
 Vue.use(Router)
 
 export default new Router({
@@ -56,6 +57,10 @@ export default new Router({
         path: '/hotDetail',
         name: 'hotDetail',
         component: hotDetail
+      }, {
+        path: '/journalism',
+        name: 'journalism',
+        component: journalism
       }, {
         path: '/datacleansing',
         name: 'datacleansing',

@@ -22,7 +22,7 @@
       </ul>
     </div>
     <div class="bigbox">
-      <div class="characteristic">
+      <div class="characteristics">
         <div class="public_title">
           <h2 class="data_title">产品特点</h2>
           <span></span>
@@ -73,7 +73,7 @@ export default {
   },
   data () {
     return {
-      datalists: ['数据清洗', '数据分析', '智能挖掘', '智能获客'],
+      datalists: ['数据清洗', '数据分析', '智能挖掘'],
       list: [
         {
           img: require('@/assets/images/more1.png'),
@@ -206,46 +206,46 @@ export default {
   width: 100%;    
   margin: 30px 0 97px 0;
 }
-.characteristic{
+.characteristics{
   width: 80%;
   margin: 0 auto;
   padding-top: 60px;
   box-sizing: border-box;
   color:#313F5B;
 }
-.characteristic .public_title span{
+.characteristics .public_title span{
   width: 62px;
   height: 5px;
   display: block;
   background-color: #FE6021;
   margin: 0 auto;
 }
-.characteristic ul{
+.characteristics ul{
   margin-top: 105px;
   display: flex;
   justify-content: space-between;
 }
-.characteristic ul li{
+.characteristics ul li{
   flex: 1;
   margin: 0 20px;
 }
-.characteristic ul li h3{
+.characteristics ul li h3{
   margin-bottom: 15px;
   font-size: 19px;
   font-weight: 800;
   color: #FF9933;
 }
-.characteristic ul li p{
+.characteristics ul li p{
   font-size: 16px;
 color: #5E6B84;
 line-height: 26px;
 margin-bottom: 30px;
 width: 402px;
 }
-.characteristic ul li:first-child{
+.characteristics ul li:first-child{
   margin-left: 0
 }
-.characteristic h2{
+.characteristics h2{
   font-size: 18px;
   font-weight: 800;
   margin-bottom: 20px
