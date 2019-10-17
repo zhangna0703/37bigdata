@@ -62,14 +62,39 @@
           </div>
         </div>
         <!-- core-team   end -->
+        <div class="culture">
+          <h2 style="font-size:26px">企业文化</h2>
+          <ul>
+            <li><b>成立时间：</b> 2014年12月</li>
+            <li><b>核心团队：</b> 全部来自北大、清华、哈工大等知名院校</li>
+            <li><b>公司坐标：</b> 中关村软件园核心区</li>
+            <li><b style="color: #FF6633;">核心价值观：</b> 坚持用户至上、坚持创新驱动、坚持全员共赢</li>
+            <li><b>公司愿景：</b> 成为最优秀的数据全产业服务商</li>
+            <li><b>公司使命：</b> 精于数据技术，赋能产业转型</li>
+          </ul>
+        </div>
         <!-- join us  start -->
         <div class="join-us" ref='a2'>
-          <p>加入我们，让大数据世界变得更美好！</p>
-          <div class="picture">
-            <img width="400px" src="../../assets/images/u1013.png" alt="">
+          <div class="join-usbox">
+          <div class="p">加入我们，让大数据世界变得更美好！</div>
+          <div class="join_usFour">
+            <div class="fourbox" v-for='(item,index) in join_us' :key='index'>
+              <h2>{{item.tit}}</h2>
+              <p>岗位职责：</p>
+              <ul>
+                <li v-for='(item,index) in item.content' :key='index'>{{item}}</li>
+              </ul>
+              <span>查看详情</span>
+            </div>
+          </div>
+
           </div>
         </div>
         <!-- join us  end-->
+      </div>
+      <div class="companyAddress">
+        <h2>公司地址</h2>
+        <div id="allmap" ref="allmap"></div>
       </div>
     </div>
     <Footer></Footer>
@@ -82,6 +107,7 @@ import {mapState} from 'vuex'
 import Footer from '@/components/Footer.vue'
 
 export default {
+  name: 'App',
   data () {
     return {
       bannerSwiperOption: {
@@ -90,6 +116,24 @@ export default {
           clickable: true
         }
       },
+      join_us: [
+        {
+          tit:'广告销售经理',
+          content:['1. 寻找有广告投放需求的客户饼洽谈合作；','2. 挖掘客户需求、提供合适的解决方案']
+        },
+        {
+          tit:'运营专员',
+          content:['1. 负责移动互眹网目媒体平台的日常运营及推广工作；','2. 负责能够独立运营微信公众号，为粉丝策划与提供优质、']
+        },
+        {
+          tit:'产品运营',
+          content:['1. 负责公司小程序和微信工作号的运营工作，包括用户；','2. 通过用户运营、营销推广、产品优化等运营工作，制定关于']
+        },
+        {
+          tit:'UI设计',
+          content:['1.负责公司业务设计相关工作；','2.负责营销类小游戏设计（比如天猫双十一营销活动）；']
+        }
+      ],
       imgList: [
         {
           imgurl: require('@/assets/images/solution_banner2.jpg')
@@ -101,7 +145,7 @@ export default {
           imgurl: require('@/assets/images/solution_banner2.jpg')
         }
       ],
-      solutionTab: ['关于我们', '核心团队', '加入我们', '联系我们'],
+      solutionTab: ['关于我们', '核心团队','企业文化', '加入我们', '联系我们'],
       solutionTabIndex: 0,
       expectData: [
         {
@@ -147,7 +191,21 @@ export default {
       this.changeSolutionTabIndex(this.routerIndex)
     }
   },
+  mounted() {
+    this.map()
+  },
   methods: {
+    map(){
+   let map =new BMap.Map(this.$refs.allmap); // 创建Map实例
+   map.centerAndZoom(new BMap.Point(116.404, 39.915), 11);// 初始化地图,设置中心点坐标和地图级别
+   map.addControl(new BMap.MapTypeControl({//添加地图类型控件
+    mapTypes:[
+     BMAP_NORMAL_MAP,
+     BMAP_HYBRID_MAP
+    ]}));
+   map.setCurrentCity("北京");// 设置地图显示的城市 此项是必须设置的
+   map.enableScrollWheelZoom(true); //开启鼠标滚轮缩放
+  },
     changeSolutionTabIndex (index) {
       this.solutionTabIndex = index
       // this.$refs.scrollbox.scrolltop = 200
@@ -155,11 +213,14 @@ export default {
       if (index === 0) {
         document.documentElement.scrollTop = 680
       } else if (index === 1) {
-        document.documentElement.scrollTop = 1650
+        document.documentElement.scrollTop = 1630
       } else if (index === 2) {
         document.documentElement.scrollTop = 2155
+      } else if (index === 3) {
+        document.documentElement.scrollTop = 2765
       } else {
-        document.documentElement.scrollTop = 2355
+        document.documentElement.scrollTop = 3265
+
       }
     }
   }
@@ -167,6 +228,53 @@ export default {
 </script>
 
 <style lang="scss">
+  #allmap{
+ height: 500px;
+ overflow: hidden;
+  
+}
+  .join-usbox,{
+    width: 80%;
+    margin: 0 auto;
+  }
+  .join_usFour{
+    display: flex;
+    justify-content: space-between;
+    height: 350px;
+  }
+  .fourbox{
+    text-align: left;
+    box-shadow: 0 4px 12px #999;
+    background: #fff;
+    flex: 1;
+    margin: 20px;
+    padding: 30px;
+    line-height: 26px;
+    border-radius: 5px;
+    font-size: 16px;
+    box-sizing: border-box;
+  }
+  .fourbox h2{
+    font-size: 20px;
+  }
+  .fourbox p{
+    margin: 10px 0;
+  }
+  .culture,.companyAddress{
+    width: 80%;
+    margin: 0 auto;
+    padding: 100px 0;
+    text-align: center;
+  }
+  .companyAddress h2{
+    font-size: 26px;
+    margin-bottom: 30px;
+  }
+  .culture ul {
+    margin-top: 30px;
+    line-height: 60px;
+    font-size: 20px;
+  }
   .aboutus {
     .banner {
       width: 100%;
@@ -288,18 +396,14 @@ export default {
 }
 .join-us {
   text-align: center;
-  padding-top: 120px;
+  padding: 100px 0;
+  background: #f2f2f2;
   box-sizing: border-box;
-  p {
-    margin: 0 0 120px;
+  .p {
+    margin: 0 0 50px;
     font-size: 28px;
     font-weight: 800;
   }
-  /* .picture{
-    width: 600px;
-    display: flex;
-    justify-content: center;
-  } */
 }
 .aboutus-tab-header {
   /* position: fixed;

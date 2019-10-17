@@ -9,12 +9,13 @@
     <div class="contents">
       <div class="public_title">
         <h2 class="data_title">搭建为有多种运营需求服务的专业数据分析平台</h2>
+        <span></span>
         <p>基于你的业务特点和多部门复合需求，三七数据帮你建立高效的数据指标体系，用先进的事件模型抽象用户行为,提供多维度、多指标的交叉分析能力，全面支撑各个团队的日常数据分析需求，驱动业务决策。</p>
       </div>
       <ul class="wlwstrengthsData">
         <li v-for="(item,index) in list" :key="index">
-          <!-- <p><img :src="item.img"/></p> -->
-          <p><img src="../../assets/images/dianshang_3.png" alt=""></p>
+          <p><img :src="item.img"/></p>
+          <!-- <p><img src="../../assets/images/dianshang_3.png" alt=""></p> -->
           <h2>{{item.title}}</h2>
           <p>{{item.content}}</p>
         </li>
@@ -22,7 +23,11 @@
     </div>
     <div class="bigbox">
       <div class="characteristic">
-        <h2>产品特点</h2>
+        <div class="public_title">
+          <h2 class="data_title">产品特点</h2>
+          <span></span>
+          <p>提供从采集、建模、存储、分析到智能应用的全流程数据驱动解决方案，帮助企业驱动业务决策和产品智能。</p>
+        </div>
         <ul>
           <li v-for='(item,index) in characteristic' :key='index'>
             <h3>{{item.tit}}</h3>
@@ -33,6 +38,12 @@
     </div>
     <div class="bottom">
       <div class="bot_content">
+        <ol class="bot_img">
+          <li><img src="../../assets/images/check-mark.png" alt=""></li>
+          <li><img src="../../assets/images/studying-1.png" alt=""></li>
+          <li><img src="../../assets/images/line-chart.png" alt=""></li>
+          <li><img src="../../assets/images/chatting.png" alt=""></li>
+        </ol>
         <div class="line">
           <span class="point"></span>
           <span></span>
@@ -43,18 +54,10 @@
           <span class="point"></span>
         </div>
         <ul class="bot_list">
-          <li>
-            <span><img src="../../assets/images/u1111.png" alt=""> </span><span>需求跟进</span>
-          </li>
-          <li>
-            <span><img src="../../assets/images/u1111.png" alt=""> </span><span>定制化解决方案</span>
-          </li>
-          <li>
-            <span><img src="../../assets/images/u1111.png" alt=""> </span><span>数据清洗提</span>
-          </li>
-          <li>
-            <span><img src="../../assets/images/u1111.png" alt=""> </span><span>交付数据</span>
-          </li>
+          <li>需求跟进</li>
+          <li>定制化解决方案</li>
+          <li>数据清洗提</li>
+          <li>交付数据</li>
         </ul>
       </div>
     </div>
@@ -73,27 +76,27 @@ export default {
       datalists: ['数据清洗', '数据分析', '智能挖掘', '智能获客'],
       list: [
         {
-          img: '',
+          img: require('@/assets/images/more1.png'),
           title: '多维度',
           content: 'Event + User双表模型手相用户行为，抓取每个行为背后的多维属性，满足多维度的交叉深度分析。'
         }, {
-          img: '',
+          img: require('@/assets/images/more2.png'),
           title: '多场景',
           content: '构建十大分析模型，分析渠道的拉新和转化，产品核心流程的体验优化，用户分群运营提升活跃和留存，满足多角色、多场景的分析需求。'
         }, {
-          img: '',
+          img: require('@/assets/images/more3.png'),
           title: '洞察深',
           content: '分析场景锁定人群，深度下钻洞察单一用户特征，行为序列分析还原每个用户的真实场景，让分析从宏观到微观。'
         }, {
-          img: '',
+          img: require('@/assets/images/more4.png'),
           title: '响应快',
           content: '这里不是有限几个场景预处理的假秒级，这里是全平台分析场景的实时秒级查询。'
         }, {
-          img: '',
+          img: require('@/assets/images/more5.png'),
           title: '多导出',
           content: '可导出多个阶段的数据，包括采集到的最细颗粒度数据、存储后的建模数据、分析后的结果数据等。'
         }, {
-          img: '',
+          img: require('@/assets/images/more6.png'),
           title: '可私有',
           content: '支持私有化部署，积累用户行为数据资产，确保数据安全，确保性能的前提下，硬件成本低。'
         }
@@ -133,19 +136,92 @@ export default {
 }
 </script>
 
+
 <style scoped>
-.bigbox{
+.line span{
+  width: 510px;
+  height: 8px;
+  background: #3B6EF1;
+}
+.bigcontent{
   width: 100%;
-  height: 300px;
-  background: rgba(242, 242, 242, 1);
+  background: #F0F2F5;
+  padding-top: 90px;
+}
+.bigcontent .content{
+  margin-top: 0;
+}
+.line .point{
+  width: 20px;
+  margin: 0 -1px;
+  /* box-sizing: border-box; */
+  height: 20px;
+  background: #3B6EF1;
+  border-radius: 50%;
+}
+.bottom{
+  width: 100%;
+  height: auto;
+  background: #F5F8FE;
+}
+.bot_content{
+  width: 80%;
+  margin: 0 auto;
+  padding-bottom: 210px;
+}
+.bot_img{
+  padding-top: 180px;
+  height: 120px;
+  display: flex;
+  justify-content:space-between;
+  align-items: flex-end
+}
+.bot_img li{
+  width: 105px;
+  /* height: 102px; */
+}
+.bot_img li img{
+  width: 100%;
+}
+.bot_list{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-family: PingFang-SC-Medium;
+  font-size: 20px;
+  color: #313F5B;
+}
+.bot_list span:first-child{
+  margin-right: 8px;
+}
+.line{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  margin: 0 auto 20px;
+  padding-top: 39px;
+}
+.bigbox{
+  width: 100%;    
+  margin: 30px 0 97px 0;
 }
 .characteristic{
-  width: 60%;
+  width: 80%;
   margin: 0 auto;
   padding-top: 60px;
   box-sizing: border-box;
+  color:#313F5B;
+}
+.characteristic .public_title span{
+  width: 62px;
+  height: 5px;
+  display: block;
+  background-color: #FE6021;
+  margin: 0 auto;
 }
 .characteristic ul{
+  margin-top: 105px;
   display: flex;
   justify-content: space-between;
 }
@@ -154,9 +230,17 @@ export default {
   margin: 0 20px;
 }
 .characteristic ul li h3{
-  margin-bottom: 10px;
-  font-size: 16px;
+  margin-bottom: 15px;
+  font-size: 19px;
+  font-weight: 800;
   color: #FF9933;
+}
+.characteristic ul li p{
+  font-size: 16px;
+color: #5E6B84;
+line-height: 26px;
+margin-bottom: 30px;
+width: 402px;
 }
 .characteristic ul li:first-child{
   margin-left: 0
@@ -164,98 +248,78 @@ export default {
 .characteristic h2{
   font-size: 18px;
   font-weight: 800;
-  color: #FF9933;
   margin-bottom: 20px
 }
 .wlwstrengthsData{
   display: flex;
   justify-content: space-between;
-  background: #eeeeee;
+  /* background: #eeeeee; */
   flex-wrap: wrap;
   padding: 15px 15px 0 15px;
   box-sizing: border-box;
-  margin-top: 30px;
+  margin-top: 40px;
 }
 .wlwstrengthsData li{
-  width: 32%;
-  height: 230px;
+  box-shadow: 0 5px 10px 10px rgba(18,33,88,0.05);
+  width: 31%;
+  height: 300px;
   display: flex;
   background: #fff;
   flex-direction: column;
   align-items: center;
-  margin-bottom: 15px;
+  margin-bottom: 45px;
   box-sizing: border-box;
-  padding: 0 20px;
+  padding: 0 25px;
   box-sizing: border-box;
   /* font-size: 16px; */
   /* justify-content: center; */
 }
 .wlwstrengthsData li p:first-child{
-  margin: 20px 0 15px 0;
+  margin-top: 40px;
 }
 .wlwstrengthsData h2{
-  font-size: 18px;
-  margin-bottom: 15px;
+  font-family: PingFangSC-Medium;
+  font-size: 20px;
+  font-weight: 800;
+  color: #313F5B;
+  text-align: center;
+  margin: 30px 0 20px 0;
+}
+.wlwstrengthsData p{
+  font-family: PingFang-SC-Medium;
+  font-size: 16px;
+  color: #5E6B84;
+  text-align: center;
+  line-height: 26px;
 }
 .public_title{
   /* margin-top: 20px; */
   text-align: center;
+  color:#313F5B;
+}
+.public_title span{
+  width: 128px;
+  height: 5px;
+  display: block;
+  background-color: #FE6021;
+  margin: 0 auto;
 }
 .public_title h2{
-  font-size: 20px;
+  font-size: 26px;
   font-weight: 800;
   margin-bottom: 20px;
 }
 .public_title p{
   margin-top: 15px;
-}
-.line{
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 85%;
-  margin: 0 auto 50px;
-  padding-top: 73px;
-}
-.line span{
-  width: 200px;
-  height: 1px;
-  background: #eeeeee;
-}
-.line .point{
-  width: 17px;
-  margin: 0 2px;
-  /* box-sizing: border-box; */
-  height: 17px;
-  background: #eeeeee;
-  border-radius: 50%;
-}
-.bottom{
-  width: 100%;
-  height: 287px;
-  background: rgba(153, 153, 153, 1);
-}
-.bot_content{
-  width: 50%;
-  margin: 0 auto;
-}
-.bot_list{
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  color: #fff;
   font-size: 16px;
-}
-.bot_list span:first-child{
-  margin-right: 8px;
 }
 .navs{
     display: flex;
-    width: 50%;
+    width: 80%;
     justify-content: space-around;
     margin: 0 auto;
     align-items: center;
-    height: 50px;
+    height: 80px;
     margin-top: 20px;
     font-size: 16px;
     border-bottom: solid 1px #ccc;
@@ -263,7 +327,8 @@ export default {
 }
 .navs li{
   height: 100%;
-  line-height: 50px;
+  line-height: 80px;
+  font-size: 24px;
 }
 .navs li:nth-child(2){
   border-bottom: solid 3px rgba(102, 153, 255, 1);
@@ -283,7 +348,7 @@ export default {
   margin-bottom: 30px;
 }
 .contents{
-  width: 55%;
+  width: 80%;
   margin: 0 auto;
   margin-top: 90px;
   /* display: flex;
