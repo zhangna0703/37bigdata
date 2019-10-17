@@ -23,33 +23,35 @@
       </div>
       <!-- 传感器 -->
       <div class="performance" v-for="item of performanceData" :key="item.id">
-        <h1>{{item.title}}</h1>
-        <h3 class="performance_desc">{{item.desc}}</h3>
-        <div class="characteristic">
-          <div class="characteristic_left">
-            <!-- 性能特点 -->
-            <div v-if="item.characteristicChilds.length > 0">
-              <div class="left_til left_lot">性能特点：</div>
-              <p class="left_p" v-for="(list, index) of item.characteristicChilds" :key="index">— {{list}}</p>
+        <div class="performance_wrapper">
+          <h1>{{item.title}}</h1>
+          <h3 class="performance_desc">{{item.desc}}</h3>
+          <div class="characteristic">
+            <div class="characteristic_left">
+              <!-- 性能特点 -->
+              <div v-if="item.characteristicChilds.length > 0">
+                <div class="left_til left_lot">性能特点：</div>
+                <p class="left_p" v-for="(list, index) of item.characteristicChilds" :key="index">— {{list}}</p>
+              </div>
+              <!-- 基本原理 -->
+              <div v-if="item.principlesChids.length > 0">
+                <div class="left_chara left_til">基本原理：</div>
+                <p class="left_p" v-for="(list, index) of item.principlesChids" :key="index">— {{list}}</p>
+              </div>
+              <!-- 主要特征 -->
+              <div v-if="item.MainCharacteristics.length > 0">
+                <div class="left_chara left_til">主要特征：</div>
+                <p class="left_p" v-for="(list, index) of item.MainCharacteristics" :key="index">— {{list}}</p>
+              </div>
             </div>
-            <!-- 基本原理 -->
-            <div v-if="item.principlesChids.length > 0">
-              <div class="left_chara left_til">基本原理：</div>
-              <p class="left_p" v-for="(list, index) of item.principlesChids" :key="index">— {{list}}</p>
-            </div>
-            <!-- 主要特征 -->
-            <div v-if="item.MainCharacteristics.length > 0">
-              <div class="left_chara left_til">主要特征：</div>
-              <p class="left_p" v-for="(list, index) of item.MainCharacteristics" :key="index">— {{list}}</p>
+            <div class="characteristic_right">
+              <img v-for="(imgs,index) of item.characteristicImgs" :key="index" :src="imgs" class="right_imgs" alt="">
             </div>
           </div>
-          <div class="characteristic_right">
-            <img v-for="(imgs,index) of item.characteristicImgs" :key="index" :src="imgs" class="right_imgs" alt="">
+          <div v-if="item.application.length > 0" class="application">
+            <div class="application_title">典例应用</div>
+            <div class="application_desc" v-for="(exemplars, index) of item.application" :key="index">{{exemplars}}</div>
           </div>
-        </div>
-        <div v-if="item.application.length > 0" class="application">
-          <div class="application_title">典例应用</div>
-          <div class="application_desc" v-for="(exemplars, index) of item.application" :key="index">{{exemplars}}</div>
         </div>
       </div>
     </div>
@@ -245,7 +247,9 @@
     border-bottom: solid 3px rgba(102, 153, 255, 1);
   }
   .data_package {
-    padding: 30px 100px 20px 100px;
+    padding: 30px 0 20px 0;
+    width: 80%;
+    margin: 0 auto;
     text-align: center;
   }
   .data_analyse {
@@ -286,7 +290,11 @@
   }
   .performance{
     text-align: left;
-    padding: 30px 100px;
+    padding: 30px 0;
+    .performance_wrapper{
+      width: 80%;
+      margin: 0 auto;
+    }
     h1{
       font-size: 22px;
       line-height: 60px;
@@ -301,7 +309,7 @@
     justify-content: space-between;
     margin: 20px 0;
     .characteristic_left{
-      width: 620px;
+      width: 600px;
     }
     .left_til{
       line-height: 60px;

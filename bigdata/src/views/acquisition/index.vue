@@ -27,30 +27,32 @@
         </div>
       </div>
       <div class="record">
-        <div v-for="(item, index) of acquisitionData" :key="item.id" class="record_wrapper">
-          <div  v-if="index%2 == 1" class="record_desc">
-            <h1>{{item.title}}</h1>
-            <h2>{{item.type}}</h2>
-            <h3>了解详情>></h3>
-            <div class="record_details">
-              <div  class="record_details_icons">
-                <img :src="item.iconImg" alt="">
+        <div class="record_content">
+          <div v-for="(item, index) of acquisitionData" :key="item.id" class="record_wrapper">
+            <div  v-if="index%2 == 1" class="record_desc">
+              <h1>{{item.title}}</h1>
+              <h2>{{item.type}}</h2>
+              <h3>了解详情>></h3>
+              <div class="record_details">
+                <div  class="record_details_icons">
+                  <img :src="item.iconImg" alt="">
+                </div>
+                <p>{{item.desc}}</p>
               </div>
-              <p>{{item.desc}}</p>
             </div>
-          </div>
-          <div class="record_img">
-            <img :src="item.recordImg" alt="">
-          </div>
-          <div v-if="index%2 == 0" class="record_desc">
-            <h1>{{item.title}}</h1>
-            <h2>{{item.type}}</h2>
-            <h3>了解详情>></h3>
-            <div class="record_details">
-              <div  class="record_details_icons">
-                <img :src="item.iconImg" alt="">
+            <div class="record_img">
+              <img :src="item.recordImg" alt="">
+            </div>
+            <div v-if="index%2 == 0" class="record_desc">
+              <h1>{{item.title}}</h1>
+              <h2>{{item.type}}</h2>
+              <h3>了解详情>></h3>
+              <div class="record_details">
+                <div  class="record_details_icons">
+                  <img :src="item.iconImg" alt="">
+                </div>
+                <p>{{item.desc}}</p>
               </div>
-              <p>{{item.desc}}</p>
             </div>
           </div>
         </div>
@@ -129,8 +131,10 @@
     border-bottom: solid 3px rgba(102, 153, 255, 1);
   }
   .data_package {
-    padding: 30px 100px 50px 100px;
+    padding: 30px 0 50px 0;
     text-align: center;
+    // width: 80%;
+    // margin: 0 auto;
   }
   .data_analyse {
     background: #fff;
@@ -154,8 +158,12 @@
     }
   }
   .record{
-    padding: 0 100px;
+    // padding: 0 100px;
     background: #f0f2f5;
+    .record_content{
+      width: 80%;
+      margin: 0 auto;
+    }
     .record_wrapper{
       display: flex;
       justify-content: space-between;
