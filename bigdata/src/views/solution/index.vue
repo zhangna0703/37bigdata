@@ -136,7 +136,7 @@
               </div>
               <div class="digitalCompany">
                   <div class="digitalCompanyTitle">适用于企业销售的多种应用场景</div>
-                  <img src="../../assets/images/solution/company.jpg" class="digitalCompanyContent"/>
+                  <img src="../../assets/images/solution/company.png" class="digitalCompanyContent"/>
               </div>
               <div class="digitalPartner">
                   <div class="digitalPartnerTitle">合作流程</div>
@@ -217,7 +217,7 @@
                   </div>
                   <div class="precisionGuestContentSize precisionGuestContentSizeColor">
                       <div class="precisionGuestContentSizeTitle">适用于企业销售的多种应用场景</div>
-                      <img class="precisionGuestContentSizeImg" src="../../assets/images/solution/company.jpg"/>
+                      <img class="precisionGuestContentSizeImg" src="../../assets/images/solution/company.png"/>
                   </div>
                   <div class="precisionGuestContentSize precisionGuestContentSizePd">
                     <div class="precisionGuestContentSizeTitle">适用于企业销售的多种应用场景</div>
@@ -782,12 +782,11 @@ export default {
                   display: flex;
                   .contentDigitalItem{
                       display: flex;
-                      justify-content: space-between;
                       width: 48%;
-                      justify-content: space-between;
                       .contentDigitalItemImg{
                           width: 230px;
                           height: 197px;
+                          margin-right: 20px;
                       }
                       .contentDigitalItemCon{
                           width: 241px;
