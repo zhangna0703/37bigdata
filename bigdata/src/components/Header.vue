@@ -53,14 +53,14 @@ export default {
                 name: '传感器',
                 fontBig: false,
                 adoptFlage: true,
-                jumpUrl: ''
+                jumpUrl: 'sensor'
               },
               {
                 id: '002',
                 name: '数据采集',
                 fontBig: false,
                 adoptFlage: true,
-                jumpUrl: ''
+                jumpUrl: 'acquisition'
               },
               {
                 id: '003',
@@ -219,7 +219,6 @@ export default {
     },
     // 点击子导航
     jumpListPage (url, index, adoptFlage, titleState) {
-      // console.log(titleState, '0000000000000')
       this.ROUTERINDEX(index)
       this.TITLESTATEFLAGE(titleState)
       if (adoptFlage) {

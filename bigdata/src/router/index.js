@@ -11,6 +11,8 @@ import login from '@/views/login/index.vue'// 登录
 import register from '@/views/register/index.vue'// 注册
 import datacleansing from '@/views/datacleansing/index.vue'// 数据清洗
 import dataanalyze from '@/views/dataanalyze/index.vue'// 数据分析
+import sensor from '@/views/sensor/index.vue'// 传感器
+import acquisition from '@/views/acquisition/index.vue'// 数据采集
 import intelligentMining from '@/views/intelligentMining/index.vue'// 智能挖掘
 import SmartGuest from '@/views/SmartGuest/index.vue'// 智能获客
 import hotDetail from '@/views/hotDetail/index.vue'// 热点详情
@@ -62,6 +64,14 @@ export default new Router({
         path: '/dataanalyze',
         name: 'dataanalyze',
         component: dataanalyze
+      }, {
+        path: '/sensor',
+        name: 'sensor',
+        component: sensor
+      }, {
+        path: '/acquisition',
+        name: 'acquisition',
+        component: acquisition
       }, {
         path: '/customercases',
         name: 'customercases',
