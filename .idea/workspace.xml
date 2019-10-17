@@ -3,7 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="cefba3b3-bb88-4561-9d8c-582ac23bbed4" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bigdata/src/views/solution/index.vue" beforeDir="false" afterPath="$PROJECT_DIR$/bigdata/src/views/solution/index.vue" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -33,25 +32,25 @@
         <counts>
           <entry key="jpg" value="1" />
           <entry key="json" value="1" />
-          <entry key="png" value="3" />
+          <entry key="png" value="4" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key="Image" value="4" />
+          <entry key="Image" value="5" />
           <entry key="JSON" value="1" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="txt" value="7" />
-          <entry key="vue" value="4511" />
+          <entry key="vue" value="4521" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="PLAIN_TEXT" value="7" />
-          <entry key="Vue.js" value="4511" />
+          <entry key="Vue.js" value="4521" />
         </counts>
       </usages-collector>
     </session>
@@ -61,8 +60,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/bigdata/src/views/solution/index.vue">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="395">
-              <caret line="1013" column="35" selection-start-line="1013" selection-start-column="35" selection-end-line="1013" selection-end-column="35" />
+            <state relative-caret-position="9201">
+              <caret line="1011" column="34" selection-start-line="1011" selection-start-column="34" selection-end-line="1011" selection-end-column="34" />
               <folding>
                 <element signature="n#div#0;n#div#1;n#div#0;n#div#0;n#template#0;n#!!top" />
                 <element signature="n#div#1;n#div#0;n#div#1;n#div#1;n#div#0;n#div#0;n#template#0;n#!!top" />
@@ -140,6 +139,30 @@
               <item name="bigdata" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="37bigdata" type="b2602c69:ProjectViewProjectNode" />
+              <item name="37bigdata" type="462c0819:PsiDirectoryNode" />
+              <item name="bigdata" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="assets" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="37bigdata" type="b2602c69:ProjectViewProjectNode" />
+              <item name="37bigdata" type="462c0819:PsiDirectoryNode" />
+              <item name="bigdata" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="assets" type="462c0819:PsiDirectoryNode" />
+              <item name="images" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="37bigdata" type="b2602c69:ProjectViewProjectNode" />
+              <item name="37bigdata" type="462c0819:PsiDirectoryNode" />
+              <item name="bigdata" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="assets" type="462c0819:PsiDirectoryNode" />
+              <item name="images" type="462c0819:PsiDirectoryNode" />
+              <item name="solution" type="462c0819:PsiDirectoryNode" />
+            </path>
           </expand>
           <select />
         </subPane>
@@ -184,7 +207,7 @@
       <option name="presentableId" value="Default" />
       <updated>1571190612698</updated>
       <workItem from="1571190613903" duration="15657000" />
-      <workItem from="1571291961538" duration="1465000" />
+      <workItem from="1571291961538" duration="2187000" />
     </task>
     <task id="LOCAL-00001" summary="merge">
       <created>1571190766175</created>
@@ -204,11 +227,10 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="17122000" />
+    <option name="totallyTimeSpent" value="17844000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1280" height="800" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.2494043" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -259,10 +281,13 @@
     <entry file="file://$PROJECT_DIR$/bigdata/src/assets/images/solution/company.jpg">
       <provider selected="true" editor-type-id="images" />
     </entry>
+    <entry file="file://$PROJECT_DIR$/bigdata/src/assets/images/solution/partner.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
     <entry file="file://$PROJECT_DIR$/bigdata/src/views/solution/index.vue">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="395">
-          <caret line="1013" column="35" selection-start-line="1013" selection-start-column="35" selection-end-line="1013" selection-end-column="35" />
+        <state relative-caret-position="9201">
+          <caret line="1011" column="34" selection-start-line="1011" selection-start-column="34" selection-end-line="1011" selection-end-column="34" />
           <folding>
             <element signature="n#div#0;n#div#1;n#div#0;n#div#0;n#template#0;n#!!top" />
             <element signature="n#div#1;n#div#0;n#div#1;n#div#1;n#div#0;n#div#0;n#template#0;n#!!top" />

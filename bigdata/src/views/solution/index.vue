@@ -782,12 +782,11 @@ export default {
                   display: flex;
                   .contentDigitalItem{
                       display: flex;
-                      justify-content: space-between;
                       width: 48%;
-                      justify-content: space-between;
                       .contentDigitalItemImg{
                           width: 230px;
                           height: 197px;
+                          margin-right: 20px;
                       }
                       .contentDigitalItemCon{
                           width: 241px;
