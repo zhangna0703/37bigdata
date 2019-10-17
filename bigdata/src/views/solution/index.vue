@@ -223,7 +223,7 @@
                     <div class="precisionGuestContentSizeTitle">适用于企业销售的多种应用场景</div>
                     <img class="precisionGuestContentSizeImg redImg" src="../../assets/images/solution/red.png"/>
                   </div>
-                  <div class="precisionGuestContentSize precisionGuestContentSizePd precisionGuestContentSizeColor">
+                  <div class="precisionGuestContentSize precisionGuestContentSizeWidth precisionGuestContentSizePd precisionGuestContentSizeColor">
                     <div class="precisionGuestContentSizeTitle">我们的营销优势</div>
                     <img class="precisionGuestContentSizeImg" src="../../assets/images/solution/partner.png"/>
                   </div>
@@ -1006,6 +1006,12 @@ export default {
                 margin-bottom: 0;
                 img{
                     height: 180px !important;
+                }
+            }
+            .precisionGuestContentSizeWidth{
+                text-align: center;
+                img{
+                    width: 90% !important;
                 }
             }
         }
