@@ -1,10 +1,10 @@
 <template>
-  <header>
+  <header :class="{'headerTop': checkIndex === 0}">
     <div class="header-logo">
       <img src="@/assets/images/logo.png" alt="logo">
     </div>
     <div class="header-menu">
-      <router-link style="position: relative" v-for="(item,index) in menulink" :key="item.title" @mouseenter.native="enter(index)" @mouseleave.native="leave(index)" :to="item.toLink" class="tag-div" tag="div">
+      <div style="position: relative" v-for="(item,index) in menulink" :key="item.title" @mouseenter.native="enter(index)" @mouseleave.native="leave(index)" @click="changePageRouter(item.toLink, index)" :class="{'checkIndexStyle': index === checkIndex}" class="tag-div">
         <div>
           <p style="text-align: center">{{item.title}}</p>
           <div :class="{'marginRight' :item.flexFlag}" style="position: absolute;left: 0;top: 20px;" v-show="item.hideFlag">
@@ -16,7 +16,7 @@
             </div>
           </div>
         </div>
-      </router-link>
+      </div>
     </div>
     <div class="header-login">
       <span @click='goLogin'>登录</span>|
@@ -28,17 +28,20 @@
 <script>
 import {mapMutations} from 'vuex'
 export default {
+  mounted () {
+    console.log(this.checkIndex,this.checkIndex === 0, '9999999')
+  },
   data () {
     return {
-      oldRouterUrl: '',
+      checkIndex: 0,
       menulink: [
         {
         title: '首页',
-        toLink: '/frontpage'
+        toLink: 'frontpage'
       },
       {
         title: '产品中心',
-        toLink: '/productcentre',
+        toLink: 'productcentre',
         flexFlag: true,
         hideFlag: false,
         childs: [
@@ -103,7 +106,7 @@ export default {
       },
       {
         title: '解决方案',
-        toLink: '/solution',
+        toLink: 'solution',
         hideFlag: false,
         childs: [
           {
@@ -140,7 +143,7 @@ export default {
       },
       {
         title: '客户案例',
-        toLink: '/customercases',
+        toLink: 'customercases',
         hideFlag: false,
         childs: [
           {
@@ -167,7 +170,7 @@ export default {
       },
       {
         title: '关于我们',
-        toLink: '/aboutus',
+        toLink: 'aboutus',
         hideFlag: false,
         childs: [
           {
@@ -216,6 +219,13 @@ export default {
         return
       }
       this.menulink[index].hideFlag = false
+    },
+    // 点击导航
+    changePageRouter (url, index) {
+        this.checkIndex = index
+        this.$router.push({name: url})
+      console.log(index)
+
     },
     // 点击子导航
     jumpListPage (url, index, adoptFlage, titleState) {
@@ -275,9 +285,14 @@ z-index: 100;
       background: #333;
       opacity: 0.8;
       padding: 10px 0;
-      z-index: 2
+      z-index: 2;
+      border-radius: 5px;
     }
   }
+  .checkIndexStyle{
+    font-weight: bold;
+  }
+  
   .tag-div:last-child{
     height: 20px;
     border-right: none;
@@ -289,12 +304,19 @@ z-index: 100;
     font-weight: bold;
   }
 }
-.header-login{
-  line-height: 65px;
-  span{
-    cursor: pointer;
-    padding: 0px 10px;
+  .header-login{
+    line-height: 65px;
+    span{
+      cursor: pointer;
+      padding: 0px 10px;
+    }
   }
 }
+.headerTop {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+  background-color: transparent !important;
 }
 </style>

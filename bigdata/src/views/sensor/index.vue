@@ -2,7 +2,7 @@
   <div>
     <div class="sensor">
       <div class="banner">
-        <img src="../../assets/images/service.png" alt="">
+        <img src="../../assets/images/service.png" ondragstart="return false" alt="">
       </div>
       <ul class="nav">
         <li v-for='(item,index) in datalists' :key='index' @click='godata(item)'>{{item}}</li>
@@ -45,7 +45,7 @@
               </div>
             </div>
             <div class="characteristic_right">
-              <img v-for="(imgs,index) of item.characteristicImgs" :key="index" :src="imgs" class="right_imgs" alt="">
+              <img v-for="(imgs,index) of item.characteristicImgs" :key="index" :src="imgs" ondragstart="return false" class="right_imgs" alt="">
             </div>
           </div>
           <div v-if="item.application.length > 0" class="application">

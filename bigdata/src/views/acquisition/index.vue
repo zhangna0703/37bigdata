@@ -2,7 +2,7 @@
   <div>
     <div class="acquisition">
       <div class="banner">
-        <img src="../../assets/images/service.png" alt="">
+        <img src="../../assets/images/service.png" ondragstart="return false" alt="">
       </div>
       <ul class="nav">
         <li v-for='(item,index) in datalists' :key='index' @click='godata(item)'>{{item}}</li>
@@ -14,8 +14,10 @@
           <hr class="hr_top" />
         </div>
         <div class="public_graph">
-          <img src="../../assets/images/graph1.jpg" alt="">
-          <img src="../../assets/images/graph2.png" alt="">
+          <img src="../../assets/images/graph1.jpg" ondragstart="return false" alt="">
+        </div>
+        <div  class="public_graph">
+          <img src="../../assets/images/graph2.png" ondragstart="return false" alt="">
         </div>
       </div>
       <!--  -->
@@ -35,13 +37,13 @@
               <h3>了解详情>></h3>
               <div class="record_details">
                 <div  class="record_details_icons">
-                  <img :src="item.iconImg" alt="">
+                  <img :src="item.iconImg" ondragstart="return false" alt="">
                 </div>
                 <p>{{item.desc}}</p>
               </div>
             </div>
             <div class="record_img">
-              <img :src="item.recordImg" alt="">
+              <img :src="item.recordImg" ondragstart="return false" alt="">
             </div>
             <div v-if="index%2 == 0" class="record_desc">
               <h1>{{item.title}}</h1>
@@ -49,7 +51,7 @@
               <h3>了解详情>></h3>
               <div class="record_details">
                 <div  class="record_details_icons">
-                  <img :src="item.iconImg" alt="">
+                  <img :src="item.iconImg" ondragstart="return false" alt="">
                 </div>
                 <p>{{item.desc}}</p>
               </div>

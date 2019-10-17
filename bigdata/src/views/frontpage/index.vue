@@ -2,7 +2,7 @@
 <template>
   <div>
     <div class="frontpage">
-      <Header></Header>
+      <!-- <Header></Header> -->
       <!-- banner start -->
       <div class="banner">
         <swiper :options="bannerSwiperOption" ref="mySwiper">
@@ -14,7 +14,7 @@
         <div class="hotspotarticle">
           <dl  @click='goDetail(item)' v-for="item in hotspotData" :key="item.title">
             <dt>
-              <img :src="item.infoImg" alt="">
+              <img :src="item.infoImg"  ondragstart="return false" alt="">
             </dt>
             <dd>
               <h2>{{item.infoTitle}}</h2>
