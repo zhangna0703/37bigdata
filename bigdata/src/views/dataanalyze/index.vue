@@ -133,7 +133,7 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
 .bigbox{
   width: 100%;
   height: 300px;
