@@ -405,6 +405,8 @@
           this.$router.push({ name: 'intelligentMining' })
         } else if (title === '传感器传输') {
           this.$router.push({ name: 'sensor' })
+        } else if (title === '数据采集') {
+          this.$router.push({ name: 'acquisition' })
         } else {
           this.$router.push({ name: 'SmartGuest' })
         }

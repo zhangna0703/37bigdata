@@ -136,8 +136,8 @@ export default {
 }
 </script>
 
-<style>
-  
+
+<style scoped>
 .line span{
   width: 510px;
   height: 8px;

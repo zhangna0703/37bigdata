@@ -85,8 +85,8 @@
             principlesChids: [],
             MainCharacteristics: [],
             characteristicImgs: [
-              require('@/assets/images/hot_3.png'),
-              require('@/assets/images/hot_3.png')
+              require('@/assets/images/sensor1_1.png'),
+              require('@/assets/images/sensor1_2.png')
             ],
             application: [
               '产品适用于冷冻库，粮仓，储罐，电讯机房，电力机房，电缆线槽等测温和控制领域。轴瓦，缸体，纺机，空调，等狭小空间工业设备测温和控制。汽车空调、冰箱、冷柜、以及中低温干燥箱等。供热/制冷管道热量计量，中央空调分户热能计量和工业领域测温和控制。'
@@ -111,8 +111,8 @@
             principlesChids: [],
             MainCharacteristics: [],
             characteristicImgs: [
-              require('@/assets/images/hot_3.png'),
-              require('@/assets/images/hot_3.png')
+              require('@/assets/images/sensor2_1.png'),
+              require('@/assets/images/sensor2_2.png')
             ],
             application: [
               '可广泛应用于各种冰箱、空调器、粮仓、 冰库、工业仪器配套和各种温度的测量和控制等领域'
@@ -131,8 +131,8 @@
             principlesChids: [],
             MainCharacteristics: [],
             characteristicImgs: [
-              require('@/assets/images/hot_3.png'),
-              require('@/assets/images/hot_3.png')
+              require('@/assets/images/sensor3_1.png'),
+              require('@/assets/images/sensor3_2.png')
             ],
             application: [
               '低成本电子秤中的应用'
@@ -153,8 +153,8 @@
               '易于集成：多学科交叉：MEMS涉及电子、机械、材料、制造、信息与自动控制、物理、化学和生物等多种学科，并集约了当今科学技术发展的许多尖端成果。'
             ],
             characteristicImgs: [
-              require('@/assets/images/hot_3.png'),
-              require('@/assets/images/hot_3.png')
+              require('@/assets/images/sensor4_1.png'),
+              require('@/assets/images/sensor4_2.png')
             ],
             application: [
               'MEMS传感器已在消费电子产品、汽车工业、医疗保健、机器人及自动化工业、太空卫星、运载火箭、航空航天设备等领域有着广泛的应用，其中消费类电子已经成为了MEMS传感器的第一大应用市场，2014年全球销售额已达30亿美元。'
@@ -171,8 +171,8 @@
               '霍尔传感器具有灵敏度高,线性度和稳定性好,体积小,耐高温等特点。'
             ],
             characteristicImgs: [
-              require('@/assets/images/hot_3.png'),
-              require('@/assets/images/hot_3.png')
+              require('@/assets/images/sensor2_1.png'),
+              require('@/assets/images/sensor2_2.png')
             ],
             application: [
               '霍尔传感器的典型应用——测量转速',
@@ -198,8 +198,8 @@
               '4.灵敏度高，工作电流大，可达数毫安。'
             ],
             characteristicImgs: [
-              require('@/assets/images/hot_3.png'),
-              require('@/assets/images/hot_3.png')
+              require('@/assets/images/sensor6_1.png'),
+              require('@/assets/images/sensor6_2.png')
             ],
             application: []
           }

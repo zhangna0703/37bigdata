@@ -19,7 +19,7 @@
         </div>
       </div>
       <!--  -->
-      <div class="data_analyse data_package">
+      <div class="data_analyse data_package" style="background: #f0f2f5;">
         <div class="public_title">
           <hr class="hr_top hr_top_color" />
           <h1 class="data_title">数据采集，是一切有效分析的前提</h1>
@@ -33,19 +33,23 @@
             <h2>{{item.type}}</h2>
             <h3>了解详情>></h3>
             <div class="record_details">
-              <img :src="item.recordImg" alt="">
+              <div  class="record_details_icons">
+                <img :src="item.iconImg" alt="">
+              </div>
               <p>{{item.desc}}</p>
             </div>
           </div>
           <div class="record_img">
-            <img src="../../assets/images/service.png" alt="">
+            <img :src="item.recordImg" alt="">
           </div>
           <div v-if="index%2 == 0" class="record_desc">
             <h1>{{item.title}}</h1>
             <h2>{{item.type}}</h2>
             <h3>了解详情>></h3>
             <div class="record_details">
-              <img :src="item.recordImg" alt="">
+              <div  class="record_details_icons">
+                <img :src="item.iconImg" alt="">
+              </div>
               <p>{{item.desc}}</p>
             </div>
           </div>
@@ -70,16 +74,16 @@
           {
             id: '001',
             title: '业务采集数据库',
-            recordImg: require('@/assets/images/hot_3.png'),
-            iconImg: require('@/assets/images/hot_3.png'),
+            recordImg: require('@/assets/images/acquisition_1.png'),
+            iconImg: require('@/assets/images/acquisition_icon.png'),
             type: '数据采集，是一切有效分析的前提数据采集要大、全、细、时采集存储在各个关系型数据库中的业务数据。让用户行为数据与业务数据结合，满足复杂分析场景。',
             desc: '陆游房车才用了三七数据的物联网数据服务，将全国的水电桩链接起来，实现全国管控，并可以预知设备的温度、湿度、元器件的损伤...'
           },
           {
             id: '002',
             title: '业务采集数据库',
-            recordImg: require('@/assets/images/hot_3.png'),
-            iconImg: require('@/assets/images/hot_3.png'),
+            recordImg: require('@/assets/images/acquisition_2.png'),
+            iconImg: require('@/assets/images/acquisition_icon.png'),
             type: '数据采集，是一切有效分析的前提数据采集要大、全、细、时采集存储在各个关系型数据库中的业务数据。让用户行为数据与业务数据结合，满足复杂分析场景。',
             desc: '陆游房车才用了三七数据的物联网数据服务，将全国的水电桩链接起来，实现全国管控，并可以预知设备的温度、湿度、元器件的损伤...'
           }
@@ -149,9 +153,6 @@
       background-color: #3C66B7 ;
     }
   }
-  .data_analyse:last-child{
-    background: #f0f2f5;
-  }
   .record{
     padding: 0 100px;
     background: #f0f2f5;
@@ -182,10 +183,13 @@
         }
         .record_details{
           display: flex;
-          img{
-            width: 100px;
-            height: 100px;
-            margin-right: 70px;
+          .record_details_icons{
+            width: 150px;
+            height: 120px;
+            margin-right: 50px;
+            img{
+              width: 100%;
+            }
           }
           p{
             padding-right: 30px;

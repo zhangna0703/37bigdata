@@ -53,14 +53,14 @@ export default {
                 name: '传感器',
                 fontBig: false,
                 adoptFlage: true,
-                jumpUrl: ''
+                jumpUrl: 'sensor'
               },
               {
                 id: '002',
                 name: '数据采集',
                 fontBig: false,
                 adoptFlage: true,
-                jumpUrl: ''
+                jumpUrl: 'acquisition'
               },
               {
                 id: '003',
