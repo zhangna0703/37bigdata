@@ -4,14 +4,14 @@
       <img src="@/assets/images/logo.png" alt="logo">
     </div>
     <div class="header-menu">
-      <div style="position: relative" v-for="(item,index) in menulink" :key="item.title" @mouseenter.native="enter(index)" @mouseleave.native="leave(index)" @click="changePageRouter(item.toLink, index)" :class="{'checkIndexStyle': index === checkIndex}" class="tag-div">
+      <div style="position: relative" v-for="(item,index) in menulink" :key="item.title" @mouseenter="enter(index)" @mouseleave="leave(index)" @click="changePageRouter(item.toLink, index)" :class="{'checkIndexStyle': index === checkIndex}" class="tag-div">
         <div>
           <p style="text-align: center">{{item.title}}</p>
           <div :class="{'marginRight' :item.flexFlag}" style="position: absolute;left: 0;top: 20px;" v-show="item.hideFlag">
             <div v-if="item.childs" class="menu-wrapper" :class="{'flexBlock': item.flexFlag}">
-              <div v-for="tag of item.childs" :key="tag.id" style="color: #fff;margin: 0px 4px;line-height: 25px;text-align: left;">
-                <p @click="jumpListPage(tag.jumpUrl, tag.index, tag.adoptFlage, tag.titleState)">{{tag.name}}</p>
-                <p @click.stop="jumpListPage(list.jumpUrl, list.index, list.adoptFlage)" v-for="list of tag.components" :key="list.id">{{list.name}}</p>
+              <div v-for="(tag) of item.childs" :key="tag.id" style="color: #fff;margin: 0px 4px;line-height: 25px;text-align: left;">
+                <p @click="jumpListPage(tag.jumpUrl, tag.index, tag.adoptFlage, tag.titleState)" class="list_p">{{tag.name}}</p>
+                <p @click.stop="jumpListPage(list.jumpUrl, list.index, list.adoptFlage)" v-for="(list) of tag.components" :key="list.id" class="list_p">{{list.name}}</p>
               </div>
             </div>
           </div>
@@ -28,9 +28,6 @@
 <script>
 import {mapMutations} from 'vuex'
 export default {
-  mounted () {
-    console.log(this.checkIndex,this.checkIndex === 0, '9999999')
-  },
   data () {
     return {
       checkIndex: 0,
@@ -211,7 +208,7 @@ export default {
       if (index == 0) {
         return
       }
-      this.menulink[index].hideFlag = true
+      this.menulink[index].hideFlag = true      
     },
     // 鼠标移除
     leave(index){
@@ -220,12 +217,13 @@ export default {
       }
       this.menulink[index].hideFlag = false
     },
+    listEnter (index) {
+      console.log('index', index)
+    },
     // 点击导航
     changePageRouter (url, index) {
-        this.checkIndex = index
-        this.$router.push({name: url})
-      console.log(index)
-
+      this.checkIndex = index
+      this.$router.push({name: url})
     },
     // 点击子导航
     jumpListPage (url, index, adoptFlage, titleState) {
@@ -264,7 +262,7 @@ z-index: 100;
 }
 .header-menu{
   display: flex;
-  font-size: 14px;
+  font-size: 18px;
   z-index: 100;
   .tag-div{
     height: 20px;
@@ -318,5 +316,9 @@ z-index: 100;
   left: 0;
   z-index: 1000;
   background-color: transparent !important;
+  color: #fff;
+}
+.list_p:hover{
+  font-weight: 600;
 }
 </style>
