@@ -12,6 +12,8 @@ import 'swiper/dist/css/swiper.css'
 import router from './router'
 // 引入i18n国际化插件
 import VueI18n from 'vue-i18n'
+import animate from 'animate.css'
+Vue.use(animate)
 Vue.use(VueI18n)
 Vue.use(VueAwesomeSwiper /* { default global options } */)
 Vue.use(ElementUI)

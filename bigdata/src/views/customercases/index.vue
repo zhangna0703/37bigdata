@@ -33,9 +33,7 @@
           <h2>物联网客户案例</h2>
           <p><img src="../../assets/images/u1868.png" alt=""></p>
           <ul>
-            <li>陆游房车水电桩物联系统</li>
-            <li>可视化管控系统</li>
-            <li>中关村科技园区能源管控系统</li>
+              <li v-for='(item,index) in datalist' @click='changemap(index)' :key='index'>{{item}}</li>
           </ul>
         </div>
         <ul class="rights">
@@ -48,9 +46,8 @@
           <h2>大数据客户案例</h2>
           <p><img src="../../assets/images/u1868.png" alt=""></p>
           <ul>
-            <li>陆游房车水电桩物联系统</li>
-            <li>可视化管控系统</li>
-            <li>中关村科技园区能源管控系统</li>
+            <li v-for='(item,index) in datalist' :key='index'>{{item}}</li>
+            
           </ul>
         </div>
         <ul class="rights">
@@ -74,6 +71,7 @@
     },
     data() {
       return {
+        datalist:['陆游房车水电桩物联系统','可视化管控系统','中关村科技园区能源管控系统'],
         flag: true,
         bannerSwiperOption: {
           pagination: {
@@ -102,7 +100,7 @@
             content: '利用互联网实现了卫生统计工作从单机版层层上报到网络直报的跨越式发展，并基于卫生统计信息数据库构建数据分析平台实现数据互联互通和资源共享。'
           }
         ],
-        datalist: ['物联网客户案例', '大数据客户案例'],
+        // datalist: ['物联网客户案例', '大数据客户案例'],
         imagelist: [require('@/assets/images/u1911.png'), require('@/assets/images/u1912.png'), require('@/assets/images/u1913.png'), require('@/assets/images/u1914.png'), require('@/assets/images/u1915.jpg'), require('@/assets/images/u1916.jpg'), require('@/assets/images/u1918.png'), require('@/assets/images/u1919.png'), require('@/assets/images/u1920.png'), require('@/assets/images/u1921.png')]
       }
     },
@@ -112,6 +110,15 @@
       },
       setBigSow(ind) {
         this.flag = false
+      },
+      changemap(index){
+        if (index === 0) {
+          document.documentElement.scrollTop = 665
+        } else if (index === 1) {
+          document.documentElement.scrollTop = 1365
+        } else if (index === 2) {
+          document.documentElement.scrollTop = 1715
+        }
       }
     }
   }
@@ -128,15 +135,18 @@
   .rights {
     display: flex;
     flex-wrap: wrap;
+    justify-content: space-between
   }
 
   .rights li {
-    width: 30%;
-    margin: 20px;
+    width: 50%;
+    padding: 30px;
+    box-sizing: border-box;
   }
 
   .rights li img {
     width: 100%;
+    height: 100%;
   }
 
   .lefts {

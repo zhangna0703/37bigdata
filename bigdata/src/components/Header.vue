@@ -208,6 +208,9 @@ export default {
       'checkName'
     ])
   },
+  mounted() {
+    console.log(this.checkIndex)
+  },
   methods: {
     changeLanguage(){
       var lang = this.$i18n.locale ==='zh'?'en':'zh'

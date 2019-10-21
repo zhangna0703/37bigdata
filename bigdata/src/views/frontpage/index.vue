@@ -386,6 +386,9 @@ export default {
 </script>
 
 <style lang="scss">
+  /* .header-menu{
+    color: #fff!important;
+  } */
 .ourproductMore{
   cursor: pointer;
 }
@@ -506,7 +509,7 @@ export default {
     }
   }
   .productcentre {
-    @include wh(82%, auto);
+    @include wh(80%, auto);
     @include minwidth();
     margin: 0 auto;
     margin-top: -60px;

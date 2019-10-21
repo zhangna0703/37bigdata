@@ -3,17 +3,18 @@
     <div class="solution">
       <!-- banner start -->
       <div class="banner">
-        <swiper :options="bannerSwiperOption" ref="mySwiper">
-          <!-- slides -->
+        <img src="../../assets/images/solution/blue.png" alt="">
+        <div class="bannerbox">
+          <h2 class="animated bounceInUp">物联网+行业数据分析一站式解决方案</h2>
+          <p class="animated bounceInUp xia">最全面、安全、可扩展且经济高效的服务组合，旨在帮助您构建数据集和数据分析图解</p>
+          <h3 class="animated bounceInUp">了解详情</h3>
+        </div>
+        <!-- <swiper :options="bannerSwiperOption" ref="mySwiper">
           <swiperSlide v-if="imgList.length>0" v-for="(item,index) in imgList" :key="index">
             <div :style="{background:'url('+item.imgurl+') center center / cover',height:'500px'}"></div>
           </swiperSlide>
-          <!-- Optional controls -->
           <div class="swiper-pagination" slot="pagination"></div>
-          <!-- <div class="swiper-button-prev" slot="button-prev"></div>
-              <div class="swiper-button-next" slot="button-next"></div>
-              <div class="swiper-scrollbar"   slot="scrollbar"></div>-->
-        </swiper>
+        </swiper> -->
       </div>
       <!-- banner end -->
 
@@ -443,10 +444,10 @@
           }
         },
         imgList: [
-          {
-            imgurl:
-              require('@/assets/images/solution_banner1.jpg')
-          },
+          // {
+          //   imgurl:
+          //     require('@/assets/images/solution_banner1.jpg')
+          // },
           {
             imgurl:
               require('@/assets/images/solution_banner2.jpg')
@@ -942,7 +943,7 @@
   .solution {
     .banner {
       @include minwidth();
-
+      position: relative;
       .swiper-pagination {
         span {
           width: 100px;
@@ -953,6 +954,35 @@
         .swiper-pagination-bullet-active {
           /* opacity: 0.4; */
           background: rgba(0, 102, 153, 1);
+        }
+      }
+      .bannerbox{
+        height: 100px;
+        position: absolute;
+        top: 25%;
+        left: 10%;
+        color:#fff;
+        font-size: 30px;
+        line-height: 70px;
+        h2{
+          font-size:50px;
+        }
+        .xia{
+          -webkit-animation-delay: .5s;
+          animation-delay: .5s;
+        }
+        h3{
+          margin-top: 10px;
+          background: #ff9900;
+          /* padding: 3px 10px; */
+          border-radius: 8px;
+          width: 140px;
+          font-size: 20px;
+          height: 50px;
+          line-height: 50px;
+          -webkit-animation-delay: 1s;
+          animation-delay: 1s;
+          text-align: center;
         }
       }
     }
