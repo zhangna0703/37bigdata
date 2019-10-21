@@ -236,7 +236,7 @@
     justify-content: space-around;
     margin: 0 auto;
     align-items: center;
-    height: 50px;
+    height: 70px;
     margin-top: 20px;
     font-size: 16px;
     border-bottom: solid 1px #ccc;
@@ -244,7 +244,8 @@
   }
   .nav li{
     height: 100%;
-    line-height: 50px;
+    line-height: 70px;
+    font-size: 20px;
   }
   .nav li:first-child{
     border-bottom: solid 3px rgba(102, 153, 255, 1);
