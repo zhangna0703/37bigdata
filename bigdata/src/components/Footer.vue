@@ -19,7 +19,7 @@
       <div class="footer_center">
         <div class="center_content" v-for="(item,index) in data" :key="index">
           <h1>{{item.title}}</h1>
-          <a v-for="(item,index) in item.con" :key="index" :href="item.url">{{item.url_name}}</a>
+          <span v-for="(item,index) in item.con" :key="index">{{item.url_name}}</span>
         </div>
       </div>
       <div class="center_contentbox">
@@ -114,17 +114,17 @@ export default {
   .footer_center{display:flex;padding:60px 0;width: 80%;margin: 0 auto;}
   .center_content{margin-right: 2%;
     h1{font-size:20px;font-weight:bold;margin-bottom:36px;}
-      a{display: inline-block;margin-bottom:12px;color: #F2F2F2}
+      span{display: inline-block;margin-bottom:12px;color: #F2F2F2}
   }
   .center_content:nth-child(1){width:40%;}
   .center_content:nth-child(2){width:20%;}
   .center_content:nth-child(3){width:20%;}
   .center_content:nth-child(4){width:20%;}
-  .center_content:nth-child(1) a{width:24%;}
-  .center_content:nth-child(2) a{width:50%;}
-  .center_content:nth-child(3) a{width:50%;}
-  .center_content:nth-child(4) a{width:50%;}
-  .center_content:nth-child(1) a:nth-child(2){font-weight: bold;}
-  .center_content:nth-child(1) a:nth-child(6){font-weight: bold;}
+  .center_content:nth-child(1) span{width:24%;}
+  .center_content:nth-child(2) span{width:50%;}
+  .center_content:nth-child(3) span{width:50%;}
+  .center_content:nth-child(4) span{width:50%;}
+  .center_content:nth-child(1) span:nth-child(2){font-weight: bold;}
+  .center_content:nth-child(1) span:nth-child(6){font-weight: bold;}
   .footer_bottom{background:rgba(153, 153, 153, 1);text-align: center;padding:30px 0;}
 </style>

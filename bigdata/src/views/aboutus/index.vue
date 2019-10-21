@@ -137,14 +137,14 @@
         ],
         imgList: [
           {
-            imgurl: require('@/assets/images/solution_banner2.jpg')
-          },
-          {
-            imgurl: require('@/assets/images/solution_banner1.jpg')
-          },
-          {
-            imgurl: require('@/assets/images/solution_banner2.jpg')
+            imgurl: require('@/assets/images/about.png')
           }
+          // {
+          //   imgurl: require('@/assets/images/solution_banner1.jpg')
+          // },
+          // {
+          //   imgurl: require('@/assets/images/solution_banner2.jpg')
+          // }
         ],
         solutionTab: ['关于我们', '核心团队', '企业文化', '加入我们', '联系我们'],
         solutionTabIndex: 0,
@@ -225,7 +225,7 @@
         } else if (index === 3) {
           document.documentElement.scrollTop = 2765
         } else {
-          document.documentElement.scrollTop = 3665
+          document.documentElement.scrollTop = 4256
 
         }
       }
@@ -250,6 +250,16 @@
     display: flex;
     justify-content: space-between;
     height: 350px;
+    position: relative;
+  }
+  .join_usFour span{
+    position: absolute;
+    bottom: 40px;
+    padding: 4px 19px;
+    border-radius: 15px;
+    font-size: 13px;
+    color: #fff;
+    background: #3064C3;
   }
 
   .fourbox {

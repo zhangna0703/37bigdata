@@ -116,6 +116,7 @@ export default {
     }
   },
   mounted () {
+    document.documentElement.scrollTop = 0
     router.beforeEach((to, from, next) => {
       console.log(to, from)
     })

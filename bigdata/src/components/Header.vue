@@ -19,6 +19,7 @@
       </div>
     </div>
     <div class="header-login">
+      <!-- <span @click='changeLanguage'>切换语言</span> -->
       <span @click='goLogin'>登录</span>|
       <span @click='goRegister'>注册</span>
     </div>
@@ -203,6 +204,11 @@ export default {
     }
   },
   methods: {
+    changeLanguage(){
+      var lang = this.$i18n.locale ==='zh'?'en':'zh'
+      this.$i18n.locale = lang
+      console.log(this.$i18n.locale,lang)
+    },
     // 鼠标移入
     enter(index){
       if (index == 0) {
@@ -298,7 +304,7 @@ z-index: 100;
     padding: 0
   }
   .router-link-exact-active{
-    font-size: 15px;
+    /* font-size: 1px; */
     font-weight: bold;
   }
 }
