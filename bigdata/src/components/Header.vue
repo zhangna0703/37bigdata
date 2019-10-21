@@ -7,11 +7,11 @@
       <div style="position: relative" v-for="(item,index) in menulink" :key="item.title" @mouseenter="enter(index)" @mouseleave="leave(index)" @click="changePageRouter(item.toLink, index)" :class="{'checkIndexStyle': index === checkIndex}" class="tag-div">
         <div>
           <p style="text-align: center">{{item.title}}</p>
-          <div :class="{'marginRight' :item.flexFlag}" style="position: absolute;left: 0;top: 20px;" v-show="item.hideFlag">
+          <div :class="{'marginRight' :item.flexFlag}" style="position: absolute;left: 0;top: 20px;text-align: center" v-show="item.hideFlag">
             <div v-if="item.childs" class="menu-wrapper" :class="{'flexBlock': item.flexFlag}">
               <div v-for="(tag) of item.childs" :key="tag.id" style="color: #fff;margin: 0px 4px;line-height: 25px;text-align: left;">
-                <p @click="jumpListPage(tag.jumpUrl, tag.index, tag.adoptFlage, tag.titleState)" class="list_p">{{tag.name}}</p>
-                <p @click.stop="jumpListPage(list.jumpUrl, list.index, list.adoptFlage)" v-for="(list) of tag.components" :key="list.id" class="list_p">{{list.name}}</p>
+                <p @click="jumpListPage(tag.jumpUrl, tag.index, tag.adoptFlage, tag.titleState, tag.name)" :class="{'nameColor': checkName === tag.name}" class="list_p">{{tag.name}}</p>
+                <p @click.stop="jumpListPage(list.jumpUrl, list.index, list.adoptFlage,list.titleState, list.name)" v-for="(list) of tag.components" :key="list.id" :class="{'nameColor': checkName === list.name}" class="list_p">{{list.name}}</p>
               </div>
             </div>
           </div>
@@ -26,7 +26,7 @@
 </template>
 
 <script>
-import {mapMutations} from 'vuex'
+import {mapMutations, mapState, mapActions} from 'vuex'
 export default {
   data () {
     return {
@@ -202,6 +202,11 @@ export default {
       }]
     }
   },
+  computed: {
+    ...mapState([
+      'checkName'
+    ])
+  },
   methods: {
     // 鼠标移入
     enter(index){
@@ -217,18 +222,16 @@ export default {
       }
       this.menulink[index].hideFlag = false
     },
-    listEnter (index) {
-      console.log('index', index)
-    },
     // 点击导航
     changePageRouter (url, index) {
       this.checkIndex = index
       this.$router.push({name: url})
     },
     // 点击子导航
-    jumpListPage (url, index, adoptFlage, titleState) {
-      this.ROUTERINDEX(index)
-      this.TITLESTATEFLAGE(titleState)
+    jumpListPage (url, index, adoptFlage, titleState, name) {
+      this.routerIndex(index)
+      this.titleStateFlage(titleState)
+      this.checkNameFund(name)
       if (adoptFlage) {
         this.$router.push({name: url})
       }
@@ -239,9 +242,10 @@ export default {
     goRegister () {
       this.$router.push({ name: 'register' })
     },
-    ...mapMutations([
-      'ROUTERINDEX',
-      'TITLESTATEFLAGE'
+    ...mapActions([
+      'routerIndex',
+      'titleStateFlage',
+      'checkNameFund'
     ])
   }
 }
@@ -271,7 +275,7 @@ z-index: 100;
     margin-top: 20px;
     cursor: pointer;
     .marginRight{
-      left: -40px !important;
+      left: -55px !important;
     }
     .flexBlock{
       display: flex;
@@ -282,7 +286,7 @@ z-index: 100;
       text-align: center;
       background: #333;
       opacity: 0.8;
-      padding: 10px 0;
+      padding: 20px 15px 8px;
       z-index: 2;
       border-radius: 5px;
     }
@@ -318,7 +322,11 @@ z-index: 100;
   background-color: transparent !important;
   color: #fff;
 }
-.list_p:hover{
-  font-weight: 600;
+.list_p{
+  font-weight: 500 !important;
+}
+.nameColor {
+  color: #FE6021;
+  font-size: 600;
 }
 </style>

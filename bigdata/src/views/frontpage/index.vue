@@ -519,7 +519,7 @@ export default {
     }
     .productcentre-desc {
       display: flex;
-      justify-content: space-around;
+      justify-content: space-between;
       margin-top: 30px;
       .boxshadow {
         box-shadow: 0px 4px 12px 0px rgba(157, 159, 201, 0.3);
