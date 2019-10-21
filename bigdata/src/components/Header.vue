@@ -8,10 +8,13 @@
         <div>
           <p style="text-align: center">{{item.title}}</p>
           <div :class="{'marginRight' :item.flexFlag}" style="position: absolute;left: 0;top: 20px;text-align: center" v-show="item.hideFlag">
-            <div v-if="item.childs" class="menu-wrapper" :class="{'flexBlock': item.flexFlag}">
-              <div v-for="(tag) of item.childs" :key="tag.id" style="color: #fff;margin: 0px 4px;line-height: 25px;text-align: left;">
-                <p @click="jumpListPage(tag.jumpUrl, tag.index, tag.adoptFlage, tag.titleState, tag.name)" :class="{'nameColor': checkName === tag.name}" class="list_p">{{tag.name}}</p>
-                <p @click.stop="jumpListPage(list.jumpUrl, list.index, list.adoptFlage,list.titleState, list.name)" v-for="(list) of tag.components" :key="list.id" :class="{'nameColor': checkName === list.name}" class="list_p">{{list.name}}</p>
+            <div style="height: 10px"></div>
+              <div>
+              <div v-if="item.childs" class="menu-wrapper" :class="{'flexBlock': item.flexFlag}">
+                <div v-for="(tag) of item.childs" :key="tag.id" style="color: #fff;margin: 0px 4px;line-height: 25px;text-align: left;">
+                  <p @click="jumpListPage(tag.jumpUrl, tag.index, tag.adoptFlage, tag.titleState, tag.name)" :class="{'nameColor': checkName === tag.name}" class="list_p">{{tag.name}}</p>
+                  <p @click="jumpListPage(list.jumpUrl, list.index, list.adoptFlage,list.titleState, list.name)" v-for="(list) of tag.components" :key="list.id" :class="{'nameColor': checkName === list.name}" class="list_p">{{list.name}}</p>
+                </div>
               </div>
             </div>
           </div>
@@ -230,11 +233,14 @@ export default {
     },
     // 点击导航
     changePageRouter (url, index) {
+      console.log(111111111111,url)
       this.checkIndex = index
+      // this.checkNameFund('')
       this.$router.push({name: url})
     },
     // 点击子导航
     jumpListPage (url, index, adoptFlage, titleState, name) {
+      console.log(22222222)
       this.routerIndex(index)
       this.titleStateFlage(titleState)
       this.checkNameFund(name)
@@ -290,9 +296,9 @@ z-index: 100;
     .menu-wrapper{
       font-size: 14px;
       text-align: center;
-      background: #333;
-      opacity: 0.8;
-      padding: 20px 15px 8px;
+      background: rgba(63, 63, 72, 0.6);
+      // opacity: 0.6;
+      padding: 15px 15px 8px;
       z-index: 2;
       border-radius: 5px;
     }
