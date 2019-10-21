@@ -245,10 +245,10 @@
   .nav li{
     height: 100%;
     line-height: 70px;
-    font-size: 20px;
+    font-size: 16px;
   }
   .nav li:first-child{
-    border-bottom: solid 3px rgba(102, 153, 255, 1);
+    border-bottom: solid #313F5B 3px;
   }
   .data_package {
     padding: 30px 0 20px 0;

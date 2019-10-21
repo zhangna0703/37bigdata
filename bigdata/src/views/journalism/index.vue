@@ -15,7 +15,7 @@
         <dt><img :src="item.infoImg" alt=""></dt>
         <dd>
           <h2>{{item.infoTitle}}</h2>
-          <h3>2019-04-20</h3>
+          <h3>{{item.infoAtptime}}</h3>
           <p>{{item.infoProfile}}</p>
         </dd>
       </dl>
@@ -69,7 +69,6 @@
           pageSize: this.pageSize
         }
         newsInfoList(data).then((res) => {
-          console.log(res, '9999')
           this.hotspotData = res.data.rows
         })
           .catch((err) => {
@@ -82,7 +81,6 @@
           pageSize: this.pageSizes
         }
         newsInfoList(datas).then((res) => {
-          console.log(res, '9999')
           this.total = res.data.rows.length
         })
       },
@@ -111,7 +109,7 @@
 
 <style>
   .tit_active {
-    border-bottom: 2px solid rgba(102, 153, 255, 1);
+    border-bottom: 3px solid #313F5B;
     font-weight: bold;
   }
 
@@ -201,6 +199,6 @@
   }
 
   .navy li:nth-child(4) {
-    border-bottom: solid 3px rgba(102, 153, 255, 1);
+    border-bottom: solid #313F5B 3px;
   }
 </style>

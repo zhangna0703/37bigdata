@@ -59,7 +59,7 @@
           <dd>
             <h2>{{item.title}}</h2>
             <p>{{item.desc}}</p>
-            <p>了解更多</p>
+            <p @click='more(item.title)' class="ourproductMore">了解更多</p>
           </dd>
         </dl>
       </div>
@@ -162,16 +162,10 @@ export default {
       },
       imgList: [
         {
-          imgurl: require('@/assets/images/banner1.jpg')
+          imgurl: require('@/assets/images/banner.png')
         },
         {
-          imgurl: require('@/assets/images/banner2.jpg')
-        },
-        {
-          imgurl: require('@/assets/images/banner3.jpg')
-        },
-        {
-          imgurl: require('@/assets/images/banner4.jpg')
+          imgurl: require('@/assets/images/banner_1.png')
         }
       ],
       hotspotData: [
@@ -342,6 +336,19 @@ export default {
     this.getNewsInfoList()
   },
   methods: {
+    more(title){
+      if (title === '数据分析') {
+          this.$router.push({ name: 'dataanalyze' })
+        } else if (title === '数据清洗') {
+          this.$router.push({ name: 'datacleansing' })
+        } else if (title === '智能挖掘') {
+          this.$router.push({ name: 'intelligentMining' })
+        } else if (title === '传感器') {
+          this.$router.push({ name: 'sensor' })
+        } else if (title === '数据采集') {
+          this.$router.push({ name: 'acquisition' })
+        }
+    },
     goDetail(detail){
       this.$router.push({ name: 'hotDetail'})
       window.localStorage.setItem('detail', JSON.stringify(detail))
@@ -356,7 +363,6 @@ export default {
         pageSize: this.pageSize
       }
       newsInfoList(data).then((res) => {
-        console.log(res, '9999')
         this.hotspotData = res.data.rows
       })
         .catch((err) => {
@@ -380,6 +386,9 @@ export default {
 </script>
 
 <style lang="scss">
+.ourproductMore{
+  cursor: pointer;
+}
 .hotspotarticle h2{
   font-size: 18px;
   line-height: 26px;
@@ -497,7 +506,7 @@ export default {
     }
   }
   .productcentre {
-    @include wh(80%, auto);
+    @include wh(82%, auto);
     @include minwidth();
     margin: 0 auto;
     margin-top: -60px;

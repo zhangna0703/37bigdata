@@ -73,7 +73,7 @@
         <ul class="bot_list">
           <li>需求跟进</li>
           <li>定制化解决方案</li>
-          <li>数据清洗提</li>
+          <li>数据清洗</li>
           <li>交付数据</li>
         </ul>
       </div>
@@ -195,10 +195,10 @@ export default {
 .nav li{
   height: 100%;
   line-height: 70px;
-  font-size: 20px;
+  font-size: 16px;
 }
 .nav li:first-child{
-  border-bottom: solid 3px rgba(102, 153, 255, 1);
+  border-bottom: solid #313F5B 3px;
 }
 
 .left .span{
