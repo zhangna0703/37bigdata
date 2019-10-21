@@ -23,8 +23,8 @@
     </div>
     <div class="header-login">
       <!-- <span @click='changeLanguage'>切换语言</span> -->
-      <span @click='goLogin'>登录</span>|
-      <span @click='goRegister'>注册</span>
+      <!-- <span @click='goLogin'>登录</span>|
+      <span @click='goRegister'>注册</span> -->
     </div>
   </header>
 </template>
@@ -183,26 +183,26 @@ export default {
           {
             id: '02',
             name: '企业文化',
-            index: 1,
+            index: 2,
             jumpUrl: 'aboutus'
           },
           {
             id: '03',
             name: '加入我们',
-            index: 2,
+            index: 3,
             jumpUrl: 'aboutus'
           },
           {
             id: '04',
             name: '联系我们',
-            index: 3,
+            index: 4,
             jumpUrl: 'aboutus'
           }
         ]
       },
       {
         title: '帮助支持',
-        toLink: '/helpsupport'
+        // toLink: '/helpsupport'
       }]
     }
   },

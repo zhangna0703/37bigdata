@@ -130,11 +130,11 @@
   }
   .navs li{
     height: 100%;
-    font-size: 20px;
     line-height: 70px;
+    font-size: 16px;
   }
   .navs li:nth-child(2){
-    border-bottom: solid 3px rgba(102, 153, 255, 1);
+    border-bottom: solid #313F5B 3px;
   }
   .data_package {
     padding: 30px 0 50px 0;

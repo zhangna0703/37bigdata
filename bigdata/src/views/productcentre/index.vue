@@ -372,7 +372,8 @@
     },
     mounted() {
       this.getproduceList()
-      this.titleState = this.titleStateFlage
+      this.titleState = this.$route.query.index
+      document.documentElement.scrollTop = 0
     },
     methods: {
       // 获取用户评论
@@ -417,6 +418,24 @@
 </script>
 
 <style lang="scss" scoped>
+  .product_title {
+    width: 25%;
+    display: flex;
+    justify-content: space-between;
+    margin: 0 auto;
+    padding: 30px 0px;
+  }
+
+  .product_title span {
+    font-size: 16px;
+    padding: 5px;
+    cursor: pointer;
+  }
+
+  .product_title .tit_active {
+    border-bottom: 4px solid #394263;
+    font-weight: bold;
+  }
   .public_title p {
     margin: 0 auto;
     width: 1200px;
@@ -430,10 +449,11 @@
 
     /* .banner{box-sizing: border-box;height: 0;padding-bottom: 30.8%;overflow: hidden;background:url('../../assets/images/service.png');background-size: auto 100%;background-position-x: center;} */
     .banner {
-      /* height: 480px; */
+      height: 500px;
       width: 100%;
 
       img {
+        height: 100%;
         width: 100%;
       }
     }
@@ -448,20 +468,6 @@
         opacity: 0.2;
       }
     }
-
-    .product_title {
-      text-align: center;
-      padding: 26px 0;
-      cursor: pointer;
-
-      span {
-        display: inline-block;
-        padding: 20px 0;
-        margin-right: 50px;
-        font-size: 24px;
-      }
-    }
-
     .character_center {
       display: flex;
       width: 80%;
@@ -714,10 +720,6 @@
       margin-right: 0;
     }
 
-    .tit_active {
-      border-bottom: 2px solid rgba(102, 153, 255, 1);
-      font-weight: bold;
-    }
   }
 
   .wlwstrengthsData {

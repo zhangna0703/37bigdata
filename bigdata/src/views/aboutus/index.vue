@@ -5,7 +5,7 @@
       <div class="banner">
         <swiper :options="bannerSwiperOption" ref="mySwiper">
           <swiperSlide v-if="imgList.length>0" v-for="(item,index) in imgList" :key="index">
-            <div :style="{background:'url('+item.imgurl+') center center / cover',height:'480px'}"></div>
+            <div :style="{background:'url('+item.imgurl+') center center / cover',height:'500px'}"></div>
           </swiperSlide>
           <div class="swiper-pagination" slot="pagination"></div>
         </swiper>
@@ -194,6 +194,19 @@
     },
     mounted() {
       this.map()
+      document.documentElement.scrollTop = 0
+      var index = this.$route.query.index*1
+      if (index === 0) {
+          document.documentElement.scrollTop = 680
+        } else if (index === 1) {
+          document.documentElement.scrollTop = 1630
+        } else if (index === 2) {
+          document.documentElement.scrollTop = 2155
+        } else if (index === 3) {
+          document.documentElement.scrollTop = 2765
+        } else if (index === 4){
+          document.documentElement.scrollTop = 4256
+        }
     },
     methods: {
       map() {
@@ -305,7 +318,7 @@
   .aboutus {
     .banner {
       width: 100%;
-      height: 480px;
+      height: 500px;
       @include minwidth();
       margin: 0 auto;
 
@@ -462,10 +475,10 @@
     display: flex;
     justify-content: space-between;
     margin: 0 auto;
-    padding: 60px 0px;
+    padding: 30px 0px;
 
     li {
-      font-size: 20px;
+      font-size: 16px;
       padding: 5px;
       cursor: pointer;
     }

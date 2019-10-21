@@ -6,7 +6,7 @@
         <swiper :options="bannerSwiperOption" ref="mySwiper">
           <!-- slides -->
           <swiperSlide v-if="imgList.length>0" v-for="(item,index) in imgList" :key="index">
-            <div :style="{background:'url('+item.imgurl+') center center / cover',height:'520px'}"></div>
+            <div :style="{background:'url('+item.imgurl+') center center / cover',height:'500px'}"></div>
           </swiperSlide>
           <!-- Optional controls -->
           <div class="swiper-pagination" slot="pagination"></div>
@@ -580,11 +580,15 @@
         this.changeSolutionTabIndex(this.routerIndex)
       }
     },
+    mounted() {
+      document.documentElement.scrollTop = 0
+      this.solutionTabIndex=this.$route.query.index*1||this.solutionTabIndex
+    },
     methods: {
       changeSolutionTabIndex(index) {
         this.solutionTabIndex = index
         if (index == 0 || index) {
-          document.documentElement.scrollTop = 600
+          document.documentElement.scrollTop = 565
         }
       },
       changeWord1() {
