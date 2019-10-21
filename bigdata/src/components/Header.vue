@@ -211,11 +211,14 @@ export default {
       'checkName'
     ])
   },
+  mounted () {
+    this.checkIndex = Number(sessionStorage.checkIndex)  || 0
+    console.log(this.checkIndex)
+  },
   methods: {
     changeLanguage(){
       var lang = this.$i18n.locale ==='zh'?'en':'zh'
       this.$i18n.locale = lang
-      console.log(this.$i18n.locale,lang)
     },
     // 鼠标移入
     enter(index){
@@ -233,20 +236,19 @@ export default {
     },
     // 点击导航
     changePageRouter (url, index) {
-      console.log(111111111111,url)
+      sessionStorage.checkIndex = index
       this.checkIndex = index
-      // this.checkNameFund('')
       this.$router.push({name: url})
     },
     // 点击子导航
-    jumpListPage (url, index, adoptFlage, titleState, name) {
-      console.log(22222222)
+    jumpListPage (url, index, adoptFlage, titleState, tabName) {
       this.routerIndex(index)
       this.titleStateFlage(titleState)
-      this.checkNameFund(name)
+      this.checkNameFund(tabName)
       if (adoptFlage) {
         this.$router.push({name: url})
       }
+      console.log('333', adoptFlage, url)
     },
     goLogin () {
       this.$router.push({ name: 'login' })
