@@ -19,9 +19,9 @@
       </router-link>
     </div>
     <div class="header-login">
-      <span @click='changeLanguage'>切换语言</span>
-      <span @click='goLogin'>{{$t('common.login')}}</span>|
-      <span @click='goRegister'>{{$t('common.register')}}</span>
+      <!-- <span @click='changeLanguage'>切换语言</span> -->
+      <span @click='goLogin'>登录</span>|
+      <span @click='goRegister'>注册</span>
     </div>
   </header>
 </template>
