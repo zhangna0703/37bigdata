@@ -4,7 +4,7 @@
       <div class="banner">
         <img src="../../assets/images/service.png" ondragstart="return false" alt="">
       </div>
-      <ul class="nav">
+      <ul class="navs">
         <li v-for='(item,index) in datalists' :key='index' @click='godata(item)'>{{item}}</li>
       </ul>
       <!--  -->
@@ -71,6 +71,9 @@
     components: {
       Footer
     },
+    mounted() {
+      document.documentElement.scrollTop = 0
+    },
     data() {
       return {
         datalists: ['传感器', '数据采集', '智能判读'],
@@ -113,23 +116,24 @@
       width: 100%;
     }
   }
-  .nav{
+  .navs{
     display: flex;
     width: 50%;
     justify-content: space-around;
     margin: 0 auto;
     align-items: center;
-    height: 50px;
+    height: 70px;
     margin-top: 20px;
     font-size: 16px;
     border-bottom: solid 1px #ccc;
     cursor: pointer;
   }
-  .nav li{
+  .navs li{
     height: 100%;
-    line-height: 50px;
+    font-size: 20px;
+    line-height: 70px;
   }
-  .nav li:nth-child(2){
+  .navs li:nth-child(2){
     border-bottom: solid 3px rgba(102, 153, 255, 1);
   }
   .data_package {
