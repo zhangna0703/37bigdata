@@ -133,7 +133,7 @@
       }
     },
     mounted() {
-
+    document.documentElement.scrollTop = 0
     },
     methods: {
       godata(title) {

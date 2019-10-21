@@ -592,7 +592,6 @@ export default {
     }
     dl {
       display: flex;
-      cursor: pointer;
       padding: 55px 35px;
       width: 33.3%;
       box-sizing: border-box;

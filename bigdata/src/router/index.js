@@ -14,7 +14,7 @@ import dataanalyze from '@/views/dataanalyze/index.vue'// 数据分析
 import sensor from '@/views/sensor/index.vue'// 传感器
 import acquisition from '@/views/acquisition/index.vue'// 数据采集
 import intelligentMining from '@/views/intelligentMining/index.vue'// 智能挖掘
-import SmartGuest from '@/views/SmartGuest/index.vue'// 智能获客
+// import SmartGuest from '@/views/SmartGuest/index.vue'// 智能获客
 import hotDetail from '@/views/hotDetail/index.vue'// 热点详情
 import journalism from '@/views/journalism/index.vue'// 新闻列表
 Vue.use(Router)
@@ -93,11 +93,12 @@ export default new Router({
         path: '/intelligentMining',
         name: 'intelligentMining',
         component: intelligentMining
-      }, {
-        path: '/SmartGuest',
-        name: 'SmartGuest',
-        component: SmartGuest
       }
+      // , {
+      //   path: '/SmartGuest',
+      //   name: 'SmartGuest',
+      //   component: SmartGuest
+      // }
       ]
     }
 

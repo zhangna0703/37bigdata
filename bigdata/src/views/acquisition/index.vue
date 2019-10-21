@@ -69,6 +69,9 @@
     components: {
       Footer
     },
+    mounted() {
+      document.documentElement.scrollTop = 0
+    },
     data() {
       return {
         datalists: ['传感器', '数据采集', '智能判读'],

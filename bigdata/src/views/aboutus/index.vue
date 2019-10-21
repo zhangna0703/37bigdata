@@ -225,7 +225,7 @@
         } else if (index === 3) {
           document.documentElement.scrollTop = 2765
         } else {
-          document.documentElement.scrollTop = 3665
+          document.documentElement.scrollTop = 4256
 
         }
       }
@@ -250,6 +250,16 @@
     display: flex;
     justify-content: space-between;
     height: 350px;
+    position: relative;
+  }
+  .join_usFour span{
+    position: absolute;
+    bottom: 40px;
+    padding: 4px 19px;
+    border-radius: 15px;
+    font-size: 13px;
+    color: #fff;
+    background: #3064C3;
   }
 
   .fourbox {

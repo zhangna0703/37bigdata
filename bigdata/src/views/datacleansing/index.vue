@@ -105,7 +105,10 @@ export default {
         this.$router.push({ name: 'SmartGuest' })
       }
     }
-  }
+  },
+  mounted() {
+    document.documentElement.scrollTop = 0
+  },
 }
 </script>
 

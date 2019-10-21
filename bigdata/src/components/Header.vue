@@ -19,8 +19,9 @@
       </router-link>
     </div>
     <div class="header-login">
-      <span @click='goLogin'>登录</span>|
-      <span @click='goRegister'>注册</span>
+      <span @click='changeLanguage'>切换语言</span>
+      <span @click='goLogin'>{{$t('common.login')}}</span>|
+      <span @click='goRegister'>{{$t('common.register')}}</span>
     </div>
   </header>
 </template>
@@ -203,6 +204,11 @@ export default {
     }
   },
   methods: {
+    changeLanguage(){
+      var lang = this.$i18n.locale ==='zh'?'en':'zh'
+      this.$i18n.locale = lang
+      console.log(this.$i18n.locale,lang)
+    },
     // 鼠标移入
     enter(index){
       if (index == 0) {

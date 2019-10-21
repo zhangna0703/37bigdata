@@ -77,7 +77,7 @@
                 <hr class="hr_top" />
                 <p>物联网平台应用于工业、农业、智慧城市、物流，采集足够全面的属性、维度、指标，让积累的数据资产更加优质。</p>
               </div>
-              <swiper :options="bannerSwiperOption" ref="mySwiper">
+              <swiper :options="bannerSwiperOption" ref="mySwiper" v-if="wlwstrengthsData.length>0">
                 <!-- slides -->
                 <swiperSlide v-if="wlwstrengthsData.length>0" class="wlwstrengthsData"
                   v-for="(item,index) in wlwstrengthsData" :key="index">
@@ -349,8 +349,9 @@
         bannerSwiperOption: {
           pagination: {
             el: '.swiper-pagination',
-            clickable: true
-          }
+            clickable: true,
+          },
+          loop:true
         }
       }
     },

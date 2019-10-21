@@ -134,6 +134,7 @@
   }
 
   .newcontent dl {
+    cursor: pointer;
     display: flex;
     justify-content: space-between;
     height: 270px;
