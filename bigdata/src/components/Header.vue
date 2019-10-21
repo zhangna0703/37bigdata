@@ -8,10 +8,13 @@
         <div>
           <p style="text-align: center">{{item.title}}</p>
           <div :class="{'marginRight' :item.flexFlag}" style="position: absolute;left: 0;top: 20px;text-align: center" v-show="item.hideFlag">
-            <div v-if="item.childs" class="menu-wrapper" :class="{'flexBlock': item.flexFlag}">
-              <div v-for="(tag) of item.childs" :key="tag.id" style="color: #fff;margin: 0px 4px;line-height: 25px;text-align: left;">
-                <p @click="jumpListPage(tag.jumpUrl, tag.index, tag.adoptFlage, tag.titleState, tag.name)" :class="{'nameColor': checkName === tag.name}" class="list_p">{{tag.name}}</p>
-                <p @click.stop="jumpListPage(list.jumpUrl, list.index, list.adoptFlage,list.titleState, list.name)" v-for="(list) of tag.components" :key="list.id" :class="{'nameColor': checkName === list.name}" class="list_p">{{list.name}}</p>
+            <div style="height: 10px"></div>
+              <div>
+              <div v-if="item.childs" class="menu-wrapper" :class="{'flexBlock': item.flexFlag}">
+                <div v-for="(tag) of item.childs" :key="tag.id" style="color: #fff;margin: 0px 4px;line-height: 25px;text-align: left;">
+                  <p @click="jumpListPage(tag.jumpUrl, tag.index, tag.adoptFlage, tag.titleState, tag.name)" :class="{'nameColor': checkName === tag.name}" class="list_p">{{tag.name}}</p>
+                  <p @click="jumpListPage(list.jumpUrl, list.index, list.adoptFlage,list.titleState, list.name)" v-for="(list) of tag.components" :key="list.id" :class="{'nameColor': checkName === list.name}" class="list_p">{{list.name}}</p>
+                </div>
               </div>
             </div>
           </div>
@@ -208,14 +211,14 @@ export default {
       'checkName'
     ])
   },
-  mounted() {
+  mounted () {
+    this.checkIndex = Number(sessionStorage.checkIndex)  || 0
     console.log(this.checkIndex)
   },
   methods: {
     changeLanguage(){
       var lang = this.$i18n.locale ==='zh'?'en':'zh'
       this.$i18n.locale = lang
-      console.log(this.$i18n.locale,lang)
     },
     // 鼠标移入
     enter(index){
@@ -233,17 +236,19 @@ export default {
     },
     // 点击导航
     changePageRouter (url, index) {
+      sessionStorage.checkIndex = index
       this.checkIndex = index
       this.$router.push({name: url})
     },
     // 点击子导航
-    jumpListPage (url, index, adoptFlage, titleState, name) {
+    jumpListPage (url, index, adoptFlage, titleState, tabName) {
       this.routerIndex(index)
       this.titleStateFlage(titleState)
-      this.checkNameFund(name)
+      this.checkNameFund(tabName)
       if (adoptFlage) {
         this.$router.push({name: url})
       }
+      console.log('333', adoptFlage, url)
     },
     goLogin () {
       this.$router.push({ name: 'login' })
@@ -293,9 +298,9 @@ z-index: 100;
     .menu-wrapper{
       font-size: 14px;
       text-align: center;
-      background: #333;
-      opacity: 0.8;
-      padding: 20px 15px 8px;
+      background: rgba(63, 63, 72, 0.6);
+      // opacity: 0.6;
+      padding: 15px 15px 8px;
       z-index: 2;
       border-radius: 5px;
     }

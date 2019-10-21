@@ -8,4 +8,5 @@ export const titleStateFlage = ({commit}, data) => {
 export const checkNameFund = ({commit}, data) => {
   commit('CHECKNAME', data)
 }
+
   
