@@ -221,6 +221,7 @@ export default {
   display: flex;
   justify-content: space-between;
   padding-bottom: 70px;
+  align-items: center;
 }
 .left{
   width: 40%;

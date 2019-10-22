@@ -62,7 +62,7 @@
     },
     mounted() {
       this.getNewsInfoList()
-      this.getNewsInfoLists();
+      // this.getNewsInfoLists();
     },
     methods: {
       goDetail(detail) {
@@ -82,10 +82,15 @@
           pageSize: this.pageSize
         }
         newsInfoList(data).then((res) => {
-          if(res.data.rows.infoType==1){
-            this.sanqi = res.data.rows
+          res.data.rows.forEach((item,i)=>{
+          if(item.infoType==1){
+            this.sanqi.push(item)
+            this.sanqitotal = this.sanqi.length
+          }else{
+          this.hotspotData.push(item)
+          this.total = this.hotspotData.length
           }
-          this.hotspotData = res.data.rows
+          })
         })
           .catch((err) => {
             console.log(err)

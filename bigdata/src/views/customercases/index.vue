@@ -1,8 +1,7 @@
 <template>
   <div>
     <div class="banner">
-      <swiper :options="bannerSwiperOption" ref="mySwiper" class="swipers">
-        <!-- slides -->
+      <!-- <swiper :options="bannerSwiperOption" ref="mySwiper" class="swipers">
         <swiperSlide v-if="imgList.length>0" v-for="(item,index) in imgList" :key="index">
           <div class="shadow">
             <div class="show_cont">
@@ -19,8 +18,12 @@
         </swiperSlide>
         <div class="swiper-button-prev" slot="button-prev">＜</div>
         <div class="swiper-button-next" slot="button-next">＞</div>
-      </swiper>
-      <img src="../../assets/images/u247.png" alt="">
+      </swiper> -->
+      <img src="../../assets/images/example.png" alt="">
+      <div class="bannerboxs">
+        <h2 class="animated bounceInUp">为什么那么多客户选择我们？</h2>
+        <p class="animated bounceInUp xias">团队为500+行业企业提供专业、高效、安全的解决方案!</p>
+      </div>
     </div>
     <ul class="navheader">
       <li @click="setInternetSow" :class="{tit_active:flag}">物联网客户案例</li>
@@ -33,7 +36,7 @@
           <h2>物联网客户案例</h2>
           <p><img src="../../assets/images/u1868.png" alt=""></p>
           <ul>
-              <li v-for='(item,index) in datalist' @click='changemap(index)' :key='index'>{{item}}</li>
+            <li v-for='(item,index) in datalist' @click='changemap(index)' :key='index'>{{item}}</li>
           </ul>
         </div>
         <ul class="rights">
@@ -47,7 +50,7 @@
           <p><img src="../../assets/images/u1868.png" alt=""></p>
           <ul>
             <li v-for='(item,index) in datalist' :key='index'>{{item}}</li>
-            
+
           </ul>
         </div>
         <ul class="rights">
@@ -71,7 +74,7 @@
     },
     data() {
       return {
-        datalist:['陆游房车水电桩物联系统','可视化管控系统','中关村科技园区能源管控系统'],
+        datalist: ['陆游房车水电桩物联系统', '可视化管控系统', '中关村科技园区能源管控系统'],
         flag: true,
         bannerSwiperOption: {
           pagination: {
@@ -111,7 +114,7 @@
       setBigSow(ind) {
         this.flag = false
       },
-      changemap(index){
+      changemap(index) {
         if (index === 0) {
           document.documentElement.scrollTop = 665
         } else if (index === 1) {
@@ -165,6 +168,7 @@
 
   .lefts ul li {
     line-height: 40px;
+    cursor: pointer;
     font-size: 14px;
   }
 
@@ -245,14 +249,30 @@
     height: 500px;
     width: 100%;
     position: relative;
-    display: flex;
-    justify-content: center;
-    align-items: center;
   }
 
+  .bannerboxs {
+    height: 100px;
+    position: absolute;
+    top: 25%;
+    left: 10%;
+    color: #fff;
+    font-size: 30px;
+    line-height: 70px;
+
+    
+  }
+  .bannerboxs h2 {
+      font-size: 50px;
+    }
+
+    .xias {
+      animation-delay: .5s;
+      -webkit-animation-delay: .5s;
+    }
+
   .banner>img {
-    height: 100%;
-    margin-left: -20px;
+    /* height: 100%; */
     width: 100%;
   }
 

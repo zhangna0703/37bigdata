@@ -100,7 +100,7 @@
         datalists: ['数据清洗', '数据分析', '智能挖掘'],
         Bigdata_san: [
           {
-            img: require('@/assets/images/more3.png'),
+            img: require('@/assets/images/solution/big.png'),
             tit: '适合大型企业',
             content: [
               '分布式云计算，线性扩展，保证性能',
@@ -110,7 +110,7 @@
               '训练自动化、模型自学习，提供企业级模型工厂'
             ]
           }, {
-            img: require('@/assets/images/more3.png'),
+            img: require('@/assets/images/solution/person.png'),
             tit: '适合普通用户',
             content: [
               '直观易上手的流式建模,极简风格的节点配置界',
@@ -119,7 +119,7 @@
               '模型超参数自动调整,降低使用门槛'
             ]
           }, {
-            img: require('@/assets/images/more3.png'),
+            img: require('@/assets/images/solution/suan.png'),
             tit: '专业算法能力',
             content: [
               '内35大类机器学习成熟算法',

@@ -104,7 +104,17 @@
             <div class="scene">
               <div class="line"></div>
               <h2>客户实战场景</h2>
-              <p><img src="../../assets/images/u1607.png" alt=""></p>
+              <div class="anli">
+                <dl>
+                  <dt><img src="../../assets/images/anli1.png" alt=""></dt>
+                  <dd>新能源监控</dd>
+                </dl>
+                <dl>
+                  <dt><img src="../../assets/images/anli2.png" alt=""></dt>
+                  <dd>智能城市</dd>
+                </dl>
+              </div>
+              <!-- <p><img src="../../assets/images/u1607.png" alt=""></p> -->
               <div class="scene_bottom">
                 <div class="left">
                   <img src="../../assets/images/solution/left.png" alt="">
@@ -166,9 +176,33 @@
               <div class="digitalCompanyTitle">适用于企业销售的多种应用场景</div>
               <img src="../../assets/images/jiejue.png" class="digitalCompanyContent" />
             </div>
-            <div class="digitalPartner">
-              <div class="digitalPartnerTitle">合作流程</div>
-              <img class="digitalPartnerImg" src="../../assets/images/solution/partner.png" />
+            <div class="bottom">
+              <div class="digitalPartner">
+                <div class="digitalPartnerTitle">合作流程</div>
+                <div class="bot_content">
+                  <ol class="bot_img">
+                    <li><img src="../../assets/images/cooperation1.png" alt=""></li>
+                    <li><img src="../../assets/images/cooperation2.png" alt=""></li>
+                    <li><img src="../../assets/images/cooperation3.png" alt=""></li>
+                    <li><img src="../../assets/images/cooperation4.png" alt=""></li>
+                  </ol>
+                  <div class="line">
+                    <span class="point"></span>
+                    <span></span>
+                    <span class="point"></span>
+                    <span></span>
+                    <span class="point"></span>
+                    <span></span>
+                    <span class="point"></span>
+                  </div>
+                  <ul class="bot_list">
+                    <li>需求跟进</li>
+                    <li>定制化解决方案</li>
+                    <li>数据清洗</li>
+                    <li>交付数据</li>
+                  </ul>
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -216,7 +250,14 @@
               <div class="smallcrux">
                 <p class="p">质量管控能帮您做什么？</p>
                 <div class="cruxContext">
-                  <div class="cruxBox" v-for='(item, index) in importantvalue' :key='index'>{{item}}</div>
+                  <div class="cruxBox" v-for='(item, index) in importantvalue' :key='index'>
+                    <div class="cruxLeft">
+                      <img :src="item.img" alt="">
+                    </div>
+                    <div class="cruxRight">
+                      {{item.tit}}
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
@@ -226,7 +267,7 @@
                 <div class="info" v-for='(item, index) in advantagecontent' :key='index'>
                   <h2 v-html='item.tit'></h2>
                   <dl>
-                    <dt><img src="../../assets/images/u2062.png" alt=""></dt>
+                    <dt><img :src="item.img" alt=""></dt>
                     <dd v-html='item.content'></dd>
                   </dl>
                 </div>
@@ -277,11 +318,34 @@
                   </dl>
                 </div>
               </div>
-              <div
-                class="precisionGuestContentSize precisionGuestContentSizeWidth precisionGuestContentSizePd precisionGuestContentSizeColor">
-                <div class="precisionGuestContentSizeTitle">合作流程</div>
-                <img class="precisionGuestContentSizeImg" src="../../assets/images/solution/partner.png" />
-              </div>
+              <div class="bottom">
+                  <div class="digitalPartner">
+                    <div class="digitalPartnerTitle">合作流程</div>
+                    <div class="bot_content">
+                      <ol class="bot_img">
+                        <li><img src="../../assets/images/cooperation1.png" alt=""></li>
+                        <li><img src="../../assets/images/cooperation2.png" alt=""></li>
+                        <li><img src="../../assets/images/cooperation3.png" alt=""></li>
+                        <li><img src="../../assets/images/cooperation4.png" alt=""></li>
+                      </ol>
+                      <div class="line">
+                        <span class="point"></span>
+                        <span></span>
+                        <span class="point"></span>
+                        <span></span>
+                        <span class="point"></span>
+                        <span></span>
+                        <span class="point"></span>
+                      </div>
+                      <ul class="bot_list">
+                        <li>需求跟进</li>
+                        <li>定制化解决方案</li>
+                        <li>数据清洗</li>
+                        <li>交付数据</li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
             </div>
           </div>
         </div>
@@ -300,46 +364,50 @@
   export default {
     data() {
       return {
-        redbox:[
+        redbox: [
           {
-            img:require('@/assets/images/solution/1.png'),
-            tit:'十大数据搜索',
-            content:'企查查、天眼查、工商系统采集；搜索引擎采集；阿里巴巴采集；慧聪网采集；手机搜号宝；饿了么采集；地图采集；百度糯米；招聘采集；全网综合采集'
-          },{
-            img:require('@/assets/images/solution/2.png'),
-            tit:'用户画像分析',
-            content:'可根据企业名称、成立年限、所在地区、所属行业、联系方式等多维度用户画像，精准采集用户数据。'
-          },{
-            img:require('@/assets/images/solution/3.png'),
-            tit:'自带CRM系统',
-            content:'可标记客户等级，客户开发情况，员工开发客户数，企业公海等功能，满足中小企业客户管理需求'
-          },{
-            img:require('@/assets/images/solution/4.png'),
-            tit:'QQ/微信营销',
-            content:'QQ营销、微信营销、微信群管理、微信小程序、关键词搜索、更多神秘功能。'
-          },{
-            img:require('@/assets/images/solution/5.png'),
-            tit:'电商平台优化',
-            content:'优化淘宝、京东、拼多多等电商流量；刷腾讯、优酷、爱奇艺、芒果等视频流量；刷抖音、快手、火山、梨视频等人气。'
-          },{
-            img:require('@/assets/images/solution/6.png'),
-            tit:'企业新闻发布',
-            content:'可将企业新闻报道、新闻等发布到今日头条、网易、搜狐、新浪、一点资讯、百家号、凤凰号等媒体平台上。'
+            img: require('@/assets/images/solution/1.png'),
+            tit: '十大数据搜索',
+            content: '企查查、天眼查、工商系统采集；搜索引擎采集；阿里巴巴采集；慧聪网采集；手机搜号宝；饿了么采集；地图采集；百度糯米；招聘采集；全网综合采集'
+          }, {
+            img: require('@/assets/images/solution/2.png'),
+            tit: '用户画像分析',
+            content: '可根据企业名称、成立年限、所在地区、所属行业、联系方式等多维度用户画像，精准采集用户数据。'
+          }, {
+            img: require('@/assets/images/solution/3.png'),
+            tit: '自带CRM系统',
+            content: '可标记客户等级，客户开发情况，员工开发客户数，企业公海等功能，满足中小企业客户管理需求'
+          }, {
+            img: require('@/assets/images/solution/4.png'),
+            tit: 'QQ/微信营销',
+            content: 'QQ营销、微信营销、微信群管理、微信小程序、关键词搜索、更多神秘功能。'
+          }, {
+            img: require('@/assets/images/solution/5.png'),
+            tit: '电商平台优化',
+            content: '优化淘宝、京东、拼多多等电商流量；刷腾讯、优酷、爱奇艺、芒果等视频流量；刷抖音、快手、火山、梨视频等人气。'
+          }, {
+            img: require('@/assets/images/solution/6.png'),
+            tit: '企业新闻发布',
+            content: '可将企业新闻报道、新闻等发布到今日头条、网易、搜狐、新浪、一点资讯、百家号、凤凰号等媒体平台上。'
           }
         ],
-        advantagecontent:[
+        advantagecontent: [
           {
-            tit:'<b>01.</b>出色的跨平台运行能力',
-            content:'37-bigdata QM 基于PDCA质量管理方法精心研发设计而成，可以科学、高效地帮助企业和组织进行全面的数据质量管理。PDCA循环又叫戴明环，是由美国著名的质量管理专家戴明博士提出，它是全面质量管理所应遵循的科学程序。<br/>PDCA是英语单词Plan（计划）、Do（执行）、Check（检查）和Act（行动）的第一个字母，PDCA循环就是按照这样的顺序进行质量管理，并且循环不止地进行下去的科学程序。科学、高效地帮助企业和组织进行全面的数据质量管理。'
+            tit: '<b>01.</b>出色的跨平台运行能力',
+            img:require('@/assets/images/kua1.png'),
+            content: '37-bigdata QM 基于PDCA质量管理方法精心研发设计而成，可以科学、高效地帮助企业和组织进行全面的数据质量管理。PDCA循环又叫戴明环，是由美国著名的质量管理专家戴明博士提出，它是全面质量管理所应遵循的科学程序。<br/>PDCA是英语单词Plan（计划）、Do（执行）、Check（检查）和Act（行动）的第一个字母，PDCA循环就是按照这样的顺序进行质量管理，并且循环不止地进行下去的科学程序。科学、高效地帮助企业和组织进行全面的数据质量管理。'
           }, {
-            tit:'<b>02.</b>领先业界的评价算法',
-            content:'37-bigdata  QM 支持多种领先业界的规则评价算法，满足业务系统运行、数据中心建设及数据治理过程中各类规则定义，并支持XML扩展，可完全适应未来三到五年的数据质量管理需求变化。'
+            img:require('@/assets/images/kua2.png'),
+            tit: '<b>02.</b>领先业界的评价算法',
+            content: '37-bigdata  QM 支持多种领先业界的规则评价算法，满足业务系统运行、数据中心建设及数据治理过程中各类规则定义，并支持XML扩展，可完全适应未来三到五年的数据质量管理需求变化。'
           }, {
-            tit:'<b>03.</b>出色的跨平台运行能力',
-            content:'可兼容所有支持JDK的操作系统，包括Windows、Linux以及多种采用UNIX内核的操作系统。支持所有符合JDBC2.0规范的数据库，如oracle、DB2、SQLserver、Mysql等。'
+            img:require('@/assets/images/kua3.png'),
+            tit: '<b>03.</b>可兼容多种操作系统',
+            content: '可兼容所有支持JDK的操作系统，包括Windows、Linux以及多种采用UNIX内核的操作系统。支持所有符合JDBC2.0规范的数据库，如oracle、DB2、SQLserver、Mysql等。'
           }, {
-            tit:'<b>04.</b>可跨数据源对比',
-            content:'支持在业务系统建设、数据仓库建设各重要阶段设置数据检查监控点，并可实现跨监控点数据源的比较分析，使得通过常规的规则定义便可实现ETL前后的数据一致性比对。'
+            img:require('@/assets/images/kua4.png'),
+            tit: '<b>04.</b>可跨数据源对比',
+            content: '支持在业务系统建设、数据仓库建设各重要阶段设置数据检查监控点，并可实现跨监控点数据源的比较分析，使得通过常规的规则定义便可实现ETL前后的数据一致性比对。'
           }
         ],
         solve: [
@@ -354,7 +422,23 @@
             content: '根据设备状态变化和设备上报数据分析，实现设备的实时监控。'
           }
         ],
-        importantvalue: ['统一的企业数据质量检核体系，制定企业统一的数据质量检核体系，统一数据质量度量、执行的规范化步骤，为企业数据质量管控的落实提供技术平台支撑。', '数据质量状况分析，引用系统内置度量规则和检核方法对系统表、字段进行多角度的数据质量检核评估，为数据分析、数据状况调研提供数据分析报告，对系统关键业务数据的质量情况进行全方位把握。', '数据质量持续监控，确保为将来提供准确、一致和及时数据，使数据始终符合数据质量业务规则，确保企业数据始终保持最高的质量并防止随时间推移导致数据质量下降。', '基于企业对数据质量问题处理的要求灵活制定数据质量问题处理流程，方便问题数据的处理和清洗。', '快速定位数据质量问题影响范围，通过元数据关联关系分析功能，可定位问题数据出错的源头和受影响的范围，及时通知关联方，降低由数据问题带来的影响。'],
+        importantvalue: [
+          {
+            tit:'统一的企业数据质量检核体系，制定企业统一的数据质量检核体系，统一数据质量度量、执行的规范化步骤，为企业数据质量管控的落实提供技术平台支撑。',
+            img:require('@/assets/images/1.png')
+          },{
+            tit:'数据质量状况分析，引用系统内置度量规则和检核方法对系统表、字段进行多角度的数据质量检核评估，为数据分析、数据状况调研提供数据分析报告，对系统关键业务数据的质量情况进行全方位把握。',
+            img:require('@/assets/images/2.png')
+          },{
+            tit:'数据质量持续监控，确保为将来提供准确、一致和及时数据，使数据始终符合数据质量业务规则，确保企业数据始终保持最高的质量并防止随时间推移导致数据质量下降。',
+            img:require('@/assets/images/3.png')
+          },{
+            tit:'基于企业对数据质量问题处理的要求灵活制定数据质量问题处理流程，方便问题数据的处理和清洗。',
+            img:require('@/assets/images/4.png')
+          },{
+            tit:'快速定位数据质量问题影响范围，通过元数据关联关系分析功能，可定位问题数据出错的源头和受影响的范围，及时通知关联方，降低由数据问题带来的影响。',
+            img:require('@/assets/images/5.png')
+          } ],
         producedata: [
           {
             tit: '数据质量评估',
@@ -583,7 +667,7 @@
     },
     mounted() {
       document.documentElement.scrollTop = 0
-      this.solutionTabIndex=this.$route.query.index*1||this.solutionTabIndex
+      this.solutionTabIndex = this.$route.query.index * 1 || this.solutionTabIndex
     },
     methods: {
       changeSolutionTabIndex(index) {
@@ -625,79 +709,218 @@
 </script>
 
 <style lang="scss">
-  .redbox{
+  .digitalPartner {
+            padding: 50px 10%;
+
+            .digitalPartnerTitle {
+              margin-bottom: 50px;
+              font-size: 28px;
+              color: #333;
+              text-align: center;
+            }
+
+            .digitalPartnerImg {
+              width: 100%;
+              /* height: 180px; */
+            }
+          }
+  .line {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    margin: 0 auto 20px;
+    padding-top: 39px;
+  }
+
+  .banner img {
+    width: 100%;
+  }
+
+  .line span {
+    width: 510px;
+    height: 8px;
+    background: #3B6EF1;
+  }
+
+  .bigcontent {
+    width: 100%;
+    background: #F0F2F5;
+    padding-top: 90px;
+  }
+
+  .bigcontent .content {
+    margin-top: 0;
+  }
+
+  .line .point {
+    width: 20px;
+    margin: 0 -1px;
+    /* box-sizing: border-box; */
+    height: 20px;
+    background: #3B6EF1;
+    border-radius: 50%;
+  }
+
+  .bottom {
+    width: 100%;
+    height: auto;
+    background: #F5F8FE;
+  }
+
+  .bot_content {
+    width: 80%;
+    margin: 0 auto;
+    padding-bottom: 70px;
+  }
+
+  .bot_img {
+    padding-top: 60px;
+    height: 120px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end
+  }
+
+  .bot_img li {
+    width: 105px;
+    /* height: 102px; */
+  }
+
+  .bot_img li img {
+    width: 100%;
+  }
+
+  .bot_list {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-family: PingFang-SC-Medium;
+    font-size: 20px;
+    color: #313F5B;
+  }
+
+  .bot_list span:first-child {
+    margin-right: 8px;
+  }
+
+  .redbox {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
-    dl{
+
+    dl {
       width: 33%;
-      padding:30px 50px;
-      box-sizing:border-box;
+      padding: 30px 50px;
+      box-sizing: border-box;
       display: flex;
-      flex-direction:column;
-      align-items:center;
+      flex-direction: column;
+      align-items: center;
       text-align: center;
-      dt{
+
+      dt {
         width: 100px;
         height: 100px;
-        img{
-          width:100%;
+
+        img {
+          width: 100%;
         }
       }
-      dd{
+
+      dd {
         margin-top: 10px;
-        h2{
-          font-size:18px;
-          margin-bottom:10px;
+
+        h2 {
+          font-size: 18px;
+          margin-bottom: 10px;
         }
-        p{
+
+        p {
           line-height: 26px;
         }
       }
     }
   }
 
-  .advantage{
+  .advantage {
     width: 80%;
     margin: 0 auto;
     padding: 50px 0 100px 0;
-    .advantageTitle{
+
+    .advantageTitle {
       margin-bottom: 50px;
-    font-size: 28px;
-    color: #333;
-    text-align: center;
+      font-size: 28px;
+      color: #333;
+      text-align: center;
     }
-    .advantagecontent{
+
+    .advantagecontent {
       display: flex;
       flex-wrap: wrap;
-      .info{
+
+      .info {
         width: 50%;
-        padding:50px;
+        padding: 50px;
         box-sizing: border-box;
-        h2{
+
+        h2 {
           margin-bottom: 50px;
           font-size: 24px;
           color: #333;
         }
-        dl{
+
+        dl {
           display: flex;
-          dt{
-            width: 30%;
-            img{
-              width:100%;
+
+          dt {
+
+            img {
+              width: 100%;
             }
           }
-          dd{
-            flex:1;
+
+          dd {
+            margin-top: 20px;
+            flex: 1;
             margin-left: 20px;
           }
         }
       }
     }
   }
+
   .scene_box {
     background: #fff;
     width: 100%;
+  }
+
+  .anli {
+    display: flex;
+    justify-content: space-between;
+    width: 20%;
+    background: #f2f2f2;
+    margin: 0 auto;
+    padding: 20px 50px;
+
+    dl {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+
+      dt {
+        margin-bottom: 10px;
+        width: 50px;
+
+        img {
+          width: 100%;
+        }
+      }
+
+      dd {
+        font-size: 16px;
+        color: #555;
+      }
+    }
   }
 
   .scene_bottom {
@@ -778,6 +1001,7 @@
     color: #FF6633;
     padding: 30px 0 40px 0;
     text-align: center;
+    margin-bottom: 40px;
   }
 
   .characteristic h2 {
@@ -845,6 +1069,11 @@
     padding-right: 50px;
     padding-bottom: 40px;
     box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    .cruxLeft{
+      margin-right: 20px;
+    }
   }
 
   .fold ul {
@@ -944,6 +1173,7 @@
     .banner {
       @include minwidth();
       position: relative;
+
       .swiper-pagination {
         span {
           width: 100px;
@@ -956,22 +1186,26 @@
           background: rgba(0, 102, 153, 1);
         }
       }
-      .bannerbox{
+
+      .bannerbox {
         height: 100px;
         position: absolute;
         top: 25%;
         left: 10%;
-        color:#fff;
+        color: #fff;
         font-size: 30px;
         line-height: 70px;
-        h2{
-          font-size:50px;
+
+        h2 {
+          font-size: 50px;
         }
-        .xia{
+
+        .xia {
           -webkit-animation-delay: .5s;
           animation-delay: .5s;
         }
-        h3{
+
+        h3 {
           margin-top: 10px;
           background: #ff9900;
           /* padding: 3px 10px; */
@@ -1050,7 +1284,8 @@
 
           .digitalContent {
             width: 70%;
-             margin: 0 auto;
+            margin: 0 auto;
+
             .contentItem {
               display: flex;
               width: 100%;
@@ -1107,7 +1342,7 @@
 
               .contentDigitalItem {
                 padding: 20px;
-                box-sizing:border-box;
+                box-sizing: border-box;
                 display: flex;
                 justify-content: space-between;
                 width: 50%;
@@ -1119,7 +1354,7 @@
                 }
 
                 .contentDigitalItemCon {
-                  flex:1;
+                  flex: 1;
                   margin: 0 50px;
 
                   .contentDigitalItemTitle {
@@ -1317,10 +1552,10 @@
 
                 .precisionGuestContentModelItem {
                   margin-bottom: 50px;
-                  width:50%;
+                  width: 50%;
                   height: 197px;
                   padding: 20px;
-                  box-sizing:border-box;
+                  box-sizing: border-box;
                   display: flex;
                   justify-content: space-between;
 
@@ -1330,7 +1565,7 @@
                   }
 
                   .model {
-                    flex:1;
+                    flex: 1;
                     margin: 0 30px;
                     padding-top: 10px;
 
