@@ -6,10 +6,10 @@
         <div class="flex_item">
           <h1 class="connect_us">联系我们，让您的产品和世界物联起来</h1>
           <div class="write">
-            <input type="text" placeholder="姓名" />
-            <input type="text" placeholder="请输入您的联系方式" />
-            <label class="submit">提交需求</label>
-            <label class="free">免费体验</label>
+            <input type="text" placeholder="姓名" v-model='iptname' />
+            <input type="text" placeholder="请输入您的联系方式" v-model='iptphone' />
+            <label class="submit" @click='submit'>提交需求</label>
+            <!-- <label class="free">免费体验</label> -->
           </div>
           <h2 class="connect_us">咨询热线：010-8646 8827 业务合作：13261021687（孙经理）</h2>
         </div>
@@ -35,6 +35,7 @@
 </template>
 
 <script>
+  import { contact } from '@/api/frontpage'
   export default {
     data() {
       return {
@@ -82,11 +83,30 @@
         ],
         coptright: ['Copyright@ 北京三七数据有限公司  ALL Rights  Reserved 版权所有  备案号：京ICP16024662号-1',
           '地址:北京市海淀区唐家岭甲1号 弘祥1989科技文化产业园5106',
-          '邮箱:37@37bigdata.com']
+          '邮箱:37@37bigdata.com'],
+        iptname: '',
+        iptphone: ''
       }
     },
     methods: {
-      goFaX(){
+      submit() {
+        let data = {
+          contactName: this.iptname,
+          contactDetails: this.iptphone
+        }
+        contact(data).then(res => {
+          if (res.data.code == 200) {
+            this.$message({
+              message: '提交信息成功',
+              type: 'success'
+            });
+            this.iptname = '';
+            this.iptphone = ''
+          }
+
+        })
+      },
+      goFaX() {
         location.href = 'https://www.finding.com.cn/'
       },
       gohangT() {
@@ -181,6 +201,7 @@
       }
 
       .submit {
+        cursor: pointer;
         background: rgba(51, 204, 255, 1);
         margin-right: 2%;
       }

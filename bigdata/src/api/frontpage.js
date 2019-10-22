@@ -8,3 +8,12 @@ export function newsInfoList (data) {
     params: data
   })
 }
+
+//提交信息
+export function contact (params) {
+  return request({
+    url: '/content/contact',
+    method: 'POST',
+    data:params
+  })
+}
