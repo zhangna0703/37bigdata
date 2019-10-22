@@ -36,7 +36,6 @@
           </ul>
           <div class="bigkernel">
             <div class="kernel">
-              <div class="lines"></div>
               <h2>物联核心功能</h2>
               <div class="fold">
                 <dl>
@@ -111,7 +110,7 @@
                 </dl>
                 <dl>
                   <dt><img src="../../assets/images/anli2.png" alt=""></dt>
-                  <dd>智能城市</dd>
+                  <dd>智慧园区</dd>
                 </dl>
               </div>
               <!-- <p><img src="../../assets/images/u1607.png" alt=""></p> -->
@@ -238,7 +237,11 @@
         <div class="solution-tab-section" v-if='solutionTabIndex === 3'>
           <div class="produebox">
             <div class="smallproduce">
-              <p class="p">产品功能</p>
+              <div class="title">
+                  <div class="titleText">数据质量管控的产品功能</div>
+                  <div class="titleLine"></div>
+                  <div class="name">质量控制是一个系统工程，有其自身的规律和独特的控制方法；</div>
+                </div>
               <div class="produce">
                 <div class="data" v-for='(item, index) in producedata' :key='index'>
                   <b>{{item.tit}}</b>
@@ -460,10 +463,10 @@
             content: '提供多种问题分析能力，包括血统分析，影响分析，全链分析，定位问题产生的根源。'
           }
         ],
-        changeshow1: '-',
-        changeshow2: '-',
-        changeshow3: '-',
-        changeshow4: '-',
+        changeshow1: '+',
+        changeshow2: '+',
+        changeshow3: '+',
+        changeshow4: '+',
         equipment1: [
           {
             tit: '设备注册',
@@ -903,7 +906,6 @@
     display: flex;
     justify-content: space-between;
     width: 20%;
-    background: #f2f2f2;
     margin: 0 auto;
     padding: 20px 50px;
 
@@ -999,7 +1001,6 @@
     width: 80%;
     margin: 0 auto;
   }
-
   .smallcrux .p,
   .smallproduce .p {
     font-size: 22px;
@@ -1039,7 +1040,7 @@
     display: flex;
     font-size: 18px;
     letter-spacing: 2px;
-    border-bottom: 2px #000 solid;
+    border-bottom: 2px #eee solid;
     padding-bottom: 5px;
     box-sizing: border-box;
   }
@@ -1082,6 +1083,7 @@
   }
 
   .fold ul {
+    padding-left: 20px;
     li {
       margin: 20px 0;
 
@@ -1095,7 +1097,7 @@
     width: 100%;
     display: flex;
     justify-content: space-between;
-    background: #ccc;
+    background: rgba(0,0,255,.6);
     height: 63px;
     align-items: center;
     margin: 20px 0;
@@ -1434,7 +1436,7 @@
                 height: 2px;
                 margin-top: 30px;
                 margin-bottom: 30px;
-                background-color: #f29d4b;
+                background-color: red;
               }
 
               .name {
@@ -1520,7 +1522,7 @@
                 height: 2px;
                 margin-top: 30px;
                 margin-bottom: 30px;
-                background-color: #f29d4b;
+                background-color: red;
               }
 
               .name {
@@ -1647,4 +1649,30 @@
       width: 100%;
     }
   }
+  .title {
+              padding: 50px;
+              display: flex;
+              align-items: center;
+              justify-content: center;
+              flex-direction: column;
+
+              .titleText {
+                font-size: 20px;
+                color: #333;
+                text-align: center;
+              }
+
+              .titleLine {
+                width: 163px;
+                height: 2px;
+                margin-top: 30px;
+                margin-bottom: 30px;
+                background-color: red;
+              }
+
+              .name {
+                width: 600px;
+                text-align: center;
+              }
+            }
 </style>

@@ -3,11 +3,11 @@
     <div class="frontpage">
       <!-- <Header></Header> -->
       <!-- banner start -->
-      <div class="banner">
+      <div class="bannerstart">
         <swiper :options="bannerSwiperOption" ref="mySwiper">
           <!-- slides -->
           <swiperSlide v-if="imgList.length>0" v-for="(item,index) in imgList" :key="index">
-            <div :style="{background:'url('+item.imgurl+') center center / cover',height:'600px'}"></div>
+            <div class="banner_swiper" :style="{background:'url('+item.imgurl+') center center / cover',height:'600px'}"></div>
           </swiperSlide>
           <div class="swiper-pagination" slot="pagination"></div>
           <div class="swiper-button-prev" slot="button-prev"><img src="../../assets/images/JTleft.png" alt=""></div>
@@ -86,7 +86,7 @@
                   </dt>
                   <dd>
                     <h2>{{item.title}}</h2>
-                    <p>{{item.desc}}</p>
+                    <p v-html='item.desc'></p>
                     <p>查看详情</p>
                   </dd>
                 </dl>
@@ -167,10 +167,13 @@
         },
         imgList: [
           {
+            imgurl: require('@/assets/images/banner_1.png')
+          },
+          {
             imgurl: require('@/assets/images/banner.png')
           },
           {
-            imgurl: require('@/assets/images/banner_1.png')
+            imgurl: require('@/assets/images/banner_2.png')
           }
         ],
         hotspotData: [
@@ -269,7 +272,7 @@
         solutionData: [
           {
             title: '智能物联方案',
-            desc: '快速生成高频词云分布 情感走向等多维图表展示.',
+            desc: '解决企业数据孤岛的痛点；<br/>跨部门、多业务线数据完全独立，无法全局分析；<br/>动辄上千个埋点，不知如何定义和管理数据模型；<br/>打通 CRM 和数据分析平台， 快速判断线索跟进优先级；',
             img: require('@/assets/images/ourproduct_1.png')
           },
           {
@@ -391,6 +394,19 @@
 </script>
 
 <style lang="scss">
+.banner_swiper{
+  position: relative;
+}
+  .bannerboxs {
+    height: 100px;
+    position: absolute;
+    top: 25%;
+    left: 10%;
+    color: #fff;
+    font-size: 50px;
+    line-height: 70px;
+
+  }
   .swiper-button-next,
   .swiper-button-prev {
     color: #fff;
@@ -457,7 +473,7 @@
       }
     }
   } */
-    .banner {
+    .bannerstart {
       @include minwidth();
 
       .swiper-pagination {
@@ -801,7 +817,7 @@
               }
 
               p:nth-child(2) {
-                @include moreline(3);
+                @include moreline(5);
               }
 
               p:last-child {
