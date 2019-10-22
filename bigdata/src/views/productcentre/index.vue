@@ -375,7 +375,7 @@
     },
     mounted() {
       this.getproduceList()
-      this.titleState = this.$route.query.index
+      this.titleState = this.$route.query.index || true
       document.documentElement.scrollTop = 0
     },
     methods: {

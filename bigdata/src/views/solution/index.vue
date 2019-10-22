@@ -661,8 +661,11 @@
       ])
     },
     watch: {
-      routerIndex() {
+      routerIndex(newVal, oldVal) {
+        console.log(newVal, oldVal, 'hhhhhhhhhhhhhhhh')
+        if (newVal >= 0) {
         this.changeSolutionTabIndex(this.routerIndex)
+        }
       }
     },
     mounted() {
@@ -671,10 +674,11 @@
     },
     methods: {
       changeSolutionTabIndex(index) {
+        console.log(index, '=============')
         this.solutionTabIndex = index
-        if (index == 0 || index) {
+        // if (index === 0 || index) {
           document.documentElement.scrollTop = 420
-        }
+        // }
       },
       changeWord1() {
         if (this.changeshow1 === '+') {
