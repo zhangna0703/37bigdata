@@ -735,6 +735,7 @@
 
   .banner img {
     width: 100%;
+    height: 100%;
   }
 
   .line span {
@@ -1171,6 +1172,7 @@
 
   .solution {
     .banner {
+      height: 500px;
       @include minwidth();
       position: relative;
 

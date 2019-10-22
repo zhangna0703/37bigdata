@@ -10,7 +10,7 @@
           <div class="swiper-pagination" slot="pagination"></div>
         </swiper> -->
         <img src="../../assets/images/about_new.png" alt="">
-        <div class="bannerboxs">
+        <div class="bannerb">
             <h2 class="animated bounceInUp">客户至上，创新驱动，全员共赢</h2>
             <h3 class="animated bounceInUp">是我们的核心价值观</h3>
           </div>
@@ -104,7 +104,7 @@
         <!-- join us  end-->
       </div>
       <div class="companyAddress">
-        <h2>公司地址</h2>
+        <h2>公司地址：海淀区弘祥1989创意产业园5106</h2>
         <div id="allmap" ref="allmap"></div>
       </div>
     </div>
@@ -206,7 +206,11 @@
     },
     mounted() {
       this.getHiring()
-      this.map()
+      var that = this;
+      setTimeout(function(){
+        that.map();
+      },1000)
+      
       document.documentElement.scrollTop = 0
       var index = this.$route.query.index * 1
       if (index === 0) {
@@ -278,7 +282,7 @@
     overflow: hidden;
 
   }
-  .bannerboxs {
+  .bannerb {
     height: 300px;
     position: absolute;
     top: 30%;
@@ -287,10 +291,10 @@
     font-size: 50px;text-align: right;
     line-height: 100px;
   }
-  .bannerboxs h2{
+  .bannerb h2{
     margin-right:100px;
   }
-  .bannerboxs h3{
+  .bannerb h3{
     animation-delay: .5s;
       -webkit-animation-delay: .5s;
   }
@@ -402,6 +406,10 @@
           opacity: 0.4;
           background: $color-theme;
         }
+      }
+      img{
+        width: 100%;
+        height: 100%;
       }
     }
 
