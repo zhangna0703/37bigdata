@@ -4,8 +4,8 @@
       <div class="banner">
         <img src="../../assets/images/service_new.png" alt="">
         <div class="bannerboxs">
-            <h2 class="animated bounceInUp">一切忠实于数据，数据创造价值，数据创造财富</h2>
-          </div>
+          <h2 class="animated bounceInUp">一切忠实于数据，数据创造价值，数据创造财富</h2>
+        </div>
       </div>
       <div class="product_title">
         <span @click="setInternetSow" :class="{tit_active:titleState}">物联网平台</span>
@@ -29,7 +29,7 @@
                   <h1>{{item.titleEn}}</h1>
                   <h2>{{item.titleCn}}</h2>
                   <p class="p1">{{item.titleExplain}}</p>
-                  <label style="cursor: pointer;"  @click='goDetails(item.titleCn)'>了解详情>></label>
+                  <label style="cursor: pointer;" @click='goDetails(item.titleCn)'>了解详情>></label>
                 </div>
                 <div class="user">
                   <div>
@@ -295,7 +295,7 @@
         ],
         characterData: [
           { title: '大数据处理', desc: '公司将各行业客户业务和管理的需求痛点充分提炼并标准化，总结出一套严谨科学的方法论。<br/>将大数据分析及历史数据分析全部功能整合到一个平台，为您提供不同应用场景的大数据分析解决方案，持续地保护智能分析资产，提升数据洞察力，拓展业务视角，为智慧决策管理提供数据支持，为数字化转型提供动力引擎。' },
-          { title: '实时分析',  desc: '对于实时分析，三七公司可以轻松收集、处理和分析流数据，如 IoT 遥测数据、应用程序日志和网站点击流。这让您可以对传入数据湖的数据进行实时处理和分析并做出响应，无需等到收集完全部数据后才开始进行处理。' },
+          { title: '实时分析', desc: '对于实时分析，三七公司可以轻松收集、处理和分析流数据，如 IoT 遥测数据、应用程序日志和网站点击流。这让您可以对传入数据湖的数据进行实时处理和分析并做出响应，无需等到收集完全部数据后才开始进行处理。' },
           { title: '运营分析', desc: '对于运营分析（如应用程序监控、日志分析和点击流分析），三七公司允许您近乎实时地搜索、浏览、过滤、聚合和可视化数据。三七公司可以提供各种易于使用的 API 和实时分析功能，还可以实现生产工作负载需要的可用性、可扩展性和安全性。' },
           { title: '控制面板和可视化', desc: '对于控制面板和可视化，三七公司为您提供快速，基于云的商业分析服务，使您可以轻松构建可从任何浏览器或移动设备访问的精致可视化效果和内容丰富的控制面板。' }
         ],
@@ -354,7 +354,7 @@
             el: '.swiper-pagination',
             clickable: true,
           },
-          loop:true
+          loop: true
         }
       }
     },
@@ -429,16 +429,19 @@
     color: #fff;
     font-size: 50px;
     line-height: 70px;
+
   }
+
   /* .bannerboxs p{
     font-size: 30px;
     margin-left: 100px;
     animation-delay: .5s;
       -webkit-animation-delay: .5s;
   } */
-  .swiper-container-horizontal>.swiper-pagination-bullets{
-    bottom:0px
+  .swiper-container-horizontal>.swiper-pagination-bullets {
+    bottom: 0px
   }
+
   .product_title {
     width: 25%;
     display: flex;
@@ -457,6 +460,7 @@
     border-bottom: 4px solid #394263;
     font-weight: bold;
   }
+
   .public_title p {
     margin: 0 auto;
     width: 1200px;
@@ -473,6 +477,7 @@
       height: 500px;
       width: 100%;
       position: relative;
+
       img {
         width: 100%;
         height: 100%;
@@ -489,6 +494,7 @@
         opacity: 0.2;
       }
     }
+
     .character_center {
       display: flex;
       width: 80%;
@@ -591,7 +597,8 @@
         margin: 0 auto;
         text-align: left;
         display: flex;
-       flex-wrap: wrap;
+        flex-wrap: wrap;
+
         .line {
           border-bottom: 1px solid #D3D3D3;
           height: 1px;
@@ -605,7 +612,8 @@
           margin-right: 10%;
           margin: 0 0 36px 0;
           padding: 60px;
-           box-sizing: border-box;
+          box-sizing: border-box;
+
           label {
             display: inline-block;
             padding: 8px 26px;
@@ -663,6 +671,7 @@
         }
       }
     }
+
     .data_character {
       width: 80%;
       margin: 0 auto;
