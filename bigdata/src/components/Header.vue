@@ -249,6 +249,9 @@ export default {
     jumpListPage ( toLink, parentIndex, url, index, titleState, tabName) {
       sessionStorage.checkIndex = parentIndex
       this.checkIndex = parentIndex
+      if (index) {
+        this.routerIndexFund(index)
+      }
       if (url) {
         this.$router.push({name: url})
       } else {

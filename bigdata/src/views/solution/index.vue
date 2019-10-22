@@ -673,7 +673,7 @@
       changeSolutionTabIndex(index) {
         this.solutionTabIndex = index
         if (index == 0 || index) {
-          document.documentElement.scrollTop = 565
+          document.documentElement.scrollTop = 420
         }
       },
       changeWord1() {
