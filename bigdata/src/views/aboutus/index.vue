@@ -11,8 +11,8 @@
         </swiper> -->
         <img src="../../assets/images/about_new.png" alt="">
         <div class="bannerb">
-            <h2 class="animated bounceInUp">客户至上，创新驱动，全员共赢</h2>
-            <h3 class="animated bounceInUp">是我们的核心价值观</h3>
+            <h2 class="animated bounceInUp">核心价值观：客户至上，创新驱动，全员共赢</h2>
+            <h3 class="animated bounceInUp">基本素质：自驱动、有担当、能扛事、能抗压、正能量</h3>
           </div>
       </div>
       <!-- banner end -->
@@ -283,16 +283,17 @@
 
   }
   .bannerb {
-    height: 300px;
+    height: 100px;
     position: absolute;
-    top: 30%;
-    right: 20%;
+    top: 25%;
+    left: 10%;
     color: #fff;
-    font-size: 50px;text-align: right;
-    line-height: 100px;
+    font-size: 30px;
+    line-height: 70px;
   }
   .bannerb h2{
-    margin-right:100px;
+    font-size: 50px;
+    /* margin-right:100px; */
   }
   .bannerb h3{
     animation-delay: .5s;
@@ -316,15 +317,15 @@
 
   .join_usFour {
     display: flex;
-    justify-content: space-between;
-    height: 350px;
-    position: relative;
+    flex-wrap: wrap;
+    /* justify-content: space-between; */
   }
 
   .join_usFour span {
     position: absolute;
     bottom: 40px;
     padding: 4px 19px;
+    cursor: pointer;
     border-radius: 15px;
     font-size: 13px;
     color: #fff;
@@ -332,10 +333,13 @@
   }
 
   .fourbox {
+    position: relative;
     text-align: left;
     box-shadow: 0 4px 12px #999;
     background: #fff;
-    flex: 1;
+    /* flex: 1; */
+    width: 29%;
+    height: 350px;
     margin: 20px;
     padding: 30px;
     line-height: 26px;

@@ -5,6 +5,7 @@
         <img src="../../assets/images/service_new.png" alt="">
         <div class="bannerboxs">
           <h2 class="animated bounceInUp">一切忠实于数据，数据创造价值，数据创造财富</h2>
+          <p class="animated bounceInUp xia">忠实于客户需求，忠实于真实业务诉求，为企业提供有效的分析曲线，帮助企业走出商业发展困境。</p>
         </div>
       </div>
       <div class="product_title">
@@ -432,6 +433,12 @@
 
   }
 
+  .xia {
+    font-size: 30px;
+    -webkit-animation-delay: .5s;
+    animation-delay: .5s;
+  }
+
   /* .bannerboxs p{
     font-size: 30px;
     margin-left: 100px;
@@ -567,6 +574,7 @@
     .hr_top {
       width: 105px;
       height: 3px;
+      border: 0;
       background-color: #FE6021;
     }
 
@@ -583,7 +591,7 @@
     }
 
     .data_package {
-      padding: 30px 0 100px 0;
+      padding: 30px 0 50px 0;
       text-align: center;
     }
 
@@ -643,7 +651,7 @@
           }
 
           .user {
-            margin-top: 150px;
+            margin-top: 20px;
 
             >div {
               display: flex;

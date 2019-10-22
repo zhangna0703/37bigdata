@@ -3,11 +3,11 @@
     <div class="frontpage">
       <!-- <Header></Header> -->
       <!-- banner start -->
-      <div class="banner">
+      <div class="bannerstart">
         <swiper :options="bannerSwiperOption" ref="mySwiper">
           <!-- slides -->
           <swiperSlide v-if="imgList.length>0" v-for="(item,index) in imgList" :key="index">
-            <div :style="{background:'url('+item.imgurl+') center center / cover',height:'600px'}"></div>
+            <div class="banner_swiper" :style="{background:'url('+item.imgurl+') center center / cover',height:'600px'}"></div>
           </swiperSlide>
           <div class="swiper-pagination" slot="pagination"></div>
           <div class="swiper-button-prev" slot="button-prev"><img src="../../assets/images/JTleft.png" alt=""></div>
@@ -86,7 +86,7 @@
                   </dt>
                   <dd>
                     <h2>{{item.title}}</h2>
-                    <p>{{item.desc}}</p>
+                    <p v-html='item.desc'></p>
                     <p>查看详情</p>
                   </dd>
                 </dl>
@@ -167,10 +167,13 @@
         },
         imgList: [
           {
+            imgurl: require('@/assets/images/banner_1.png')
+          },
+          {
             imgurl: require('@/assets/images/banner.png')
           },
           {
-            imgurl: require('@/assets/images/banner_1.png')
+            imgurl: require('@/assets/images/banner_2.png')
           }
         ],
         hotspotData: [
@@ -269,28 +272,28 @@
         solutionData: [
           {
             title: '智能物联方案',
-            desc: '快速生成高频词云分布 情感走向等多维图表展示.',
+            desc: '解决企业数据孤岛的痛点；<br/>跨部门、多业务线数据完全独立，无法全局分析；<br/>动辄上千个埋点，不知如何定义和管理数据模型；<br/>打通 CRM 和数据分析平台， 快速判断线索跟进优先级；',
             img: require('@/assets/images/ourproduct_1.png')
           },
           {
             title: '数字营销方案',
             desc:
-              '对企业生产经营中进货、出货、批发销售、付款等进行全程进行（从接获订单合同开始.',
+              '数字营销,就是指借助于互联网络、电脑通信技术和数字交互式媒体来实现营销目标的一种营销方式。<br/>解决企业营销信息不对称的问题；<br/>解决促销的局限的问题；<br/>解决广告效率不高的问题；<br/>发掘出未曾注意过的市场与空间；<br/>大大提升企业管理的精度；',
             img: require('@/assets/images/ourproduct_2.png')
           },
           {
             title: '风险管控方案',
-            desc: '情感走向等多维图表展示',
+            desc: '-能源审计<br/>-快速节能诊断<br/>-能源管理体系建设<br/>-水、电、热平衡测试<br/>-漏水点检查<br/>-用电系统（设备)测试<br/>-供热管网节能测试<br/>-蒸汽加热设备节能测试',
             img: require('@/assets/images/ourproduct_3.png')
           },
           {
             title: '质量管控方案',
-            desc: '快速生成高频词云分布 情感走向等多维图表展示...',
+            desc: '提供多维度的商品质量分析，使企业整个质量管理过程更规范、透明；<br/>提供系统的自定义功能，方便用户灵活的记录产品质量报表管理；<br/>方便用户对产品的检测数据进行采集、分析；<br/>便于生产管理人员及时的发现问题；',
             img: require('@/assets/images/ourproduct_4.png')
           },
           {
             title: '精准获客方案',
-            desc: '方案简介方案简介方案简介方案简介方案简介方。...',
+            desc: '基于用户画像的关怀、挽回、激励等策略；<br/>提供安全、可管、可控及可视的能力，确保平台及数据安全；<br/>提供人工智能、机器学习的技术支撑能力;<br/>对接业务生产系统，打通商业价值的最后一公里；',
             img: require('@/assets/images/ourproduct_5.png')
           }
         ],
@@ -391,6 +394,19 @@
 </script>
 
 <style lang="scss">
+.banner_swiper{
+  position: relative;
+}
+  .bannerboxs {
+    height: 100px;
+    position: absolute;
+    top: 25%;
+    left: 10%;
+    color: #fff;
+    font-size: 50px;
+    line-height: 70px;
+
+  }
   .swiper-button-next,
   .swiper-button-prev {
     color: #fff;
@@ -457,7 +473,7 @@
       }
     }
   } */
-    .banner {
+    .bannerstart {
       @include minwidth();
 
       .swiper-pagination {
@@ -800,7 +816,8 @@
               }
 
               p:nth-child(2) {
-                @include moreline(3);
+                line-height: 36px;
+                @include moreline(5);
               }
 
               p:last-child {
