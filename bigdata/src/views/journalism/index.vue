@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div class="banner">
+    <div class="bannerimg">
       <img src="../../assets/images/new.png" alt="">
     </div>
     <ul class="navy">
@@ -9,8 +9,21 @@
       <li @click="setBigSow" :class="{tit_active:!titleState}">行业资讯</li>
       <li></li>
     </ul>
-    <!-- <div class="newcontent" v-if='titleState==true'> -->
-    <div class="newcontent">
+    <div class="newcontent" v-if='titleState==true'>
+      <dl v-for='(item,index) in sanqi' @click='goDetail(item)' :key='index'>
+        <dt><img :src="item.infoImg" alt=""></dt>
+        <dd>
+          <h2>{{item.infoTitle}}</h2>
+          <h3>{{item.infoAtptime}}</h3>
+          <p>{{item.infoProfile}}</p>
+        </dd>
+      </dl>
+      <div class="block">
+      <el-pagination @current-change="nextPage" layout="prev, pager, next" :total="sanqitotal">
+      </el-pagination>
+    </div>
+    </div>
+    <div class="newcontent"  v-else>
       <dl v-for='(item,index) in hotspotData' @click='goDetail(item)' :key='index'>
         <dt><img :src="item.infoImg" alt=""></dt>
         <dd>
@@ -19,14 +32,12 @@
           <p>{{item.infoProfile}}</p>
         </dd>
       </dl>
+      <div class="block">
+          <el-pagination @current-change="nextPage" layout="prev, pager, next" :total="total">
+          </el-pagination>
+        </div>
     </div>
-    <!-- <div v-else>
-      news
-    </div> -->
-    <div class="block">
-      <el-pagination @current-change="nextPage" layout="prev, pager, next" :total="total">
-      </el-pagination>
-    </div>
+    
   </div>
 </template>
 <script>
@@ -41,10 +52,12 @@
       return {
         titleState: true,
         datalists: ['三七新闻', '行业资讯'],
+        sanqi:[],
         hotspotData: [],
         pageNum: 1,
         pageSize: 5,
-        total: 0
+        total: 0,
+        sanqitotal:0
       }
     },
     mounted() {
@@ -69,6 +82,9 @@
           pageSize: this.pageSize
         }
         newsInfoList(data).then((res) => {
+          if(res.data.rows.infoType==1){
+            this.sanqi = res.data.rows
+          }
           this.hotspotData = res.data.rows
         })
           .catch((err) => {
@@ -81,6 +97,9 @@
           pageSize: this.pageSizes
         }
         newsInfoList(datas).then((res) => {
+          if(res.data.rows.infoType==1){
+            this.sanqitotal = res.data.rows.length
+          }
           this.total = res.data.rows.length
         })
       },
@@ -174,8 +193,10 @@
     -webkit-line-clamp: 4;
     overflow: hidden;
   }
-
-  .banner img {
+  .bannerimg{
+    height: 500px;
+  }
+  .bannerimg img {
     width: 100%;
   }
 

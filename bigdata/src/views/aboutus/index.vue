@@ -195,27 +195,34 @@
     mounted() {
       this.map()
       document.documentElement.scrollTop = 0
-      var index = this.$route.query.index*1
+      var index = this.$route.query.index * 1
       if (index === 0) {
-          document.documentElement.scrollTop = 680
-        } else if (index === 1) {
-          document.documentElement.scrollTop = 1630
-        } else if (index === 2) {
-          document.documentElement.scrollTop = 2155
-        } else if (index === 3) {
-          document.documentElement.scrollTop = 2765
-        } else if (index === 4){
-          document.documentElement.scrollTop = 4256
-        }
+        document.documentElement.scrollTop = 680
+      } else if (index === 1) {
+        document.documentElement.scrollTop = 1630
+      } else if (index === 2) {
+        document.documentElement.scrollTop = 2155
+      } else if (index === 3) {
+        document.documentElement.scrollTop = 2765
+      } else if (index === 4) {
+        document.documentElement.scrollTop = 4256
+      }
     },
     methods: {
       map() {
         let map = new BMap.Map(this.$refs.allmap); // 创建Map实例
         // map.centerAndZoom(new BMap.Point(116.404, 39.915), 11);// 初始化地图,设置中心点坐标和地图级别
-        var point = new BMap.Point(116.2979433943,40.0654116658)
+        var point = new BMap.Point(116.2979433943, 40.0654116658)
         map.centerAndZoom(point, 18)
         var marker = new BMap.Marker(point) // 创建标注
         map.addOverlay(marker)    // 将标注添加到地图中
+        var opts = {
+          width: 200,     // 信息窗口宽度    
+          height: 70,     // 信息窗口高度    
+          title: "公司地址"  // 信息窗口标题   
+        }
+        var infoWindow = new BMap.InfoWindow("北京市海淀区唐家岭路甲1号弘祥1989创意产业园5106", opts);  // 创建信息窗口对象    
+        map.openInfoWindow(infoWindow, map.getCenter());
         map.addControl(new BMap.MapTypeControl({//添加地图类型控件
           mapTypes: [
             BMAP_NORMAL_MAP,
@@ -265,7 +272,8 @@
     height: 350px;
     position: relative;
   }
-  .join_usFour span{
+
+  .join_usFour span {
     position: absolute;
     bottom: 40px;
     padding: 4px 19px;
