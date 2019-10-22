@@ -1,5 +1,5 @@
 // test
-export const routerIndex = ({commit}, data) => {
+export const routerIndexFund = ({commit}, data) => {
   commit('ROUTERINDEX', data)
 }
 export const titleStateFlage = ({commit}, data) => {
