@@ -11,7 +11,7 @@ Vue.use(Vuex)
 const state = {
   routerIndex: 0,
   titleStateFlage: true,
-  checkName: ''
+  checkName: '',
 }
 // 所需要定义的mutations
 const mutations = {
