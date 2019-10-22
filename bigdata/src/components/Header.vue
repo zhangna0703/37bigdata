@@ -1,7 +1,8 @@
 <template>
   <header :class="{'headerTop': routerUrl}">
     <div class="header-logo">
-      <img src="@/assets/images/logo.png" alt="logo">
+      <img v-if="routerUrl" src="@/assets/images/logo2.png" alt="logo">
+      <img v-if="!routerUrl" src="@/assets/images/logo1.png" alt="logo">
     </div>
     <div class="header-menu">
       <div style="position: relative" v-for="(item,index) in menulink" :key="item.title"
