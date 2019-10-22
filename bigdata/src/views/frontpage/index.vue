@@ -148,7 +148,7 @@
           slidesPerView: 'auto',
           coverflowEffect: {
             rotate: 0,
-            stretch: -50,
+            stretch: -140,
             depth: 50,
             modifier: 1,
             slideShadows: false
@@ -730,7 +730,7 @@
             display: flex;
             justify-content: space-around;
             background: none;
-            width: 80%;
+            width: 70%;
             margin: 0 auto;
           }
 
@@ -762,10 +762,9 @@
             height: 400px;
 
             .swiper-wrapper {
-              width: 80%;
+              width: 70%;
             }
           }
-
           dl {
             height: 400px;
             display: flex;
@@ -774,12 +773,12 @@
             box-sizing: border-box;
             cursor: pointer;
             // border: 1px solid #999;
-            border-radius: 0px 8px 8px 0px;
+            border-radius: 8px;
             overflow: hidden;
             justify-content: space-between;
 
             .solution_img {
-              width: 46%;
+              width: 50%;
 
               img {
                 width: 100%;
