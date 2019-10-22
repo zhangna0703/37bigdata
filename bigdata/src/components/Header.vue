@@ -320,7 +320,7 @@ z-index: 100;
     height: 20px;
     border-right: none;
     // padding: 0px 25px;
-    padding: 0
+    // padding: 0
   }
   .router-link-exact-active{
     /* font-size: 1px; */
