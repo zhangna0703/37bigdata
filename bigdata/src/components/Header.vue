@@ -291,6 +291,9 @@ justify-content: space-between;
 padding: 0px 20px;
 box-sizing: border-box;
 z-index: 100;
+.header-logo{
+  margin-left: 120px
+}
 .header-logo img {
   width: 150px;
 }

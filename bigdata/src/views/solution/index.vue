@@ -714,7 +714,7 @@
   }
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
   .digitalPartner {
             padding: 50px 10%;
 
