@@ -196,11 +196,17 @@
                     <span class="point"></span>
                   </div>
                   <ul class="bot_list">
-                    <li>需求跟进</li>
-                    <li>定制化解决方案</li>
-                    <li>数据清洗</li>
-                    <li>交付数据</li>
+                    <li>提交申请</li>
+                    <li>需求评估</li>
+                    <li>签署协议</li>
+                    <li>结果交付</li>
                   </ul>
+                  <!-- <ul class="bot_listbot">
+                      <li>了解数据营销平台</li>
+                      <li>确定营销需求，签署协议</li>
+                      <li>提交公司资料，付费开通账号</li>
+                      <li>使用账号进行业务操作</li>
+                    </ul> -->
                 </div>
               </div>
             </div>
@@ -338,11 +344,17 @@
                         <span class="point"></span>
                       </div>
                       <ul class="bot_list">
-                        <li>需求跟进</li>
-                        <li>定制化解决方案</li>
-                        <li>数据清洗</li>
-                        <li>交付数据</li>
+                        <li>提交申请</li>
+                        <li>需求评估</li>
+                        <li>签署协议</li>
+                        <li>结果交付</li>
                       </ul>
+                      <!-- <ul class="bot_listbot">
+                          <li>了解数据营销平台</li>
+                          <li>确定营销需求，签署协议</li>
+                          <li>提交公司资料，付费开通账号</li>
+                          <li>使用账号进行业务操作</li>
+                        </ul> -->
                     </div>
                   </div>
                 </div>
@@ -799,7 +811,15 @@
     font-size: 20px;
     color: #313F5B;
   }
-
+.bot_listbot{
+  display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-family: PingFang-SC-Medium;
+    font-size: 18px;
+    color: #313F5B;
+    margin-top: 20px;
+}
   .bot_list span:first-child {
     margin-right: 8px;
   }
