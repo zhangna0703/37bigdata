@@ -3,12 +3,17 @@
     <div class="aboutus">
       <!-- banner start -->
       <div class="banner">
-        <swiper :options="bannerSwiperOption" ref="mySwiper">
+        <!-- <swiper :options="bannerSwiperOption" ref="mySwiper">
           <swiperSlide v-if="imgList.length>0" v-for="(item,index) in imgList" :key="index">
             <div :style="{background:'url('+item.imgurl+') center center / cover',height:'500px'}"></div>
           </swiperSlide>
           <div class="swiper-pagination" slot="pagination"></div>
-        </swiper>
+        </swiper> -->
+        <img src="../../assets/images/about_new.png" alt="">
+        <div class="bannerboxs">
+            <h2 class="animated bounceInUp">客户至上，创新驱动，全员共赢</h2>
+            <h3 class="animated bounceInUp">是我们的核心价值观</h3>
+          </div>
       </div>
       <!-- banner end -->
       <ul class="aboutus-tab-header">
@@ -63,27 +68,32 @@
           </div>
         </div>
         <!-- core-team   end -->
-        <div class="culture">
-          <h2 style="font-size:26px">企业文化</h2>
-          <ul>
-            <li><b>成立时间：</b> 2014年12月</li>
-            <li><b>核心团队：</b> 全部来自北大、清华、哈工大等知名院校</li>
-            <li><b>公司坐标：</b> 中关村软件园核心区</li>
-            <li><b style="color: #FF6633;">核心价值观：</b> 坚持用户至上、坚持创新驱动、坚持全员共赢</li>
-            <li><b>公司愿景：</b> 成为最优秀的数据全产业服务商</li>
-            <li><b>公司使命：</b> 精于数据技术，赋能产业转型</li>
-          </ul>
+        <div class="cultureImg">
+          <img src="../../assets/images/qiye.png" alt="">
+          <div class="culture">
+            <h2 style="font-size:26px">企业文化</h2>
+            <ul>
+              <li><b>成立时间：</b> 2014年12月</li>
+              <li><b>核心团队：</b> 全部来自北大、清华、哈工大等知名院校</li>
+              <li><b>公司坐标：</b> 中关村软件园核心区</li>
+              <li><b style="color: #FF6633;">核心价值观：</b> 坚持用户至上、坚持创新驱动、坚持全员共赢</li>
+              <li><b>公司愿景：</b> 成为最优秀的数据全产业服务商</li>
+              <li><b>公司使命：</b> 精于数据技术，赋能产业转型</li>
+            </ul>
+          </div>
+
         </div>
         <!-- join us  start -->
         <div class="join-us" ref='a2'>
           <div class="join-usbox">
             <div class="p">加入我们，让大数据世界变得更美好！</div>
             <div class="join_usFour">
-              <div class="fourbox" v-for='(item,index) in join_us' :key='index'>
-                <h2>{{item.tit}}</h2>
+              <div class="fourbox" v-for='(item,index) in getHiringdata' :key='index'>
+                <h2>{{item.recruitPost}}</h2>
                 <p>岗位职责：</p>
                 <ul>
-                  <li v-for='(item,index) in item.content' :key='index'>{{item}}</li>
+                  <li v-html='item.recruitDuty'></li>
+                  <!-- <li v-for='(item,index) in item.recruitDuty' :key='index'>{{item}}</li> -->
                 </ul>
                 <span>查看详情</span>
               </div>
@@ -103,6 +113,7 @@
 </template>
 
 <script>
+  import { Hiring } from '@/api/productcentre'
   import { swiper, swiperSlide } from 'vue-awesome-swiper'
   import { mapState } from 'vuex'
   import Footer from '@/components/Footer.vue'
@@ -148,6 +159,7 @@
         ],
         solutionTab: ['关于我们', '核心团队', '企业文化', '加入我们', '联系我们'],
         solutionTabIndex: 0,
+        getHiringdata: [],
         expectData: [
           {
             num: '1500万+',
@@ -193,6 +205,7 @@
       }
     },
     mounted() {
+      this.getHiring()
       this.map()
       document.documentElement.scrollTop = 0
       var index = this.$route.query.index * 1
@@ -209,6 +222,12 @@
       }
     },
     methods: {
+      getHiring() {
+        Hiring().then(res => {
+          this.getHiringdata = res.data.rows
+          // console.log(res)
+        })
+      },
       map() {
         let map = new BMap.Map(this.$refs.allmap); // 创建Map实例
         // map.centerAndZoom(new BMap.Point(116.404, 39.915), 11);// 初始化地图,设置中心点坐标和地图级别
@@ -239,7 +258,7 @@
         if (index === 0) {
           document.documentElement.scrollTop = 680
         } else if (index === 1) {
-          document.documentElement.scrollTop = 1630
+          document.documentElement.scrollTop = 1600
         } else if (index === 2) {
           document.documentElement.scrollTop = 2155
         } else if (index === 3) {
@@ -258,6 +277,31 @@
     height: 500px;
     overflow: hidden;
 
+  }
+  .bannerboxs {
+    height: 300px;
+    position: absolute;
+    top: 30%;
+    right: 20%;
+    color: #fff;
+    font-size: 50px;text-align: right;
+    line-height: 100px;
+  }
+  .bannerboxs h2{
+    margin-right:100px;
+  }
+  .bannerboxs h3{
+    animation-delay: .5s;
+      -webkit-animation-delay: .5s;
+  }
+  .cultureImg {
+    height: 610px;
+    position: relative;
+  }
+
+  .cultureImg img {
+    width: 100%;
+    height: 100%;
   }
 
   .join-usbox,
@@ -296,6 +340,14 @@
     box-sizing: border-box;
   }
 
+  .fourbox li {
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 5;
+    overflow: hidden;
+
+  }
+
   .fourbox h2 {
     font-size: 20px;
   }
@@ -312,6 +364,14 @@
     text-align: center;
   }
 
+  .culture {
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 999;
+  }
+
   .companyAddress h2 {
     font-size: 26px;
     margin-bottom: 30px;
@@ -325,6 +385,7 @@
 
   .aboutus {
     .banner {
+      position: relative;
       width: 100%;
       height: 500px;
       @include minwidth();

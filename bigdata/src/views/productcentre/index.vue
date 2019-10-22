@@ -2,7 +2,10 @@
   <div>
     <div class="product">
       <div class="banner">
-        <img src="../../assets/images/service.png" alt="">
+        <img src="../../assets/images/service_new.png" alt="">
+        <div class="bannerboxs">
+            <h2 class="animated bounceInUp">一切忠实于数据，数据创造价值，数据创造财富</h2>
+          </div>
       </div>
       <div class="product_title">
         <span @click="setInternetSow" :class="{tit_active:titleState}">物联网平台</span>
@@ -418,6 +421,24 @@
 </script>
 
 <style lang="scss" scoped>
+  .bannerboxs {
+    height: 100px;
+    position: absolute;
+    top: 25%;
+    left: 10%;
+    color: #fff;
+    font-size: 50px;
+    line-height: 70px;
+  }
+  /* .bannerboxs p{
+    font-size: 30px;
+    margin-left: 100px;
+    animation-delay: .5s;
+      -webkit-animation-delay: .5s;
+  } */
+  .swiper-container-horizontal>.swiper-pagination-bullets{
+    bottom:0px
+  }
   .product_title {
     width: 25%;
     display: flex;
@@ -451,10 +472,10 @@
     .banner {
       height: 500px;
       width: 100%;
-
+      position: relative;
       img {
-        height: 100%;
         width: 100%;
+        height: 100%;
       }
     }
 

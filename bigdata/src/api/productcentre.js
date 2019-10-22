@@ -9,9 +9,9 @@ export function produce () {
 }
 
 //招聘岗位
-// export function produce () {
-//   return request({
-//     url: '/content/say/list',
-//     method: 'GET'
-//   })
-// }
+export function Hiring () {
+  return request({
+    url: '/content/recruit/list',
+    method: 'GET'
+  })
+}

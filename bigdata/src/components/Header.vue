@@ -1,10 +1,13 @@
 <template>
-  <header :class="{'headerTop': checkIndex === 0}">
+  <header :class="{'headerTop': routerUrl}">
     <div class="header-logo">
       <img src="@/assets/images/logo.png" alt="logo">
     </div>
     <div class="header-menu">
-      <div style="position: relative" v-for="(item,index) in menulink" :key="item.title" @mouseenter="enter(index)" @mouseleave="leave(index)" @click="changePageRouter(item.toLink, index)" :class="{'checkIndexStyle': index === checkIndex}" class="tag-div">
+      <div style="position: relative" v-for="(item,index) in menulink" :key="item.title"
+        @click.stop="jumpListPage(item.toLink, index)"
+        @mouseenter="enter(index)"
+        @mouseleave="leave(index)" :class="{'checkIndexStyle': index === checkIndex}" class="tag-div">
         <div>
           <p style="text-align: center">{{item.title}}</p>
           <div :class="{'marginRight' :item.flexFlag}" style="position: absolute;left: 0;top: 20px;text-align: center" v-show="item.hideFlag">
@@ -12,8 +15,8 @@
               <div>
               <div v-if="item.childs" class="menu-wrapper" :class="{'flexBlock': item.flexFlag}">
                 <div v-for="(tag) of item.childs" :key="tag.id" style="color: #fff;margin: 0px 4px;line-height: 25px;text-align: left;">
-                  <p @click="jumpListPage(tag.jumpUrl, tag.index, tag.adoptFlage, tag.titleState, tag.name)" :class="{'nameColor': checkName === tag.name}" class="list_p">{{tag.name}}</p>
-                  <p @click="jumpListPage(list.jumpUrl, list.index, list.adoptFlage,list.titleState, list.name)" v-for="(list) of tag.components" :key="list.id" :class="{'nameColor': checkName === list.name}" class="list_p">{{list.name}}</p>
+                  <p @click.stop="jumpListPage( item.toLink, index, tag.jumpUrl, tag.index, tag.titleState, tag.name)" :class="{'nameColor': checkName === tag.name}" class="list_p">{{tag.name}}</p>
+                  <p @click.stop="jumpListPage( item.toLink, index, list.jumpUrl, list.index, list.titleState, list.name)" v-for="(list) of tag.components" :key="list.id" :class="{'nameColor': checkName === list.name}" class="list_p">{{list.name}}</p>
                 </div>
               </div>
             </div>
@@ -200,20 +203,28 @@ export default {
           }
         ]
       },
-      {
-        title: '帮助支持',
-        // toLink: '/helpsupport'
-      }]
+      // {
+      //   title: '帮助支持',
+      //   // toLink: '/helpsupport'
+      // }
+      ]
     }
   },
   computed: {
     ...mapState([
-      'checkName'
-    ])
+      'checkName',
+    ]),
+    routerUrl () {
+      return this.$route.name == 'frontpage'
+    }
+  },
+  watch: {
+    '$route': function () {
+      this.checkIndex = Number(sessionStorage.checkIndex)
+    }
   },
   mounted () {
-    this.checkIndex = Number(sessionStorage.checkIndex)  || 0
-    console.log(this.checkIndex)
+    this.checkIndex = Number(sessionStorage.checkIndex) || 0
   },
   methods: {
     changeLanguage(){
@@ -225,7 +236,7 @@ export default {
       if (index == 0) {
         return
       }
-      this.menulink[index].hideFlag = true      
+      this.menulink[index].hideFlag = true
     },
     // 鼠标移除
     leave(index){
@@ -234,21 +245,20 @@ export default {
       }
       this.menulink[index].hideFlag = false
     },
-    // 点击导航
-    changePageRouter (url, index) {
-      sessionStorage.checkIndex = index
-      this.checkIndex = index
-      this.$router.push({name: url})
-    },
     // 点击子导航
-    jumpListPage (url, index, adoptFlage, titleState, tabName) {
-      this.routerIndex(index)
+    jumpListPage ( toLink, parentIndex, url, index, titleState, tabName) {
+      sessionStorage.checkIndex = parentIndex
+      this.checkIndex = parentIndex
+      if (index) {
+        this.routerIndexFund(index)
+      }
+      if (url) {
+        this.$router.push({name: url})
+      } else {
+        this.$router.push({name: toLink})
+      }
       this.titleStateFlage(titleState)
       this.checkNameFund(tabName)
-      if (adoptFlage) {
-        this.$router.push({name: url})
-      }
-      console.log('333', adoptFlage, url)
     },
     goLogin () {
       this.$router.push({ name: 'login' })
@@ -257,7 +267,7 @@ export default {
       this.$router.push({ name: 'register' })
     },
     ...mapActions([
-      'routerIndex',
+      'routerIndexFund',
       'titleStateFlage',
       'checkNameFund'
     ])
@@ -313,7 +323,7 @@ z-index: 100;
     height: 20px;
     border-right: none;
     // padding: 0px 25px;
-    padding: 0
+    // padding: 0
   }
   .router-link-exact-active{
     /* font-size: 1px; */
