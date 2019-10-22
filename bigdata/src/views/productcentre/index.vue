@@ -474,7 +474,6 @@
       width: 100%;
       position: relative;
       img {
-        height: 100%;
         width: 100%;
       }
     }
