@@ -209,13 +209,12 @@
       ])
     },
     mounted() {
-      console.log(this.checkIndex)
     },
     methods: {
       changeLanguage(){
         var lang = this.$i18n.locale ==='zh'?'en':'zh'
         this.$i18n.locale = lang
-        console.log(this.$i18n.locale,lang)
+        // console.log(this.$i18n.locale,lang)
       },
       // 鼠标移入
       enter(index){

@@ -40,6 +40,9 @@ new Vue({
 
 let whiteList = ['/frontpage', '/productcentre', '/solution', '/customercases', '/aboutus']
 router.beforeEach((to, from, next) => {
+  if (to.path != from.path) {
+    store.state.routerIndex = ''
+  }
   if (whiteList.indexOf(to.path) > -1) {
     sessionStorage.checkIndex = whiteList.findIndex(item => {return item === to.path})
   }

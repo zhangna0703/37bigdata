@@ -402,7 +402,7 @@
         this.titleState = false
       },
       goDetails(title) {
-        console.log(title)
+        // console.log(title)
         if (title === '数据分析') {
           this.$router.push({ name: 'dataanalyze' })
         } else if (title === '数据清洗') {

@@ -200,7 +200,7 @@
     },
     watch: {
       routerIndex() {
-        console.log(this.routerIndex)
+        // console.log(this.routerIndex)
         this.changeSolutionTabIndex(this.routerIndex)
       }
     },

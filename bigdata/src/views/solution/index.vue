@@ -665,19 +665,21 @@
     },
     watch: {
       routerIndex(newVal, oldVal) {
-        console.log(newVal, oldVal, 'hhhhhhhhhhhhhhhh')
         if (newVal >= 0) {
         this.changeSolutionTabIndex(this.routerIndex)
         }
       }
     },
     mounted() {
-      document.documentElement.scrollTop = 0
+      if (this.routerIndex === 0 || this.routerIndex) {
+        document.documentElement.scrollTop = 420
+      } else {
+        document.documentElement.scrollTop = 0
+      }
       this.solutionTabIndex = this.$route.query.index * 1 || this.solutionTabIndex
     },
     methods: {
       changeSolutionTabIndex(index) {
-        console.log(index, '=============')
         this.solutionTabIndex = index
         // if (index === 0 || index) {
           document.documentElement.scrollTop = 420

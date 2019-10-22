@@ -33,7 +33,7 @@ export default {
   mounted() {
     document.documentElement.scrollTop = 0
     this.dataLists = JSON.parse(localStorage.getItem('detail'))
-    console.log(this.dataLists)
+    // console.log(this.dataLists)
   }
 }
 </script>
