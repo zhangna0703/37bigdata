@@ -165,7 +165,7 @@ export default {
           },
           {
             id: '03',
-            name: '康养saas',
+            name: '康养SaaS',
             jumpUrl: 'customercases',
             index: 2
           },
