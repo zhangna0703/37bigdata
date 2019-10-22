@@ -71,7 +71,7 @@ export default {
               },
               {
                 id: '003',
-                name: '智能硬件',
+                name: '智能判读',
                 fontBig: false,
                 adoptFlage: true,
                 jumpUrl: ''
@@ -249,7 +249,8 @@ export default {
     jumpListPage ( toLink, parentIndex, url, index, titleState, tabName) {
       sessionStorage.checkIndex = parentIndex
       this.checkIndex = parentIndex
-      if (index) {
+      console.log(index, 'bbbbbbbbbbbbbbbb')
+      if (index >= 0) {
         this.routerIndexFund(index)
       }
       if (url) {
