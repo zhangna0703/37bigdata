@@ -7,11 +7,14 @@
       <div style="position: relative" v-for="(item,index) in menulink" :key="item.title" @mouseenter="enter(index)" @mouseleave="leave(index)" @click="changePageRouter(item.toLink, index)" :class="{'checkIndexStyle': index === checkIndex}" class="tag-div">
         <div>
           <p style="text-align: center">{{item.title}}</p>
-          <div :class="{'marginRight' :item.flexFlag}" style="position: absolute;left: 0;top: 20px;" v-show="item.hideFlag">
-            <div v-if="item.childs" class="menu-wrapper" :class="{'flexBlock': item.flexFlag}">
-              <div v-for="(tag) of item.childs" :key="tag.id" style="color: #fff;margin: 0px 4px;line-height: 25px;text-align: left;">
-                <p @click="jumpListPage(tag.jumpUrl, tag.index, tag.adoptFlage, tag.titleState)" class="list_p">{{tag.name}}</p>
-                <p @click.stop="jumpListPage(list.jumpUrl, list.index, list.adoptFlage)" v-for="(list) of tag.components" :key="list.id" class="list_p">{{list.name}}</p>
+          <div :class="{'marginRight' :item.flexFlag}" style="position: absolute;left: 0;top: 20px;text-align: center" v-show="item.hideFlag">
+            <div style="height: 10px"></div>
+              <div>
+              <div v-if="item.childs" class="menu-wrapper" :class="{'flexBlock': item.flexFlag}">
+                <div v-for="(tag) of item.childs" :key="tag.id" style="color: #fff;margin: 0px 4px;line-height: 25px;text-align: left;">
+                  <p @click="jumpListPage(tag.jumpUrl, tag.index, tag.adoptFlage, tag.titleState, tag.name)" :class="{'nameColor': checkName === tag.name}" class="list_p">{{tag.name}}</p>
+                  <p @click="jumpListPage(list.jumpUrl, list.index, list.adoptFlage,list.titleState, list.name)" v-for="(list) of tag.components" :key="list.id" :class="{'nameColor': checkName === list.name}" class="list_p">{{list.name}}</p>
+                </div>
               </div>
             </div>
           </div>
@@ -19,14 +22,15 @@
       </div>
     </div>
     <div class="header-login">
-      <span @click='goLogin'>登录</span>|
-      <span @click='goRegister'>注册</span>
+      <!-- <span @click='changeLanguage'>切换语言</span> -->
+      <!-- <span @click='goLogin'>登录</span>|
+      <span @click='goRegister'>注册</span> -->
     </div>
   </header>
 </template>
 
 <script>
-import {mapMutations} from 'vuex'
+import {mapMutations, mapState, mapActions} from 'vuex'
 export default {
   data () {
     return {
@@ -179,30 +183,43 @@ export default {
           {
             id: '02',
             name: '企业文化',
-            index: 1,
+            index: 2,
             jumpUrl: 'aboutus'
           },
           {
             id: '03',
             name: '加入我们',
-            index: 2,
+            index: 3,
             jumpUrl: 'aboutus'
           },
           {
             id: '04',
             name: '联系我们',
-            index: 3,
+            index: 4,
             jumpUrl: 'aboutus'
           }
         ]
       },
       {
         title: '帮助支持',
-        toLink: '/helpsupport'
+        // toLink: '/helpsupport'
       }]
     }
   },
+  computed: {
+    ...mapState([
+      'checkName'
+    ])
+  },
+  mounted () {
+    this.checkIndex = Number(sessionStorage.checkIndex)  || 0
+    console.log(this.checkIndex)
+  },
   methods: {
+    changeLanguage(){
+      var lang = this.$i18n.locale ==='zh'?'en':'zh'
+      this.$i18n.locale = lang
+    },
     // 鼠标移入
     enter(index){
       if (index == 0) {
@@ -217,21 +234,21 @@ export default {
       }
       this.menulink[index].hideFlag = false
     },
-    listEnter (index) {
-      console.log('index', index)
-    },
     // 点击导航
     changePageRouter (url, index) {
+      sessionStorage.checkIndex = index
       this.checkIndex = index
       this.$router.push({name: url})
     },
     // 点击子导航
-    jumpListPage (url, index, adoptFlage, titleState) {
-      this.ROUTERINDEX(index)
-      this.TITLESTATEFLAGE(titleState)
+    jumpListPage (url, index, adoptFlage, titleState, tabName) {
+      this.routerIndex(index)
+      this.titleStateFlage(titleState)
+      this.checkNameFund(tabName)
       if (adoptFlage) {
         this.$router.push({name: url})
       }
+      console.log('333', adoptFlage, url)
     },
     goLogin () {
       this.$router.push({ name: 'login' })
@@ -239,9 +256,10 @@ export default {
     goRegister () {
       this.$router.push({ name: 'register' })
     },
-    ...mapMutations([
-      'ROUTERINDEX',
-      'TITLESTATEFLAGE'
+    ...mapActions([
+      'routerIndex',
+      'titleStateFlage',
+      'checkNameFund'
     ])
   }
 }
@@ -271,7 +289,7 @@ z-index: 100;
     margin-top: 20px;
     cursor: pointer;
     .marginRight{
-      left: -40px !important;
+      left: -55px !important;
     }
     .flexBlock{
       display: flex;
@@ -280,9 +298,9 @@ z-index: 100;
     .menu-wrapper{
       font-size: 14px;
       text-align: center;
-      background: #333;
-      opacity: 0.8;
-      padding: 10px 0;
+      background: rgba(63, 63, 72, 0.6);
+      // opacity: 0.6;
+      padding: 15px 15px 8px;
       z-index: 2;
       border-radius: 5px;
     }
@@ -298,7 +316,7 @@ z-index: 100;
     padding: 0
   }
   .router-link-exact-active{
-    font-size: 15px;
+    /* font-size: 1px; */
     font-weight: bold;
   }
 }
@@ -318,7 +336,11 @@ z-index: 100;
   background-color: transparent !important;
   color: #fff;
 }
-.list_p:hover{
-  font-weight: 600;
+.list_p{
+  font-weight: 500 !important;
+}
+.nameColor {
+  color: #FE6021;
+  font-size: 600;
 }
 </style>

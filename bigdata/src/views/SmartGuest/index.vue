@@ -61,7 +61,7 @@ export default {
   font-size: 24px;
 }
 .navy li:nth-child(4){
-  border-bottom: solid 3px rgba(102, 153, 255, 1);
+  border-bottom: solid #313F5B 3px;
 }
 
 </style>

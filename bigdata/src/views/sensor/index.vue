@@ -49,7 +49,7 @@
             </div>
           </div>
           <div v-if="item.application.length > 0" class="application">
-            <div class="application_title">典例应用</div>
+            <div class="application_title">典例应用：</div>
             <div class="application_desc" v-for="(exemplars, index) of item.application" :key="index">{{exemplars}}</div>
           </div>
         </div>
@@ -64,6 +64,9 @@
   export default {
     components: {
       Footer
+    },
+    mounted() {
+      document.documentElement.scrollTop = 0
     },
     data() {
       return {
@@ -100,8 +103,8 @@
             desc: 'AD590是美国ANALOG DEVICES公司的单片集成两端感温电流源，其输出电流与绝对温度成比例。在4V至30V电源电压范围内，该器件可充当一个高阻抗、恒流调节器，调节系数为1 µA/K。',
             characteristic: '性能特点：',
             characteristicChilds: [
-              '线性电流输出：1 A/K；',
-              '测温范围宽：55～+150℃；',
+              '线性电流输出：1 A/K；',
+              '测温范围宽：55～+150℃；',
               '二端器件：电压输入，电流输出；',
               '激光微调使定标精度达±0.5（AD590M）；',
               '线性度极好：在整个测温范围内；',
@@ -117,7 +120,7 @@
               require('@/assets/images/sensor2_2.png')
             ],
             application: [
-              '可广泛应用于各种冰箱、空调器、粮仓、 冰库、工业仪器配套和各种温度的测量和控制等领域'
+              '可广泛应用于各种冰箱、空调器、粮仓、 冰库、工业仪器配套和各种温度的测量和控制等领域。'
             ]
           },
           {
@@ -233,7 +236,7 @@
     justify-content: space-around;
     margin: 0 auto;
     align-items: center;
-    height: 50px;
+    height: 70px;
     margin-top: 20px;
     font-size: 16px;
     border-bottom: solid 1px #ccc;
@@ -241,10 +244,11 @@
   }
   .nav li{
     height: 100%;
-    line-height: 50px;
+    line-height: 70px;
+    font-size: 16px;
   }
   .nav li:first-child{
-    border-bottom: solid 3px rgba(102, 153, 255, 1);
+    border-bottom: solid #313F5B 3px;
   }
   .data_package {
     padding: 30px 0 20px 0;
@@ -301,7 +305,7 @@
       color: #FE6021;
     }
     .performance_desc{
-      line-height: 25px;
+      line-height: 30px;
     }
   }
   .characteristic{

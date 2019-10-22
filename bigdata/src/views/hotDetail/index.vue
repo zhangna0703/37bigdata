@@ -31,16 +31,21 @@ export default {
     }
   },
   mounted() {
-    this.dataLists = this.$route.params.detail
+    document.documentElement.scrollTop = 0
+    this.dataLists = JSON.parse(localStorage.getItem('detail'))
     console.log(this.dataLists)
   }
 }
 </script>
 <style>
+
+/* .header-menu{
+  color: #000;
+} */
 .city{
   display: flex;
   width: 80%;
-  margin: 60px auto 0;
+  margin: 100px auto 0;
 }
 .city_left{
   width: 78%;

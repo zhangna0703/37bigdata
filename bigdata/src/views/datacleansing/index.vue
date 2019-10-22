@@ -73,7 +73,7 @@
         <ul class="bot_list">
           <li>需求跟进</li>
           <li>定制化解决方案</li>
-          <li>数据清洗提</li>
+          <li>数据清洗</li>
           <li>交付数据</li>
         </ul>
       </div>
@@ -105,7 +105,10 @@ export default {
         this.$router.push({ name: 'SmartGuest' })
       }
     }
-  }
+  },
+  mounted() {
+    document.documentElement.scrollTop = 0
+  },
 }
 </script>
 
@@ -179,11 +182,11 @@ export default {
 }
 .nav{
     display: flex;
-    width: 80%;
+    width: 50%;
     justify-content: space-around;
     margin: 0 auto;
     align-items: center;
-    height: 80px;
+    height: 70px;
     margin-top: 20px;
     font-size: 16px;
     border-bottom: solid 1px #ccc;
@@ -191,11 +194,11 @@ export default {
 }
 .nav li{
   height: 100%;
-  line-height: 80px;
-  font-size: 24px;
+  line-height: 70px;
+  font-size: 16px;
 }
 .nav li:first-child{
-  border-bottom: solid 3px rgba(102, 153, 255, 1);
+  border-bottom: solid #313F5B 3px;
 }
 
 .left .span{
