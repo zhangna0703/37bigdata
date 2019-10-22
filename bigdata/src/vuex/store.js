@@ -10,7 +10,8 @@ Vue.use(Vuex)
 // 定义所需的 mutations
 const state = {
   routerIndex: 0,
-  titleStateFlage: true
+  titleStateFlage: true,
+  checkName: ''
 }
 // 所需要定义的mutations
 const mutations = {
@@ -19,6 +20,9 @@ const mutations = {
   },
   TITLESTATEFLAGE: (state, data) => {
     state.titleStateFlage = data
+  },
+  CHECKNAME: (state, data) => {
+    state.checkName = data
   }
 }
 

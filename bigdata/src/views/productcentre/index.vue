@@ -77,7 +77,7 @@
                 <hr class="hr_top" />
                 <p>物联网平台应用于工业、农业、智慧城市、物流，采集足够全面的属性、维度、指标，让积累的数据资产更加优质。</p>
               </div>
-              <swiper :options="bannerSwiperOption" ref="mySwiper">
+              <swiper :options="bannerSwiperOption" ref="mySwiper" v-if="wlwstrengthsData.length>0">
                 <!-- slides -->
                 <swiperSlide v-if="wlwstrengthsData.length>0" class="wlwstrengthsData"
                   v-for="(item,index) in wlwstrengthsData" :key="index">
@@ -349,8 +349,9 @@
         bannerSwiperOption: {
           pagination: {
             el: '.swiper-pagination',
-            clickable: true
-          }
+            clickable: true,
+          },
+          loop:true
         }
       }
     },
@@ -371,7 +372,8 @@
     },
     mounted() {
       this.getproduceList()
-      this.titleState = this.titleStateFlage
+      this.titleState = this.$route.query.index
+      document.documentElement.scrollTop = 0
     },
     methods: {
       // 获取用户评论
@@ -408,7 +410,7 @@
         } else if (title === '数据采集') {
           this.$router.push({ name: 'acquisition' })
         } else {
-          this.$router.push({ name: 'SmartGuest' })
+          // this.$router.push({ name: 'SmartGuest' })
         }
       }
     }
@@ -416,6 +418,24 @@
 </script>
 
 <style lang="scss" scoped>
+  .product_title {
+    width: 25%;
+    display: flex;
+    justify-content: space-between;
+    margin: 0 auto;
+    padding: 30px 0px;
+  }
+
+  .product_title span {
+    font-size: 16px;
+    padding: 5px;
+    cursor: pointer;
+  }
+
+  .product_title .tit_active {
+    border-bottom: 4px solid #394263;
+    font-weight: bold;
+  }
   .public_title p {
     margin: 0 auto;
     width: 1200px;
@@ -429,16 +449,17 @@
 
     /* .banner{box-sizing: border-box;height: 0;padding-bottom: 30.8%;overflow: hidden;background:url('../../assets/images/service.png');background-size: auto 100%;background-position-x: center;} */
     .banner {
-      /* height: 480px; */
+      height: 500px;
       width: 100%;
 
       img {
+        height: 100%;
         width: 100%;
       }
     }
 
     .swiper-container {
-      height: 655px;
+      height: 510px;
 
       span {
         width: 92px;
@@ -447,20 +468,6 @@
         opacity: 0.2;
       }
     }
-
-    .product_title {
-      text-align: center;
-      padding: 26px 0;
-      cursor: pointer;
-
-      span {
-        display: inline-block;
-        padding: 20px 0;
-        margin-right: 50px;
-        font-size: 24px;
-      }
-    }
-
     .character_center {
       display: flex;
       width: 80%;
@@ -549,7 +556,7 @@
     }
 
     .data_package {
-      padding: 30px 0 200px 0;
+      padding: 30px 0 100px 0;
       text-align: center;
     }
 
@@ -562,7 +569,8 @@
         line-height: 26px;
         margin: 0 auto;
         text-align: left;
-
+        display: flex;
+       flex-wrap: wrap;
         .line {
           border-bottom: 1px solid #D3D3D3;
           height: 1px;
@@ -571,12 +579,12 @@
         }
 
         .analyse_con_detail {
-          width: 32%;
-          float: right;
+          width: 50%;
           overflow: hidden;
           margin-right: 10%;
-          margin: 100px 0 36px 0;
-
+          margin: 0 0 36px 0;
+          padding: 60px;
+           box-sizing: border-box;
           label {
             display: inline-block;
             padding: 8px 26px;
@@ -634,12 +642,6 @@
         }
       }
     }
-
-    .analyse_con .analyse_con_detail:nth-child(2n) {
-      float: left;
-      margin-left: 100px;
-    }
-
     .data_character {
       width: 80%;
       margin: 0 auto;
@@ -718,10 +720,6 @@
       margin-right: 0;
     }
 
-    .tit_active {
-      border-bottom: 2px solid rgba(102, 153, 255, 1);
-      font-weight: bold;
-    }
   }
 
   .wlwstrengthsData {

@@ -5,7 +5,7 @@
       <div class="banner">
         <swiper :options="bannerSwiperOption" ref="mySwiper">
           <swiperSlide v-if="imgList.length>0" v-for="(item,index) in imgList" :key="index">
-            <div :style="{background:'url('+item.imgurl+') center center / cover',height:'480px'}"></div>
+            <div :style="{background:'url('+item.imgurl+') center center / cover',height:'500px'}"></div>
           </swiperSlide>
           <div class="swiper-pagination" slot="pagination"></div>
         </swiper>
@@ -137,14 +137,14 @@
         ],
         imgList: [
           {
-            imgurl: require('@/assets/images/solution_banner2.jpg')
-          },
-          {
-            imgurl: require('@/assets/images/solution_banner1.jpg')
-          },
-          {
-            imgurl: require('@/assets/images/solution_banner2.jpg')
+            imgurl: require('@/assets/images/about.png')
           }
+          // {
+          //   imgurl: require('@/assets/images/solution_banner1.jpg')
+          // },
+          // {
+          //   imgurl: require('@/assets/images/solution_banner2.jpg')
+          // }
         ],
         solutionTab: ['关于我们', '核心团队', '企业文化', '加入我们', '联系我们'],
         solutionTabIndex: 0,
@@ -194,15 +194,35 @@
     },
     mounted() {
       this.map()
+      document.documentElement.scrollTop = 0
+      var index = this.$route.query.index * 1
+      if (index === 0) {
+        document.documentElement.scrollTop = 680
+      } else if (index === 1) {
+        document.documentElement.scrollTop = 1630
+      } else if (index === 2) {
+        document.documentElement.scrollTop = 2155
+      } else if (index === 3) {
+        document.documentElement.scrollTop = 2765
+      } else if (index === 4) {
+        document.documentElement.scrollTop = 4256
+      }
     },
     methods: {
       map() {
         let map = new BMap.Map(this.$refs.allmap); // 创建Map实例
         // map.centerAndZoom(new BMap.Point(116.404, 39.915), 11);// 初始化地图,设置中心点坐标和地图级别
-        var point = new BMap.Point(116.2979433943,40.0654116658)
+        var point = new BMap.Point(116.2979433943, 40.0654116658)
         map.centerAndZoom(point, 18)
         var marker = new BMap.Marker(point) // 创建标注
         map.addOverlay(marker)    // 将标注添加到地图中
+        var opts = {
+          width: 200,     // 信息窗口宽度    
+          height: 70,     // 信息窗口高度    
+          title: "公司地址"  // 信息窗口标题   
+        }
+        var infoWindow = new BMap.InfoWindow("北京市海淀区唐家岭路甲1号弘祥1989创意产业园5106", opts);  // 创建信息窗口对象    
+        map.openInfoWindow(infoWindow, map.getCenter());
         map.addControl(new BMap.MapTypeControl({//添加地图类型控件
           mapTypes: [
             BMAP_NORMAL_MAP,
@@ -225,7 +245,7 @@
         } else if (index === 3) {
           document.documentElement.scrollTop = 2765
         } else {
-          document.documentElement.scrollTop = 3665
+          document.documentElement.scrollTop = 4256
 
         }
       }
@@ -250,6 +270,17 @@
     display: flex;
     justify-content: space-between;
     height: 350px;
+    position: relative;
+  }
+
+  .join_usFour span {
+    position: absolute;
+    bottom: 40px;
+    padding: 4px 19px;
+    border-radius: 15px;
+    font-size: 13px;
+    color: #fff;
+    background: #3064C3;
   }
 
   .fourbox {
@@ -295,7 +326,7 @@
   .aboutus {
     .banner {
       width: 100%;
-      height: 480px;
+      height: 500px;
       @include minwidth();
       margin: 0 auto;
 
@@ -452,10 +483,10 @@
     display: flex;
     justify-content: space-between;
     margin: 0 auto;
-    padding: 60px 0px;
+    padding: 30px 0px;
 
     li {
-      font-size: 20px;
+      font-size: 16px;
       padding: 5px;
       cursor: pointer;
     }

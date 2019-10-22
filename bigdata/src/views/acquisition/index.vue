@@ -4,7 +4,7 @@
       <div class="banner">
         <img src="../../assets/images/service.png" ondragstart="return false" alt="">
       </div>
-      <ul class="nav">
+      <ul class="navs">
         <li v-for='(item,index) in datalists' :key='index' @click='godata(item)'>{{item}}</li>
       </ul>
       <!--  -->
@@ -71,6 +71,9 @@
     components: {
       Footer
     },
+    mounted() {
+      document.documentElement.scrollTop = 0
+    },
     data() {
       return {
         datalists: ['传感器', '数据采集', '智能判读'],
@@ -85,10 +88,10 @@
           },
           {
             id: '002',
-            title: '业务采集数据库',
+            title: '数据分析库',
             recordImg: require('@/assets/images/acquisition_2.png'),
             iconImg: require('@/assets/images/acquisition_icon.png'),
-            type: '数据采集，是一切有效分析的前提数据采集要大、全、细、时采集存储在各个关系型数据库中的业务数据。让用户行为数据与业务数据结合，满足复杂分析场景。',
+            type: '分析数据库是面向分析应用的数据库，与传统的数据库不同，它可以对数据进行在线统计、数据在 线分析、随即查询等发掘信息数据价值的工作，是数据库产品一个重要的分支',
             desc: '陆游房车才用了三七数据的物联网数据服务，将全国的水电桩链接起来，实现全国管控，并可以预知设备的温度、湿度、元器件的损伤...'
           }
         ]
@@ -113,24 +116,25 @@
       width: 100%;
     }
   }
-  .nav{
+  .navs{
     display: flex;
     width: 50%;
     justify-content: space-around;
     margin: 0 auto;
     align-items: center;
-    height: 50px;
+    height: 70px;
     margin-top: 20px;
     font-size: 16px;
     border-bottom: solid 1px #ccc;
     cursor: pointer;
   }
-  .nav li{
+  .navs li{
     height: 100%;
-    line-height: 50px;
+    line-height: 70px;
+    font-size: 16px;
   }
-  .nav li:nth-child(2){
-    border-bottom: solid 3px rgba(102, 153, 255, 1);
+  .navs li:nth-child(2){
+    border-bottom: solid #313F5B 3px;
   }
   .data_package {
     padding: 30px 0 50px 0;
