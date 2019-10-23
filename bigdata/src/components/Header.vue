@@ -1,7 +1,8 @@
 <template>
   <header :class="{'headerTop': routerUrl}">
     <div class="header-logo">
-      <img src="@/assets/images/logo.png" alt="logo">
+      <img v-if="routerUrl" src="@/assets/images/logo2.png" alt="logo">
+      <img v-if="!routerUrl" src="@/assets/images/logo1.png" alt="logo">
     </div>
     <div class="header-menu">
       <div style="position: relative" v-for="(item,index) in menulink" :key="item.title"
@@ -71,7 +72,7 @@ export default {
               },
               {
                 id: '003',
-                name: '智能硬件',
+                name: '智能判读',
                 fontBig: false,
                 adoptFlage: true,
                 jumpUrl: ''
@@ -152,23 +153,27 @@ export default {
         childs: [
           {
             id: '01',
-            name: '能源物联方案',
-            jumpUrl: 'customercases'
+            name: '能源物联',
+            jumpUrl: 'customercases',
+            index: 0
           },
           {
             id: '02',
-            name: '房车物联方案',
-            jumpUrl: 'customercases'
+            name: '房车物联',
+            jumpUrl: 'customercases',
+            index: 1
           },
           {
             id: '03',
-            name: '康养物联saas',
-            jumpUrl: 'customercases'
+            name: '康养saas',
+            jumpUrl: 'customercases',
+            index: 2
           },
           {
             id: '04',
-            name: '军工物联监测',
-            jumpUrl: 'customercases'
+            name: '军工物联',
+            jumpUrl: 'customercases',
+            index: 3
           }
         ]
       },
@@ -247,9 +252,10 @@ export default {
     },
     // 点击子导航
     jumpListPage ( toLink, parentIndex, url, index, titleState, tabName) {
+      console.log(index, '000000000000')
       sessionStorage.checkIndex = parentIndex
       this.checkIndex = parentIndex
-      if (index) {
+      if (index >= 0) {
         this.routerIndexFund(index)
       }
       if (url) {

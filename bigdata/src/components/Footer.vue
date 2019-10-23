@@ -11,7 +11,7 @@
             <label class="submit" @click='submit'>提交需求</label>
             <!-- <label class="free">免费体验</label> -->
           </div>
-          <h2 class="connect_us">咨询热线：010-8646 8827 业务合作：13261021687（孙经理）</h2>
+          <h2 class="connect_us">客服热线：010-8646 8827-801、802、803&nbsp;&nbsp;&nbsp;&nbsp;业务合作：13261021687（孙先生） 18911151119 （向先生）</h2>
         </div>
       </div>
     </div>

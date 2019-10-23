@@ -1,8 +1,12 @@
 <template>
   <div>
-    <div class="banner">
-      <img src="../../assets/images/service.png" style="width: 100%;" alt="">
-    </div>
+      <div class="banner">
+          <img src="../../assets/images/service_new.png" alt="">
+          <div class="bannerboxs">
+            <h2 class="animated bounceInUp">一切忠实于数据，数据创造价值，数据创造财富</h2>
+            <p class="animated bounceInUp xia">忠实于客户需求，忠实于真实业务诉求，为企业提供有效的分析曲线，帮助企业走出商业发展困境。</p>
+          </div>
+        </div>
     <ul class="navs">
         <li v-for='(item,index) in datalists' :key='index' @click='godata(item)'>{{item}}</li>
       </ul>
@@ -117,9 +121,6 @@ export default {
   },
   mounted () {
     document.documentElement.scrollTop = 0
-    router.beforeEach((to, from, next) => {
-      console.log(to, from)
-    })
   },
   methods: {
     godata (title) {
@@ -139,6 +140,30 @@ export default {
 
 
 <style scoped>
+  .banner{
+  height: 500px;
+  position: relative;
+}
+  .banner img {
+    width: 100%;
+    height: 100%;
+  }
+  .bannerboxs {
+    height: 100px;
+    position: absolute;
+    top: 25%;
+    left: 10%;
+    color: #fff;
+    font-size: 50px;
+    line-height: 70px;
+
+  }
+
+  .xia {
+    font-size: 30px;
+    -webkit-animation-delay: .5s;
+    animation-delay: .5s;
+  }
 .line span{
   width: 510px;
   height: 8px;

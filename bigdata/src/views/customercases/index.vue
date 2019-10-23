@@ -66,6 +66,7 @@
   import 'swiper/dist/css/swiper.css'
   import { swiper, swiperSlide } from 'vue-awesome-swiper'
   import Footer from '@/components/Footer.vue'
+  import { mapState } from 'vuex'
   export default {
     components: {
       swiper,
@@ -107,6 +108,27 @@
         imagelist: [require('@/assets/images/u1911.png'), require('@/assets/images/u1912.png'), require('@/assets/images/u1913.png'), require('@/assets/images/u1914.png'), require('@/assets/images/u1915.jpg'), require('@/assets/images/u1916.jpg'), require('@/assets/images/u1918.png'), require('@/assets/images/u1919.png'), require('@/assets/images/u1920.png'), require('@/assets/images/u1921.png')]
       }
     },
+    computed: {
+      ...mapState([
+        'routerIndex'
+      ])
+    },
+    watch: {
+      routerIndex(newVal, oldVal) {
+        if (newVal >= 0) {
+        this.changeSolutionTabIndex(this.routerIndex)
+        }
+      }
+    },
+    mounted () {
+      if (this.routerIndex === 0) {
+        document.documentElement.scrollTop = 665
+      } else if (this.routerIndex === 1) {
+        document.documentElement.scrollTop = 1365
+      } else if (this.routerIndex === 2) {
+        document.documentElement.scrollTop = 1715
+      }
+    },
     methods: {
       setInternetSow(ind) {
         this.flag = true
@@ -121,6 +143,13 @@
           document.documentElement.scrollTop = 1365
         } else if (index === 2) {
           document.documentElement.scrollTop = 1715
+        }
+      },
+      changeSolutionTabIndex (index) {
+        if (index == 0) {
+          document.documentElement.scrollTop = 665
+        } else if (index == 1) {
+          document.documentElement.scrollTop = 1365
         }
       }
     }
@@ -272,7 +301,7 @@
     }
 
   .banner>img {
-    /* height: 100%; */
+    height: 100%;
     width: 100%;
   }
 
