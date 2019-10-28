@@ -25,116 +25,67 @@
             @click="changeSolutionTabIndex(index)">{{item}}</li>
         </ul>
         <div class="solution-tab-section" v-if='solutionTabIndex === 0'>
-          <ul class="characteristic">
-            <li v-for='(item, index) in characteristic' :key='index'>
-              <p><img :src="item.img" alt=""></p>
-              <div>
-                <h2>{{item.tit}}</h2>
-                <p>{{item.content}}</p>
+          <div class="gatewaybox">
+            <div class="gateway">
+              <h2>智慧能源解决方案</h2>
+              <p>
+                该项目将三七网关部署在高科技园区、高校园区、医院、商业建筑等配电室内，监测水、电、冷、暖的电表、电力设备的相关数据，并通过能源管控平台对前端电力网关及电力设备进行远程管理。该网关已支持多种电力专用规约协议，包括Modbus,DLT-645,IEC-60870-101/102/103/104,IEC-61850,CDT91等。并且该网关将采集到的数据上传至智慧能源管控系统进行数据整合，通过精准的大数据分析对园区用户的用电情况进行实时统计，精准预测，方案优化，达到帮助企业节能的目的。
+              </p>
+              <div class="imgbox">
+                <div class="img">
+                  <img src="../../assets/images/zhihui.png" alt="">
+                </div>
+                <div class="img">
+                  <img src="../../assets/images/zhihui2.png" alt="">
+                </div>
               </div>
-            </li>
-          </ul>
-          <div class="bigkernel">
-            <div class="kernel">
-              <h2>物联核心功能</h2>
-              <div class="fold">
-                <dl>
-                  <dt>
-                    <h2>设备生命周期管理</h2>
-                    <p>提供设备周期管理功能，助力企业方便管理设备</p>
-                  </dt>
-                  <dd @click='changeWord1'>{{changeshow1}}</dd>
-                </dl>
-                <ul v-if="changeshow1==='-'">
-                  <li v-for='(item, index) in equipment1' :key='index'>
-                    <h2>{{item.tit}}</h2>
-                    <p>{{item.content}}</p>
-                  </li>
-                </ul>
-              </div>
-              <div class="fold">
-                <dl>
-                  <dt>
-                    <h2>远程调试</h2>
-                    <p>提供远程调试设备功能，方便真实设备开发调试；提供虚拟设备调试，方便应用和平台调试</p>
-                  </dt>
-                  <dd @click='changeWord2'>{{changeshow2}}</dd>
-                </dl>
-                <ul v-if="changeshow2==='-'">
-                  <li v-for='(item, index) in equipment2' :key='index'>
-                    <h2>{{item.tit}}</h2>
-                    <p>{{item.content}}</p>
-                  </li>
-                </ul>
-              </div>
-              <div class="fold">
-                <dl>
-                  <dt>
-                    <h2>远程维护</h2>
-                    <p>提供固件升级、远程配置服务帮助您远程维护设备</p>
-                  </dt>
-                  <dd @click='changeWord3'>{{changeshow3}}</dd>
-                </dl>
-                <ul v-if="changeshow3==='-'">
-                  <li v-for='(item, index) in equipment3' :key='index'>
-                    <h2>{{item.tit}}</h2>
-                    <p>{{item.content}}</p>
-                  </li>
-                </ul>
-              </div>
-              <div class="fold">
-                <dl>
-                  <dt>
-                    <h2>远程监控</h2>
-                    <p>提供日志以及运行数据监控，帮助您更好的监控设备</p>
-                  </dt>
-                  <dd @click='changeWord4'>{{changeshow4}}</dd>
-                </dl>
-                <ul v-if="changeshow4==='-'">
-                  <li v-for='(item, index) in equipment4' :key='index'>
-                    <h2>{{item.tit}}</h2>
-                    <p>{{item.content}}</p>
-                  </li>
-                </ul>
-              </div>
+
             </div>
           </div>
-          <div class="scene_box">
-            <div class="scene">
-              <div class="line"></div>
-              <h2>客户实战场景</h2>
-              <div class="anli">
-                <dl>
-                  <dt><img src="../../assets/images/anli1.png" alt=""></dt>
-                  <dd>新能源监控</dd>
-                </dl>
-                <dl>
-                  <dt><img src="../../assets/images/anli2.png" alt=""></dt>
-                  <dd>智慧园区</dd>
-                </dl>
-              </div>
-              <!-- <p><img src="../../assets/images/u1607.png" alt=""></p> -->
-              <div class="scene_bottom">
-                <div class="left">
-                  <img src="../../assets/images/solution/left.png" alt="">
-                </div>
-                <div class="right">
-                  <h2>新能源监控</h2>
-                  <h3>科技园区实时监控</h3>
-                  <p>
-                    能源管理系统由数据服务器、网络交换机、通讯服务器、数据采集器、及计量仪表组成，该系统配置专用服务器和能耗计量系统管理软件，能耗监测数据采取相应的冗余和备份，数据保存时间长。大大减少维护成本，提高园区服务能力。
-                  </p>
-                  <h3>能够解决</h3>
-                  <ul>
-                    <li v-for='(item, index) in solve' :key='index'>
-                      <h3>{{item.tit}}</h3>
-                      <p>{{item.content}}</p>
-                    </li>
+          <div class="boxinfo">
+            <h2>园区、建筑、高校等在线能源管控系统</h2>
+            <p>
+              能耗在线监测系统是一套以节能降耗为核心目的、物联网、大数据分析为基础的能源在线监测与分析管理系统。它是通过对重点用能单位的节能设备、主要工艺设备、主要耗能设备的能耗和工况进行全面监测、诊断与分析，采用设备节能、工艺优化节能、管理策略优化节能等多种手段相结合的方式，为重点用能单位提供适应用户生产线工艺工况差异化特点的系统节能产品、节能策略方案、节能管理与服务平台，进而构建“企业（集团）能源管控中心”，为重点用能单位经济用能、合理用能提供产品、技术、策略、方法和信息支持，使重点用能单位整个生产线实现节能5%-30%。
+            </p>
+            <div class="zhinengWl">
+              <dl v-for='(item,index) in zhinengWl'>
+                <dt><img :src="item.img" alt=""></dt>
+                <dd>
+                  <h5>{{item.tit}}</h5>
+                  <h6 v-html='item.content'></h6>
+                </dd>
+              </dl>
+            </div>
+            <p>三七能源管控子系统向能源管理要效益，  向用能设备要效益（经济运行和操作指导），服务于领导决策（技改高能耗设备和生产工艺），提高突发故障和异常处理的效率，减少浪费不必要的能源浪费。</p>
+          </div>
+          <div class="bottom">
+              <div class="digitalPartner">
+                <div class="digitalPartnerTitle">合作流程</div>
+                <div class="bot_content">
+                  <ol class="bot_img">
+                    <li><img src="../../assets/images/cooperation1.png" alt=""></li>
+                    <li><img src="../../assets/images/cooperation2.png" alt=""></li>
+                    <li><img src="../../assets/images/cooperation3.png" alt=""></li>
+                    <li><img src="../../assets/images/cooperation4.png" alt=""></li>
+                  </ol>
+                  <div class="line">
+                    <span class="point"></span>
+                    <span></span>
+                    <span class="point"></span>
+                    <span></span>
+                    <span class="point"></span>
+                    <span></span>
+                    <span class="point"></span>
+                  </div>
+                  <ul class="bot_list">
+                    <li>需求跟进</li>
+                    <li>定制化解决方案</li>
+                    <li>数据清洗</li>
+                    <li>交付数据</li>
                   </ul>
                 </div>
               </div>
             </div>
-          </div>
         </div>
         <div class="solution-tab-section" v-if='solutionTabIndex === 1'>
           <div class="digitalMarket">
@@ -233,15 +184,43 @@
               </div>
             </div>
           </div>
+            <div class="bottom">
+                <div class="digitalPartner">
+                  <div class="digitalPartnerTitle">合作流程</div>
+                  <div class="bot_content">
+                    <ol class="bot_img">
+                      <li><img src="../../assets/images/cooperation1.png" alt=""></li>
+                      <li><img src="../../assets/images/cooperation2.png" alt=""></li>
+                      <li><img src="../../assets/images/cooperation3.png" alt=""></li>
+                      <li><img src="../../assets/images/cooperation4.png" alt=""></li>
+                    </ol>
+                    <div class="line">
+                      <span class="point"></span>
+                      <span></span>
+                      <span class="point"></span>
+                      <span></span>
+                      <span class="point"></span>
+                      <span></span>
+                      <span class="point"></span>
+                    </div>
+                    <ul class="bot_list">
+                      <li>需求跟进</li>
+                      <li>定制化解决方案</li>
+                      <li>数据清洗</li>
+                      <li>交付数据</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
         </div>
         <div class="solution-tab-section" v-if='solutionTabIndex === 3'>
           <div class="produebox">
             <div class="smallproduce">
               <div class="title">
-                  <div class="titleText">数据质量管控的产品功能</div>
-                  <div class="titleLine"></div>
-                  <div class="name">质量控制是一个系统工程，有其自身的规律和独特的控制方法；</div>
-                </div>
+                <div class="titleText">数据质量管控的产品功能</div>
+                <div class="titleLine"></div>
+                <div class="name">质量控制是一个系统工程，有其自身的规律和独特的控制方法</div>
+              </div>
               <div class="produce">
                 <div class="data" v-for='(item, index) in producedata' :key='index'>
                   <b>{{item.tit}}</b>
@@ -276,11 +255,36 @@
                 </div>
               </div>
             </div>
-            <div class="digitalCompany">
-              <div class="digitalCompanyTitle">适用于企业销售的多种应用场景</div>
-              <img src="../../assets/images/jiejue.png" class="digitalCompanyContent" />
-            </div>
+          
           </div>
+          <div class="bottom">
+              <div class="digitalPartner">
+                <div class="digitalPartnerTitle">合作流程</div>
+                <div class="bot_content">
+                  <ol class="bot_img">
+                    <li><img src="../../assets/images/cooperation1.png" alt=""></li>
+                    <li><img src="../../assets/images/cooperation2.png" alt=""></li>
+                    <li><img src="../../assets/images/cooperation3.png" alt=""></li>
+                    <li><img src="../../assets/images/cooperation4.png" alt=""></li>
+                  </ol>
+                  <div class="line">
+                    <span class="point"></span>
+                    <span></span>
+                    <span class="point"></span>
+                    <span></span>
+                    <span class="point"></span>
+                    <span></span>
+                    <span class="point"></span>
+                  </div>
+                  <ul class="bot_list">
+                    <li>需求跟进</li>
+                    <li>定制化解决方案</li>
+                    <li>数据清洗</li>
+                    <li>交付数据</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
         </div>
         <div class="solution-tab-section" v-if='solutionTabIndex === 4'>
           <div class="precisionGuest">
@@ -322,33 +326,33 @@
                 </div>
               </div>
               <div class="bottom">
-                  <div class="digitalPartner">
-                    <div class="digitalPartnerTitle">合作流程</div>
-                    <div class="bot_content">
-                      <ol class="bot_img">
-                        <li><img src="../../assets/images/cooperation1.png" alt=""></li>
-                        <li><img src="../../assets/images/cooperation2.png" alt=""></li>
-                        <li><img src="../../assets/images/cooperation3.png" alt=""></li>
-                        <li><img src="../../assets/images/cooperation4.png" alt=""></li>
-                      </ol>
-                      <div class="line">
-                        <span class="point"></span>
-                        <span></span>
-                        <span class="point"></span>
-                        <span></span>
-                        <span class="point"></span>
-                        <span></span>
-                        <span class="point"></span>
-                      </div>
-                      <ul class="bot_list">
-                        <li>需求跟进</li>
-                        <li>定制化解决方案</li>
-                        <li>数据清洗</li>
-                        <li>交付数据</li>
-                      </ul>
+                <div class="digitalPartner">
+                  <div class="digitalPartnerTitle">合作流程</div>
+                  <div class="bot_content">
+                    <ol class="bot_img">
+                      <li><img src="../../assets/images/cooperation1.png" alt=""></li>
+                      <li><img src="../../assets/images/cooperation2.png" alt=""></li>
+                      <li><img src="../../assets/images/cooperation3.png" alt=""></li>
+                      <li><img src="../../assets/images/cooperation4.png" alt=""></li>
+                    </ol>
+                    <div class="line">
+                      <span class="point"></span>
+                      <span></span>
+                      <span class="point"></span>
+                      <span></span>
+                      <span class="point"></span>
+                      <span></span>
+                      <span class="point"></span>
                     </div>
+                    <ul class="bot_list">
+                      <li>需求跟进</li>
+                      <li>定制化解决方案</li>
+                      <li>数据清洗</li>
+                      <li>交付数据</li>
+                    </ul>
                   </div>
                 </div>
+              </div>
             </div>
           </div>
         </div>
@@ -367,6 +371,51 @@
   export default {
     data() {
       return {
+        zhinengWl:[{
+          img:require('@/assets/images/neng1.png'),
+          tit:'能源仓库',
+          content:'采集各项能源数据，实现对企业运行数据实时监视、报警、分析、计算、统计等功能。'
+        },{
+          img:require('@/assets/images/neng2.png'),
+          tit:'能源实时监控',
+          content:'能源实时监控是对企业电、气、水、暖、空调等各种能源介质在购入存储、加工转换、输送分配和终端使用过程中进行集中的监视、测量、控制和管理，并根据报警信息处理给出合理的调度操作建议和应急预案，确保能源介质在各个环节的安全性和可用性。'
+        },{
+          img:require('@/assets/images/neng3.png'),
+          tit:'报警、日志',
+          content:'提供面向安全和能耗异常的报警和日志的查询。<br/>如：主辅关联设备运行异常及处理的记录，帮助用户规范管理、督促考核或通过增加控制策略优化工艺控制减少能源浪费。'
+        },{
+          img:require('@/assets/images/neng4.png'),
+          tit:'能源质量分析',
+          content:'通过一定的检验手段，例如：质量统计分析、质量跟踪、趋势评估、越线警告、能源质量报告、交互式的质量数据查询工作等，对外供的水、电、气等各种能源介质进行质量控制，平衡能源介质品质与产品成本的矛盾。'
+        },{
+          img:require('@/assets/images/neng5.png'),
+          tit:'能耗设备管理',
+          content:'对重点的能耗设备进行管理，包括：设备参数管理、设备维护管理、设备故障管理等。建立健全设备的电子档案，便于进行设备检修、维护保养等工作，以达到保障设备稳定运行、延长设备使用寿命的目的。'
+        },{
+          img:require('@/assets/images/neng6.png'),
+          tit:'能耗分析',
+          content:'通过报表的形式，将能源数据按区域、部门、车间、工序、班次、时间等方式进行统计，实现能源数据的横向、纵向对比分析。'
+        },{
+          img:require('@/assets/images/neng7.png'),
+          tit:'事件记录',
+          content:'记录指定事件发生时前后十分钟关联设备关联参数的数据与曲线，通过事故记录功能追溯事故原因，采取有效措施解决潜在隐患，避免同类故障的再次发生。'
+        },{
+          img:require('@/assets/images/neng8.png'),
+          tit:'损耗分析',
+          content:'系统中嵌入变压器损耗计算、线路损耗计算方法，计算实时损耗、历史损耗以及模拟损耗。'
+        },{
+          img:require('@/assets/images/neng9.png'),
+          tit:'联动提醒',
+          content:'对系统中有关联关系的设备之间建立联动提醒条件，按照条件进行提醒，并提供查询，通过联动提醒功能可有力的提升企业管理水平，避免管理不到位造成的空转空待现象，减少能源浪费。'
+        },{
+          img:require('@/assets/images/neng10.png'),
+          tit:'能耗预测',
+          content:'根据上一年度、上一月度的能耗数据、单耗数据、产量数据，结合本年度、月度的能耗计划、单耗指标、产量计划和本年度已进行的月份、本月度已进行的日期的能耗数据，对本年度剩余的月份、本月度剩余的日期的能耗、单耗进行预测。<br/>预测数据与计划数据产生较大偏差时及时提醒。'
+        },{
+          img:require('@/assets/images/neng11.png'),
+          tit:'节能验证',
+          content:'该功能用于企业进行所采取的节能措施的节能效果的统计，选择所进行节能改造的对象（区域、设备），再选择改造前后相同的两个时间段，可统计出这两个时间段的能耗数据，并进行对比计算节能量与节能率。'
+        }],
         redbox: [
           {
             img: require('@/assets/images/solution/1.png'),
@@ -397,51 +446,39 @@
         advantagecontent: [
           {
             tit: '<b>01.</b>出色的跨平台运行能力',
-            img:require('@/assets/images/kua1.png'),
+            img: require('@/assets/images/kua1.png'),
             content: '37-bigdata QM 基于PDCA质量管理方法精心研发设计而成，可以科学、高效地帮助企业和组织进行全面的数据质量管理。PDCA循环又叫戴明环，是由美国著名的质量管理专家戴明博士提出，它是全面质量管理所应遵循的科学程序。<br/>PDCA是英语单词Plan（计划）、Do（执行）、Check（检查）和Act（行动）的第一个字母，PDCA循环就是按照这样的顺序进行质量管理，并且循环不止地进行下去的科学程序。科学、高效地帮助企业和组织进行全面的数据质量管理。'
           }, {
-            img:require('@/assets/images/kua2.png'),
+            img: require('@/assets/images/kua2.png'),
             tit: '<b>02.</b>领先业界的评价算法',
             content: '37-bigdata  QM 支持多种领先业界的规则评价算法，满足业务系统运行、数据中心建设及数据治理过程中各类规则定义，并支持XML扩展，可完全适应未来三到五年的数据质量管理需求变化。'
           }, {
-            img:require('@/assets/images/kua3.png'),
+            img: require('@/assets/images/kua3.png'),
             tit: '<b>03.</b>可兼容多种操作系统',
             content: '可兼容所有支持JDK的操作系统，包括Windows、Linux以及多种采用UNIX内核的操作系统。支持所有符合JDBC2.0规范的数据库，如oracle、DB2、SQLserver、Mysql等。'
           }, {
-            img:require('@/assets/images/kua4.png'),
+            img: require('@/assets/images/kua4.png'),
             tit: '<b>04.</b>可跨数据源对比',
             content: '支持在业务系统建设、数据仓库建设各重要阶段设置数据检查监控点，并可实现跨监控点数据源的比较分析，使得通过常规的规则定义便可实现ETL前后的数据一致性比对。'
           }
         ],
-        solve: [
-          {
-            tit: '低成本',
-            content: '提供开放API，轻松完成设备整个生命周期的管理，并且以快速检索到指定设备；'
-          }, {
-            tit: '智能化',
-            content: '通过定义光伏逆变器的物模型，快速实现设备的智能化'
-          }, {
-            tit: '实时监控',
-            content: '根据设备状态变化和设备上报数据分析，实现设备的实时监控。'
-          }
-        ],
         importantvalue: [
           {
-            tit:'统一的企业数据质量检核体系，制定企业统一的数据质量检核体系，统一数据质量度量、执行的规范化步骤，为企业数据质量管控的落实提供技术平台支撑。',
-            img:require('@/assets/images/1.png')
-          },{
-            tit:'数据质量状况分析，引用系统内置度量规则和检核方法对系统表、字段进行多角度的数据质量检核评估，为数据分析、数据状况调研提供数据分析报告，对系统关键业务数据的质量情况进行全方位把握。',
-            img:require('@/assets/images/2.png')
-          },{
-            tit:'数据质量持续监控，确保为将来提供准确、一致和及时数据，使数据始终符合数据质量业务规则，确保企业数据始终保持最高的质量并防止随时间推移导致数据质量下降。',
-            img:require('@/assets/images/3.png')
-          },{
-            tit:'基于企业对数据质量问题处理的要求灵活制定数据质量问题处理流程，方便问题数据的处理和清洗。',
-            img:require('@/assets/images/4.png')
-          },{
-            tit:'快速定位数据质量问题影响范围，通过元数据关联关系分析功能，可定位问题数据出错的源头和受影响的范围，及时通知关联方，降低由数据问题带来的影响。',
-            img:require('@/assets/images/5.png')
-          } ],
+            tit: '统一的企业数据质量检核体系，制定企业统一的数据质量检核体系，统一数据质量度量、执行的规范化步骤，为企业数据质量管控的落实提供技术平台支撑。',
+            img: require('@/assets/images/1.png')
+          }, {
+            tit: '数据质量状况分析，引用系统内置度量规则和检核方法对系统表、字段进行多角度的数据质量检核评估，为数据分析、数据状况调研提供数据分析报告，对系统关键业务数据的质量情况进行全方位把握。',
+            img: require('@/assets/images/2.png')
+          }, {
+            tit: '数据质量持续监控，确保为将来提供准确、一致和及时数据，使数据始终符合数据质量业务规则，确保企业数据始终保持最高的质量并防止随时间推移导致数据质量下降。',
+            img: require('@/assets/images/3.png')
+          }, {
+            tit: '基于企业对数据质量问题处理的要求灵活制定数据质量问题处理流程，方便问题数据的处理和清洗。',
+            img: require('@/assets/images/4.png')
+          }, {
+            tit: '快速定位数据质量问题影响范围，通过元数据关联关系分析功能，可定位问题数据出错的源头和受影响的范围，及时通知关联方，降低由数据问题带来的影响。',
+            img: require('@/assets/images/5.png')
+          }],
         producedata: [
           {
             tit: '数据质量评估',
@@ -463,67 +500,6 @@
             content: '提供多种问题分析能力，包括血统分析，影响分析，全链分析，定位问题产生的根源。'
           }
         ],
-        changeshow1: '+',
-        changeshow2: '+',
-        changeshow3: '+',
-        changeshow4: '+',
-        equipment1: [
-          {
-            tit: '设备注册',
-            content: '您可以自定义设备唯一标识进行单个或者批量注册需要连接的设备'
-          }, {
-            tit: '设备分组',
-            content: '您可以为某些设备创建分组，基于分组搜索或者管理您的海量设备'
-          }, {
-            tit: '设备拓扑',
-            content: '您可以让子设备通过网关接入平台，并且可以基于设备的级联关系管理设备'
-          }, {
-            tit: '设备标签',
-            content: '您可以为设备创建标签，并且可以基于标签搜索管理您的设备'
-          }, {
-            tit: '设备建模',
-            content: '您可以在平台上对物理空间中的设备进行了数字化建模，方便云端应用快速集成'
-          }, {
-            tit: '设备状态',
-            content: '您可以实时从平台获取设备online-offline状态变更通知'
-          }, {
-            tit: '设备数据采集',
-            content: '您可以基于物模型上报设备数据到云端，并且会帮您将设备物模型数据结构化存储下来，您可以随时查询设备数据'
-          }, {
-            tit: '设备禁用删除',
-            content: '您可以对可疑设备进行远程禁用或者删除，避免可疑设备造成不必要的损失'
-          }
-        ],
-        equipment2: [
-          {
-            tit: '真实设备调试',
-            content: '您可以基于平台提供的在线调试功能，与真实设备进行物模型数据交互调试，包括调用设备服务、设置设备属性'
-          }, {
-            tit: '虚拟设备调试',
-            content: '您可以基于平台的虚拟设备功能，基于物模型在云端虚拟设备，上报设备属性和事件，无需真实设备连接即可快速开发应用'
-          }
-        ],
-        equipment3: [
-          {
-            tit: '远程控制',
-            content: '您可以基于平台的远程控制能力，对单个设备或者海量设备下发指令控制'
-          }, {
-            tit: '固件升级',
-            content: '您可以基于平台提供的固件升级能力，对大规模设备进行远程升级'
-          }, {
-            tit: '远程配置',
-            content: '您可以基于平台提供的远程配置能力，对海量设备下发配置文件'
-          }
-        ],
-        equipment4: [
-          {
-            tit: '日志服务',
-            content: '提供设备全链路日志监控，实时知晓设备当前状态，监控设备并排除问题'
-          }, {
-            tit: '运行数据监控',
-            content: '您可以在平台实时监控设备运行时数据，例如监控设备温度曲线'
-          }
-        ],
         bannerSwiperOption: {
           pagination: {
             el: '.swiper-pagination',
@@ -542,25 +518,6 @@
         ],
         solutionTab: ['智能物联', '数字营销', '风险管理', '质量管控', '精准获客'],
         solutionTabIndex: 0,
-        characteristic: [
-          {
-            tit: '低成本',
-            content: '提供海量设备数据的存储，并开放了丰富的设备管理接口，省去了用户直接存储和管理数据的成本',
-            img: require('@/assets/images/solution/capacity1.png')
-          }, {
-            tit: '远程管理',
-            content: '提供远程控制、远程调试、远程升级、远程配置设备的能力，不需要连接设备串口，即可管理设备',
-            img: require('@/assets/images/solution/capacity2.png')
-          }, {
-            tit: '快速检索',
-            content: '支持从海量设备中快速检索到指定名称或指定标签的设备，简化了海量设备管理的困难',
-            img: require('@/assets/images/solution/capacity3.png')
-          }, {
-            tit: '设备数字化',
-            content: '通过在平台定义设备的属性、事件、服务的物模型，将设备数字',
-            img: require('@/assets/images/solution/capacity4.png')
-          }
-        ],
         digitalMarket: [
           {
             num: '01',
@@ -666,7 +623,7 @@
     watch: {
       routerIndex(newVal, oldVal) {
         if (newVal >= 0) {
-        this.changeSolutionTabIndex(this.routerIndex)
+          this.changeSolutionTabIndex(this.routerIndex)
         }
       }
     },
@@ -682,57 +639,142 @@
       changeSolutionTabIndex(index) {
         this.solutionTabIndex = index
         // if (index === 0 || index) {
-          document.documentElement.scrollTop = 420
+        document.documentElement.scrollTop = 420
         // }
-      },
-      changeWord1() {
-        if (this.changeshow1 === '+') {
-          this.changeshow1 = '-'
-        } else {
-          this.changeshow1 = '+'
-        }
-      },
-      changeWord2() {
-        if (this.changeshow2 === '+') {
-          this.changeshow2 = '-'
-        } else {
-          this.changeshow2 = '+'
-        }
-      },
-      changeWord3() {
-        if (this.changeshow3 === '+') {
-          this.changeshow3 = '-'
-        } else {
-          this.changeshow3 = '+'
-        }
-      },
-      changeWord4() {
-        if (this.changeshow4 === '+') {
-          this.changeshow4 = '-'
-        } else {
-          this.changeshow4 = '+'
-        }
       }
     }
   }
 </script>
 
 <style lang="scss">
+  .gatewaybox {
+    background: #fff;
+
+  }
+.zhinengWl{
+  margin-top: 30px;
+  display: flex;
+  flex-wrap: wrap;
+  dl{
+    width: 33%;
+    display: flex;
+    padding:60px 30px;
+    box-sizing: border-box;
+    dt{
+      width: 130px;
+      img{
+        width: 100%;
+      }
+    }
+    dd{
+      flex:1;
+      margin-left: 30px;
+      h5{
+        font-size:20px;
+        margin-bottom:20px;
+      }
+    }
+  }
+}
+  .gateway,
+  .boxinfo {
+    width: 80%;
+    margin: 0 auto;
+    margin-top: 20px;
+    padding-bottom: 100px;
+    box-sizing: border-box;
+
+    h2 {
+      font-size: 24px;
+      text-align: center;
+      padding: 60px 0 30px 0;
+      box-sizing: border-box;
+    }
+
+    p {
+      font-size: 16px;
+      line-height: 32px;
+    }
+
+    .img {
+      margin: 0 auto;
+      width: 500px;
+
+      img {
+        width: 100%;
+        height: 100%;
+      }
+    }
+    .imgbox{
+      display: flex;
+      justify-content: space-between;
+      margin-top: 50px;
+    }
+  }
+
+  .gatebottom {
+    padding: 70px 0;
+    box-sizing: border-box;
+    line-height: 32px;
+    text-align: center;
+    font-size: 16px;
+  }
+
+  .gatewaytu {
+    background: #fff;
+    display: flex;
+    width: 40%;
+    border: 3px #ccc dashed;
+    border-radius: 30px;
+    overflow: hidden;
+    padding: 20px 100px;
+    margin: 50px auto 50px;
+    align-items: center;
+    box-sizing: border-box;
+
+    .left {
+      width: 250px;
+
+      img {
+        width: 100%;
+      }
+    }
+
+    .right {
+      margin-left: 50px;
+
+      h3 {
+        font-size: 20px;
+        margin-bottom: 20px;
+      }
+
+      p {
+        padding: 4px 0;
+        border-radius: 8px;
+        text-align: center;
+        font-size: 16px;
+        color: #fff;
+        background: #3064C3;
+      }
+    }
+  }
+
   .digitalPartner {
-            padding: 50px 10%;
+    padding: 50px 10%;
 
-            .digitalPartnerTitle {
-              margin-bottom: 50px;
-              font-size: 28px;
-              color: #333;
-              text-align: center;
-            }
+    .digitalPartnerTitle {
+      margin-bottom: 50px;
+      font-size: 28px;
+      color: #333;
+      text-align: center;
+    }
 
-            .digitalPartnerImg {
-              width: 100%;
-              /* height: 180px; */
-            }
-          }
+    .digitalPartnerImg {
+      width: 100%;
+      /* height: 180px; */
+    }
+  }
+
   .line {
     display: flex;
     align-items: center;
@@ -744,6 +786,7 @@
 
   .banner img {
     width: 100%;
+    height: 100%;
   }
 
   .line span {
@@ -784,7 +827,7 @@
   }
 
   .bot_img {
-    padding-top: 60px;
+    padding-top: 30px;
     height: 120px;
     display: flex;
     justify-content: space-between;
@@ -854,7 +897,7 @@
   .advantage {
     width: 80%;
     margin: 0 auto;
-    padding: 50px 0 100px 0;
+    padding: 50px 0 50px 0;
 
     .advantageTitle {
       margin-bottom: 50px;
@@ -898,99 +941,6 @@
     }
   }
 
-  .scene_box {
-    background: #fff;
-    width: 100%;
-  }
-
-  .anli {
-    display: flex;
-    justify-content: space-between;
-    width: 20%;
-    margin: 0 auto;
-    padding: 20px 50px;
-
-    dl {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-
-      dt {
-        margin-bottom: 10px;
-        width: 50px;
-
-        img {
-          width: 100%;
-        }
-      }
-
-      dd {
-        font-size: 16px;
-        color: #555;
-      }
-    }
-  }
-
-  .scene_bottom {
-    display: flex;
-    margin-top: 70px;
-    justify-content: space-between;
-    box-shadow: 0 4px 12px #ccc;
-    padding: 50px;
-    box-sizing: border-box;
-
-    .left {
-      width: 50%;
-
-      img {
-        width: 100%;
-      }
-    }
-
-    .right {
-      flex: 1;
-      margin-left: 50px;
-      text-align: left;
-
-      h2 {
-        font-size: 20px;
-        color: red;
-        text-align: left;
-
-      }
-
-      h3 {
-        font-size: 16px;
-        font-weight: 800;
-        margin: 10px 0;
-        text-align: left;
-
-      }
-
-      p {
-        line-height: 26px;
-        text-align: left;
-
-      }
-    }
-  }
-
-  .scene {
-    width: 80%;
-    margin: 0 auto;
-    padding: 100px 0;
-    box-sizing: border-box;
-
-    >h2 {
-      font-size: 28px;
-      text-align: center;
-      margin-bottom: 50px;
-    }
-
-    p {
-      text-align: center;
-    }
-  }
 
   .produebox {
     width: 100%;
@@ -1002,6 +952,7 @@
     width: 80%;
     margin: 0 auto;
   }
+
   .smallcrux .p,
   .smallproduce .p {
     font-size: 22px;
@@ -1078,107 +1029,16 @@
     box-sizing: border-box;
     display: flex;
     align-items: center;
-    .cruxLeft{
+
+    .cruxLeft {
       margin-right: 20px;
     }
   }
 
-  .fold ul {
-    padding-left: 20px;
-    li {
-      margin: 20px 0;
-
-      h2 {
-        font-weight: 800;
-      }
-    }
-  }
-
-  .fold dl {
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-    background: rgba(0,0,255,.6);
-    height: 63px;
-    align-items: center;
-    margin: 20px 0;
-
-    dt {
-      flex: 1;
-      font-size: 16px;
-      padding-left: 20px;
-
-      h2 {
-        font-weight: 800;
-      }
-    }
-
-    dd {
-      cursor: pointer;
-      width: 43px;
-      font-size: 40px;
-    }
-  }
-
-  .bigkernel {
-    width: 100%;
-    padding-top: 35px;
-    padding-bottom: 35px;
-
-    /* background: #fff; */
-    .kernel {
-      width: 65%;
-      margin: 0 auto;
-
-      .lines {
-        width: 80px;
-        height: 3px;
-        background: darkblue;
-        margin: 0 auto 20px;
-      }
-
-      >h2 {
-        font-size: 28px;
-        text-align: center;
-        margin-bottom: 50px;
-      }
-    }
-  }
-
-  .characteristic {
-    width: 60%;
-    margin: 0 auto;
-    display: flex;
-    flex-wrap: wrap;
-    padding: 100px 0 25px 0;
-
-    li {
-      width: 50%;
-      display: flex;
-      margin-bottom: 75px;
-
-      img {
-        width: 90px;
-        height: 90px;
-      }
-
-      div {
-        margin-left: 30px;
-
-        h2 {
-          font-size: 28px;
-          margin-bottom: 20px;
-        }
-
-        p {
-          width: 75%;
-        }
-      }
-    }
-  }
 
   .solution {
     .banner {
+      height: 500px;
       @include minwidth();
       position: relative;
 
@@ -1201,11 +1061,11 @@
         top: 25%;
         left: 10%;
         color: #fff;
-        font-size: 30px;
+        font-size: 26px;
         line-height: 70px;
 
         h2 {
-          font-size: 50px;
+          font-size: 46px;
         }
 
         .xia {
@@ -1397,7 +1257,7 @@
           }
 
           .digitalPartner {
-            padding: 50px 10%;
+            padding: 80px 10%;
 
             .digitalPartnerTitle {
               margin-bottom: 50px;
@@ -1649,30 +1509,31 @@
       width: 100%;
     }
   }
+
   .title {
-              padding: 50px;
-              display: flex;
-              align-items: center;
-              justify-content: center;
-              flex-direction: column;
+    padding: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
 
-              .titleText {
-                font-size: 20px;
-                color: #333;
-                text-align: center;
-              }
+    .titleText {
+      font-size: 20px;
+      color: #333;
+      text-align: center;
+    }
 
-              .titleLine {
-                width: 163px;
-                height: 2px;
-                margin-top: 30px;
-                margin-bottom: 30px;
-                background-color: red;
-              }
+    .titleLine {
+      width: 163px;
+      height: 2px;
+      margin-top: 30px;
+      margin-bottom: 30px;
+      background-color: red;
+    }
 
-              .name {
-                width: 600px;
-                text-align: center;
-              }
-            }
+    .name {
+      width: 600px;
+      text-align: center;
+    }
+  }
 </style>

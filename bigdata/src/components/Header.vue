@@ -72,11 +72,17 @@ export default {
               },
               {
                 id: '003',
-                name: '智能判读',
+                name: '智能网关',
                 fontBig: false,
                 adoptFlage: true,
-                jumpUrl: ''
-              },
+                jumpUrl: 'gateway'
+              },{
+                id: '004',
+                name: '物联SaaS',
+                fontBig: false,
+                adoptFlage: true,
+                jumpUrl: 'SaaS'
+              }
             ]
           },
           {
@@ -165,7 +171,7 @@ export default {
           },
           {
             id: '03',
-            name: '康养saas',
+            name: '康养SaaS',
             jumpUrl: 'customercases',
             index: 2
           },
@@ -293,6 +299,7 @@ box-sizing: border-box;
 z-index: 100;
 .header-logo img {
   width: 150px;
+  margin-top:10px;
 }
 .header-menu{
   display: flex;

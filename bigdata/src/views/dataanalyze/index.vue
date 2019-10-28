@@ -4,7 +4,7 @@
           <img src="../../assets/images/service_new.png" alt="">
           <div class="bannerboxs">
             <h2 class="animated bounceInUp">一切忠实于数据，数据创造价值，数据创造财富</h2>
-            <p class="animated bounceInUp xia">忠实于客户需求，忠实于真实业务诉求，为企业提供有效的分析曲线，帮助企业走出商业发展困境。</p>
+            <p class="animated bounceInUp xia">忠实客户诉求，忠实真实数据，为企业提供有效的价值曲线，帮助企业走出困境。</p>
           </div>
         </div>
     <ul class="navs">
@@ -41,7 +41,7 @@
       </div>
     </div>
     <div class="bottom">
-      <div class="bot_content">
+      <div class="bot_content"><h2>合作流程</h2>
         <ol class="bot_img">
           <li><img src="../../assets/images/check-mark.png" alt=""></li>
           <li><img src="../../assets/images/studying-1.png" alt=""></li>
@@ -144,6 +144,11 @@ export default {
   height: 500px;
   position: relative;
 }
+.bot_content h2 { padding-top:50px;
+    text-align: center;
+    font-size: 26px;
+    font-weight: 800;
+}
   .banner img {
     width: 100%;
     height: 100%;
@@ -154,13 +159,13 @@ export default {
     top: 25%;
     left: 10%;
     color: #fff;
-    font-size: 50px;
+    font-size: 46px;
     line-height: 70px;
 
   }
 
   .xia {
-    font-size: 30px;
+    font-size: 26px;
     -webkit-animation-delay: .5s;
     animation-delay: .5s;
   }
@@ -193,10 +198,10 @@ export default {
 .bot_content{
   width: 80%;
   margin: 0 auto;
-  padding-bottom: 210px;
+  padding:0 0 140px 0;
 }
 .bot_img{
-  padding-top: 180px;
+  padding-top: 100px;
   height: 120px;
   display: flex;
   justify-content:space-between;

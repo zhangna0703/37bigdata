@@ -5,7 +5,7 @@
             <img src="../../assets/images/service_new.png" alt="">
             <div class="bannerboxs">
               <h2 class="animated bounceInUp">一切忠实于数据，数据创造价值，数据创造财富</h2>
-              <p class="animated bounceInUp xia">忠实于客户需求，忠实于真实业务诉求，为企业提供有效的分析曲线，帮助企业走出商业发展困境。</p>
+              <p class="animated bounceInUp xia">忠实客户诉求，忠实真实数据，为企业提供有效的价值曲线，帮助企业走出困境。</p>
             </div>
           </div>
       <ul class="nav">
@@ -14,7 +14,7 @@
       <div class="data_analyse data_package">
         <div class="public_title">
           <h1 class="data_title">传感器与无线技术融合</h1>
-          <hr class="hr_top" />
+          <div class="hr_top" ></div>
           <p>将传感器、通信和网络连接融和为一体的多项关键技术，这多种技术的融合有助于提高娱乐、安全、医疗、工控、资源管理、消费产品监测、资产跟踪等各种设备的价值。</p>
         </div>
         <div class="sensor_type">
@@ -74,7 +74,7 @@
     },
     data() {
       return {
-        datalists: ['传感器', '数据采集', '智能判读'],
+        datalists: ['传感器', '数据采集', '智能网关', '物联SaaS'],
         performanceData: [
           {
             id: '001',
@@ -221,6 +221,10 @@
           this.$router.push({ name: 'sensor' })
         } else if (title === '数据采集') {
           this.$router.push({ name: 'acquisition' })
+        } else if (title === '智能网关') {
+          this.$router.push({ name: 'gateway' })
+        } else if (title === '物联SaaS') {
+          this.$router.push({ name: 'SaaS' })
         }
       }
     }
@@ -234,13 +238,13 @@
     top: 25%;
     left: 10%;
     color: #fff;
-    font-size: 50px;
+    font-size: 46px;
     line-height: 70px;
 
   }
 
   .xia {
-    font-size: 30px;
+    font-size: 26px;
     -webkit-animation-delay: .5s;
     animation-delay: .5s;
   }
@@ -291,9 +295,10 @@
       padding: 18px 0;
     }
     .hr_top {
+      margin: 0 auto;
       width: 105px;
-      height: 3px;
-      background-color: #FE6021;
+      height: 2px;
+      background-color: red;
     }
     .sensor_type{
       text-align: left;

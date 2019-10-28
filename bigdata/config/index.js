@@ -9,13 +9,13 @@ module.exports = {
 
     // Paths
     assetsSubDirectory: 'static',
-    assetsPublicPath: '/',
+    assetsPublicPath: './',
     proxyTable: {
-      '/content': {
-        target:'http://192.168.0.123:8080',
+      '/api': {
+        target:'http://www.37bigdata.com',
         changeOrigin: true,
         pathRewrite: {
-          "^/content": "content"
+          "^/api": "api"
         }
       }
     },
@@ -59,7 +59,7 @@ module.exports = {
     // Paths
     assetsRoot: path.resolve(__dirname, '../dist'),
     assetsSubDirectory: 'static',
-    assetsPublicPath: '/',
+    assetsPublicPath: './',
 
     /**
      * Source Maps

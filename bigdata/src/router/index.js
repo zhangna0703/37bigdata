@@ -13,6 +13,8 @@ import datacleansing from '@/views/datacleansing/index.vue'// 数据清洗
 import dataanalyze from '@/views/dataanalyze/index.vue'// 数据分析
 import sensor from '@/views/sensor/index.vue'// 传感器
 import acquisition from '@/views/acquisition/index.vue'// 数据采集
+import gateway from '@/views/gateway/index.vue'// 智能网关
+import SaaS from '@/views/SaaS/index.vue'// 物联SaaS
 import intelligentMining from '@/views/intelligentMining/index.vue'// 智能挖掘
 // import SmartGuest from '@/views/SmartGuest/index.vue'// 智能获客
 import hotDetail from '@/views/hotDetail/index.vue'// 热点详情
@@ -61,6 +63,14 @@ export default new Router({
         path: '/journalism',
         name: 'journalism',
         component: journalism
+      }, {
+        path: '/SaaS',
+        name: 'SaaS',
+        component: SaaS
+      }, {
+        path: '/gateway',
+        name: 'gateway',
+        component: gateway
       }, {
         path: '/datacleansing',
         name: 'datacleansing',

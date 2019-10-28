@@ -5,12 +5,12 @@
         <img src="../../assets/images/service_new.png" alt="">
         <div class="bannerboxs">
           <h2 class="animated bounceInUp">一切忠实于数据，数据创造价值，数据创造财富</h2>
-          <p class="animated bounceInUp xia">忠实于客户需求，忠实于真实业务诉求，为企业提供有效的分析曲线，帮助企业走出商业发展困境。</p>
+          <p class="animated bounceInUp xia">忠实客户诉求，忠实真实数据，为企业提供有效的价值曲线，帮助企业走出困境。</p>
         </div>
       </div>
       <div class="product_title">
         <span @click="setInternetSow" :class="{tit_active:titleState}">物联网平台</span>
-        <span @click="setBigSow" :class="{tit_active:!titleState}">DMP大数据平台</span>
+        <span @click="setBigSow" :class="{tit_active:!titleState}">DMP大数据中台</span>
       </div>
       <div class="bigTab">
         <!-- 物联网 -->
@@ -52,7 +52,7 @@
             </div>
             <div class="character_center">
               <div class="san">
-                <h1><span></span>大接入与存储</h1>
+                <h1><span></span>接入与存储</h1>
                 <ul>
                   <li>物接入 IoT Hub</li>
                   <li>物解析 IoT Parser</li>
@@ -199,12 +199,15 @@
                 <hr class="hr_top" />
                 <p>提供从采集、建模、存储、分析到智能应用的全流程数据驱动解决方案，帮助企业驱动业务决策和产品智能。</p>
               </div>
+              <div class="data_detail">
               <div v-for="(item,index) in strengthsData" :key="index" class="data_strengths_detail">
                 <img :src="item.img" />
                 <div>
                   <h1>{{item.title}}</h1>
                   <p>{{item.desc}}</p>
                 </div>
+              </div>
+
               </div>
             </div>
           </div>
@@ -290,7 +293,7 @@
             { title: '37-Bigdata RV(receive visitors)', p1: '了解用户行为路径，优化核心转化路径，提高转化，把访客变成客户，把流量变成注册和购买。', p2: '智能获客' }]
         ],
         InternetData: [
-          { title: '大接入与存储', desc: '物接入 IoT Hub,物解析 IoT Parser,规则引擎 Rule Engine,时序数据库 TSDB' },
+          { title: '接入与存储', desc: '物接入 IoT Hub,物解析 IoT Parser,规则引擎 Rule Engine,时序数据库 TSDB' },
           { title: '交互式分析', desc: '对于交互式分析，三七公司可以使用标准 SQL 查询直接在 S3 和 Glacier 中分析数据。Athena 属于无服务器服务，因此无需设置或管理基础设施。' },
           { title: '实时分析', desc: '对于实时分析，三七公司可以轻松收集、处理和分析流数据，如 IoT 遥测数据、应用程序日志和网站点击流。' }
         ],
@@ -324,27 +327,14 @@
           {
             dataIndex: 2,
             dataList: [
-              { img: require('@/assets/images/data1.png'), title: '数据云存储与分析' },
-              { img: require('@/assets/images/data2.png'), title: '集成数据更新' },
-              { img: require('@/assets/images/data3.png'), title: '厂内互联互通' },
-              { img: require('@/assets/images/data4.png'), title: '网关应用边缘分析' },
-              { img: require('@/assets/images/data5.png'), title: '设备监控维护' },
-              { img: require('@/assets/images/data6.png'), title: '生产线远程监控' },
-              { img: require('@/assets/images/data7.png'), title: '安全控制' },
-              { img: require('@/assets/images/data8.png'), title: '劳动力均衡' }
-            ]
-          },
-          {
-            dataIndex: 3,
-            dataList: [
-              { img: require('@/assets/images/data1.png'), title: '数据云存储与分析' },
-              { img: require('@/assets/images/data2.png'), title: '集成数据更新' },
-              { img: require('@/assets/images/data3.png'), title: '厂内互联互通' },
-              { img: require('@/assets/images/data4.png'), title: '网关应用边缘分析' },
-              { img: require('@/assets/images/data5.png'), title: '设备监控维护' },
-              { img: require('@/assets/images/data6.png'), title: '生产线远程监控' },
-              { img: require('@/assets/images/data7.png'), title: '安全控制' },
-              { img: require('@/assets/images/data8.png'), title: '劳动力均衡' }
+              { img: require('@/assets/images/data1.png'), title: '节能建筑' },
+              { img: require('@/assets/images/data2.png'), title: '生态系统监控' },
+              { img: require('@/assets/images/data3.png'), title: '智能电网自动化' },
+              { img: require('@/assets/images/data4.png'), title: '智能城市照明' },
+              { img: require('@/assets/images/data5.png'), title: '智能计量系统' },
+              { img: require('@/assets/images/data6.png'), title: '智能公共安全系统' },
+              { img: require('@/assets/images/data7.png'), title: '高效公共服务跟踪' },
+              { img: require('@/assets/images/data8.png'), title: '点对点缓解拥堵' }
             ]
           }
         ],
@@ -413,9 +403,11 @@
           this.$router.push({ name: 'sensor' })
         } else if (title === '数据采集') {
           this.$router.push({ name: 'acquisition' })
-        } else {
-          // this.$router.push({ name: 'SmartGuest' })
-        }
+        } else if (title === '物联SaaS') { 
+          this.$router.push({ name: 'SaaS' }) 
+        } else if (title === '智能网关') {
+          this.$router.push({ name: 'gateway' })
+        } 
       }
     }
   }
@@ -428,13 +420,12 @@
     top: 25%;
     left: 10%;
     color: #fff;
-    font-size: 50px;
+    font-size: 46px;
     line-height: 70px;
-
   }
 
   .xia {
-    font-size: 30px;
+    font-size: 26px;
     -webkit-animation-delay: .5s;
     animation-delay: .5s;
   }
@@ -517,16 +508,22 @@
       flex-wrap: wrap;
 
       .center_bot {
-        width: 35%;
+        width: 50%;
         text-align: left;
-        margin-bottom: 90px;
+        /* margin-bottom: 90px; */
         display: flex;
         align-items: center;
+        padding:50px;
+        box-sizing:border-box;
 
         p {
           margin-right: 40px;
           line-height: 26px;
           font-size: 16px;
+          display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 3;
+    overflow: hidden;
         }
       }
 
@@ -573,9 +570,10 @@
 
     .hr_top {
       width: 105px;
-      height: 3px;
+      height: 2px;
       border: 0;
-      background-color: #FE6021;
+      margin: 10px auto 10px;
+      background-color: red;
     }
 
     .data_title {
@@ -722,11 +720,14 @@
       width: 80%;
       margin: 0 auto;
     }
+    .data_detail{
+      display: flex;
+      flex-wrap: wrap;
 
     .data_strengths_detail {
-      width: 34%;
-      float: left;
-      margin-left: 10%;
+      width: 50%;
+      padding:50px;
+      box-sizing:border-box;
       display: flex;
       padding-bottom: 90px;
 
@@ -754,9 +755,11 @@
       }
     }
 
-    .data_strengths .data_strengths_detail:nth-child(2n+1) {
-      margin-right: 0;
     }
+
+    /* .data_strengths .data_strengths_detail:nth-child(2n+1) {
+      margin-right: 0;
+    } */
 
   }
 

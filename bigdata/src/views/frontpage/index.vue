@@ -7,7 +7,7 @@
         <swiper :options="bannerSwiperOption" ref="mySwiper">
           <!-- slides -->
           <swiperSlide v-if="imgList.length>0" v-for="(item,index) in imgList" :key="index">
-            <div class="banner_swiper" :style="{background:'url('+item.imgurl+') center center / cover',height:'600px'}"></div>
+            <div class="banner_swiper" :style="{background:'url('+item.imgurl+') center center / cover',height:'600px'}" oncontextmenu="return false;"></div>
           </swiperSlide>
           <div class="swiper-pagination" slot="pagination"></div>
           <div class="swiper-button-prev" slot="button-prev"><img src="../../assets/images/JTleft.png" alt=""></div>
@@ -15,8 +15,7 @@
         </swiper>
         <div class="hotspotarticle">
           <dl @click='goDetail(item)' v-for="item in hotspotData" :key="item.title">
-            <dt>
-              <img :src="item.infoImg" ondragstart="return false" alt="">
+            <dt :style="{background:'url('+item.infoImg+') center center / cover',height:'145px'}">
             </dt>
             <dd>
               <h2>{{item.infoTitle}}</h2>
@@ -51,8 +50,8 @@
       <!-- ourproduct start -->
       <div class="ourproduct">
         <dl v-for="item in productcentreData[productTab].morethings" :key="item.title">
-          <dt class="ourproduct_img">
-            <img :src="item.img" alt="" ondragstart="return false">
+          <dt class="ourproduct_img" :style="{background:'url('+item.img+') center center / cover',height:'170px'}">
+            <!-- <img :src="item.img" alt="" ondragstart="return false"> -->
           </dt>
           <dd>
             <h2>{{item.title}}</h2>
@@ -64,6 +63,7 @@
       <!-- ourproduct end -->
       <!-- solution start -->
       <div class="solution">
+        <img class="solution_img" src="../../assets/images/solutiong_base.png" alt="">
         <div class="solution-section">
           <div class="solution-title">
             <h3>解决方案</h3>
@@ -79,15 +79,15 @@
           <!-- solution  swiper-->
           <div class="solution-desc">
             <swiper :options="ourproductswiperOption" ref="mySwiper">
-              <swiperSlide v-for="item in solutionData" :key="item.title">
+              <swiperSlide v-for="(item, ind) in solutionData" :key="item.title">
                 <dl>
-                  <dt class="solution_img">
-                    <img :src="item.img" alt="">
+                  <dt class="solution_img" :style="{background:'url('+item.img+') center center / cover',height:'400px'}">
+                    <!-- <img :src="item.img" alt=""> -->
                   </dt>
                   <dd>
                     <h2>{{item.title}}</h2>
                     <p v-html='item.desc'></p>
-                    <p>查看详情</p>
+                    <p @click='chakan(ind)'>查看详情</p>
                   </dd>
                 </dl>
               </swiperSlide>
@@ -214,9 +214,9 @@
                 img: require('@/assets/images/ourproduct_2.png')
               },
               {
-                title: '智能判读、智能硬件',
+                title: '智能网关',
                 desc:
-                  '未经前期调研论证和规范分析所获取的信息，其数据量越大可能越模糊，其得到的垃圾信息也就可能越多',
+                  '物联网关是一种工业互联网数据远传终端，通过串口或者以太网连接现场设备PLC、OPC、变频器、仪表等，将数据通过以太网、GPRS、3G、4G、WIFI、ZigBee等方式，走MQTT、HTTP等协议传输到远端的服务器中，完成数据监控、本地逻辑控制、远程升级、故障报警等功能。 已广泛用在智慧城市、电力、光伏、智能制造、智慧农业等各种智慧建设中。 智能物联网关是物联网系统核心入口， 选择功能强大、稳定可靠、易于扩展的物联网关是物联网项目实施的关键环节之一。',
                 img: require('@/assets/images/ourproduct_3.png')
               }
             ]
@@ -229,7 +229,7 @@
             morethings: [
               {
                 title: '数据清洗',
-                desc: '快速生成高频词云分布 情感走向等多维图表展示...',
+                desc: '低质量的数据不仅会损害组织的成长，还会发出许多错误的数据洞察力的信号，导致糟糕的决策。数据科学家认识到数据清理的重要性，这就是为什么他们几乎80%的时间都花在清理和收集新数据上。',
                 img: require('@/assets/images/ourproduct_4.png')
               },
               {
@@ -241,7 +241,7 @@
               {
                 title: '智能挖掘',
                 desc:
-                  '方案简介方案简介方案简介方案简介方案简介方案简介方案简介方案简介方案简介方案简介方案简介',
+                  '数据挖掘平台支持多种高效实用的机器学习算法，包含了分类、回归、聚类、预测、关联，5大类机器学习的成熟算法。其中包含了多种可训练的模型：逻辑回归、决策树、随机森林、朴素贝叶斯、支持向量机、线性回归、K均值、DBSCAN、高斯混合模型。除提供主要算法和建模功能外，Smartbi Mining数据挖掘平台还提供了必不可少的数据预处理功能，包括字段拆分、行过滤与映射、列选择、随机采样、过滤空值、合并列、合并行、JOIN、行选择、去除重复值、排序、增加序列号、增加计算字段等。',
                 img: require('@/assets/images/ourproduct_6.png')
               }
             ]
@@ -344,6 +344,9 @@
       this.getNewsInfoList()
     },
     methods: {
+      chakan(ind){
+        this.$router.push({ name: 'solution', query: { index: ind } })
+      },
       more(title) {
         if (title === '数据分析') {
           this.$router.push({ name: 'dataanalyze' })
@@ -355,7 +358,8 @@
           this.$router.push({ name: 'sensor' })
         } else if (title === '数据采集') {
           this.$router.push({ name: 'acquisition' })
-        }
+        }else if(title==='物联SaaS'){ this.$router.push({ name: 'SaaS' })}
+        else if(title==='智能网关'){ this.$router.push({ name: 'gateway' })}
       },
       goDetail(detail) {
         this.$router.push({ name: 'hotDetail' })
@@ -397,16 +401,6 @@
 .banner_swiper{
   position: relative;
 }
-  .bannerboxs {
-    height: 100px;
-    position: absolute;
-    top: 25%;
-    left: 10%;
-    color: #fff;
-    font-size: 50px;
-    line-height: 70px;
-
-  }
   .swiper-button-next,
   .swiper-button-prev {
     color: #fff;
@@ -427,7 +421,7 @@
   }
 
   .hotspotarticle h2 {
-    font-size: 18px;
+    font-size: 16px;
     line-height: 26px;
     font-weight: bold;
     margin-bottom: 8px;
@@ -523,7 +517,7 @@
           }
 
           h2 {
-            font-size: 18px;
+            font-size: 16px;
             font-weight: bold;
             line-height: 27px;
             margin-bottom: 10px;
@@ -536,13 +530,14 @@
             position: relative;
 
             p:nth-child(2) {
-              @include moreline(3);
+              @include moreline(2);
             }
 
             p:last-child {
               color: #0000FF;
               position: absolute;
               bottom: 0;
+              
               font-size: 16px;
               /* color: $color-theme; */
             }
@@ -714,15 +709,18 @@
     .solution {
       @include wh(100%, 700px);
       margin: 0 auto;
-      background: url('../../assets/images/solutiong_base.png') no-repeat;
-      background-size: cover;
-      @include minwidth();
-
+      @include minwidth(); position: relative;
+      .solution_img{
+      height: 700px;
+      width: 100%;
+      }
       .solution-section {
+        top: 0;
+        z-index: 999;
         margin: 0 auto 67px;
         padding-top: 48px;
         box-sizing: border-box;
-
+        position: absolute;
         .solution-title {
           text-align: center;
           line-height: 1.5;

@@ -22,7 +22,7 @@
       <img src="../../assets/images/example.png" alt="">
       <div class="bannerboxs">
         <h2 class="animated bounceInUp">为什么那么多客户选择我们？</h2>
-        <p class="animated bounceInUp xias">团队为500+行业企业提供专业、高效、安全的解决方案!</p>
+        <p class="animated bounceInUp xias">我们为1000+行业企业提供专业、高效、安全的解决方案!</p>
       </div>
     </div>
     <ul class="navheader">
@@ -286,13 +286,13 @@
     top: 25%;
     left: 10%;
     color: #fff;
-    font-size: 30px;
+    font-size: 26px;
     line-height: 70px;
 
     
   }
   .bannerboxs h2 {
-      font-size: 50px;
+      font-size: 46px;
     }
 
     .xias {

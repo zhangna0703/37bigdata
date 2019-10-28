@@ -47,12 +47,16 @@ export default {
   width: 80%;
   margin: 100px auto 0;
 }
+.city_lTop{
+  font-size: 18px;
+    line-height: 36px;
+}
 .city_left{
   width: 78%;
   border-right: solid 1px #ccc;
 }
 .city_left h2{
-  font-size: 18px;
+  font-size: 28px;
   font-weight: 800;
 }
 .city_lTop>p{
@@ -73,5 +77,13 @@ export default {
 }
 .city_content{
   padding-right: 50px;
+}
+.city_content p{
+  display: flex;
+    justify-content: center;
+}
+.city_content img{
+  text-align: center;
+  margin:  50px 0;
 }
 </style>

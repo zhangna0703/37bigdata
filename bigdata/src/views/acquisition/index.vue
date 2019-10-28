@@ -5,7 +5,7 @@
             <img src="../../assets/images/service_new.png" alt="">
             <div class="bannerboxs">
               <h2 class="animated bounceInUp">一切忠实于数据，数据创造价值，数据创造财富</h2>
-              <p class="animated bounceInUp xia">忠实于客户需求，忠实于真实业务诉求，为企业提供有效的分析曲线，帮助企业走出商业发展困境。</p>
+              <p class="animated bounceInUp xia">忠实客户诉求，忠实真实数据，为企业提供有效的价值曲线，帮助企业走出困境。</p>
             </div>
           </div>
       <ul class="navs">
@@ -15,20 +15,20 @@
       <div class="data_analyse data_package">
         <div class="public_title">
           <h1 class="data_title">数据采集，是一切有效分析的前提</h1>
-          <hr class="hr_top" />
+          <div class="hr_top"></div>
         </div>
-        <div class="public_graph">
+        <div class="public_graph" style="margin:60px 0">
           <img src="../../assets/images/graph1.jpg" ondragstart="return false" alt="">
         </div>
-        <div  class="public_graph">
+        <div  class="public_graphs">
           <img src="../../assets/images/graph2.png" ondragstart="return false" alt="">
         </div>
       </div>
       <!--  -->
       <div class="data_analyse data_package" style="background: #f0f2f5;">
         <div class="public_title">
-          <hr class="hr_top hr_top_color" />
           <h1 class="data_title">数据采集，是一切有效分析的前提</h1>
+          <div class="hr_top hr_top_color"></div>
           <h4>数据采集要大、全、细、时</h4>
         </div>
       </div>
@@ -80,7 +80,7 @@
     },
     data() {
       return {
-        datalists: ['传感器', '数据采集', '智能判读'],
+        datalists: ['传感器', '数据采集', '智能网关', '物联SaaS'],
         acquisitionData: [
           {
             id: '001',
@@ -107,6 +107,10 @@
           this.$router.push({ name: 'sensor' })
         } else if (title === '数据采集') {
           this.$router.push({ name: 'acquisition' })
+        } else if (title === '智能网关') {
+          this.$router.push({ name: 'gateway' })
+        } else if (title === '物联SaaS') {
+          this.$router.push({ name: 'SaaS' })
         }
       }
     }
@@ -114,13 +118,18 @@
 </script>
 
 <style lang="scss" scoped>
+  .public_graphs{
+    img{
+      width:400px;
+    }
+  }
   .bannerboxs {
     height: 100px;
     position: absolute;
     top: 25%;
     left: 10%;
     color: #fff;
-    font-size: 50px;
+    font-size: 46px;
     line-height: 70px;
 
   }
@@ -133,7 +142,7 @@
     height: 100%;
   }
   .xia {
-    font-size: 30px;
+    font-size: 26px;
     -webkit-animation-delay: .5s;
     animation-delay: .5s;
   }
@@ -172,17 +181,23 @@
       width: 700px;
       line-height: 30px;
     }
+    .public_title h4{
+      margin-top: 20px;
+    }
     .data_title {
       font-size: 24px;
       padding: 18px 0;
     }
     .hr_top {
+      margin: 0 auto;
       width: 105px;
-      height: 3px;
-      background-color: #32C188 ;
+      border: 0;
+      height: 2px;
+      background-color: red;
     }
     .hr_top_color{
-      background-color: #3C66B7 ;
+      border: 0;
+      background-color: red;
     }
   }
   .record{

@@ -11,7 +11,7 @@
             <label class="submit" @click='submit'>提交需求</label>
             <!-- <label class="free">免费体验</label> -->
           </div>
-          <h2 class="connect_us">客服热线：010-8646 8827-801、802、803&nbsp;&nbsp;&nbsp;&nbsp;业务合作：13261021687（孙先生） 18911151119 （向先生）</h2>
+          <h2 class="connect_us">客服热线：010-86468827(分机：901-906)&nbsp;&nbsp;&nbsp;&nbsp;业务合作：13261021687（孙先生） 18911151119 （向先生）</h2>
         </div>
       </div>
     </div>
@@ -24,7 +24,7 @@
         </div>
       </div>
       <div class="center_contentbox">
-        <h2>友情链接：<span @click='gohangT'>航天智慧科技</span> <span @click='goFaX'>发现网</span></h2>
+        <!-- <h2>友情链接：<span @click='gohangT'>航天智慧科技</span> <span @click='goFaX'>发现网</span></h2> -->
         <p>Copyright@ 北京三七数据有限公司 ALL Rights Reserved 版权所有 备案号：京ICP16024662号-1</p>
       </div>
     </div>
@@ -94,7 +94,8 @@
           contactName: this.iptname,
           contactDetails: this.iptphone
         }
-        contact(data).then(res => {
+        if(!data.contactName==''&&!data.contactDetails==''){
+           contact(data).then(res => {
           if (res.data.code == 200) {
             this.$message({
               message: '提交信息成功',
@@ -103,8 +104,9 @@
             this.iptname = '';
             this.iptphone = ''
           }
-
         })
+        }
+       
       },
       goFaX() {
         location.href = 'https://www.finding.com.cn/'
@@ -130,13 +132,14 @@
     padding-bottom: 100px;
 
     h2 {
-      border-bottom: solid 1px #ccc;
       padding-bottom: 10px;
       cursor: pointer;
     }
 
     p {
-      float: right;
+      width: 100%;
+      border-top: solid 1px #ccc;
+      text-align: right;
       padding-top: 10px;
 
     }
@@ -170,7 +173,6 @@
     h1 {
       height: 36px;
       font-size: 36px;
-      font-weight: bold;
       line-height: 36px;
     }
 
